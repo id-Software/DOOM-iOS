@@ -127,7 +127,7 @@ char    basesavegame[PATH_MAX+1];  // killough 2/16/98: savegame directory
 const char *const standard_iwads[]=
 {
   "doom2f.wad",
-  "doom2.wad",
+  "HERETIC.WAD",
   "plutonia.wad",
   "tnt.wad",
   "doom.wad",

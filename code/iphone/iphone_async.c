@@ -1,13 +1,5 @@
 /*
- *  iphone_async.c
- *  doom
- *
- *  Created by John Carmack on 7/2/09.
- *  Copyright 2009 id Software. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -566,17 +558,8 @@ static void iphoneBuildTiccmd(ticcmd_t* cmd) {
 				UpdateHudTouch( hud );
 			}
 		}
-		
-		// Re-tapping in the weapon select area will cycle to the next weapon.
-		// The action happens on initial touch.
-		touch_t *t = huds.weaponSelect.touch;
-		if ( t && t->down && t->stateCount == 1 ) {
-			drawWeaponSelect = false;
-			t->stateCount++;	// ensure it won't  bring it back up
-			weaponCycle = true;
-		} else {
-			return;
-		}
+    
+		return;
 	}
 	
 	//------------------------
@@ -780,7 +763,7 @@ void iphoneAsyncTic() {
 	prev = now;
 
 	// listen for changes to available servers
-	ProcessDNSMessages();
+	//ProcessDNSMessages();
 	
 	// send out the setup packets if we are just starting the game
 	SendSetupPacketIfNecessary();

@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -19,6 +19,7 @@
  */
 
 #include "../doomiphone.h"
+#include <math.h>
 
 hud_t	huds;
 
@@ -41,6 +42,18 @@ void SetHudPic( ibutton_t *hp, const char *image ) {
 
 void SetHudSpot( ibutton_t *hp, int x, int y, int dw, int dh ) {
 	hp->touch = NULL;	// in case one was down when it was saved	
+    
+    float xRatio = ((float)displaywidth) / 480.0f;
+    float yRatio = ((float)displayheight) / 320.0f;
+    
+    float themin = MIN( xRatio, yRatio );
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    
+    dw *= themin;
+    dh *= themin;
+    
 	hp->x = x - dw/2;
 	hp->y = y - dh/2;
 	hp->drawWidth = dw;
@@ -58,17 +71,23 @@ void HudSetTexnums() {
 	SetHudPic( &huds.menu, "iphone/menu_button.tga" );
 	SetHudPic( &huds.map, "iphone/map_button.tga" );
 	
-	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 40 );	
+	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 90 );	
 }
 
 void HudSetForScheme( int schemeNum ) {
 	for ( ibutton_t *hud = (ibutton_t *)&huds ; hud != (ibutton_t *)(&huds+1) ; hud++ ) {
 		hud->buttonFlags = BF_IGNORE;
 	}
-	static const int STICK_SIZE = 128;
-	static const int HALF_STICK = 128/2;
+	int STICK_SIZE = 128;
+	int HALF_STICK = 128/2;
+    
+    if( displaywidth >= 1024 ) {
+        STICK_SIZE = 64;
+        HALF_STICK = 64/2;
+    }
+    
 	static const int BOTTOM = 320 - 44;	// above the status bar
-	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 40 );	// the touch area is doubled
+	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 90 );	// the touch area is doubled
 	
 	// make the forward / back sticks touch taller than they draw
 	switch ( schemeNum ) {
@@ -155,14 +174,14 @@ void HudEditFrame() {
 		if ( dragHud->x < 0 ) {
 			dragHud->x = 0;
 		}
-		if ( dragHud->x > 480 - dragHud->drawWidth ) {
-			dragHud->x = 480 - dragHud->drawWidth;
+		if ( dragHud->x > displaywidth - dragHud->drawWidth ) {
+			dragHud->x = displaywidth - dragHud->drawWidth;
 		}
 		if ( dragHud->y < 0 ) {
 			dragHud->y = 0;
 		}
-		if ( dragHud->y > 320 - dragHud->drawHeight ) {
-			dragHud->y = 320 - dragHud->drawHeight;
+		if ( dragHud->y > displayheight - dragHud->drawHeight ) {
+			dragHud->y = displayheight - dragHud->drawHeight;
 		}
 		
 		// magnet pull a matchable axis
@@ -208,7 +227,7 @@ void HudEditFrame() {
 		SetButtonPicsAndSizes( &btnDone, "iphone/back_button.tga", "Done", 240 - 32, 160-32, 64, 64 );
 	}
 	if ( HandleButton( &btnDone ) ) {
-		menuState = IPM_CONTROLS;
+		menuState = IPM_MAIN;
 	}
 	
 }

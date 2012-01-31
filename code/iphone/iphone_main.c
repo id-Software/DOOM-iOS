@@ -1,5 +1,5 @@
 /*
-
+    Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
 	Copyright (C) 2004-2005 Michael Liebscher <johnnycanuck@users.sourceforge.net>
 	Copyright (C) 1997-2001 Id Software, Inc.
 
@@ -342,7 +342,7 @@ void iphoneStartup() {
 	controlScheme = Cvar_Get( "controlScheme", "0", CVAR_ARCHIVE );
 	stickTurn = Cvar_Get( "stickTurn", "128", CVAR_ARCHIVE );
 	stickMove = Cvar_Get( "stickMove", "128", CVAR_ARCHIVE );
-	stickDeadBand = Cvar_Get( "stickDeadBand", "0.2", CVAR_ARCHIVE );
+	stickDeadBand = Cvar_Get( "stickDeadBand", "0.05", CVAR_ARCHIVE );
 	rotorTurn = Cvar_Get( "rotorTurn", "50000", CVAR_ARCHIVE );
 	tiltTurn = Cvar_Get( "tiltTurn", "0", CVAR_ARCHIVE );
 	tiltMove = Cvar_Get( "tiltMove", "0", CVAR_ARCHIVE );
@@ -356,7 +356,7 @@ void iphoneStartup() {
 	revLand = Cvar_Get( "revLand", "0", CVAR_ARCHIVE );
 	mapScale = Cvar_Get( "mapScale", "10", CVAR_ARCHIVE );
 	drawControls = Cvar_Get( "drawControls", "1", CVAR_ARCHIVE );
-	autoUse = Cvar_Get( "autoUse", "0", CVAR_ARCHIVE );
+	autoUse = Cvar_Get( "autoUse", "1", CVAR_ARCHIVE );
 	statusBar = Cvar_Get( "statusBar", "1", CVAR_ARCHIVE );
 	touchClick = Cvar_Get( "touchClick", "0.15", CVAR_ARCHIVE );
 	messages = Cvar_Get( "messages", "1", CVAR_ARCHIVE );
@@ -444,6 +444,7 @@ void iphoneStartup() {
 	iphoneSet2D();	
 	
 	menuState = IPM_MAIN;
+    lastState = IPM_MAIN;
 	
 #if 0
 	// jump right to the save spot for debugging
@@ -463,7 +464,11 @@ void iphoneShutdown() {
 	char	path[1024];
 	cvar_t	*var;
 	char	buffer[1024];
-	
+    
+    if( lastState == IPM_GAME ) {
+      G_DoSaveGame( false );
+    }
+    
 	// write the ascii config file
 	snprintf( path, sizeof( path ), "%s/config.cfg", SysIphoneGetDocDir() );
 	fp = fopen( path, "w" );
@@ -500,23 +505,7 @@ void iphoneShutdown() {
 	
 	fwrite( &version, 1, sizeof( version ), f );
 	fclose( f );
-
-	// write the Doom savegame, unless no game level
-	// was actually started on this app invokation, or we
-	// are at an intermission / finale, or we are dead
-	if ( levelHasBeenLoaded && !netgame && gamestate == GS_LEVEL 
-		&& players[consoleplayer].playerstate != PST_DEAD ) {
-		// let the game thread perform a savegame, since it
-		// would be unsafe to do it in this thread
-		saveOnExitState = 1;
-		while( saveOnExitState != 2 ) {
-			sem_post( ticSemaphore );
-			usleep( 10000 );
-		}
-	}
 	
-	// not sure if we should do this, or let UIKit exit...
-	exit( 0 );
 }
 
 

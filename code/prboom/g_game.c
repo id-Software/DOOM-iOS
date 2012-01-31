@@ -1565,6 +1565,27 @@ static const struct {
 
 static const size_t num_version_headers = sizeof(version_headers) / sizeof(version_headers[0]);
 
+
+boolean G_SaveGameValid() {
+    
+    int  length, i;
+    // CPhipps - do savegame filename stuff here
+    char name[PATH_MAX+1];     // killough 3/22/98
+    int savegame_compatibility = -1;
+    
+    G_SaveGameName(name,sizeof(name),savegameslot, demoplayback);
+    
+    gameaction = ga_nothing;
+    
+    length = M_ReadFile(name, &savebuffer);
+    if (length<=0) {
+        return false;
+    }
+    
+    return true;
+    
+}
+
 void G_DoLoadGame(void)
 {
   int  length, i;

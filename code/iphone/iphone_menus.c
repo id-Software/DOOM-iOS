@@ -1,5 +1,6 @@
 /*
  
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -17,8 +18,9 @@
  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  
  */
-
+#include "IBGlue.h"
 #include "../doomiphone.h"
+
 
 // Only one game can be set up at a time on a given wireless segment, although
 // several independent games can be played.
@@ -31,12 +33,19 @@ int				localGameID;	// change every time we take over as the sender of setupPack
 boolean	levelHasBeenLoaded;	// determines if "resume game" does a loadGame and exiting does a saveGame
 
 menuState_t menuState;
+menuState_t lastState = 0;
 color4_t highlightColor = { 128, 128, 128, 255 };
 color4_t colorPressed = { 128, 128, 0, 255 };
 
 void SetupEmptyNetGame();
 
 void R_Draw_Blend( int x, int y, int w, int h, color4_t c ) {
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    w *= ((float)displaywidth) / 480.0f;
+    h *= ((float)displayheight) / 320.0f;
+    
 	glDisable( GL_TEXTURE_2D );	
 	glColor4ubv( c );
 	
@@ -76,6 +85,17 @@ void R_Draw_Fill( int x, int y, int w, int h, color3_t c ) {
 #define SF_INTEGER		2		// don't add percent
 boolean iphoneSlider( int x, int y, int w, int h, const char *title, cvar_t *cvar, 
 				  float min, float max, int sliderFlags ) {
+    
+    float textX = x;
+    float textY = y;
+    float textW = w;
+    float textH = h;
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    w *= ((float)displaywidth) / 480.0f;
+    h *= ((float)displayheight) / 320.0f;
+    
 	float value = cvar->value;
 	char	str[80];
 	float	f = ( value - min ) / ( max - min );
@@ -120,7 +140,7 @@ boolean iphoneSlider( int x, int y, int w, int h, const char *title, cvar_t *cva
 	} else {
 		sprintf( str, "%s : %i%%", title, (int)(f*100+0.5) );
 	}
-	iphoneCenterText( x+ w/2, y+h-10, 0.75, str );
+	iphoneCenterText( textX+ textW/2, textY+textH-10, 0.75, str );
 	
 	// check for touches
 	if ( numTouches > 0 && touches[0][0] >= x && touches[0][0] < x + w
@@ -192,92 +212,8 @@ ibutton_t	btnWWW;
 ibutton_t	btnDemo;
 
 void iphoneMainMenu() {	
-	if ( !btnResumeGame.texture ) {
-		// initial setup
-		SetButtonPics( &btnResumeGame, "iphone/resume_game.tga", "Resume Game", 16, 4 );
-		SetButtonPics( &btnNewGame, "iphone/new_game.tga", "New Game", 176, 4 );
-		SetButtonPics( &btnDemo, "iphone/demo.tga", "Demos", 336, 4 );
-		SetButtonPics( &btnMultiplayer, "iphone/multiplay.tga",  "Multiplayer", 16, 168 );
-		SetButtonPics( &btnWWW, "iphone/website.tga",  "Website", 176, 168 );
-		SetButtonPics( &btnControls, "iphone/controls.tga", "Options", 336, 168 );
-	}
-	
-	if ( netgame ) {
-		// disable buttons if we are already in a netgame
-		btnNewGame.buttonFlags = BF_INACTIVE | BF_TRANSPARENT;
-		btnMultiplayer.buttonFlags = BF_INACTIVE | BF_TRANSPARENT;
-		btnWWW.buttonFlags = BF_INACTIVE | BF_TRANSPARENT;
-		btnDemo.buttonFlags = BF_INACTIVE | BF_TRANSPARENT;
-	}
-	
-	if ( HandleButton( &btnResumeGame ) ) {
-		ResumeGame();
-	}
-
-	if ( HandleButton( &btnNewGame ) ) {
-		menuState = IPM_MAPS;
-	}
-		
-	if ( HandleButton( &btnControls ) ) {
-		menuState = IPM_CONTROLS;
-	}
-	
-	if ( !NetworkAvailable() ) {
-		// disable multiplayer if we don't have a good device
-		btnMultiplayer.buttonFlags = BF_INACTIVE | BF_TRANSPARENT;
-	} else if ( netgame ) {
-		// disable multiplayer if we are already in a netgame
-		btnMultiplayer.buttonFlags = BF_INACTIVE | BF_TRANSPARENT;
-	} else if ( NetworkServerAvailable() ) {
-		// blink the multiplayer button if a local server is available
-		btnMultiplayer.buttonFlags = BF_GLOW;
-	} else {
-		btnMultiplayer.buttonFlags = 0;
-	}
-	
-	if ( HandleButton( &btnMultiplayer ) ) {
-		// get the address for the local service, which may
-		// start up a bluetooth personal area network
-		boolean serverResolved = ResolveNetworkServer( &netServer.address );
-		
-		// open our socket now that the network interfaces have been configured
-		// Explicitly open on interface 1, which is en0.  If bluetooth ever starts
-		// working better, we can handle multiple interfaces.
-		if ( gameSocket <= 0 ) {
-			gameSocket = UDPSocket( "en0", DOOM_PORT );
-		}
-		
-		// get the address for the local service
-		if ( !serverResolved ) {
-			// nobody else is acting as a server, so start one here
-			RegisterGameService();
-			SetupEmptyNetGame();
-		}		
-		menuState = IPM_MULTIPLAYER;
-	}
-	// draw the available interfaces over the blinking net button
-	if ( NetworkServerAvailable() ) {
- 		iphoneCenterText( btnMultiplayer.x + btnMultiplayer.drawWidth / 2, 
-						 btnMultiplayer.y + btnMultiplayer.drawHeight/2, 0.75,
-								 NetworkServerTransport() );
-	}
-	
-	if ( HandleButton( &btnWWW ) ) {
-//		menuState = IPM_PACKET_TEST;	// !@# debug
-		SysIPhoneOpenURL( "http://www.idsoftware.com/doomclassic/" );
-	}
-	
-	if ( HandleButton( &btnDemo ) ) {
-		StartDemoGame( btnDemo.twoFingerPress );
-	}
-	if ( btnDemo.twoFingerPress ) {
-		strcpy( timeDemoResultString, "TIMEDEMO" );
-	}
-	// draw the timedemo results on top of the button
-	if ( timeDemoResultString[0] ) {
-		iphoneCenterText( btnDemo.x + btnDemo.drawWidth / 2, btnDemo.y + btnDemo.drawHeight/2, 0.75,
-						 timeDemoResultString );
-	}
+    
+    // MAIN MENU IS Driven Through Interface Builder. ( Makes for Rapid ProtoTyping )
 }
 
 
@@ -306,6 +242,7 @@ void iphoneControlMenu() {
 	}
 	if ( NewTextButton( &btnMove, "Move Controls",  48 + (480-(128+160+48))/2, 0, 160, 48 ) ) {
 		menuState = IPM_HUDEDIT;
+        lastState = IPM_MAIN;
 	}
 	
 	if ( !btnSchemes[0].texture ) {
@@ -536,6 +473,10 @@ void iphoneMultiplayerMenu() {
 	for ( int i = 0 ; i < 4 ; i ++ ) {
 		int x = 45 + ( 64+45) * i;
 		int y = 64+128;
+        
+        x *= ((float)displaywidth) / 480.0f;
+        y *= ((float)displayheight) / 320.0f;
+        
 		// FIXME: show proper player colors
 		byte	color[4][4] = { { 0, 255, 0, 255 }, { 128, 128, 128, 255 }, { 128,64,0, 255 }, {255,0,0, 255 } };
 		glColor4ubv( color[i] );
@@ -832,9 +773,9 @@ void DrawLiveBackground() {
 	glBegin( GL_TRIANGLE_STRIP );
 	
 	glTexCoord2f( tc[0][0][0], tc[0][0][1] );	glVertex3f( 0, 0, 0.5 );
-	glTexCoord2f( tc[0][1][0], tc[0][1][1] );	glVertex3f( 480, 0, 0.5 );
-	glTexCoord2f( tc[0][2][0], tc[0][2][1]+1 );	glVertex3f( 0, 320, 0.5 );
-	glTexCoord2f( tc[0][3][0], tc[0][3][1]+1 );	glVertex3f( 480, 320, 0.5 );
+	glTexCoord2f( tc[0][1][0], tc[0][1][1] );	glVertex3f( displaywidth, 0, 0.5 );
+	glTexCoord2f( tc[0][2][0], tc[0][2][1]+1 );	glVertex3f( 0, displayheight, 0.5 );
+	glTexCoord2f( tc[0][3][0], tc[0][3][1]+1 );	glVertex3f( displaywidth, displayheight, 0.5 );
 	
 	glEnd();
 	
@@ -924,35 +865,48 @@ void iphoneStartMenu() {
  iphoneDrawMenus
  
  ===================
- */
+ */ 
 void iphoneDrawMenus() {
-	if ( menuState == IPM_PACKET_TEST ) {
-		// do this before the slow drawing background to get 60hz update rate
-		iphonePacketTester();
-		return;
-	}
-	
-	// draw the slow double-cloud layer
-	DrawLiveBackground();
-	
-	// check for game start in a received setup packet
-	if ( !netgame && setupPacket.startGame ) {
-		if ( StartNetGame() ) {
-			setupPacket.startGame = false;
-			// we aren't in this game
-			return;
-		}
-	}
-	
-	// interactive menus
-	switch ( menuState ) {
-		case IPM_MAIN: iphoneMainMenu(); break;
-		case IPM_MULTIPLAYER: iphoneMultiplayerMenu(); break;
-		case IPM_MAPS: iphoneStartMenu(); break;
-		case IPM_CONTROLS: iphoneControlMenu(); break;
-		case IPM_OPTIONS: iphoneOptionsMenu(); break;
-		case IPM_HUDEDIT: HudEditFrame(); break;
-	}
+    
+    // Because mState is global, i have no clue when it changes.
+    if( lastState != menuState ) {
+        // Menu State has Changed...
+        switch ( menuState ) {
+            case IPM_MAIN: IB_GotoMainMenu(); break;
+            case IPM_MULTIPLAYER: iphoneMultiplayerMenu(); break;
+            case IPM_MAPS: iphoneStartMenu(); break;
+            case IPM_CONTROLS: iphoneControlMenu(); break;
+            case IPM_OPTIONS: iphoneOptionsMenu(); break;
+            case IPM_HUDEDIT: HudEditFrame(); break;
+        }
+        
+        lastState = menuState;
+    } else {
+        
+        if ( menuState == IPM_PACKET_TEST ) {
+            // do this before the slow drawing background to get 60hz update rate
+            iphonePacketTester();
+            return;
+        }
+		
+        // check for game start in a received setup packet
+        if ( !netgame && setupPacket.startGame ) {
+            if ( StartNetGame() ) {
+                setupPacket.startGame = false;
+                // we aren't in this game
+                return;
+            }
+        }
+        
+        // interactive menus
+        switch ( menuState ) {
+            case IPM_MULTIPLAYER: iphoneMultiplayerMenu(); break;
+            case IPM_MAPS: iphoneStartMenu(); break;
+            case IPM_CONTROLS: iphoneControlMenu(); break;
+            case IPM_OPTIONS: iphoneOptionsMenu(); break;
+            case IPM_HUDEDIT: HudEditFrame(); break;
+        }
+    }
 }
 
 

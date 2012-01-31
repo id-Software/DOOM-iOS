@@ -1,0 +1,193 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = EDAFC835109A7D48002C3487 /* doomtool */;
+		activeTarget = 8DD76FA90486AB0100D96B5E /* doomtool */;
+		codeSenseManager = EDAFC839109A7D66002C3487 /* Code sense */;
+		executables = (
+			EDAFC835109A7D48002C3487 /* doomtool */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					691,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 278560770;
+			PBXWorkspaceStateSaveDate = 278560770;
+		};
+		perUserProjectItems = {
+			ED845A90109F3FFA00F673AC /* PBXTextBookmark */ = ED845A90109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A91109F3FFA00F673AC /* PBXTextBookmark */ = ED845A91109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A92109F3FFA00F673AC /* PBXTextBookmark */ = ED845A92109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A93109F3FFA00F673AC /* PBXTextBookmark */ = ED845A93109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A94109F3FFA00F673AC /* PBXTextBookmark */ = ED845A94109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A95109F3FFA00F673AC /* PBXTextBookmark */ = ED845A95109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A96109F3FFA00F673AC /* PBXTextBookmark */ = ED845A96109F3FFA00F673AC /* PBXTextBookmark */;
+			ED845A97109F3FFA00F673AC /* PBXTextBookmark */ = ED845A97109F3FFA00F673AC /* PBXTextBookmark */;
+		};
+		sourceControlManager = EDAFC838109A7D66002C3487 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {869, 23968}}";
+			sepNavSelRange = "{39996, 0}";
+			sepNavVisRange = "{41755, 1531}";
+		};
+	};
+	72C01AB40F8CFCA900DE72D8 /* doomtool.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {869, 2254}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1823, 1224}";
+		};
+	};
+	8DD76FA90486AB0100D96B5E /* doomtool */ = {
+		activeExec = 0;
+		executables = (
+			EDAFC835109A7D48002C3487 /* doomtool */,
+		);
+	};
+	C6A0FF2C0290799A04C91782 /* doomtool.1 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {869, 1106}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1868}";
+		};
+	};
+	ED845A90109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6A0FF2C0290799A04C91782 /* doomtool.1 */;
+		name = "doomtool.1: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1868;
+		vrLoc = 0;
+	};
+	ED845A91109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72C01AB40F8CFCA900DE72D8 /* doomtool.h */;
+		name = "doomtool.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1224;
+		vrLoc = 1823;
+	};
+	ED845A92109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 0;
+	};
+	ED845A93109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 393;
+		vrLoc = 0;
+	};
+	ED845A94109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6A0FF2C0290799A04C91782 /* doomtool.1 */;
+		name = "doomtool.1: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1868;
+		vrLoc = 0;
+	};
+	ED845A95109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 0;
+	};
+	ED845A96109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72C01AB40F8CFCA900DE72D8 /* doomtool.h */;
+		name = "doomtool.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1224;
+		vrLoc = 1823;
+	};
+	ED845A97109F3FFA00F673AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 1606";
+		rLen = 0;
+		rLoc = 39996;
+		rType = 0;
+		vrLen = 1531;
+		vrLoc = 41755;
+	};
+	EDAFC835109A7D48002C3487 /* doomtool */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = doomtool;
+		sourceDirectories = (
+		);
+	};
+	EDAFC838109A7D66002C3487 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	EDAFC839109A7D66002C3487 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}

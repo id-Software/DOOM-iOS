@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -81,6 +81,7 @@ int	lastGameProcessedTime;
 // this flag lets us give a shotgun and some ammo after the player has respawned
 boolean	addGear;
 
+extern bool inBackgroundProcess;
 /*
 =================================================================================
  
@@ -183,14 +184,14 @@ touch_t *UpdateHudTouch( ibutton_t *hud ) {
 			if ( hud->downX < w ) {
 				hud->downX = w;
 			}
-			if ( hud->downX + w > 480 ) {
-				hud->downX = 480 - w;
+			if ( hud->downX + w > displaywidth ) {
+				hud->downX = displaywidth - w;
 			}
 			if ( hud->downY < h ) {
 				hud->downY = h;
 			}
-			if ( hud->downY > 320 - h ) {
-				hud->downY = 320 - h;
+			if ( hud->downY > displayheight - h ) {
+				hud->downY = displayheight - h;
 			}
 		}
 	}
@@ -212,16 +213,29 @@ void SetButtonPics( ibutton_t *button, const char *picBase, const char *title, i
 	button->texture = PK_FindTexture( picBase );	
 	button->scale = 1.0f;
 	button->title = title;
-	button->x = x;
-	button->y = y;
-	button->drawWidth = button->texture->textureData->srcWidth;
-	button->drawHeight = button->texture->textureData->srcHeight;
+	button->x = x * ((float)displaywidth) / 480.0f;
+	button->y = y * ((float)displayheight) / 320.0f;
+    
+    float xRatio = ((float)displaywidth) / 480.0f;
+    float yRatio = ((float)displayheight) / 320.0f;
+    
+    float themin = MIN( xRatio, yRatio );
+    
+	button->drawWidth = button->texture->textureData->srcWidth * themin;
+	button->drawHeight = button->texture->textureData->srcHeight * themin;
 }
 
 void SetButtonPicsAndSizes( ibutton_t *button, const char *picBase, const char *title, int x, int y, int w, int h ) {	
 	SetButtonPics( button, picBase, title, x, y );
-	button->drawWidth = w;
-	button->drawHeight = h;
+    
+    
+    float xRatio = ((float)displaywidth) / 480.0f;
+    float yRatio = ((float)displayheight) / 320.0f;
+    
+    float themin = MIN( xRatio, yRatio );
+    
+	button->drawWidth = w  * themin;
+	button->drawHeight = h * themin;
 }
 
 /*
@@ -249,6 +263,10 @@ boolean HandleButton( ibutton_t *button ) {
 		return false;
 	}
 	
+    
+    // Hack
+    button->drawHeight = button->drawWidth;
+    
 	if ( ( button->buttonFlags & BF_TRANSPARENT ) && !button->touch ) {
 		// draw half-transparent
 		glColor4f( 1, 1, 1, 0.5 );
@@ -383,8 +401,8 @@ boolean HandleButton( ibutton_t *button ) {
 		// don't push the text off the edge of the screen
 		if ( x < 0 ) {
 			x = 0;
-		} else if ( x + length > 480 ) {
-			x = 480 - length;
+		} else if ( x + length > displaywidth ) {
+			x = displaywidth - length;
 		}
 		float y;
 		float textScale = 0.75;
@@ -433,9 +451,10 @@ float	StringFontWidth( const char *str ) {
  ==================
  */
 float iphoneDrawText( float x, float y, float scale, const char *str ) {
+    
 	float	fx = x;
 	float	fy = y;
-	
+
 	PK_BindTexture( arialFontTexture );
 	glBegin( GL_QUADS );
 	
@@ -489,9 +508,12 @@ float iphoneDrawText( float x, float y, float scale, const char *str ) {
  */
 float iphoneCenterText( float x, float y, float scale, const char *str ) {
 	float l = StringFontWidth( str );
-
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    
 	x -= l * scale * 0.5;
-
+    
 	return iphoneDrawText( x, y, scale, str );
 }
 
@@ -524,6 +546,12 @@ int	TouchDown( int x, int y, int w, int h ) {
  ==================
  */
 int	TouchPressed( int x, int y, int w, int h ) {
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    w *= ((float)displaywidth) / 480.0f;
+    h *= ((float)displayheight) / 320.0f;
+    
 	for ( int i = 0 ; i < MAX_TOUCHES ; i++ ) {
 		touch_t *t = &gameTouches[i];
 		if ( !t->down ) {
@@ -651,7 +679,7 @@ void iphoneSet2D( void ) {
 	// note that GL thinks the iphone is always
 	// in portrait mode as far as the framebuffer
 	// is concerned.
-	glViewport( 0,0, VID_HEIGHT, VID_WIDTH );
+	glViewport( 0,0, displayheight, displaywidth );
 	glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 	glEnable( GL_TEXTURE_2D );
@@ -667,7 +695,7 @@ void iphoneSet2D( void ) {
     glLoadIdentity();
 	// now get into the landscape we want
 	iphoneRotateForLandscape();
-	glOrthof( 0, VID_WIDTH, VID_HEIGHT, 0, -99999, 99999 );
+	glOrthof( 0, displaywidth, displayheight, 0, -99999, 99999 );
 }
 
 
@@ -1076,8 +1104,8 @@ void AutomapControls() {
 			prevX = t->x;
 			prevY = t->y;
 		}
-		m_x -= ( t->x - prevX ) * (float)m_w / 480;
-		m_y += ( t->y - prevY ) * (float)m_w / 480;					
+		m_x -= ( t->x - prevX ) * (float)m_w / displaywidth;
+		m_y += ( t->y - prevY ) * (float)m_w / displaywidth;					
 		m_x2 = m_x + m_w;
 		m_y2 = m_y + m_h;
 		
@@ -1111,12 +1139,12 @@ void AutomapControls() {
 		
 		float	midx = (t2->x+t1->x)*0.5;
 		float	midy = (t2->y+t1->y)*0.5;
-		float	midxDoom = m_x + m_w * midx / 480;
-		float	midyDoom = m_y + m_w * midy / 480;
+		float	midxDoom = m_x + m_w * midx / displaywidth;
+		float	midyDoom = m_y + m_w * midy / displaywidth;
 		m_w = basem_w * baseDist / dist;
 		m_h = basem_h * baseDist / dist;
-		m_x = midxDoom - m_w * midx / 480;
-		m_y = midyDoom - m_w * midy / 480;
+		m_x = midxDoom - m_w * midx / displaywidth;
+		m_y = midyDoom - m_w * midy / displaywidth;
 		m_x2 = m_x + m_w;
 		m_y2 = m_y + m_h;
 	}
@@ -1144,13 +1172,24 @@ void SwapBuffersAndTouches() {
 	loggedTimes[iphoneFrameNum&(MAX_LOGGED_TIMES-1)].afterSwap = now;
 }
 
-float	weaponSelectDrawScale = 0.75f;
+float	weaponSelectDrawScale = 1.25f;
 void DrawWeapon(int weaponlump, int x, int y, int w, int h, int lightlevel)
 {
 	GLTexture *gltexture;
 	float fU1,fU2,fV1,fV2;
 	int x1,y1,x2,y2;
 	
+    if( displaywidth >= 960 ) {
+        weaponSelectDrawScale = 1.25f;
+    } else {
+        weaponSelectDrawScale = 0.75f;
+    }
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    w *= ((float)displaywidth) / 480.0f;
+    h *= ((float)displayheight) / 320.0f;
+    
 	// force doom to rebind, since we have changed the active GL_TEXTURE_2D
 	last_gltexture = NULL;
 	
@@ -1237,24 +1276,31 @@ void DrawWeaponSelect() {
 		}
 		if ( !player->weaponowned[i] ) {
 			// don't have the weapon
-			color[0] = color[1] = color[2] = 0;
-			textColor[3] = 128;
-		} else if ( ammo == 0 ) {
-			// have it, but out of ammo
-			color[0] = 255; color[1] = color[2] = 0;
+			color[0] = color[1] = color[2] = 50;
 			textColor[3] = 128;
 		} else {
 			// selectable
-			color[0] = 0; color[1] = 128; color[2] = 0; color[3] = 200;
+			color[0] = 255; color[1] = 255; color[2] = 255; color[3] = 255;
 			selectable = true;
+            
+            if ( ammo == 0 ) {
+                // have it, but out of ammo
+                color[0] = 255; color[1] = color[2] = 0;
+                textColor[3] = 128;
+            }
 		}
 		
 		int x = bx * 160 + 20;
-		int y = by * 90;
+		int y = by * 88;
 		int w = 120;
 		int h = 80;
 		
-		if ( selectable && TouchDown( x, y, w, h ) ) {
+        float nx = x * ((float)displaywidth) / 480.0f;
+        float ny = y * ((float)displayheight) / 320.0f;
+        float nw = w * ((float)displaywidth) / 480.0f;
+        float nh = h * ((float)displayheight) / 320.0f;
+        
+		if ( selectable && TouchDown( nx, ny, nw, nh ) ) {
 			color[0] = 128;
 			color[1] = color[2] = 128;
 			color[3] = 200;
@@ -1262,7 +1308,10 @@ void DrawWeaponSelect() {
 		
 		glColor4ubv( color );
 		
-		PK_StretchTexture( PK_FindTexture( "iphone/multi_backdrop.tga" ), x, y, w, h );
+        
+
+
+		PK_StretchTexture( PK_FindTexture( "iphone/multi_backdrop.tga" ), nx, ny, nw, nh );
 //		R_Draw_Blend( x, y, w, h, color );
 		
 		glColor4ubv( textColor );
@@ -1273,9 +1322,9 @@ void DrawWeaponSelect() {
 		spritedef_t *sprdef = &sprites[weaponSprites[i]];		
 		if ( sprdef->spriteframes ) {	// restricted wads won't have all weapons
 			spriteframe_t *sprframe = &sprdef->spriteframes[0];
-			DrawWeapon( sprframe->lump[0] , x, y, w, h, player->weaponowned[i] );
+			DrawWeapon( sprframe->lump[0] , x, y - 2, w, h, player->weaponowned[i] );
 			
-			if ( selectable && TouchReleased( x, y, w, h ) ) {
+			if ( selectable && TouchReleased( nx, ny, nw, nh ) ) {
 				drawWeaponSelect = false;
 				weaponSelected = i;			
 			}
@@ -1377,6 +1426,10 @@ void iphoneFrame() {
 	//--------------------------------------------------------------------------------------
 	boolean	runGame = false;
 	
+    if( inBackgroundProcess ) {
+        return;
+    }
+    
 	if ( menuState == IPM_GAME ) {
 		// don't run the game when in the menus
 		runGame = true;
@@ -1407,14 +1460,8 @@ void iphoneFrame() {
 			stopTic = gametic+1;
 			maketic = stopTic+1;
 		} else {
-			if ( sem_wait( ticSemaphore ) == -1 ) {
-				perror( "sem_wait" );
-			}
 			
-			// drain any extra values in the semaphore
-			while( sem_trywait( ticSemaphore ) != -1 ) {
-	//			printf( "frame %i, draining semaphore\n", iphoneFrameNum );
-			}
+
 			loggedTimes[iphoneFrameNum&(MAX_LOGGED_TIMES-1)].afterSleep = SysIphoneMicroseconds();
 			if ( localGameID == gameID ) {
 				loggedTimes[iphoneFrameNum&(MAX_LOGGED_TIMES-1)].numPingTics = netPlayers[1].peer.currentPingTics;
@@ -1483,9 +1530,11 @@ void iphoneFrame() {
 		return;
 	}
 	if ( menuState != IPM_GAME ) {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		iphoneSet2D();
 		iphoneDrawMenus();
-		SwapBuffersAndTouches();
+        SwapBuffersAndTouches();
+        
 		return;
 	}
 	
@@ -1498,6 +1547,10 @@ void iphoneFrame() {
 		}
 	}
 	
+    if( inBackgroundProcess ) {
+        return;
+    }
+    
 	// Draw the game screen.  This can also be called by the pacifier update
 	// during level loading.
 	iphoneDrawScreen();
@@ -1584,8 +1637,8 @@ void iphoneDrawScreen() {
 		PK_BindTexture( PK_FindTexture( "iphone/loading.tga" ) );
 		glColor4f( 1, 1, 1, 1 );
 
-		float	cx = 240;
-		float	cy = 160;
+		float	cx = 240 * ((float)displaywidth) / 480.0f;
+		float	cy = 160 * ((float)displayheight) / 320.0f;
 		float	as = sin( pacifierCycle * M_PI / 4 );
 		float	ac = cos( pacifierCycle * M_PI / 4 );
 		float	sz = 64;

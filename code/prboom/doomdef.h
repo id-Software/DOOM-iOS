@@ -108,8 +108,8 @@ typedef enum {
 
 // proff 08/17/98: Changed for high-res
 #ifdef IPHONE			// JDC
-#define MAX_SCREENWIDTH  480
-#define MAX_SCREENHEIGHT 320
+#define MAX_SCREENWIDTH  1024
+#define MAX_SCREENHEIGHT 768
 #else
 #define MAX_SCREENWIDTH  2048
 #define MAX_SCREENHEIGHT 1536

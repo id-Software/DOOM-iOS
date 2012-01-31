@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or

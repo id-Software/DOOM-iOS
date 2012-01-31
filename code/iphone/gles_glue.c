@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -183,7 +183,7 @@ void glEnd() {
 void landscapeViewport( GLint x, GLint y, GLsizei width, GLsizei height ) {
 	y = 0;	// !@#
 	if ( revLand->value ) {
-		glViewport( VID_HEIGHT - (y+height), x, height, width );
+		glViewport( displayheight - (y+height), x, height, width );
 	} else {
 		glViewport( y, x, height, width );
 	}
@@ -192,7 +192,7 @@ void landscapeViewport( GLint x, GLint y, GLsizei width, GLsizei height ) {
 void landscapeScissor( GLint x, GLint y, GLsizei width, GLsizei height ) {
 	y = 0;	// !@#
 	if ( revLand->value ) {
-		glScissor( VID_HEIGHT - (y+height), x, height, width );
+		glScissor( displayheight - (y+height), x, height, width );
 	} else {
 		glScissor( y, x, height, width );
 	}

@@ -1,13 +1,5 @@
 /*
- *  doomiphone.h
- *  doom
- *
- *  Created by John Carmack on 3/13/09.
- *  Copyright 2009 idSoftware. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -26,6 +18,8 @@
  
  */
 
+#ifndef _DOOM_IPHONE_H_
+#define _DOOM_IPHONE_H_
 
 #include <string.h>
 #include <stdarg.h>
@@ -121,7 +115,10 @@
 #include "iphone/cvar.h"
 
 // new iphone code
+#include "iphone/IBGlue.h"
 #include "iphone/ipak.h"
 #include "iphone/iphone_doom.h"
 #include "iphone/iphone_email.h" //gsh, adds support for emailing the console to id
 
+
+#endif 

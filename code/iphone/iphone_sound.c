@@ -1,13 +1,5 @@
 /*
- *  iphone_sound.c
- *  doom
- *
- *  Created by John Carmack on 4/16/09.
- *  Copyright 2009 Id Software. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -150,11 +142,6 @@ void Sound_Init( void ) {
 	if( Device == NULL ) {
 		Com_Printf( "Failed to alcOpenDevice\n" );
 	}
-	
-	// set the mixer output rate lower, so we don't waste time doing 44khz
-	// must be done before the context is created!
-	extern ALvoid alcMacOSXMixerOutputRate(const ALdouble value);
-	alcMacOSXMixerOutputRate( 22050 );
 	
 	// Create context(s)
 	Context = alcCreateContext( Device, NULL );

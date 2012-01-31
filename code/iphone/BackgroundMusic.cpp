@@ -1,12 +1,7 @@
 /*
- *  BackgroundMusic.cpp
- *  doom
- *
- *  Created by John Carmack on 5/15/09.
- *  Copyright 2009 Id Software. All rights reserved.
- *
- */
-/*
+ 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
@@ -321,6 +316,7 @@ end:
 
 OSStatus BackgroundTrackMgr::SetupQueue(BG_FileInfo *inFileInfo) {
 	UInt32 size = 0;
+	OSStatus err;
 	OSStatus result = AudioQueueNewOutput(&inFileInfo->mFileFormat, QueueCallback, this, 
 										  CFRunLoopGetMain() /* CFRunLoopGetCurrent() */, kCFRunLoopCommonModes, 0, &mQueue);
 	AssertNoError("Error creating queue", end);
@@ -339,7 +335,7 @@ OSStatus BackgroundTrackMgr::SetupQueue(BG_FileInfo *inFileInfo) {
 	}
 #endif
 	// channel layout
-	OSStatus err = AudioFileGetPropertyInfo(inFileInfo->mAFID, kAudioFilePropertyChannelLayout, &size, NULL);
+	err = AudioFileGetPropertyInfo(inFileInfo->mAFID, kAudioFilePropertyChannelLayout, &size, NULL);
 	if (err == noErr && size > 0) {
 		AudioChannelLayout *acl = (AudioChannelLayout *)malloc(size);
 		result = AudioFileGetProperty(inFileInfo->mAFID, kAudioFilePropertyChannelLayout, &size, acl);
@@ -360,6 +356,7 @@ OSStatus BackgroundTrackMgr::SetupBuffers(BG_FileInfo *inFileInfo) {
 	int numBuffersToQueue = kNumberBuffers;
 	UInt32 maxPacketSize;
 	UInt32 size = sizeof(maxPacketSize);
+	bool isFormatVBR;
 	// we need to calculate how many packets we read at a time, and how big a buffer we need
 	// we base this on the size of the packets in the file and an approximate duration for each buffer
 	
@@ -367,7 +364,7 @@ OSStatus BackgroundTrackMgr::SetupBuffers(BG_FileInfo *inFileInfo) {
 	// than our allocation default size, that needs to become larger
 	OSStatus result = AudioFileGetProperty(inFileInfo->mAFID, kAudioFilePropertyPacketSizeUpperBound, &size, &maxPacketSize);
 	AssertNoError("Error getting packet upper bound size", end);
-	bool isFormatVBR = (inFileInfo->mFileFormat.mBytesPerPacket == 0 || inFileInfo->mFileFormat.mFramesPerPacket == 0);
+	isFormatVBR = (inFileInfo->mFileFormat.mBytesPerPacket == 0 || inFileInfo->mFileFormat.mFramesPerPacket == 0);
 	
 	CalculateBytesForTime(inFileInfo->mFileFormat, maxPacketSize, 0.5/*seconds*/, &mBufferByteSize, &mNumPacketsToRead);
 	
@@ -489,11 +486,13 @@ static BackgroundTrackMgr	sBackgroundTrackMgr;
 static char currentMusicName[1024];
 
 void iphonePauseMusic() {
-	if ( music->value == 0 ) {
-		// music is disabled
-		return;
-	}
-	AudioQueuePause(sBackgroundTrackMgr.mQueue);
+    if( music ) {
+        if ( music->value == 0 ) {
+            // music is disabled
+            return;
+        }
+        AudioQueuePause(sBackgroundTrackMgr.mQueue);
+    }
 }
 void iphoneResumeMusic() {
 	if ( music->value == 0 ) {

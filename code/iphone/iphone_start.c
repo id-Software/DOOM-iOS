@@ -1,13 +1,5 @@
 /*
- *  iphone_start.c
- *  doom
- *
- *  Created by John Carmack on 7/7/09.
- *  Copyright 2009 id Software. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -45,18 +37,21 @@ void ResumeGame() {
 		automapmode = 0;
 		advancedemo = false;			
 		menuState = IPM_GAME;
+        lastState = IPM_GAME;
 		return;
 	}
 	
-	if ( !playState.saveGameIsValid ) {
+	if ( !playState.saveGameIsValid || !G_SaveGameValid() ) {
 		// they hit "resume game" on the first app lounch, so just start E1M1
 		mapStart_t	map;
 		map.skill = 1;
 		map.episode = 1;
 		map.map = 1;
 		StartSinglePlayerGame( map );
+        lastState = IPM_GAME;
 	} else {
 		StartSaveGame();
+        lastState = IPM_GAME;
 	}
 }
 
@@ -122,7 +117,8 @@ void StartSaveGame() {
 void StartSinglePlayerGame( mapStart_t map ) {
 	playState.map = map;
 	playState.saveGameIsValid = true;	// assume we will save the game on exit
-	
+	lastState = IPM_GAME;
+    
 	// mark this level / skill combination as tried
 	// 
 	mapStats_t *cms = FindMapStats( playState.map.dataset, playState.map.episode, playState.map.map, true );
@@ -219,7 +215,8 @@ void StartDemoGame( boolean timeDemoMode ) {
 		G_SaveGame( 0, "quicksave" );
 		G_DoSaveGame(true);
 	}
-
+    lastState = IPM_GAME;
+    
 	GameSetup();
 	if ( timeDemoMode ) {
 		iphoneTimeDemo = true;

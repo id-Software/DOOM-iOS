@@ -1,13 +1,5 @@
 /*
- *  misc.c
- *  doom
- *
- *  Created by John Carmack on 4/13/09.
- *  Copyright 2009 idSoftware. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or

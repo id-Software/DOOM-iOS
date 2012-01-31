@@ -1,12 +1,5 @@
-//
-//  EAGLView.m
-//  Doom
-//
-//  Created by Cass Everitt on 2/20/09.
-//  Copyright Id Software 2009. All rights reserved.
-//
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -48,6 +41,8 @@ EAGLContext *context;
     return [CAEAGLLayer class];
 }
 
+float screenResolutionScale = 1.0f;
+
 CAEAGLLayer *eaglLayer;
 
 //The GL view is stored in the nib file. When it's unarchived it's sent -initWithCoder:
@@ -59,6 +54,16 @@ CAEAGLLayer *eaglLayer;
 	// allow multiple touch events
 	self.multipleTouchEnabled = true;
 	
+    // Double the resolution on iPhone 4.
+	if ( [[UIScreen mainScreen] respondsToSelector:@selector(scale)] &&
+		[self respondsToSelector:@selector(setContentScaleFactor:)] ) {	
+        
+        screenResolutionScale = [UIScreen mainScreen].scale;
+        
+		// set scaling factor
+		[self setContentScaleFactor:[UIScreen mainScreen].scale];
+	}
+    
 	// Get the layer
 	eaglLayer = (CAEAGLLayer *)self.layer;
 	
@@ -85,28 +90,37 @@ CAEAGLLayer *eaglLayer;
 		[self release];
 		return nil;
 	}        
-	
-    glGenFramebuffersOES(1, &viewFramebuffer);
-    glGenRenderbuffersOES(1, &viewRenderbuffer);
     
-    glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
-    glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
+    glGenFramebuffersOES(1, &mViewFramebuffer);
+    glGenRenderbuffersOES(1, &mViewRenderbuffer);
+    
+	glBindFramebufferOES(GL_FRAMEBUFFER_OES, mViewFramebuffer);	
+	glBindRenderbufferOES(GL_RENDERBUFFER_OES, mViewRenderbuffer);
+    
     [context renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:(CAEAGLLayer*)self.layer];
-    glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, viewRenderbuffer);
     
-    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
-    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
+    glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, mViewRenderbuffer);
     
-	glGenRenderbuffersOES(1, &depthRenderbuffer);
-	glBindRenderbufferOES(GL_RENDERBUFFER_OES, depthRenderbuffer);
-	glRenderbufferStorageOES(GL_RENDERBUFFER_OES, GL_DEPTH_COMPONENT16_OES, backingWidth, backingHeight);
-	glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_DEPTH_ATTACHMENT_OES, GL_RENDERBUFFER_OES, depthRenderbuffer);
+    // the backing sizes should be the same as the screen
+	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
+	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
     
-    if(glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
-        NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
+    displaywidth = backingHeight;
+    displayheight = backingWidth;
+    
+    glGenRenderbuffersOES(1, &mDepthRenderbuffer);
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, mDepthRenderbuffer);
+    glRenderbufferStorageOES(GL_RENDERBUFFER_OES, GL_DEPTH_COMPONENT16_OES, backingWidth, backingHeight);
+    glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_DEPTH_ATTACHMENT_OES, GL_RENDERBUFFER_OES, mDepthRenderbuffer);
+    
+    // the framebuffer will stay constant
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, mViewRenderbuffer);
+    glBindFramebufferOES(GL_FRAMEBUFFER_OES, mViewFramebuffer);
+    
+    if ( glCheckFramebufferStatusOES( GL_FRAMEBUFFER_OES ) != GL_FRAMEBUFFER_COMPLETE_OES ) {
+        printf( "Failed to make complete framebuffer object %x", glCheckFramebufferStatusOES( GL_FRAMEBUFFER_OES ) );
+		assert( 0 );
     }
-	
-    glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
 	
     return self;
 }
@@ -128,19 +142,24 @@ CAEAGLLayer *eaglLayer;
     for (UITouch *myTouch in touches)
     {
         CGPoint touchLocation = [myTouch locationInView:nil];
-
+        
+        // Scale Touches with the screen resolution.
+        touchLocation.x *= screenResolutionScale;
+        touchLocation.y *= screenResolutionScale;
+        
 		// handle landscape mode and flipping
 		int		x, y;
 		if ( revLand->value ) {
 			x = touchLocation.y;
-			y = 319 - touchLocation.x;
+			y = ( displayheight - 1 ) - touchLocation.x;
 		} else {
-			x = 479 - touchLocation.y;
+			x = ( displaywidth - 1) - touchLocation.y;
 			y = touchLocation.x;
 		}
 //		printf( "%i, %i\n", x, y );		
 		touchCount++;
-		
+    
+        
 		touch_t	*t2;
 
 		// find which one it is closest to
@@ -332,7 +351,12 @@ void SysIPhoneSetConsoleTextField( const char * str) {
 }
 
 void SysIPhoneSwapBuffers() {
+    
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, eaglview->mViewRenderbuffer);
+    
+    // present the renderbuffer for display
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
+    
 }
 
 void SysIPhoneOpenURL( const char *url ) {

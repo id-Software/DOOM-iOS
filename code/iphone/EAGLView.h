@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -33,16 +33,16 @@ Note that setting the view non-opaque will only work if the EAGL surface has an 
 @public
 	UITextField *textField;
     
+    GLuint          mViewRenderbuffer; 
+	GLuint          mViewFramebuffer;
+	GLuint          mDepthRenderbuffer;	
+	
 @private
     /* The pixel dimensions of the backbuffer */
     GLint backingWidth;
     GLint backingHeight;
     
-    /* OpenGL names for the renderbuffer and framebuffers used to render to this view */
-    GLuint viewRenderbuffer, viewFramebuffer;
-    
-    /* OpenGL name for the depth buffer that is attached to viewFramebuffer, if it exists (0 if it does not exist) */
-    GLuint depthRenderbuffer;    
+  
 }
 
 @end

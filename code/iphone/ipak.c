@@ -1,13 +1,5 @@
 /*
- *  ipak.c
- *  doom
- *
- *  Created by John Carmack on 4/9/09.
- *  Copyright 2009 Id Software. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -103,20 +95,10 @@ void PK_Init( const char *pakFileName ) {
 			} else {
 				alFormat = AL_FORMAT_STEREO16;
 			}
-		}
-#if 0			
+		}			
 		alBufferData( sfx->alBufferNum, alFormat, (byte *)pkHeader + sfx->wavData->wavDataOfs
 					   , sfx->wavData->wavChannels*sfx->wavData->wavChannelBytes*sfx->wavData->wavNumSamples
 					 , sfx->wavData->wavRate );		
-#else
-		// This should just store out a pointer, so the data won't get touched until it is actually
-		// used to play a sound.
-		extern void alBufferDataStatic(const ALint bid, ALenum format, ALvoid* data, ALsizei size, ALsizei freq);
-
-		alBufferDataStatic( sfx->alBufferNum, alFormat, (byte *)pkHeader + sfx->wavData->wavDataOfs
-					 , sfx->wavData->wavChannels*sfx->wavData->wavChannelBytes*sfx->wavData->wavNumSamples
-					 , sfx->wavData->wavRate );
-#endif
 	}
 	int	endLoadingWavs = SysIphoneMicroseconds();
 	printf( "%i usec to load wavs\n", endLoadingWavs - startLoadingWavs );
@@ -392,7 +374,7 @@ void PK_DrawTexture( pkTexture_t *tex, int x, int y ) {
 
 	int w = tex->textureData->srcWidth;
 	int h = tex->textureData->srcHeight;
-	
+    
 	glBegin( GL_QUADS );
 	
 	glTexCoord2f( 0.0f, 0.0f );	glVertex2i( x, y );

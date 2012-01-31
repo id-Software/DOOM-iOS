@@ -44,7 +44,8 @@
 //
 // POV related.
 //
-
+extern int      displaywidth;
+extern int      displayheight;
 extern fixed_t  viewcos;
 extern fixed_t  viewsin;
 extern int      viewwidth;

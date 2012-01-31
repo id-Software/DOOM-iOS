@@ -1,5 +1,5 @@
 /*
-
+    Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
 	Copyright (C) 2004 Michael Liebscher
 	Copyright (C) 1997-2001 Id Software, Inc.
 

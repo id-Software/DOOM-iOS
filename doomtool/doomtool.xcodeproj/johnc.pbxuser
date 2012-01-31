@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 72AFDC180F8AF03E0096A523 /* doomtool */;
+		activeTarget = 8DD76FA90486AB0100D96B5E /* doomtool */;
+		addToTargets = (
+		);
+		breakpoints = (
+			72C01AB60F8E56DB00DE72D8 /* main.c:1715 */,
+			72C01B050F8E783400DE72D8 /* main.c:60 */,
+			72C01B160F8E78D400DE72D8 /* main.c:60 */,
+			72C01B180F8E78D500DE72D8 /* main.c:60 */,
+			72C01C410F8EA48F00DE72D8 /* main.c:60 */,
+			72D50E490F8EFD6E00BB49E6 /* main.c:1279 */,
+			72D50E660F8F021500BB49E6 /* main.c:1327 */,
+			721DBA7F0F920C3D001906DB /* main.c:1691 */,
+			721DBAB20F9218A8001906DB /* main.c:1429 */,
+			721DBACC0F92DC12001906DB /* main.c:384 */,
+			721DBADE0F92DDCE001906DB /* main.c:1433 */,
+			72C8D1C60F936A5A00C6F3E2 /* main.c:1516 */,
+			72B0EAC70FBD18E200D1D1FA /* main.c:1577 */,
+			72B0EAD00FBD190000D1D1FA /* main.c:1588 */,
+		);
+		codeSenseManager = 72AFDC1E0F8AF05D0096A523 /* Code sense */;
+		executables = (
+			72AFDC180F8AF03E0096A523 /* doomtool */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA23EDF0692099D00951B8B" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					267,
+					20,
+					167,
+					167,
+					131,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					138,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 278554695;
+			PBXWorkspaceStateSaveDate = 278554695;
+		};
+		perUserProjectItems = {
+			721817A0109A684D00B6E7D0 /* PBXTextBookmark */ = 721817A0109A684D00B6E7D0 /* PBXTextBookmark */;
+			721817A1109A685300B6E7D0 /* PBXTextBookmark */ = 721817A1109A685300B6E7D0 /* PBXTextBookmark */;
+			721817A2109A766E00B6E7D0 /* PBXTextBookmark */ = 721817A2109A766E00B6E7D0 /* PBXTextBookmark */;
+			721DBA820F920C96001906DB = 721DBA820F920C96001906DB /* PBXTextBookmark */;
+			721DBA890F920C96001906DB = 721DBA890F920C96001906DB /* PBXTextBookmark */;
+			721DBA9C0F920D42001906DB = 721DBA9C0F920D42001906DB /* PBXTextBookmark */;
+			721DBAB40F9218C5001906DB = 721DBAB40F9218C5001906DB /* PBXTextBookmark */;
+			721DBAB80F9218C5001906DB = 721DBAB80F9218C5001906DB /* PBXTextBookmark */;
+			724C57980FC1B1AF000E4348 = 724C57980FC1B1AF000E4348 /* PBXTextBookmark */;
+			725412D31007CD1700925CFB = 725412D31007CD1700925CFB /* PBXTextBookmark */;
+			72541334100BA26300925CFB = 72541334100BA26300925CFB /* PBXTextBookmark */;
+			72B0EA900FBD175200D1D1FA = 72B0EA900FBD175200D1D1FA /* PBXTextBookmark */;
+			72B0EA930FBD175200D1D1FA = 72B0EA930FBD175200D1D1FA /* PBXTextBookmark */;
+			72C01AEE0F8E772800DE72D8 = 72C01AEE0F8E772800DE72D8 /* PBXTextBookmark */;
+			72C01CA20F8EBD0400DE72D8 = 72C01CA20F8EBD0400DE72D8 /* PBXTextBookmark */;
+			72D50DDD0F8EF90500BB49E6 = 72D50DDD0F8EF90500BB49E6 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 72AFDC1D0F8AF05D0096A523 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {800, 32946}}";
+			sepNavSelRange = "{4800, 0}";
+			sepNavVisRange = "{4620, 1028}";
+			sepNavWindowFrame = "{{202, 118}, {857, 908}}";
+		};
+	};
+	721817A0109A684D00B6E7D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 231";
+		rLen = 0;
+		rLoc = 4800;
+		rType = 0;
+		vrLen = 1028;
+		vrLoc = 4620;
+	};
+	721817A1109A685300B6E7D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 231";
+		rLen = 0;
+		rLoc = 4800;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 4620;
+	};
+	721817A2109A766E00B6E7D0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 231";
+		rLen = 0;
+		rLoc = 4800;
+		rType = 0;
+		vrLen = 1028;
+		vrLoc = 4620;
+	};
+	721DBA7F0F920C3D001906DB /* main.c:1691 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "main()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1691;
+		location = doomtool;
+		modificationTime = 268950856.78839;
+		state = 2;
+	};
+	721DBA820F920C96001906DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72C01CA30F8EBD0400DE72D8 /* Image_files.cpp */;
+		name = "Image_files.cpp: 142";
+		rLen = 5268;
+		rLoc = 4644;
+		rType = 0;
+		vrLen = 706;
+		vrLoc = 9577;
+	};
+	721DBA840F920C96001906DB /* Common_printf.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = Common_printf.cpp;
+		path = /Volumes/Untitled/alienbrainWork/Rage/code/framework/Common_printf.cpp;
+		sourceTree = "<absolute>";
+	};
+	721DBA890F920C96001906DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 721DBA8A0F920C96001906DB /* Common_printf.cpp */;
+		name = "Common_printf.cpp: 81";
+		rLen = 14;
+		rLoc = 2665;
+		rType = 0;
+		vrLen = 901;
+		vrLoc = 2318;
+	};
+	721DBA8A0F920C96001906DB /* Common_printf.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = Common_printf.cpp;
+		path = /Volumes/Untitled/alienbrainWork/Rage/code/framework/Common_printf.cpp;
+		sourceTree = "<absolute>";
+	};
+	721DBA9C0F920D42001906DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 721DBA840F920C96001906DB /* Common_printf.cpp */;
+		name = "Common_printf.cpp: 215";
+		rLen = 45;
+		rLoc = 6185;
+		rType = 0;
+		vrLen = 885;
+		vrLoc = 5703;
+	};
+	721DBAB20F9218A8001906DB /* main.c:1429 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "FinishAtlas()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1429;
+		location = doomtool;
+		modificationTime = 268950856.78876;
+		state = 2;
+	};
+	721DBAB40F9218C5001906DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 721DBAB50F9218C5001906DB /* BitBlockAllocator.cpp */;
+		name = "BitBlockAllocator.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 869;
+		vrLoc = 5194;
+	};
+	721DBAB50F9218C5001906DB /* BitBlockAllocator.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = BitBlockAllocator.cpp;
+		path = /Volumes/Untitled/alienbrainWork/Rage/code/renderer/BitBlockAllocator.cpp;
+		sourceTree = "<absolute>";
+	};
+	721DBAB80F9218C5001906DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 721DBAB90F9218C5001906DB /* BitBlockAllocator.cpp */;
+		name = "BitBlockAllocator.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 869;
+		vrLoc = 5194;
+	};
+	721DBAB90F9218C5001906DB /* BitBlockAllocator.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = BitBlockAllocator.cpp;
+		path = /Volumes/Untitled/alienbrainWork/Rage/code/renderer/BitBlockAllocator.cpp;
+		sourceTree = "<absolute>";
+	};
+	721DBACC0F92DC12001906DB /* main.c:384 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "LoadBMP()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 384;
+		location = doomtool;
+		modificationTime = 268950856.7891361;
+		state = 2;
+	};
+	721DBADE0F92DDCE001906DB /* main.c:1433 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "FinishAtlas()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1433;
+		location = doomtool;
+		modificationTime = 268950856.7895089;
+		state = 2;
+	};
+	724C57980FC1B1AF000E4348 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72C01AB40F8CFCA900DE72D8 /* doomtool.h */;
+		name = "doomtool.h: 61";
+		rLen = 0;
+		rLoc = 1821;
+		rType = 0;
+		vrLen = 960;
+		vrLoc = 2425;
+	};
+	725412D31007CD1700925CFB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 231";
+		rLen = 0;
+		rLoc = 4800;
+		rType = 0;
+		vrLen = 1028;
+		vrLoc = 4620;
+	};
+	72541334100BA26300925CFB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 231";
+		rLen = 0;
+		rLoc = 4800;
+		rType = 0;
+		vrLen = 1028;
+		vrLoc = 4620;
+	};
+	72AFDC180F8AF03E0096A523 /* doomtool */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = doomtool;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	72AFDC1D0F8AF05D0096A523 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	72AFDC1E0F8AF05D0096A523 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	72B0EA900FBD175200D1D1FA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72B4A70A0FAB70B100DC59D9 /* base.parm */;
+		name = "base.parm: 2";
+		rLen = 0;
+		rLoc = 55;
+		rType = 0;
+		vrLen = 27;
+		vrLoc = 0;
+	};
+	72B0EA930FBD175200D1D1FA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72B4A70A0FAB70B100DC59D9 /* base.parm */;
+		name = "base.parm: 2";
+		rLen = 0;
+		rLoc = 55;
+		rType = 0;
+		vrLen = 27;
+		vrLoc = 0;
+	};
+	72B0EAC70FBD18E200D1D1FA /* main.c:1577 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "WriteType()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1577;
+		location = doomtool;
+		modificationTime = 268950856.790318;
+		state = 2;
+	};
+	72B0EAD00FBD190000D1D1FA /* main.c:1588 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "WriteType()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1588;
+		location = doomtool;
+		modificationTime = 268950856.790709;
+		state = 2;
+	};
+	72B4A70A0FAB70B100DC59D9 /* base.parm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {848, 822}}";
+			sepNavSelRange = "{55, 0}";
+			sepNavVisRange = "{0, 55}";
+			sepNavWindowFrame = "{{509, 37}, {907, 950}}";
+		};
+	};
+	72C01AB40F8CFCA900DE72D8 /* doomtool.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {908, 3040}}";
+			sepNavSelRange = "{1821, 0}";
+			sepNavVisRange = "{2425, 960}";
+			sepNavWindowFrame = "{{781, -387}, {857, 908}}";
+		};
+	};
+	72C01AB60F8E56DB00DE72D8 /* main.c:1715 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "main()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1715;
+		modificationTime = 268950856.785729;
+		state = 2;
+	};
+	72C01AEE0F8E772800DE72D8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 53";
+		rLen = 0;
+		rLoc = 1295;
+		rType = 0;
+		vrLen = 403;
+		vrLoc = 18328;
+	};
+	72C01B050F8E783400DE72D8 /* main.c:60 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AddDirectoryToPak_r()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 60;
+		location = doomtool;
+		modificationTime = 268950856.7861239;
+		state = 2;
+	};
+	72C01B160F8E78D400DE72D8 /* main.c:60 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AddDirectoryToPak_r()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 60;
+		location = doomtool;
+		modificationTime = 268950856.786502;
+		state = 2;
+	};
+	72C01B180F8E78D500DE72D8 /* main.c:60 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AddDirectoryToPak_r()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 60;
+		location = doomtool;
+		modificationTime = 268950856.786876;
+		state = 2;
+	};
+	72C01C410F8EA48F00DE72D8 /* main.c:60 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AddWAV()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 60;
+		location = doomtool;
+		modificationTime = 268950856.787272;
+		state = 2;
+	};
+	72C01CA20F8EBD0400DE72D8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72C01CA30F8EBD0400DE72D8 /* Image_files.cpp */;
+		name = "Image_files.cpp: 72";
+		rLen = 2290;
+		rLoc = 2352;
+		rType = 0;
+		vrLen = 1236;
+		vrLoc = 2163;
+	};
+	72C01CA30F8EBD0400DE72D8 /* Image_files.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = Image_files.cpp;
+		path = /Volumes/Untitled/alienbrainWork/Rage/code/renderer/Image_files.cpp;
+		sourceTree = "<absolute>";
+	};
+	72C8D1C60F936A5A00C6F3E2 /* main.c:1516 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AtlasDirectory()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1516;
+		location = doomtool;
+		modificationTime = 268950856.789892;
+		state = 2;
+	};
+	72D50DDD0F8EF90500BB49E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72C01AB40F8CFCA900DE72D8 /* doomtool.h */;
+		name = "doomtool.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	72D50E490F8EFD6E00BB49E6 /* main.c:1279 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AddRAW()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1279;
+		location = doomtool;
+		modificationTime = 268950856.787639;
+		state = 2;
+	};
+	72D50E660F8F021500BB49E6 /* main.c:1327 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "AddDirectoryToPak_r()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1327;
+		location = doomtool;
+		modificationTime = 268950856.78801;
+		state = 2;
+	};
+	8DD76FA90486AB0100D96B5E /* doomtool */ = {
+		activeExec = 0;
+		executables = (
+			72AFDC180F8AF03E0096A523 /* doomtool */,
+		);
+	};
+}

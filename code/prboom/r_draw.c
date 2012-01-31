@@ -54,6 +54,8 @@
 //
 
 byte *viewimage;
+int  displaywidth;
+int  displayheight;
 int  viewwidth;
 int  scaledviewwidth;
 int  viewheight;

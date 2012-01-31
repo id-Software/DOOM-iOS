@@ -145,6 +145,8 @@ extern int mousebfire;
 extern int mousebstrafe;
 extern int mousebforward;
 
+extern int displaywidth;
+extern int displayheight;
 extern int viewwidth;
 extern int viewheight;
 #ifdef GL_DOOM

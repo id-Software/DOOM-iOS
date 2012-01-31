@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -20,20 +20,52 @@
 
 #import <UIKit/UIKit.h>
 #import <UIKit/UIAccelerometer.h>
-
+#import "MenuViewController.h"
 
 @class EAGLView;
 
 @interface gameAppDelegate : NSObject <UIApplicationDelegate, UIAccelerometerDelegate> {
     UIWindow *window;
     EAGLView *glView;
+    CADisplayLink * displayLink;
+    
 	int		lastAccelUpdateMsec;
+    
+    
+    IBOutlet MenuViewController *   mainMenuViewController;
+    IBOutlet MenuViewController *   mapMenuViewController;
+    IBOutlet MenuViewController *   creditsMenuViewController;
+    IBOutlet MenuViewController *   legalMenuViewController;
+    IBOutlet MenuViewController *   settingsMenuViewController;
+    IBOutlet MenuViewController *   controlsMenuViewController;
+    IBOutlet MenuViewController *   episodeMenuViewController;
+    
+    BOOL    IBMenuVisible;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet EAGLView *glView;
+@property (nonatomic, retain) IBOutlet CADisplayLink *displayLink;
 
 - (void)restartAccelerometerIfNeeded;
+
+- (void) SelectEpisode: (int) episode;
+- (void) PrepareForViewSwap;
+- (void) ResumeGame;
+- (void) NewGame;
+- (void) DemoGame;
+- (void) MainMenu;
+- (void) CreditsMenu;
+- (void) LegalMenu;
+- (void) playMap: (int) dataset: (int) episode: (int) map: (int) skill;
+- (void) GotoSupport;
+- (void) idSoftwareApps;
+- (void) SettingsMenu;
+- (void) ControlsMenu;
+- (void) HUDLayout;
+- (void) HideIB;
+
+extern gameAppDelegate * gAppDelegate;
 
 @end
 

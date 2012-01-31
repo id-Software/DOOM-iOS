@@ -1,5 +1,5 @@
 /*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -22,6 +22,11 @@
 #import "EAGLView.h"
 #import <AudioToolbox/AudioServices.h>
 #include "../doomiphone.h"
+#import <QuartzCore/CADisplayLink.h>
+#import "SettingsMenuView.h"
+#import "ControlsMenuView.h"
+#include "IBGlue.h"
+#import "MapMenuView.h"
 
 @interface UIApplication (Private)
 
@@ -42,15 +47,19 @@ char iphoneAppDirectory[1024];
 
 @synthesize window;
 @synthesize glView;
+@synthesize displayLink;
 
 extern	EAGLContext *context;
 
+gameAppDelegate * gAppDelegate = NULL;
+
 NSTimer *animationTimer;
+bool inBackgroundProcess = false;
 
 touch_t		sysTouches[MAX_TOUCHES];
 touch_t		gameTouches[MAX_TOUCHES];
 pthread_mutex_t	eventMutex;		// used to sync between game and event threads
-
+bool        firstRun = true;
 
 pthread_t gameThreadHandle;
 volatile boolean startupCompleted;
@@ -60,10 +69,14 @@ void *GameThread( void *args ) {
 		exit( 1 );
 	}
 	
+    while( inBackgroundProcess ) {
+         usleep( 1000 );   
+    }
+    
 	printf( "original game thread priority: %f\n", (float)[NSThread threadPriority] );
 	[NSThread setThreadPriority: 0.5];
 	printf( "new game thread priority: %f\n", (float)[NSThread threadPriority] );
-	
+	    
 	iphoneStartup();
 
 	// make sure one frame has been run before setting
@@ -72,6 +85,11 @@ void *GameThread( void *args ) {
 	
 	startupCompleted = TRUE;	// OK to start touch / accel callbacks
 	while( 1 ) {
+        
+        // we are in the background.. dont do anything.
+        if( inBackgroundProcess ) {
+            usleep( 1000 );
+        }
 		iphoneFrame();
 	}
 }
@@ -82,13 +100,16 @@ void *GameThread( void *args ) {
 }
 
 - (void)runFrame {
+    iphoneAsyncTic(); 
 	iphoneFrame();
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+    inBackgroundProcess = false;
 	application.statusBarHidden = YES;
 	application.statusBarOrientation = UIInterfaceOrientationLandscapeLeft;
-	
+	gAppDelegate = self;
+    
 	// get the documents directory, where we will write configs and save games
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -115,10 +136,13 @@ void *GameThread( void *args ) {
 	// disable screen dimming
 	[UIApplication sharedApplication].idleTimerDisabled = YES;
 	
+    // Add the Main Menu as the SubView
+    [self MainMenu];
+    
 	// start the flow of accelerometer events
 	UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
 	accelerometer.delegate = self;
-	accelerometer.updateInterval = 0.01;
+	accelerometer.updateInterval = 1.0f / 30.0f;
 
 	// use this mutex for coordinating touch handling between
 	// the run loop thread and the game thread
@@ -146,48 +170,42 @@ void *GameThread( void *args ) {
 	[NSThread setThreadPriority: 1.0];
 	printf( "new event thread priority: %f\n", (float)[NSThread threadPriority] );
 	
-	
-#ifdef USE_GAME_THREAD 
-	// the game thread will do the init and start running frames
-	pthread_create( &gameThreadHandle, NULL, GameThread, NULL );
-	while( !startupCompleted ) {
-		// pause until all startup is completed and the game is
-		// ready to receive accel and touch calls
-		usleep( 1000 );
-	}
-
-	// schedule the time for async command generation in network games
-	float	interval = 1.0 / 30.0f;
-    [NSTimer scheduledTimerWithTimeInterval:interval 
-										target:self 
-										selector:@selector(asyncTic) 
-										userInfo:nil repeats:YES];	
-#else
-	// do all the game startup work
+    // do all the game startup work
 	iphoneStartup();
-	
-	// schedule the time for frame updates	
-	float	interval = 1.0 / 30.0f;
-	//	float	interval = 1.0 / 5.0f;	// a low framerate is useful for some timing tests
-    animationTimer = [NSTimer scheduledTimerWithTimeInterval:interval 
-														   target:self 
-														 selector:@selector(runFrame) 
-														 userInfo:nil repeats:YES];
-	
-	// run one frame manually to avoid a grey view swap
-	[self runFrame];
-#endif
+    
+    int animationFrameInterval = 2;
+    CADisplayLink *aDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runFrame)];
+    [aDisplayLink setFrameInterval:animationFrameInterval];
+    [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    self.displayLink = aDisplayLink;
+    aDisplayLink.paused = YES;
+    
+    
+    startupCompleted = TRUE;	// OK to start touch / accel callbacks
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    displayLink.paused = YES;
+    inBackgroundProcess = YES;
+    iphonePauseMusic();
+    iphoneShutdown();
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    displayLink.paused = NO;
+    inBackgroundProcess = NO;
+    
+    if( IBMenuVisible && !firstRun ) {
+        iphonePlayMusic( "intro" );
+    }
+    
+    firstRun = false;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    iphoneStopMusic();
 	iphoneShutdown();
 }
 
@@ -226,6 +244,183 @@ void *GameThread( void *args ) {
 	acc[3] = acceleration.timestamp;
 	iphoneTiltEvent( acc );
 	lastAccelUpdateMsec = SysIphoneMilliseconds();
+}
+
+- (void) PrepareForViewSwap {
+    
+    [ mainMenuViewController.view removeFromSuperview ];
+    [ mapMenuViewController.view removeFromSuperview ];
+    [ creditsMenuViewController.view removeFromSuperview ];
+    [ legalMenuViewController.view removeFromSuperview ];
+    [ settingsMenuViewController.view removeFromSuperview ];
+    [ controlsMenuViewController.view removeFromSuperview ];
+    [ episodeMenuViewController.view removeFromSuperview ];
+}
+
+- (void) ResumeGame {
+    
+    ResumeGame();
+    
+    // Switch to the Game View.
+    [window addSubview:glView];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = NO;
+    IBMenuVisible = NO;
+}
+
+- (void) MainMenu {
+    
+    [self PrepareForViewSwap];
+    
+    // Switch to the Game View.
+    [window addSubview: mainMenuViewController.view];
+    [window makeKeyAndVisible];
+    iphonePauseMusic();
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+}
+
+- (void) DemoGame {
+    
+    StartDemoGame( false );
+    
+    // Switch to the Game View.
+    [window addSubview:glView];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = NO;
+    IBMenuVisible = NO;
+}
+
+- (void) NewGame {
+    
+    [self PrepareForViewSwap];
+    
+    // Switch to the Game View.
+    [window addSubview: episodeMenuViewController.view];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+    
+}
+
+- (void) playMap: (int) dataset: (int) episode: (int) map: (int) skill {
+    mapStart_t startmap;
+    
+    startmap.map = map;
+    startmap.episode = episode;
+    startmap.dataset = dataset;
+    startmap.skill = skill;
+    
+    StartSinglePlayerGame( startmap );
+    
+    [self HideIB];
+}
+
+- (void) CreditsMenu {
+    
+    [self PrepareForViewSwap];
+    
+    // Switch to the Game View.
+    [window addSubview: creditsMenuViewController.view];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+    
+}
+
+- (void) LegalMenu {
+    
+    [self PrepareForViewSwap];
+    
+    // Switch to the Game View.
+    [window addSubview: legalMenuViewController.view];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+    
+}
+
+- (void) GotoSupport {
+    
+    SysIPhoneOpenURL("http://www.idsoftware.com/doom-classic/index.html");
+    
+}
+
+- (void) idSoftwareApps {
+    
+    SysIPhoneOpenURL("http://itunes.com/apps/idsoftware");
+}
+
+- (void) ControlsMenu {
+    
+    [self PrepareForViewSwap];
+    
+    ControlsMenuView * menu = controlsMenuViewController.view;
+    [ menu SetOptions];
+    
+    // Switch to the Game View.
+    [window addSubview: controlsMenuViewController.view];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+    
+}
+
+- (void) SettingsMenu {
+    
+    [self PrepareForViewSwap];
+    
+    SettingsMenuView * menu = settingsMenuViewController.view;
+    [ menu resetSwitches];
+    
+    // Switch to the Game View.
+    [window addSubview: settingsMenuViewController.view];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+    
+}
+
+- (void) HUDLayout {
+    
+    menuState = IPM_HUDEDIT;
+    
+    [self HideIB];
+}
+
+- (void) HideIB {
+    
+     [self PrepareForViewSwap];
+    
+    // Switch to the Game View.
+    [window addSubview:glView];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = NO;
+    IBMenuVisible = NO;
+}
+
+- (void) SelectEpisode: (int) episode {
+    
+    [self PrepareForViewSwap];
+    
+    [ (MapMenuView*)mapMenuViewController.view setEpisode: episode ];
+    
+    // Switch to the Game View.
+    [window addSubview: mapMenuViewController.view];
+    [window makeKeyAndVisible];
+    
+    displayLink.paused = YES;
+    IBMenuVisible = YES;
+    
 }
 
 @end

@@ -1,12 +1,7 @@
 /*
- *  cmd.c
- *  doom
- *
- *  Created by John Carmack on 4/14/09.
- *  Copyright 2009 id Software. All rights reserved.
- *
- */
-/*
+ 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2

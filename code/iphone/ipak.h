@@ -1,15 +1,5 @@
 /*
- *  ipak.h
- *  General purpose data file management intended to be used
- *  as a read-only memory mapped file to play nice with iPhone OS's
- *  non-swapping and variable memory management.
- *
- *  Created by John Carmack on 4/9/09.
- *  Copyright 2009 id Software. All rights reserved.
- *
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or

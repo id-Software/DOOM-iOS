@@ -377,7 +377,7 @@ void gld_Init(int width, int height)
 
   glViewport(0, 0, SCREENWIDTH, SCREENHEIGHT);
 
-  glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClearDepth(1.0f);
 
   glGetIntegerv(GL_MAX_TEXTURE_SIZE,&gld_max_texturesize);

@@ -1,14 +1,5 @@
 /*
- *  prboomInterface.c
- *  doom
- *
- *  Created by John Carmack on 4/14/09.
- *  Copyright 2009 Id Software. All rights reserved.
- *
- * Stuff to get prboom to compile without SDL
- */
-/*
- 
+ Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -311,8 +302,8 @@ void I_InitGraphics(void)
 	char titlebuffer[2048];
 	static int    firsttime=1;
 
-	SCREENWIDTH = 480;
-	SCREENHEIGHT = 320;
+	SCREENWIDTH = displaywidth;
+	SCREENHEIGHT = displayheight;
 	
 	if (firsttime)
 	{
