@@ -153,11 +153,11 @@ static boolean P_CheckMeleeRange(mobj_t *actor)
 static boolean P_HitFriend(mobj_t *actor)
 {
   return actor->flags & MF_FRIEND && actor->target &&
-    (P_AimLineAttack(actor,
-         R_PointToAngle2(actor->x, actor->y,
-             actor->target->x, actor->target->y),
-         P_AproxDistance(actor->x-actor->target->x,
-             actor->y-actor->target->y), 0),
+    ((void)(P_AimLineAttack(actor,
+                            R_PointToAngle2(actor->x, actor->y,
+                                            actor->target->x, actor->target->y),
+                            P_AproxDistance(actor->x-actor->target->x,
+                                            actor->y-actor->target->y), 0)),
      linetarget) && linetarget != actor->target &&
     !((linetarget->flags ^ actor->flags) & MF_FRIEND);
 }
@@ -527,30 +527,31 @@ static void P_DoNewChaseDir(mobj_t *actor, fixed_t deltax, fixed_t deltay)
 
   // try other directions
   if (P_Random(pr_newchase) > 200 || D_abs(deltay)>D_abs(deltax))
-    tdir = xdir, xdir = ydir, ydir = tdir;
+      (void)(tdir = xdir), (void)(xdir = ydir), ydir = tdir;
 
   if ((xdir == turnaround ? xdir = DI_NODIR : xdir) != DI_NODIR &&
-      (actor->movedir = xdir, P_TryWalk(actor)))
+      ((void)(actor->movedir = xdir), P_TryWalk(actor)))
     return;         // either moved forward or attacked
 
   if ((ydir == turnaround ? ydir = DI_NODIR : ydir) != DI_NODIR &&
-      (actor->movedir = ydir, P_TryWalk(actor)))
+      ((void)(actor->movedir = ydir), P_TryWalk(actor)))
     return;
 
   // there is no direct path to the player, so pick another direction.
-  if (olddir != DI_NODIR && (actor->movedir = olddir, P_TryWalk(actor)))
+    if (olddir != DI_NODIR && ((void)(actor->movedir = olddir), P_TryWalk(actor)))
     return;
 
   // randomly determine direction of search
+  // suppressing this warning in the compiler with a -w flag as I think it can't be helped -tkidd
   if (P_Random(pr_newchasedir) & 1)
     {
       for (tdir = DI_EAST; tdir <= DI_SOUTHEAST; tdir++)
-        if (tdir != turnaround && (actor->movedir = tdir, P_TryWalk(actor)))
+          if (tdir != turnaround && ((void)(actor->movedir = tdir), P_TryWalk(actor)))
     return;
     }
   else
     for (tdir = DI_SOUTHEAST; tdir != DI_EAST-1; tdir--)
-      if (tdir != turnaround && (actor->movedir = tdir, P_TryWalk(actor)))
+        if (tdir != turnaround && ((void)(actor->movedir = tdir), P_TryWalk(actor)))
   return;
 
   if ((actor->movedir = turnaround) != DI_NODIR && !P_TryWalk(actor))
@@ -673,7 +674,7 @@ static void P_NewChaseDir(mobj_t *actor)
       distfriend << FRACBITS > dist &&
       !P_IsOnLift(target) && !P_IsUnderDamage(actor))
   {
-    deltax = -deltax, deltay = -deltay;
+      (void)(deltax = -deltax), deltay = -deltay;
   } else
     if (target->health > 0 && (actor->flags ^ target->flags) & MF_FRIEND)
       {   // Live enemy target
@@ -685,7 +686,7 @@ static void P_NewChaseDir(mobj_t *actor)
          target->player->readyweapon == wp_chainsaw))))
     {       // Back away from melee attacker
       actor->strafecount = P_Random(pr_enemystrafe) & 15;
-      deltax = -deltax, deltay = -deltay;
+        (void)(deltax = -deltax), deltay = -deltay;
     }
       }
       }
@@ -1054,7 +1055,7 @@ void A_Look(mobj_t *actor)
   if (!(actor->flags & MF_FRIEND && P_LookForTargets(actor, false)) &&
       !((targ = actor->subsector->sector->soundtarget) &&
   targ->flags & MF_SHOOTABLE &&
-  (P_SetTarget(&actor->target, targ),
+        ((void)(P_SetTarget(&actor->target, targ)),
    !(actor->flags & MF_AMBUSH) || P_CheckSight(actor, targ))) &&
       (actor->flags & MF_FRIEND || !P_LookForTargets(actor, false)))
     return;
@@ -1089,23 +1090,6 @@ void A_Look(mobj_t *actor)
   P_SetMobjState(actor, actor->info->seestate);
 }
 
-//
-// A_KeepChasing
-//
-// killough 10/98:
-// Allows monsters to continue movement while attacking
-//
-
-static void A_KeepChasing(mobj_t *actor)
-{
-  if (actor->movecount)
-    {
-      actor->movecount--;
-      if (actor->strafecount)
-        actor->strafecount--;
-      P_SmartMove(actor);
-    }
-}
 
 //
 // A_Chase
@@ -2541,8 +2525,8 @@ void A_Spawn(mobj_t *mo)
   if (mo->state->misc1)
     {
       /* mobj_t *newmobj = */
-      P_SpawnMobj(mo->x, mo->y, (mo->state->misc2 << FRACBITS) + mo->z,
-      mo->state->misc1 - 1);
+      P_SpawnMobj(mo->x, mo->y, (int)(mo->state->misc2 << FRACBITS) + mo->z,
+      (int)mo->state->misc1 - 1);
       /* CPhipps - no friendlyness (yet)
    newmobj->flags = (newmobj->flags & ~MF_FRIEND) | (mo->flags & MF_FRIEND);
       */
@@ -2561,20 +2545,20 @@ void A_Face(mobj_t *mo)
 
 void A_Scratch(mobj_t *mo)
 {
-  mo->target && (A_FaceTarget(mo), P_CheckMeleeRange(mo)) ?
-    mo->state->misc2 ? S_StartSound(mo, mo->state->misc2) : (void) 0,
-    P_DamageMobj(mo->target, mo, mo, mo->state->misc1) : (void) 0;
+    mo->target && ((void)(A_FaceTarget(mo)), P_CheckMeleeRange(mo)) ?
+    (void)(mo->state->misc2 ? S_StartSound(mo, (int)mo->state->misc2) : (void) 0),
+    P_DamageMobj(mo->target, mo, mo, (int)mo->state->misc1) : (void) 0;
 }
 
 void A_PlaySound(mobj_t *mo)
 {
-  S_StartSound(mo->state->misc2 ? NULL : mo, mo->state->misc1);
+  S_StartSound(mo->state->misc2 ? NULL : mo, (int)mo->state->misc1);
 }
 
 void A_RandomJump(mobj_t *mo)
 {
   if (P_Random(pr_randomjump) < mo->state->misc2)
-    P_SetMobjState(mo, mo->state->misc1);
+    P_SetMobjState(mo, (int)mo->state->misc1);
 }
 
 //

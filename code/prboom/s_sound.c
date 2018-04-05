@@ -71,7 +71,7 @@ typedef struct
 {
   sfxinfo_t *sfxinfo;  // sound information (if null, channel avail.)
   void *origin;        // origin of sound
-  int handle;          // handle of the sound being played
+  long int handle;          // handle of the sound being played (JDS: 64-bit)
   int is_pickup;       // killough 4/25/98: whether sound is a player's weapon
 	int volume;			// JDC: perform overrides based on dynamic volume instead of static priority
 } channel_t;
@@ -110,8 +110,6 @@ void S_StopChannel(int cnum);
 
 int S_AdjustSoundParams(mobj_t *listener, mobj_t *source,
                         int *vol, int *sep, int *pitch);
-
-static int S_getChannel(void *origin, sfxinfo_t *sfxinfo, int is_pickup);
 
 // Initializes sound stuff, including volume
 // Sets channels, SFX and music volume,
@@ -357,7 +355,8 @@ void S_StartSoundAtVolume(void *origin_p, int sfx_id, int volume)
 
   // Assigns the handle to one of the channels in the mix/output buffer.
   { // e6y: [Fix] Crash with zero-length sounds.
-    int h = I_StartSound(sfx_id, cnum, volume, sep, pitch, priority);
+    // JDS 64-bit handles
+      long int h = I_StartSound(sfx_id, cnum, volume, sep, pitch, priority);
     if (h != -1) channels[cnum].handle = h;
   }
 }
@@ -464,7 +463,7 @@ void S_UpdateSounds(void* listener_p)
                                          &volume, &sep, &pitch))
                   S_StopChannel(cnum);
                 else
-                  I_UpdateSoundParams(c->handle, volume, sep, pitch);
+                  I_UpdateSoundParams((int)c->handle, volume, sep, pitch);
         }
             }
           else   // if channel is allocated but sound has stopped, free it
@@ -516,7 +515,10 @@ void S_ChangeMusic(int musicnum, int looping)
 {
   musicinfo_t *music;
   int music_file_failed; // cournia - if true load the default MIDI music
-  char* music_filename;  // cournia
+  char music_filename[ 1024 ];  // cournia
+
+  (void)music_file_failed;
+  (void)music_filename;
 
   //jff 1/22/98 return if music is not enabled
   if (!mus_card || nomusicparm)
@@ -530,11 +532,14 @@ void S_ChangeMusic(int musicnum, int looping)
   if (mus_playing == music)
     return;
 #endif
-	
+
+/*	
 #ifdef IPHONE
 	extern void iphonePlayMusic( const char *name );
 	iphonePlayMusic( music->name );
+	
 #else
+*/
   // shutdown old music
   S_StopMusic();
 
@@ -553,8 +558,8 @@ void S_ChangeMusic(int musicnum, int looping)
     {
       // cournia - check to see if we can play a higher quality music file
       //           rather than the default MIDI
-      music_filename = I_FindFile(S_music_files[musicnum], "");
-      if (music_filename)
+      I_FindFile(S_music_files[musicnum], "", music_filename);
+      if ( music_filename[0] != '\0' )
         {
           music_file_failed = I_RegisterMusic(music_filename, music);
           free(music_filename);
@@ -572,7 +577,7 @@ void S_ChangeMusic(int musicnum, int looping)
 
   // play it
   I_PlaySong(music->handle, looping);
-#endif
+//#endif
 
   mus_playing = music;
 }
@@ -706,7 +711,7 @@ int S_AdjustSoundParams(mobj_t *listener, mobj_t *source,
 //   If none available, return -1.  Otherwise channel #.
 //
 // killough 4/25/98: made static, added is_pickup argument
-
+#ifndef IPHONE
 static int S_getChannel(void *origin, sfxinfo_t *sfxinfo, int is_pickup)
 {
   // channel number to use
@@ -744,3 +749,4 @@ static int S_getChannel(void *origin, sfxinfo_t *sfxinfo, int is_pickup)
   c->is_pickup = is_pickup;         // killough 4/25/98
   return cnum;
 }
+#endif

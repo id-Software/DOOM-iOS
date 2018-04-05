@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  iphone_net.c
+ *  doom
+ *
+ *  Created by John Carmack on 7/8/09.
+ *  Copyright 2009 id Software. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -25,7 +33,7 @@
  
  */
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
 #include <dns_sd.h>
 #include <netdb.h>		// for gethostbyname
@@ -64,6 +72,13 @@ void DNSServiceRegisterReplyCallback (
 										  const char *regtype, 
 										  const char *domain, 
 										  void *context ) {
+	(void)sdRef;
+	(void)flags;
+	(void)name;
+	(void)regtype;
+	(void)domain;
+	(void)context;
+	
 	if ( errorCode == kDNSServiceErr_NoError ) {
 		localServer = true;
 	} else {
@@ -119,6 +134,14 @@ void DNSServiceQueryRecordReplyCallback (
 											 const void *rdata, 
 											 uint32_t ttl, 
 											 void *context ) {
+	(void)DNSServiceRef;
+	(void)flags;
+	(void)errorCode;
+	(void)rrtype;
+	(void)rrclass;
+	(void)ttl;
+	(void)context;
+											 
 	assert( rdlen == 4 );
 	const byte *ip = (const byte *)rdata;
 	char	interfaceName[IF_NAMESIZE];
@@ -152,6 +175,13 @@ void DNSServiceResolveReplyCallback (
 										 uint16_t txtLen, 
 										 const unsigned char *txtRecord, 
 										 void *context ) {
+	(void)sdRef;
+	(void)errorCode;
+	(void)port;
+	(void)txtLen;
+	(void)txtRecord;
+	(void)context;
+	
 	char	interfaceName[IF_NAMESIZE];
 	if_indextoname( interfaceIndex, interfaceName );
 	printf( "Resolve: interfaceIndex [%i]=%s : %s @ %s\n", interfaceIndex, interfaceName, fullname, hosttarget );
@@ -336,13 +366,17 @@ void DNSServiceBrowseReplyCallback(
 								   DNSServiceFlags flags, 
 								   uint32_t interfaceIndex, 
 								   DNSServiceErrorType errorCode, 
-								   const char *serviceName, 
+								   const char *theServiceName, 
 								   const char *regtype, 
 								   const char *replyDomain, 
 								   void *context ) {
+	(void)sdRef;
+	(void)errorCode;
+	(void)context;
+	
 	printf( "DNSServiceBrowseReplyCallback %s: interface:%i name:%s regtype:%s domain:%s\n", 
 		   (flags & kDNSServiceFlagsAdd) ? "ADD" : "REMOVE",
-		   interfaceIndex, serviceName, regtype, replyDomain );
+		   interfaceIndex, theServiceName, regtype, replyDomain );
 	if ( flags & kDNSServiceFlagsAdd ) {
 		// add it to the list
 		if ( interfaceIndex == 1 ) {
@@ -351,7 +385,7 @@ void DNSServiceBrowseReplyCallback(
 			for ( int i = 0 ; i < MAX_SERVICE_INTEFACES ; i++ ) {
 				service_t *service = &serviceInterfaces[i];
 				if ( service->interfaceIndex == 0 ) {
-					strncpy( service->browseName, serviceName, sizeof( service->browseName ) -1 );
+					strncpy( service->browseName, theServiceName, sizeof( service->browseName ) -1 );
 					strncpy( service->browseRegtype, regtype, sizeof( service->browseRegtype ) -1 );
 					strncpy( service->browseDomain, replyDomain, sizeof( service->browseDomain ) -1 );
 					service->interfaceIndex = interfaceIndex;
@@ -467,6 +501,7 @@ boolean NetworkAvailable() {
 }
 
 int InterfaceIndexForAddress( struct sockaddr_in *adr ) {
+	(void)adr;
 	// FIXME: compare against getifaddrs 
 	return 0;
 }

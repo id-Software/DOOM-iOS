@@ -1,7 +1,12 @@
 /*
- 
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
- 
+ *  cmd.c
+ *  doom
+ *
+ *  Created by John Carmack on 4/14/09.
+ *  Copyright 2009 id Software. All rights reserved.
+ *
+ */
+/*
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
@@ -19,7 +24,7 @@
  */
 
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
 typedef struct cmd_function_s {
 	struct cmd_function_s	*next;
@@ -113,7 +118,7 @@ void Cmd_AddCommand( const char *cmd_name, xcommand_t function ) {
 }
 
 void	Cmd_ExecuteString( const char *str ) {	
-	int l = strlen( str );
+	int l = (int) strlen( str );
 	if ( str[l-1] == '\n' ) {
 		char *stripped = alloca( l+1 );
 		strcpy( stripped, str );

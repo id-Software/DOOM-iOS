@@ -83,7 +83,7 @@ static boolean P_CrossSubsector(int num)
 {
   seg_t *seg = segs + subsectors[num].firstline;
   int count;
-  fixed_t opentop = 0, openbottom = 0;
+  fixed_t opentopheight = 0, openbottomheight = 0;
   const sector_t *front = NULL, *back = NULL;
 
 #ifdef RANGECHECK
@@ -126,15 +126,15 @@ static boolean P_CrossSubsector(int num)
 
       // possible occluder
       // because of ceiling height differences
-      opentop = front->ceilingheight < back->ceilingheight ?
+      opentopheight = front->ceilingheight < back->ceilingheight ?
   front->ceilingheight : back->ceilingheight ;
 
       // because of floor height differences
-      openbottom = front->floorheight > back->floorheight ?
+      openbottomheight = front->floorheight > back->floorheight ?
   front->floorheight : back->floorheight ;
 
       // cph - reject if does not intrude in the z-space of the possible LOS
-      if ((opentop >= los.maxz) && (openbottom <= los.minz))
+      if ((opentopheight >= los.maxz) && (openbottomheight <= los.minz))
   continue;
     }
 
@@ -159,8 +159,8 @@ static boolean P_CrossSubsector(int num)
 
     // cph - if bottom >= top or top < minz or bottom > maxz then it must be
     // solid wrt this LOS
-    if (!(line->flags & ML_TWOSIDED) || (openbottom >= opentop) ||
-  (opentop < los.minz) || (openbottom > los.maxz))
+    if (!(line->flags & ML_TWOSIDED) || (openbottomheight >= opentopheight) ||
+  (opentopheight < los.minz) || (openbottomheight > los.maxz))
   return false;
 
     { // crosses a two sided line
@@ -171,14 +171,14 @@ static boolean P_CrossSubsector(int num)
 		      P_InterceptVector(&los.strace, &divl);
 
       if (front->floorheight != back->floorheight) {
-        fixed_t slope = FixedDiv(openbottom - los.sightzstart , frac);
+        fixed_t slope = FixedDiv(openbottomheight - los.sightzstart , frac);
         if (slope > los.bottomslope)
             los.bottomslope = slope;
       }
 
       if (front->ceilingheight != back->ceilingheight)
         {
-          fixed_t slope = FixedDiv(opentop - los.sightzstart , frac);
+          fixed_t slope = FixedDiv(opentopheight - los.sightzstart , frac);
           if (slope < los.topslope)
             los.topslope = slope;
         }
@@ -263,7 +263,7 @@ boolean P_CheckSight(mobj_t *t1, mobj_t *t2)
 {
   const sector_t *s1 = t1->subsector->sector;
   const sector_t *s2 = t2->subsector->sector;
-  int pnum = (s1-sectors)*numsectors + (s2-sectors);
+  int pnum = (int)((s1-sectors)*numsectors + (s2-sectors));
 
   // First check for trivial rejection.
   // Determine subsector entries in REJECT table.
@@ -307,14 +307,14 @@ boolean P_CheckSight(mobj_t *t1, mobj_t *t2)
   los.strace.dy = (los.t2y = t2->y) - (los.strace.y = t1->y);
 
   if (t1->x > t2->x)
-    los.bbox[BOXRIGHT] = t1->x, los.bbox[BOXLEFT] = t2->x;
+      (void)(los.bbox[BOXRIGHT] = t1->x), los.bbox[BOXLEFT] = t2->x;
   else
-    los.bbox[BOXRIGHT] = t2->x, los.bbox[BOXLEFT] = t1->x;
+      (void)(los.bbox[BOXRIGHT] = t2->x), los.bbox[BOXLEFT] = t1->x;
 
   if (t1->y > t2->y)
-    los.bbox[BOXTOP] = t1->y, los.bbox[BOXBOTTOM] = t2->y;
+      (void)(los.bbox[BOXTOP] = t1->y), los.bbox[BOXBOTTOM] = t2->y;
   else
-    los.bbox[BOXTOP] = t2->y, los.bbox[BOXBOTTOM] = t1->y;
+      (void)(los.bbox[BOXTOP] = t2->y), los.bbox[BOXBOTTOM] = t1->y;
 
   /* cph - calculate min and max z of the potential line of sight
    * For old demos, we disable this optimisation by setting them to

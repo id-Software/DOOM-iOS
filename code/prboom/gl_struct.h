@@ -40,7 +40,7 @@ extern int nodesVersion;
 extern byte *staticPlaypal;		// JDC: added to avoid the continuous lookup of PLAYPAL
 
 void gld_Init(int width, int height);
-void gld_InitCommandLine();
+void gld_InitCommandLine(void);
 
 void gld_DrawNumPatch(int x, int y, int lump, int cm, enum patch_translation_e flags);
 void gld_DrawBackground(const char* name);
@@ -54,7 +54,7 @@ unsigned char *gld_ReadScreen (void);
 void gld_CleanMemory(void);
 void gld_PreprocessLevel(void);
 
-void gld_Set2DMode();
+void gld_Set2DMode(void);
 void gld_InitDrawScene(void);
 void gld_StartDrawScene(void);
 void gld_AddPlane(int subsectornum, visplane_t *floor, visplane_t *ceiling);
@@ -62,6 +62,6 @@ void gld_AddWall(seg_t *seg);
 void gld_AddSprite(vissprite_t *vspr);
 void gld_DrawScene(player_t *player);
 void gld_EndDrawScene(void);
-void gld_Finish();
+void gld_Finish(void);
 
 #endif // _GL_STRUCT_H

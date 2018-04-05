@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_CreditsMenuViewController">
+            <connections>
+                <outlet property="creditsList" destination="6v9-da-zz0" id="eLL-3G-mpn"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="42" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="480" id="diO-vI-APD"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Back" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="44" customClass="idLabel">
+                    <rect key="frame" x="9.5" y="260.5" width="32.5" height="18.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.03260869533" green="0.03260869533" blue="0.03260869533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="1" height="2"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45" customClass="idLabelButton">
+                    <rect key="frame" x="0.0" y="264" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="1iZ-t2-y0K"/>
+                        <constraint firstAttribute="width" constant="50" id="6kt-mg-DdZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" backgroundImage="BackButton.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="BackToMain" destination="-1" eventType="touchUpInside" id="1su-Zm-Que"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6v9-da-zz0">
+                    <rect key="frame" x="78" y="16" width="324" height="284"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="324" id="0VQ-9F-92m"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="MWc-3R-eZn"/>
+                        <outlet property="delegate" destination="-1" id="2vv-Kv-LBL"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="45" firstAttribute="top" secondItem="44" secondAttribute="bottom" constant="-15" id="1d6-pS-VQU"/>
+                <constraint firstItem="N1q-D6-Zk8" firstAttribute="bottom" secondItem="45" secondAttribute="bottom" constant="6" id="9hd-D5-q0T"/>
+                <constraint firstItem="6v9-da-zz0" firstAttribute="top" secondItem="N1q-D6-Zk8" secondAttribute="top" constant="16" id="PMp-3h-bUH"/>
+                <constraint firstItem="42" firstAttribute="top" secondItem="N1q-D6-Zk8" secondAttribute="top" id="T8b-wb-Zhp"/>
+                <constraint firstItem="N1q-D6-Zk8" firstAttribute="bottom" secondItem="6v9-da-zz0" secondAttribute="bottom" constant="20" id="VKE-R1-Axm"/>
+                <constraint firstItem="44" firstAttribute="centerX" secondItem="45" secondAttribute="centerX" id="Zmv-Iz-ryn"/>
+                <constraint firstItem="45" firstAttribute="leading" secondItem="N1q-D6-Zk8" secondAttribute="leading" id="gRt-Og-IXz"/>
+                <constraint firstItem="42" firstAttribute="bottom" secondItem="N1q-D6-Zk8" secondAttribute="bottom" id="ksp-NI-vUk"/>
+                <constraint firstItem="42" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="tAk-b4-uDW"/>
+                <constraint firstItem="6v9-da-zz0" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="whS-av-z2w"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="N1q-D6-Zk8"/>
+            <point key="canvasLocation" x="34" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BackButton.png" width="93" height="94"/>
+        <image name="MenuBackground.png" width="960" height="640"/>
+    </resources>
+</document>

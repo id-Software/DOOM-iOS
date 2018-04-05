@@ -171,6 +171,9 @@ extern const char *s_GOTYELWSKUL; // = GOTYELWSKUL;
 //#define GOTREDSKULL   "Picked up a red skull key."
 extern const char *s_GOTREDSKULL; // = GOTREDSKULL;
 
+//#define GOTSECRET   "Secret found."
+extern const char *s_GOTSECRET; // = GOTSECRET;
+
 //#define GOTINVUL      "Invulnerability!"
 extern const char *s_GOTINVUL; // = GOTINVUL;
 //#define GOTBERSERK    "Berserk!"

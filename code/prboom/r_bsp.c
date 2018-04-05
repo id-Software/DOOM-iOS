@@ -83,11 +83,11 @@ static void R_ClipWallSegment(int first, int last, boolean solid)
   while (first < last) {
     if (solidcol[first]) {
       if (!(p = memchr(solidcol+first, 0, last-first))) return; // All solid
-      first = p - solidcol;
+      first = (int)(p - solidcol);
     } else {
       int to;
       if (!(p = memchr(solidcol+first, 1, last-first))) to = last;
-      else to = p - solidcol;
+      else to = (int)(p - solidcol);
       R_StoreWallRange(first, to-1);
       if (solid) {
   memset(solidcol+first,1,to-first);
@@ -222,8 +222,8 @@ sector_t *R_FakeFlat(sector_t *sec, sector_t *tempsec,
       tempsec->ceilingheight = s->ceilingheight;
 
       // killough 11/98: prevent sudden light changes from non-water sectors:
-      if (underwater && (tempsec->  floorheight = sec->floorheight,
-                          tempsec->ceilingheight = s->floorheight-1, !back))
+        if (underwater && ((void)(tempsec->  floorheight = sec->floorheight),
+                         (void)(tempsec->ceilingheight = s->floorheight-1), !back))
         {                   // head-below-floor hack
           tempsec->floorpic    = s->floorpic;
           tempsec->floor_xoffs = s->floor_xoffs;
@@ -360,7 +360,7 @@ static void R_AddLine (seg_t *line)
     {
       if (ds_p == drawsegs+maxdrawsegs)   // killough 1/98 -- fix 2s line HOM
       {
-        unsigned pos = ds_p - drawsegs; // jff 8/9/98 fix from ZDOOM1.14a
+        unsigned pos = (unsigned)(ds_p - drawsegs); // jff 8/9/98 fix from ZDOOM1.14a
         unsigned newmax = maxdrawsegs ? maxdrawsegs*2 : 128; // killough
         drawsegs = realloc(drawsegs,newmax*sizeof(*drawsegs));
         //ds_p = drawsegs+maxdrawsegs;

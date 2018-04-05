@@ -64,6 +64,8 @@
 #include "gl_intern.h"
 #include "gl_struct.h"
 
+void IR_InitLevel(void);
+
 extern int tran_filter_pct;
 
 // JDC #define USE_VERTEX_ARRAYS
@@ -71,7 +73,7 @@ extern int tran_filter_pct;
 boolean use_fog=false;
 
 int gl_nearclip=5;
-char *gl_tex_filter_string;
+const char *gl_tex_filter_string;
 int gl_tex_filter;
 int gl_mipmap_filter;
 int gl_drawskys=true;
@@ -91,6 +93,8 @@ static float extra_blue=0.0f;
 static float extra_alpha=0.0f;
 
 byte	*staticPlaypal;		// JDC: this was being looked up for every line
+
+PFNGLCOLORTABLEEXTPROC gld_ColorTableEXT;
 
 GLfloat gl_whitecolor[4]={1.0f,1.0f,1.0f,1.0f};
 
@@ -307,7 +311,9 @@ static void gld_InitExtensions(const char *_extensions)
     else if (strcasecmp(extension, "GL_EXT_paletted_texture") == 0) {
       if (gl_use_paletted_texture) {
         gl_paletted_texture = true;
-        gld_ColorTableEXT = SDL_GL_GetProcAddress("glColorTableEXT");
+        // OpenGL ES doesn't support color tables.
+		// There's a warning about casting from a void pointer to a function pointer.
+        gld_ColorTableEXT = NULL;//SDL_GL_GetProcAddress("glColorTableEXT");
 	if (gld_ColorTableEXT == NULL)
 	  gl_paletted_texture = false;
 	else
@@ -317,7 +323,9 @@ static void gld_InitExtensions(const char *_extensions)
     else if (strcasecmp(extension, "GL_EXT_shared_texture_palette") == 0)
       if (gl_use_shared_texture_palette) {
         gl_shared_texture_palette = true;
-        gld_ColorTableEXT = SDL_GL_GetProcAddress("glColorTableEXT");
+		// OpenGL ES doesn't support color tables.
+		// There's a warning about casting from a void pointer to a function pointer.
+        gld_ColorTableEXT = NULL;//SDL_GL_GetProcAddress("glColorTableEXT");
 	if (gld_ColorTableEXT == NULL)
 	  gl_shared_texture_palette = false;
 	else
@@ -360,7 +368,7 @@ void gld_Init(int width, int height)
         p++;
       if (*p)
       {
-        int len = MIN(p-rover, sizeof(ext_name)-1);
+        int len = (int)MIN(p-rover, sizeof(ext_name)-1);
         memset(ext_name, 0, sizeof(ext_name));
         strncpy(ext_name, rover, len);
         lprintf(LO_INFO,"\t%s\n", ext_name);
@@ -473,13 +481,13 @@ void gld_Init(int width, int height)
   else
   if (!strcasecmp(gl_tex_format_string,"GL_RGB5_A1"))
   {
-    gl_tex_format=GL_RGB5_A1;
+    gl_tex_format=GL_RGBA;
     lprintf(LO_INFO,"Using texture format GL_RGB5_A1.\n");
   }
   else
   if (!strcasecmp(gl_tex_format_string,"GL_RGBA4"))
   {
-    gl_tex_format=GL_RGBA4;
+    gl_tex_format=GL_RGBA;
     lprintf(LO_INFO,"Using texture format GL_RGBA4.\n");
   }
   else
@@ -770,7 +778,6 @@ GLvoid gld_Set2DMode(void)
   glLoadIdentity();
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-	iphoneRotateForLandscape();	//JDC
   glOrtho(
     (GLdouble) 0,
     (GLdouble) SCREENWIDTH,
@@ -936,6 +943,7 @@ static FILE *levelinfo;
 #define FIX2DBL(x)    ((double)(x))
 #define MAX_CC_SIDES  64
 
+#ifndef IPHONE
 static boolean gld_PointOnSide(vertex_t *p, divline_t *d)
 {
   // We'll return false if the point c is on the left side.
@@ -952,8 +960,11 @@ static void gld_CalcIntersectionVertex(vertex_t *s, vertex_t *e, divline_t *d, v
   i->y = (fixed_t)((double)s->y + r*((double)e->y-(double)s->y));
 }
 
+#endif
+
 #undef FIX2DBL
 
+#ifndef IPHONE
 // Returns a pointer to the list of points. It must be used.
 //
 static vertex_t *gld_FlatEdgeClipper(int *numpoints, vertex_t *points, int numclippers, divline_t *clippers)
@@ -1029,7 +1040,10 @@ static vertex_t *gld_FlatEdgeClipper(int *numpoints, vertex_t *points, int numcl
   *numpoints = num;
   return points;
 }
+#endif
 
+// Unused in iOS version.
+#ifndef IPHONE
 static void gld_FlatConvexCarver(int ssidx, int num, divline_t *list)
 {
   subsector_t *ssec=&subsectors[ssidx];
@@ -1111,7 +1125,10 @@ static void gld_FlatConvexCarver(int ssidx, int num, divline_t *list)
   Z_Free(edgepoints);
   Z_Free(clippers);
 }
+#endif
 
+// Unused in iOS version
+#ifndef IPHONE
 static void gld_CarveFlats(int bspnode, int numdivlines, divline_t *divlines, boolean *sectorclosed)
 {
   node_t    *nod;
@@ -1158,6 +1175,7 @@ static void gld_CarveFlats(int bspnode, int numdivlines, divline_t *divlines, bo
   // We are finishing with this node, free the allocated list.
   Z_Free(childlist);
 }
+#endif
 
 #ifdef USE_GLU_TESS
 
@@ -1296,7 +1314,7 @@ static void gld_PrecalculateSector(int num)
   angle_t lineangle;
   angle_t angle;
   angle_t bestangle;
-  sector_t *backsector;
+  sector_t *currentbacksector;
   GLUtesselator *tess;
   double *v=NULL;
   int maxvertexnum;
@@ -1318,10 +1336,10 @@ static void gld_PrecalculateSector(int num)
     return;
   }
   // set callbacks
-  gluTessCallback(tess, GLU_TESS_BEGIN, ntessBegin);
-  gluTessCallback(tess, GLU_TESS_VERTEX, ntessVertex);
-  gluTessCallback(tess, GLU_TESS_ERROR, ntessError);
-  gluTessCallback(tess, GLU_TESS_COMBINE, ntessCombine);
+  gluTessCallback(tess, GLU_TESS_BEGIN, (_GLUfuncptr*)ntessBegin);
+  gluTessCallback(tess, GLU_TESS_VERTEX, (_GLUfuncptr*)ntessVertex);
+  gluTessCallback(tess, GLU_TESS_ERROR, (_GLUfuncptr*)ntessError);
+  gluTessCallback(tess, GLU_TESS_COMBINE, (_GLUfuncptr*)ntessCombine);
   gluTessCallback(tess, GLU_TESS_END, ntessEnd);
   if (levelinfo) fprintf(levelinfo, "sector %i, %i lines in sector\n", num, sectors[num].linecount);
   // remove any line which has both sides in the same sector (i.e. Doom2 Map01 Sector 1)
@@ -1429,9 +1447,9 @@ static void gld_PrecalculateSector(int num)
     bestlinecount=0;
     // set backsector if there is one
     if (sectors[num].lines[currentline]->sidenum[1]!=NO_INDEX)
-      backsector=sides[sectors[num].lines[currentline]->sidenum[1]].sector;
+      currentbacksector=sides[sectors[num].lines[currentline]->sidenum[1]].sector;
     else
-      backsector=NULL;
+      currentbacksector=NULL;
     // search through all lines of the current sector
     for (i=0; i<sectors[num].linecount; i++)
       if (!lineadded[i]) // if the line isn't already added ...
@@ -1524,13 +1542,13 @@ void gld_GetSubSectorVertices(boolean *sectorclosed)
 
     if ((gld_vertexes) && (gld_texcoords))
     {
-      int currentsector = ssector->sector->iSectorID;
+      int currentsectorid = ssector->sector->iSectorID;
 
-      sectorloops[currentsector].loopcount++;
-      sectorloops[currentsector].loops = Z_Realloc(sectorloops[currentsector].loops,sizeof(GLLoopDef)*sectorloops[currentsector].loopcount, PU_LEVEL, 0);
-      sectorloops[currentsector].loops[sectorloops[currentsector].loopcount-1].mode    = GL_TRIANGLE_FAN;
-      sectorloops[currentsector].loops[sectorloops[currentsector].loopcount-1].vertexcount = numedgepoints;
-      sectorloops[currentsector].loops[sectorloops[currentsector].loopcount-1].vertexindex = gld_num_vertexes;
+      sectorloops[currentsectorid].loopcount++;
+      sectorloops[currentsectorid].loops = Z_Realloc(sectorloops[currentsectorid].loops,sizeof(GLLoopDef)*sectorloops[currentsectorid].loopcount, PU_LEVEL, 0);
+      sectorloops[currentsectorid].loops[sectorloops[currentsectorid].loopcount-1].mode    = GL_TRIANGLE_FAN;
+      sectorloops[currentsectorid].loops[sectorloops[currentsectorid].loopcount-1].vertexcount = numedgepoints;
+      sectorloops[currentsectorid].loops[sectorloops[currentsector].loopcount-1].vertexindex = gld_num_vertexes;
       for(j = 0;  j < numedgepoints; j++)
       {
         gld_texcoords[gld_num_vertexes].u =( (float)(segs[ssector->firstline + j].v1->x)/FRACUNIT)/64.0f;
@@ -1610,7 +1628,7 @@ void BuildSideSegs() {
 	
 	// check that every sidedef had a sideSeg created
 	for ( int i = 0 ; i < numsides ; i++ ) {
-		assert( sides[i].sideSeg.sidedef == &sides[i] );
+		//assert( sides[i].sideSeg.sidedef == &sides[i] );
 	}
 }
 
@@ -1656,19 +1674,19 @@ void BuildIndexedTriangles() {
 			// Without this, there is texture jittering visible when the viewpoint
 			// is near the floor and far away from the origin (dead on the ground in netplay).
 			float	minST[2] = { 99999, 99999 };
-			for ( int j = 0 ; j < loop->vertexcount ; j++ ) {
-				for ( int k = 0 ; k < 2 ; k++ ) {
-					if ( drawVerts[numDrawVerts+j].st[k] < minST[k] ) {
-						minST[k] = drawVerts[numDrawVerts+j].st[k];
+			for ( int k = 0 ; k < loop->vertexcount ; k++ ) {
+				for ( int l = 0 ; l < 2 ; l++ ) {
+					if ( drawVerts[numDrawVerts+k].st[l] < minST[l] ) {
+						minST[l] = drawVerts[numDrawVerts+k].st[l];
 					}
 				}
 			}
 			for ( int k = 0 ; k < 2 ; k++ ) {
 				minST[k] = floor( minST[k] );
 			}
-			for ( int j = 0 ; j < loop->vertexcount ; j++ ) {
-				for ( int k = 0 ; k < 2 ; k++ ) {
-					drawVerts[numDrawVerts+j].st[k] -= minST[k];
+			for ( int k = 0 ; k < loop->vertexcount ; k++ ) {
+				for ( int l = 0 ; l < 2 ; l++ ) {
+					drawVerts[numDrawVerts+k].st[l] -= minST[l];
 				}
 			}
 			
@@ -1947,8 +1965,8 @@ void gld_StartDrawScene(void)
     height = (screenblocks*SCREENHEIGHT/10) & ~7;
 
   glViewport(viewwindowx, SCREENHEIGHT-(height+viewwindowy-((height-viewheight)/2)), viewwidth, height);
-  glScissor(viewwindowx, SCREENHEIGHT-(viewheight+viewwindowy), viewwidth, viewheight);
-  glEnable(GL_SCISSOR_TEST);
+  //glScissor(viewwindowx, SCREENHEIGHT-(viewheight+viewwindowy), viewwidth, viewheight);
+  //glEnable(GL_SCISSOR_TEST);
   // Player coordinates
   xCamera=-(float)viewx/MAP_SCALE;
   yCamera=(float)viewy/MAP_SCALE;
@@ -1967,8 +1985,7 @@ void gld_StartDrawScene(void)
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  iphoneRotateForLandscape();	//JDC, make the 320x480 hardware seem like 480x320 in two different orientations
-
+  
   infinitePerspective(64.0f, 320.0f/200.0f, (float)gl_nearclip/100.0f);
 
   glMatrixMode(GL_MODELVIEW);
@@ -1999,6 +2016,7 @@ void gld_EndDrawScene(void)
   glDisable(GL_FOG);
   gld_Set2DMode();
 
+  // suppressing this warning in the compiler with a -w flag as I think it can't be helped -tkidd
   if (viewangleoffset <= 1024<<ANGLETOFINESHIFT ||
     viewangleoffset >=-1024<<ANGLETOFINESHIFT)
   { // don't draw on side views
@@ -2096,38 +2114,12 @@ static void gld_AddDrawItem(GLDrawItemType itemtype, int itemindex)
 
 static void gld_DrawWall(GLWall *wall)
 {
-  if ( (!gl_drawskys) && (wall->flag>=GLDWF_SKY) )
-    wall->gltexture=NULL;
+
   gld_BindTexture(wall->gltexture);
-  if (!wall->gltexture)
-  {
-#ifdef _DEBUG
-    glColor4f(1.0f,0.0f,0.0f,1.0f);
-#endif
-  }
+
   if (wall->flag>=GLDWF_SKY)
   {
-    if ( wall->gltexture )
-    {
-      glMatrixMode(GL_TEXTURE);
-      glPushMatrix();
-      if ((wall->flag&GLDWF_SKYFLIP)==GLDWF_SKYFLIP)
-        glScalef(-128.0f/(float)wall->gltexture->buffer_width,200.0f/320.0f*2.0f,1.0f);
-      else
-        glScalef(128.0f/(float)wall->gltexture->buffer_width,200.0f/320.0f*2.0f,1.0f);
-      glTranslatef(wall->skyyaw,wall->skyymid,0.0f);
-    }
-    glBegin(GL_TRIANGLE_STRIP);
-      glVertex3f(wall->glseg->x1,wall->ytop,wall->glseg->z1);
-      glVertex3f(wall->glseg->x1,wall->ybottom,wall->glseg->z1);
-      glVertex3f(wall->glseg->x2,wall->ytop,wall->glseg->z2);
-      glVertex3f(wall->glseg->x2,wall->ybottom,wall->glseg->z2);
-    glEnd();
-    if ( wall->gltexture )
-    {
-      glPopMatrix();
-      glMatrixMode(GL_MODELVIEW);
-    }
+      // Dont Draw Sky Walls.
   }
   else
   {
@@ -2249,8 +2241,8 @@ void gld_AddWall(seg_t *seg)
 {
   GLWall wall;
   GLTexture *temptex;
-  sector_t *frontsector;
-  sector_t *backsector;
+  sector_t *theFrontsector;
+  sector_t *theBacksector;
   sector_t ftempsec; // needed for R_FakeFlat
   sector_t btempsec; // needed for R_FakeFlat
   float lineheight;
@@ -2263,37 +2255,37 @@ void gld_AddWall(seg_t *seg)
   segrendered[seg->iSegID]=rendermarker;
   if (!seg->frontsector)
     return;
-  frontsector=R_FakeFlat(seg->frontsector, &ftempsec, NULL, NULL, false); // for boom effects
-  if (!frontsector)
+  theFrontsector=R_FakeFlat(seg->frontsector, &ftempsec, NULL, NULL, false); // for boom effects
+  if (!theFrontsector)
     return;
   wall.glseg=&gl_segs[seg->iSegID];
 
   rellight = seg->linedef->dx==0? +8 : seg->linedef->dy==0 ? -8 : 0;
-  wall.light=gld_CalcLightLevel(frontsector->lightlevel+rellight+(extralight<<5));
+  wall.light=gld_CalcLightLevel(theFrontsector->lightlevel+rellight+(extralight<<5));
   wall.alpha=1.0f;
   wall.gltexture=NULL;
 
   if (!seg->backsector) /* onesided */
   {
-    if (frontsector->ceilingpic==skyflatnum)
+    if (theFrontsector->ceilingpic==skyflatnum)
     {
       wall.ytop=255.0f;
-      wall.ybottom=(float)frontsector->ceilingheight/MAP_SCALE;
-      SKYTEXTURE(frontsector->sky,frontsector->sky);
+      wall.ybottom=(float)theFrontsector->ceilingheight/MAP_SCALE;
+      SKYTEXTURE(theFrontsector->sky,theFrontsector->sky);
       ADDWALL(&wall);
     }
-    if (frontsector->floorpic==skyflatnum)
+    if (theFrontsector->floorpic==skyflatnum)
     {
-      wall.ytop=(float)frontsector->floorheight/MAP_SCALE;
+      wall.ytop=(float)theFrontsector->floorheight/MAP_SCALE;
       wall.ybottom=-255.0f;
-      SKYTEXTURE(frontsector->sky,frontsector->sky);
+      SKYTEXTURE(theFrontsector->sky,theFrontsector->sky);
       ADDWALL(&wall);
     }
     temptex=gld_RegisterTexture(texturetranslation[seg->sidedef->midtexture], true, false);
     if (temptex)
     {
       wall.gltexture=temptex;
-      CALC_Y_VALUES(wall, lineheight, frontsector->floorheight, frontsector->ceilingheight);
+      CALC_Y_VALUES(wall, lineheight, theFrontsector->floorheight, theFrontsector->ceilingheight);
       CALC_TEX_VALUES_MIDDLE1S(
         wall, seg, (LINE->flags & ML_DONTPEGBOTTOM)>0,
         segs[seg->iSegID].length, lineheight
@@ -2305,25 +2297,25 @@ void gld_AddWall(seg_t *seg)
   {
     int floor_height,ceiling_height;
 
-    backsector=R_FakeFlat(seg->backsector, &btempsec, NULL, NULL, true); // for boom effects
-    if (!backsector)
+    theBacksector=R_FakeFlat(seg->backsector, &btempsec, NULL, NULL, true); // for boom effects
+    if (!theBacksector)
       return;
     /* toptexture */
-    ceiling_height=frontsector->ceilingheight;
-    floor_height=backsector->ceilingheight;
-    if (frontsector->ceilingpic==skyflatnum)
+    ceiling_height=theFrontsector->ceilingheight;
+    floor_height=theBacksector->ceilingheight;
+    if (theFrontsector->ceilingpic==skyflatnum)
     {
       wall.ytop=255.0f;
       if (
           // e6y
           // Fix for HOM in the starting area on Memento Mori map29 and on map30.
-          // old code: (backsector->ceilingheight==backsector->floorheight) &&
-          (backsector->ceilingheight==backsector->floorheight||(backsector->ceilingheight<=frontsector->floorheight)) &&
-          (backsector->ceilingpic==skyflatnum)
+          // old code: (theBacksector->ceilingheight==theBacksector->floorheight) &&
+          (theBacksector->ceilingheight==theBacksector->floorheight||(theBacksector->ceilingheight<=theFrontsector->floorheight)) &&
+          (theBacksector->ceilingpic==skyflatnum)
          )
       {
-        wall.ybottom=(float)backsector->floorheight/MAP_SCALE;
-        SKYTEXTURE(frontsector->sky,backsector->sky);
+        wall.ybottom=(float)theBacksector->floorheight/MAP_SCALE;
+        SKYTEXTURE(theFrontsector->sky,theBacksector->sky);
         ADDWALL(&wall);
       }
       else
@@ -2332,25 +2324,25 @@ void gld_AddWall(seg_t *seg)
         {
           // e6y
           // It corrects some problem with sky, but I do not remember which one
-          // old code: wall.ybottom=(float)frontsector->ceilingheight/MAP_SCALE;
-          wall.ybottom=(float)MAX(frontsector->ceilingheight,backsector->ceilingheight)/MAP_SCALE;
+          // old code: wall.ybottom=(float)theFrontsector->ceilingheight/MAP_SCALE;
+          wall.ybottom=(float)MAX(theFrontsector->ceilingheight,theBacksector->ceilingheight)/MAP_SCALE;
 
-          SKYTEXTURE(frontsector->sky,backsector->sky);
+          SKYTEXTURE(theFrontsector->sky,theBacksector->sky);
           ADDWALL(&wall);
         }
         else
-          if ( (backsector->ceilingheight <= frontsector->floorheight) ||
-               (backsector->ceilingpic != skyflatnum) )
+          if ( (theBacksector->ceilingheight <= theFrontsector->floorheight) ||
+               (theBacksector->ceilingpic != skyflatnum) )
           {
-            wall.ybottom=(float)backsector->ceilingheight/MAP_SCALE;
-            SKYTEXTURE(frontsector->sky,backsector->sky);
+            wall.ybottom=(float)theBacksector->ceilingheight/MAP_SCALE;
+            SKYTEXTURE(theFrontsector->sky,theBacksector->sky);
             ADDWALL(&wall);
           }
       }
     }
     if (floor_height<ceiling_height)
     {
-      if (!((frontsector->ceilingpic==skyflatnum) && (backsector->ceilingpic==skyflatnum)))
+      if (!((theFrontsector->ceilingpic==skyflatnum) && (theBacksector->ceilingpic==skyflatnum)))
       {
         temptex=gld_RegisterTexture(texturetranslation[seg->sidedef->toptexture], true, false);
         if (temptex)
@@ -2442,34 +2434,34 @@ void gld_AddWall(seg_t *seg)
     }
 bottomtexture:
     /* bottomtexture */
-    ceiling_height=backsector->floorheight;
-    floor_height=frontsector->floorheight;
-    if (frontsector->floorpic==skyflatnum)
+    ceiling_height=theBacksector->floorheight;
+    floor_height=theFrontsector->floorheight;
+    if (theFrontsector->floorpic==skyflatnum)
     {
       wall.ybottom=-255.0f;
       if (
-          (backsector->ceilingheight==backsector->floorheight) &&
-          (backsector->floorpic==skyflatnum)
+          (theBacksector->ceilingheight==theBacksector->floorheight) &&
+          (theBacksector->floorpic==skyflatnum)
          )
       {
-        wall.ytop=(float)backsector->floorheight/MAP_SCALE;
-        SKYTEXTURE(frontsector->sky,backsector->sky);
+        wall.ytop=(float)theBacksector->floorheight/MAP_SCALE;
+        SKYTEXTURE(theFrontsector->sky,theBacksector->sky);
         ADDWALL(&wall);
       }
       else
       {
         if ( (texturetranslation[seg->sidedef->bottomtexture]!=NO_TEXTURE) )
         {
-          wall.ytop=(float)frontsector->floorheight/MAP_SCALE;
-          SKYTEXTURE(frontsector->sky,backsector->sky);
+          wall.ytop=(float)theFrontsector->floorheight/MAP_SCALE;
+          SKYTEXTURE(theFrontsector->sky,theBacksector->sky);
           ADDWALL(&wall);
         }
         else
-          if ( (backsector->floorheight >= frontsector->ceilingheight) ||
-               (backsector->floorpic != skyflatnum) )
+          if ( (theBacksector->floorheight >= theFrontsector->ceilingheight) ||
+               (theBacksector->floorpic != skyflatnum) )
           {
-            wall.ytop=(float)backsector->floorheight/MAP_SCALE;
-            SKYTEXTURE(frontsector->sky,backsector->sky);
+            wall.ytop=(float)theBacksector->floorheight/MAP_SCALE;
+            SKYTEXTURE(theFrontsector->sky,theBacksector->sky);
             ADDWALL(&wall);
           }
       }
@@ -2484,7 +2476,7 @@ bottomtexture:
         CALC_TEX_VALUES_BOTTOM(
           wall, seg, (LINE->flags & ML_DONTPEGBOTTOM)>0,
           segs[seg->iSegID].length, lineheight,
-          floor_height-frontsector->ceilingheight
+          floor_height-theFrontsector->ceilingheight
         );
         ADDWALL(&wall);
       }
@@ -2672,6 +2664,13 @@ void gld_AddPlane(int subsectornum, visplane_t *floor, visplane_t *ceiling)
 
 static void gld_DrawSprite(GLSprite *sprite)
 {
+    
+  	// transparent sprites blend and don't write to the depth buffer
+	glEnable( GL_BLEND );
+	glDepthMask( 0 );
+	
+	glEnable( GL_ALPHA_TEST );
+    
   gld_BindPatch(sprite->gltexture,sprite->cm);
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
@@ -2706,6 +2705,9 @@ static void gld_DrawSprite(GLSprite *sprite)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glAlphaFunc(GL_GEQUAL,0.5f);
   }
+    
+    glDisable( GL_ALPHA_TEST );
+	glDepthMask( 1 );
 }
 
 void gld_AddSprite(vissprite_t *vspr)
@@ -2785,9 +2787,51 @@ void gld_DrawScene(player_t *player)
 {
   int i,j,k,count;
   fixed_t max_scale;
+  
+	glDisable(GL_CULL_FACE);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_COLOR_ARRAY);
+    
 
-  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-  glEnableClientState(GL_VERTEX_ARRAY);
+    //-----------------------------------------
+	// draw the sky if needed
+	//-----------------------------------------
+	if ( true ) {
+		float	s;
+		float	y;
+		
+		// Note that these texcoords would have to be corrected
+		// for different screen aspect ratios or fields of view!
+		s = ((yaw+90.0f)/90.0f);
+		y = 1 - 2 * 128.0 / 200;
+		
+		// With identity matricies, the vertex coordinates
+		// can just be in the 0-1 range.
+		glMatrixMode( GL_MODELVIEW );
+		glPushMatrix();
+		glLoadIdentity();
+		glMatrixMode( GL_PROJECTION );
+		glPushMatrix();
+		glLoadIdentity();
+		
+		gld_BindTexture( gld_RegisterTexture( skytexture, true, true ) );
+		glColor4f( 0.5, 0.5, 0.5, 1.0 );	// native texture color, not double bright
+		glBegin(GL_TRIANGLE_STRIP);
+		glTexCoord2f( s, 1 ); glVertex3f(-1,y,0.999);
+		glTexCoord2f( s, 0 ); glVertex3f(-1,1,0.999);
+		glTexCoord2f( s+1, 1 ); glVertex3f(1,y,0.999);
+		glTexCoord2f( s+1, 0 ); glVertex3f(1,1,0.999);
+		glEnd();
+		
+		// back to the normal drawing matrix
+		glPopMatrix();
+		glMatrixMode( GL_MODELVIEW );
+		glPopMatrix();
+	}
+    
+    
+    
   rendered_visplanes = rendered_segs = rendered_vissprites = 0;
   for (i=gld_drawinfo.num_drawitems; i>=0; i--)
   {
@@ -2815,7 +2859,9 @@ void gld_DrawScene(player_t *player)
       // disable backside removing
       glDisable(GL_CULL_FACE);
       break;
-    }
+	
+	  default: break;
+	}
   }
   for (i=gld_drawinfo.num_drawitems; i>=0; i--)
   {
@@ -2829,11 +2875,14 @@ void gld_DrawScene(player_t *player)
           continue;
         if ( (gl_drawskys) && (k>=GLDWF_SKY) )
         {
+		  // Texture gen is not supported in OpenGL ES
+		  #ifndef IPHONE
           if (comp[comp_skymap] && gl_shared_texture_palette)
             glDisable(GL_SHARED_TEXTURE_PALETTE_EXT);
           glEnable(GL_TEXTURE_GEN_S);
           glEnable(GL_TEXTURE_GEN_T);
           glEnable(GL_TEXTURE_GEN_Q);
+		  #endif
           glColor4fv(gl_whitecolor);
         }
         for (j=(gld_drawinfo.drawitems[i].itemcount-1); j>=0; j--)
@@ -2845,11 +2894,14 @@ void gld_DrawScene(player_t *player)
           }
         if (gl_drawskys)
         {
+		  // Texture gen is not supported in OpenGL ES
+		  #ifndef IPHONE
           glDisable(GL_TEXTURE_GEN_Q);
           glDisable(GL_TEXTURE_GEN_T);
           glDisable(GL_TEXTURE_GEN_S);
           if (comp[comp_skymap] && gl_shared_texture_palette)
             glEnable(GL_SHARED_TEXTURE_PALETTE_EXT);
+		  #endif
         }
       }
       break;
@@ -2880,6 +2932,7 @@ void gld_DrawScene(player_t *player)
           gld_DrawSprite(&gld_drawinfo.sprites[j+gld_drawinfo.drawitems[i].firstitemindex]);
       }
       break;
+	default: break;
     }
   }
 // JDC  glDisableClientState(GL_TEXTURE_COORD_ARRAY);

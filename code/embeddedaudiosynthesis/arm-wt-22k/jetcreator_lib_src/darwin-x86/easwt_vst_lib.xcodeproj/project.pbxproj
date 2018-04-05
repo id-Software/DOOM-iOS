@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A56AB8F0F7197AE00D115A7 /* wt_44khz.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A56AB8E0F7197AE00D115A7 /* wt_44khz.c */; };
+		9A56ABD00F71998600D115A7 /* eas_fmengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A56ABCF0F71998600D115A7 /* eas_fmengine.h */; };
+		9A56ABDB0F719D4600D115A7 /* eas_xmf.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A56ABD70F719D4600D115A7 /* eas_xmf.c */; };
+		9A56ABDC0F719D4600D115A7 /* eas_xmf.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A56ABD80F719D4600D115A7 /* eas_xmf.h */; };
+		9A56ABDD0F719D4600D115A7 /* eas_xmfdata.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A56ABD90F719D4600D115A7 /* eas_xmfdata.c */; };
+		9A56ABDE0F719D4600D115A7 /* eas_xmfdata.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A56ABDA0F719D4600D115A7 /* eas_xmfdata.h */; };
+		9A56AC050F71BCFE00D115A7 /* eas_build.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A56AC040F71BCFE00D115A7 /* eas_build.h */; };
+		C55B113D0E2D33B4006357C1 /* eas.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11290E2D33B4006357C1 /* eas.h */; };
+		C55B113E0E2D33B4006357C1 /* eas_audioconst.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B112A0E2D33B4006357C1 /* eas_audioconst.h */; };
+		C55B11400E2D33B4006357C1 /* eas_config.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B112C0E2D33B4006357C1 /* eas_config.h */; };
+		C55B11410E2D33B4006357C1 /* eas_data.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B112D0E2D33B4006357C1 /* eas_data.h */; };
+		C55B11420E2D33B4006357C1 /* eas_host.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B112E0E2D33B4006357C1 /* eas_host.h */; };
+		C55B11430E2D33B4006357C1 /* eas_math.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B112F0E2D33B4006357C1 /* eas_math.h */; };
+		C55B11440E2D33B4006357C1 /* eas_midi.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11300E2D33B4006357C1 /* eas_midi.h */; };
+		C55B11450E2D33B4006357C1 /* eas_midictrl.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11310E2D33B4006357C1 /* eas_midictrl.h */; };
+		C55B11460E2D33B4006357C1 /* eas_mixer.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11320E2D33B4006357C1 /* eas_mixer.c */; };
+		C55B11470E2D33B4006357C1 /* eas_pan.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11330E2D33B4006357C1 /* eas_pan.h */; };
+		C55B11480E2D33B4006357C1 /* eas_pcm.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11340E2D33B4006357C1 /* eas_pcm.h */; };
+		C55B11490E2D33B4006357C1 /* eas_pcmdata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11350E2D33B4006357C1 /* eas_pcmdata.h */; };
+		C55B114B0E2D33B4006357C1 /* eas_report.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11370E2D33B4006357C1 /* eas_report.h */; };
+		C55B114C0E2D33B4006357C1 /* eas_sndlib.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11380E2D33B4006357C1 /* eas_sndlib.h */; };
+		C55B114D0E2D33B4006357C1 /* eas_synth.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11390E2D33B4006357C1 /* eas_synth.h */; };
+		C55B114E0E2D33B4006357C1 /* eas_synth_protos.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B113A0E2D33B4006357C1 /* eas_synth_protos.h */; };
+		C55B114F0E2D33B4006357C1 /* eas_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B113B0E2D33B4006357C1 /* eas_types.h */; };
+		C55B11500E2D33B4006357C1 /* eas_vm_protos.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B113C0E2D33B4006357C1 /* eas_vm_protos.h */; };
+		C55B115B0E2D3796006357C1 /* eas_effects.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11530E2D3796006357C1 /* eas_effects.h */; };
+		C55B11640E2D37FC006357C1 /* eas_imelodydata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11620E2D37FC006357C1 /* eas_imelodydata.h */; };
+		C55B11760E2D38CE006357C1 /* eas_mdls.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B116B0E2D38CE006357C1 /* eas_mdls.h */; };
+		C55B11770E2D38CE006357C1 /* eas_otadata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B116C0E2D38CE006357C1 /* eas_otadata.h */; };
+		C55B11780E2D38CE006357C1 /* eas_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B116D0E2D38CE006357C1 /* eas_parser.h */; };
+		C55B11790E2D38CE006357C1 /* eas_rtttldata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B116E0E2D38CE006357C1 /* eas_rtttldata.h */; };
+		C55B117B0E2D38CE006357C1 /* eas_smf.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11700E2D38CE006357C1 /* eas_smf.h */; };
+		C55B117C0E2D38CE006357C1 /* eas_smfdata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11710E2D38CE006357C1 /* eas_smfdata.h */; };
+		C55B117D0E2D38CE006357C1 /* eas_tcdata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11720E2D38CE006357C1 /* eas_tcdata.h */; };
+		C55B117E0E2D38CE006357C1 /* eas_wavefile.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11730E2D38CE006357C1 /* eas_wavefile.h */; };
+		C55B11830E2D38FB006357C1 /* jet.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11810E2D38FB006357C1 /* jet.h */; };
+		C55B11840E2D38FB006357C1 /* jet_data.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11820E2D38FB006357C1 /* jet_data.h */; };
+		C55B11860E2D395F006357C1 /* eas_wtengine.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11850E2D395F006357C1 /* eas_wtengine.h */; };
+		C55B11900E2D39ED006357C1 /* eas_reverb.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B118E0E2D39ED006357C1 /* eas_reverb.h */; };
+		C55B11910E2D39ED006357C1 /* eas_reverbdata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B118F0E2D39ED006357C1 /* eas_reverbdata.h */; };
+		C55B11940E2D39FE006357C1 /* eas_chorus.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11920E2D39FE006357C1 /* eas_chorus.h */; };
+		C55B11950E2D39FE006357C1 /* eas_chorusdata.h in Headers */ = {isa = PBXBuildFile; fileRef = C55B11930E2D39FE006357C1 /* eas_chorusdata.h */; };
+		C55B11AE0E2D3B1B006357C1 /* eas_data.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B119F0E2D3B1B006357C1 /* eas_data.c */; };
+		C55B11AF0E2D3B1B006357C1 /* eas_flog.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A00E2D3B1B006357C1 /* eas_flog.c */; };
+		C55B11B10E2D3B1B006357C1 /* eas_ima_tables.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A20E2D3B1B006357C1 /* eas_ima_tables.c */; };
+		C55B11B20E2D3B1B006357C1 /* eas_imaadpcm.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A30E2D3B1B006357C1 /* eas_imaadpcm.c */; };
+		C55B11B30E2D3B1B006357C1 /* eas_math.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A40E2D3B1B006357C1 /* eas_math.c */; };
+		C55B11B40E2D3B1B006357C1 /* eas_midi.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A50E2D3B1B006357C1 /* eas_midi.c */; };
+		C55B11B50E2D3B1B006357C1 /* eas_mididata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A60E2D3B1B006357C1 /* eas_mididata.c */; };
+		C55B11B60E2D3B1B006357C1 /* eas_mixbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A70E2D3B1B006357C1 /* eas_mixbuf.c */; };
+		C55B11B70E2D3B1B006357C1 /* eas_pan.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A80E2D3B1B006357C1 /* eas_pan.c */; };
+		C55B11B80E2D3B1B006357C1 /* eas_pcm.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11A90E2D3B1B006357C1 /* eas_pcm.c */; };
+		C55B11B90E2D3B1B006357C1 /* eas_pcmdata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11AA0E2D3B1B006357C1 /* eas_pcmdata.c */; };
+		C55B11BA0E2D3B1B006357C1 /* eas_public.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11AB0E2D3B1B006357C1 /* eas_public.c */; };
+		C55B11BB0E2D3B1B006357C1 /* eas_voicemgt.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11AC0E2D3B1B006357C1 /* eas_voicemgt.c */; };
+		C55B11BD0E2D3B55006357C1 /* jet.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11BC0E2D3B55006357C1 /* jet.c */; };
+		C55B11C10E2D3BFD006357C1 /* eas_chorus.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11C00E2D3BFD006357C1 /* eas_chorus.c */; };
+		C55B11E40E2D3C62006357C1 /* eas_imelody.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D00E2D3C62006357C1 /* eas_imelody.c */; };
+		C55B11E50E2D3C62006357C1 /* eas_imelodydata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D10E2D3C62006357C1 /* eas_imelodydata.c */; };
+		C55B11E60E2D3C62006357C1 /* eas_mdls.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D20E2D3C62006357C1 /* eas_mdls.c */; };
+		C55B11E70E2D3C62006357C1 /* eas_ota.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D30E2D3C62006357C1 /* eas_ota.c */; };
+		C55B11E80E2D3C62006357C1 /* eas_otadata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D40E2D3C62006357C1 /* eas_otadata.c */; };
+		C55B11E90E2D3C62006357C1 /* eas_rtttl.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D50E2D3C62006357C1 /* eas_rtttl.c */; };
+		C55B11EA0E2D3C62006357C1 /* eas_rtttldata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11D60E2D3C62006357C1 /* eas_rtttldata.c */; };
+		C55B11EE0E2D3C62006357C1 /* eas_smf.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11DA0E2D3C62006357C1 /* eas_smf.c */; };
+		C55B11EF0E2D3C62006357C1 /* eas_smfdata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11DB0E2D3C62006357C1 /* eas_smfdata.c */; };
+		C55B11F00E2D3C62006357C1 /* eas_tcdata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11DC0E2D3C62006357C1 /* eas_tcdata.c */; };
+		C55B11F10E2D3C62006357C1 /* eas_tonecontrol.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11DD0E2D3C62006357C1 /* eas_tonecontrol.c */; };
+		C55B11F20E2D3C62006357C1 /* eas_wavefile.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11DE0E2D3C62006357C1 /* eas_wavefile.c */; };
+		C55B11F30E2D3C62006357C1 /* eas_wavefiledata.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11DF0E2D3C62006357C1 /* eas_wavefiledata.c */; };
+		C55B11F70E2D3C7B006357C1 /* eas_reverb.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11F60E2D3C7B006357C1 /* eas_reverb.c */; };
+		C55B11FA0E2D3CAC006357C1 /* eastestv37.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B11F80E2D3CAC006357C1 /* eastestv37.c */; };
+		C55B12050E2D3D56006357C1 /* eas_dlssynth.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B12020E2D3D56006357C1 /* eas_dlssynth.c */; };
+		C55B12060E2D3D56006357C1 /* eas_wtengine.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B12030E2D3D56006357C1 /* eas_wtengine.c */; };
+		C55B12070E2D3D56006357C1 /* eas_wtsynth.c in Sources */ = {isa = PBXBuildFile; fileRef = C55B12040E2D3D56006357C1 /* eas_wtsynth.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A56AB8E0F7197AE00D115A7 /* wt_44khz.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wt_44khz.c; sourceTree = "<group>"; };
+		9A56ABCF0F71998600D115A7 /* eas_fmengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_fmengine.h; path = "../../../arm-fm-22k/lib_src/eas_fmengine.h"; sourceTree = SOURCE_ROOT; };
+		9A56ABD70F719D4600D115A7 /* eas_xmf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_xmf.c; path = ../../lib_src/eas_xmf.c; sourceTree = SOURCE_ROOT; };
+		9A56ABD80F719D4600D115A7 /* eas_xmf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_xmf.h; path = ../../lib_src/eas_xmf.h; sourceTree = SOURCE_ROOT; };
+		9A56ABD90F719D4600D115A7 /* eas_xmfdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_xmfdata.c; path = ../../lib_src/eas_xmfdata.c; sourceTree = SOURCE_ROOT; };
+		9A56ABDA0F719D4600D115A7 /* eas_xmfdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_xmfdata.h; path = ../../lib_src/eas_xmfdata.h; sourceTree = SOURCE_ROOT; };
+		9A56AC040F71BCFE00D115A7 /* eas_build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_build.h; path = ../../host_src/eas_build.h; sourceTree = SOURCE_ROOT; };
+		C55B11290E2D33B4006357C1 /* eas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas.h; path = ../../host_src/eas.h; sourceTree = SOURCE_ROOT; };
+		C55B112A0E2D33B4006357C1 /* eas_audioconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_audioconst.h; path = ../../lib_src/eas_audioconst.h; sourceTree = SOURCE_ROOT; };
+		C55B112C0E2D33B4006357C1 /* eas_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_config.h; path = ../../host_src/eas_config.h; sourceTree = SOURCE_ROOT; };
+		C55B112D0E2D33B4006357C1 /* eas_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_data.h; path = ../../lib_src/eas_data.h; sourceTree = SOURCE_ROOT; };
+		C55B112E0E2D33B4006357C1 /* eas_host.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_host.h; path = ../../host_src/eas_host.h; sourceTree = SOURCE_ROOT; };
+		C55B112F0E2D33B4006357C1 /* eas_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_math.h; path = ../../lib_src/eas_math.h; sourceTree = SOURCE_ROOT; };
+		C55B11300E2D33B4006357C1 /* eas_midi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_midi.h; path = ../../lib_src/eas_midi.h; sourceTree = SOURCE_ROOT; };
+		C55B11310E2D33B4006357C1 /* eas_midictrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_midictrl.h; path = ../../lib_src/eas_midictrl.h; sourceTree = SOURCE_ROOT; };
+		C55B11320E2D33B4006357C1 /* eas_mixer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mixer.c; path = ../../lib_src/eas_mixer.c; sourceTree = SOURCE_ROOT; };
+		C55B11330E2D33B4006357C1 /* eas_pan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_pan.h; path = ../../lib_src/eas_pan.h; sourceTree = SOURCE_ROOT; };
+		C55B11340E2D33B4006357C1 /* eas_pcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_pcm.h; path = ../../lib_src/eas_pcm.h; sourceTree = SOURCE_ROOT; };
+		C55B11350E2D33B4006357C1 /* eas_pcmdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_pcmdata.h; path = ../../lib_src/eas_pcmdata.h; sourceTree = SOURCE_ROOT; };
+		C55B11370E2D33B4006357C1 /* eas_report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_report.h; path = ../../host_src/eas_report.h; sourceTree = SOURCE_ROOT; };
+		C55B11380E2D33B4006357C1 /* eas_sndlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_sndlib.h; path = ../../lib_src/eas_sndlib.h; sourceTree = SOURCE_ROOT; };
+		C55B11390E2D33B4006357C1 /* eas_synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_synth.h; path = ../../lib_src/eas_synth.h; sourceTree = SOURCE_ROOT; };
+		C55B113A0E2D33B4006357C1 /* eas_synth_protos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_synth_protos.h; path = ../../lib_src/eas_synth_protos.h; sourceTree = SOURCE_ROOT; };
+		C55B113B0E2D33B4006357C1 /* eas_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_types.h; path = ../../host_src/eas_types.h; sourceTree = SOURCE_ROOT; };
+		C55B113C0E2D33B4006357C1 /* eas_vm_protos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_vm_protos.h; path = ../../lib_src/eas_vm_protos.h; sourceTree = SOURCE_ROOT; };
+		C55B11530E2D3796006357C1 /* eas_effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_effects.h; path = ../../lib_src/eas_effects.h; sourceTree = SOURCE_ROOT; };
+		C55B11620E2D37FC006357C1 /* eas_imelodydata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_imelodydata.h; path = ../../lib_src/eas_imelodydata.h; sourceTree = SOURCE_ROOT; };
+		C55B116B0E2D38CE006357C1 /* eas_mdls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_mdls.h; path = ../../lib_src/eas_mdls.h; sourceTree = SOURCE_ROOT; };
+		C55B116C0E2D38CE006357C1 /* eas_otadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_otadata.h; path = ../../lib_src/eas_otadata.h; sourceTree = SOURCE_ROOT; };
+		C55B116D0E2D38CE006357C1 /* eas_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_parser.h; path = ../../lib_src/eas_parser.h; sourceTree = SOURCE_ROOT; };
+		C55B116E0E2D38CE006357C1 /* eas_rtttldata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_rtttldata.h; path = ../../lib_src/eas_rtttldata.h; sourceTree = SOURCE_ROOT; };
+		C55B11700E2D38CE006357C1 /* eas_smf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_smf.h; path = ../../lib_src/eas_smf.h; sourceTree = SOURCE_ROOT; };
+		C55B11710E2D38CE006357C1 /* eas_smfdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_smfdata.h; path = ../../lib_src/eas_smfdata.h; sourceTree = SOURCE_ROOT; };
+		C55B11720E2D38CE006357C1 /* eas_tcdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_tcdata.h; path = ../../lib_src/eas_tcdata.h; sourceTree = SOURCE_ROOT; };
+		C55B11730E2D38CE006357C1 /* eas_wavefile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wavefile.h; path = ../../lib_src/eas_wavefile.h; sourceTree = SOURCE_ROOT; };
+		C55B11810E2D38FB006357C1 /* jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jet.h; path = ../../host_src/jet.h; sourceTree = SOURCE_ROOT; };
+		C55B11820E2D38FB006357C1 /* jet_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jet_data.h; path = ../../lib_src/jet_data.h; sourceTree = SOURCE_ROOT; };
+		C55B11850E2D395F006357C1 /* eas_wtengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wtengine.h; path = ../../lib_src/eas_wtengine.h; sourceTree = SOURCE_ROOT; };
+		C55B118E0E2D39ED006357C1 /* eas_reverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_reverb.h; path = ../../host_src/eas_reverb.h; sourceTree = SOURCE_ROOT; };
+		C55B118F0E2D39ED006357C1 /* eas_reverbdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_reverbdata.h; path = ../../lib_src/eas_reverbdata.h; sourceTree = SOURCE_ROOT; };
+		C55B11920E2D39FE006357C1 /* eas_chorus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_chorus.h; path = ../../host_src/eas_chorus.h; sourceTree = SOURCE_ROOT; };
+		C55B11930E2D39FE006357C1 /* eas_chorusdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_chorusdata.h; path = ../../lib_src/eas_chorusdata.h; sourceTree = SOURCE_ROOT; };
+		C55B119F0E2D3B1B006357C1 /* eas_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_data.c; path = ../../lib_src/eas_data.c; sourceTree = SOURCE_ROOT; };
+		C55B11A00E2D3B1B006357C1 /* eas_flog.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_flog.c; path = ../../lib_src/eas_flog.c; sourceTree = SOURCE_ROOT; };
+		C55B11A20E2D3B1B006357C1 /* eas_ima_tables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_ima_tables.c; path = ../../lib_src/eas_ima_tables.c; sourceTree = SOURCE_ROOT; };
+		C55B11A30E2D3B1B006357C1 /* eas_imaadpcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_imaadpcm.c; path = ../../lib_src/eas_imaadpcm.c; sourceTree = SOURCE_ROOT; };
+		C55B11A40E2D3B1B006357C1 /* eas_math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_math.c; path = ../../lib_src/eas_math.c; sourceTree = SOURCE_ROOT; };
+		C55B11A50E2D3B1B006357C1 /* eas_midi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_midi.c; path = ../../lib_src/eas_midi.c; sourceTree = SOURCE_ROOT; };
+		C55B11A60E2D3B1B006357C1 /* eas_mididata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mididata.c; path = ../../lib_src/eas_mididata.c; sourceTree = SOURCE_ROOT; };
+		C55B11A70E2D3B1B006357C1 /* eas_mixbuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mixbuf.c; path = ../../lib_src/eas_mixbuf.c; sourceTree = SOURCE_ROOT; };
+		C55B11A80E2D3B1B006357C1 /* eas_pan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_pan.c; path = ../../lib_src/eas_pan.c; sourceTree = SOURCE_ROOT; };
+		C55B11A90E2D3B1B006357C1 /* eas_pcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_pcm.c; path = ../../lib_src/eas_pcm.c; sourceTree = SOURCE_ROOT; };
+		C55B11AA0E2D3B1B006357C1 /* eas_pcmdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_pcmdata.c; path = ../../lib_src/eas_pcmdata.c; sourceTree = SOURCE_ROOT; };
+		C55B11AB0E2D3B1B006357C1 /* eas_public.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_public.c; path = ../../lib_src/eas_public.c; sourceTree = "<group>"; };
+		C55B11AC0E2D3B1B006357C1 /* eas_voicemgt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_voicemgt.c; path = ../../lib_src/eas_voicemgt.c; sourceTree = SOURCE_ROOT; };
+		C55B11BC0E2D3B55006357C1 /* jet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jet.c; path = ../../lib_src/jet.c; sourceTree = SOURCE_ROOT; };
+		C55B11C00E2D3BFD006357C1 /* eas_chorus.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_chorus.c; path = ../../lib_src/eas_chorus.c; sourceTree = SOURCE_ROOT; };
+		C55B11D00E2D3C62006357C1 /* eas_imelody.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_imelody.c; path = ../../lib_src/eas_imelody.c; sourceTree = SOURCE_ROOT; };
+		C55B11D10E2D3C62006357C1 /* eas_imelodydata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_imelodydata.c; path = ../../lib_src/eas_imelodydata.c; sourceTree = SOURCE_ROOT; };
+		C55B11D20E2D3C62006357C1 /* eas_mdls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mdls.c; path = ../../lib_src/eas_mdls.c; sourceTree = SOURCE_ROOT; };
+		C55B11D30E2D3C62006357C1 /* eas_ota.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_ota.c; path = ../../lib_src/eas_ota.c; sourceTree = SOURCE_ROOT; };
+		C55B11D40E2D3C62006357C1 /* eas_otadata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_otadata.c; path = ../../lib_src/eas_otadata.c; sourceTree = SOURCE_ROOT; };
+		C55B11D50E2D3C62006357C1 /* eas_rtttl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_rtttl.c; path = ../../lib_src/eas_rtttl.c; sourceTree = SOURCE_ROOT; };
+		C55B11D60E2D3C62006357C1 /* eas_rtttldata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_rtttldata.c; path = ../../lib_src/eas_rtttldata.c; sourceTree = SOURCE_ROOT; };
+		C55B11DA0E2D3C62006357C1 /* eas_smf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_smf.c; path = ../../lib_src/eas_smf.c; sourceTree = SOURCE_ROOT; };
+		C55B11DB0E2D3C62006357C1 /* eas_smfdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_smfdata.c; path = ../../lib_src/eas_smfdata.c; sourceTree = SOURCE_ROOT; };
+		C55B11DC0E2D3C62006357C1 /* eas_tcdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_tcdata.c; path = ../../lib_src/eas_tcdata.c; sourceTree = SOURCE_ROOT; };
+		C55B11DD0E2D3C62006357C1 /* eas_tonecontrol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_tonecontrol.c; path = ../../lib_src/eas_tonecontrol.c; sourceTree = SOURCE_ROOT; };
+		C55B11DE0E2D3C62006357C1 /* eas_wavefile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wavefile.c; path = ../../lib_src/eas_wavefile.c; sourceTree = SOURCE_ROOT; };
+		C55B11DF0E2D3C62006357C1 /* eas_wavefiledata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wavefiledata.c; path = ../../lib_src/eas_wavefiledata.c; sourceTree = SOURCE_ROOT; };
+		C55B11F60E2D3C7B006357C1 /* eas_reverb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_reverb.c; path = ../../lib_src/eas_reverb.c; sourceTree = SOURCE_ROOT; };
+		C55B11F80E2D3CAC006357C1 /* eastestv37.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = eastestv37.c; sourceTree = "<group>"; };
+		C55B12020E2D3D56006357C1 /* eas_dlssynth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_dlssynth.c; path = ../../lib_src/eas_dlssynth.c; sourceTree = SOURCE_ROOT; };
+		C55B12030E2D3D56006357C1 /* eas_wtengine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wtengine.c; path = ../../lib_src/eas_wtengine.c; sourceTree = SOURCE_ROOT; };
+		C55B12040E2D3D56006357C1 /* eas_wtsynth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wtsynth.c; path = ../../lib_src/eas_wtsynth.c; sourceTree = SOURCE_ROOT; };
+		D2AAC046055464E500DB518D /* libeaswt_vst_lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libeaswt_vst_lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D289987405E68DCB004EDB86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* easwt_vst_lib */ = {
+			isa = PBXGroup;
+			children = (
+				C55B11280E2D31B6006357C1 /* Header Files */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6A0FF2B0290797F04C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = easwt_vst_lib;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C55B119F0E2D3B1B006357C1 /* eas_data.c */,
+				C55B11A00E2D3B1B006357C1 /* eas_flog.c */,
+				C55B11A20E2D3B1B006357C1 /* eas_ima_tables.c */,
+				C55B11A30E2D3B1B006357C1 /* eas_imaadpcm.c */,
+				C55B11A40E2D3B1B006357C1 /* eas_math.c */,
+				C55B11A50E2D3B1B006357C1 /* eas_midi.c */,
+				C55B11A60E2D3B1B006357C1 /* eas_mididata.c */,
+				C55B11A70E2D3B1B006357C1 /* eas_mixbuf.c */,
+				C55B11320E2D33B4006357C1 /* eas_mixer.c */,
+				C55B11A80E2D3B1B006357C1 /* eas_pan.c */,
+				C55B11A90E2D3B1B006357C1 /* eas_pcm.c */,
+				C55B11AA0E2D3B1B006357C1 /* eas_pcmdata.c */,
+				C55B11AB0E2D3B1B006357C1 /* eas_public.c */,
+				C55B11AC0E2D3B1B006357C1 /* eas_voicemgt.c */,
+				C55B11BC0E2D3B55006357C1 /* jet.c */,
+				C55B11960E2D3A56006357C1 /* Chorus */,
+				C55B119A0E2D3A7F006357C1 /* Parsers */,
+				C55B11970E2D3A5C006357C1 /* Reverb */,
+				C55B119B0E2D3A99006357C1 /* SoundLibs */,
+				C55B119D0E2D3AB6006357C1 /* Wavetable */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC046055464E500DB518D /* libeaswt_vst_lib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C55B11280E2D31B6006357C1 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A56AC040F71BCFE00D115A7 /* eas_build.h */,
+				9A56ABCF0F71998600D115A7 /* eas_fmengine.h */,
+				C55B11880E2D39B0006357C1 /* Reverb */,
+				C55B11870E2D39A9006357C1 /* Chorus */,
+				C55B11850E2D395F006357C1 /* eas_wtengine.h */,
+				C55B11810E2D38FB006357C1 /* jet.h */,
+				C55B11820E2D38FB006357C1 /* jet_data.h */,
+				C55B116B0E2D38CE006357C1 /* eas_mdls.h */,
+				C55B116C0E2D38CE006357C1 /* eas_otadata.h */,
+				C55B116D0E2D38CE006357C1 /* eas_parser.h */,
+				C55B116E0E2D38CE006357C1 /* eas_rtttldata.h */,
+				C55B11700E2D38CE006357C1 /* eas_smf.h */,
+				C55B11710E2D38CE006357C1 /* eas_smfdata.h */,
+				C55B11720E2D38CE006357C1 /* eas_tcdata.h */,
+				C55B11730E2D38CE006357C1 /* eas_wavefile.h */,
+				C55B11620E2D37FC006357C1 /* eas_imelodydata.h */,
+				C55B11530E2D3796006357C1 /* eas_effects.h */,
+				C55B11290E2D33B4006357C1 /* eas.h */,
+				C55B112A0E2D33B4006357C1 /* eas_audioconst.h */,
+				C55B112C0E2D33B4006357C1 /* eas_config.h */,
+				C55B112D0E2D33B4006357C1 /* eas_data.h */,
+				C55B112E0E2D33B4006357C1 /* eas_host.h */,
+				C55B112F0E2D33B4006357C1 /* eas_math.h */,
+				C55B11300E2D33B4006357C1 /* eas_midi.h */,
+				C55B11310E2D33B4006357C1 /* eas_midictrl.h */,
+				C55B11330E2D33B4006357C1 /* eas_pan.h */,
+				C55B11340E2D33B4006357C1 /* eas_pcm.h */,
+				C55B11350E2D33B4006357C1 /* eas_pcmdata.h */,
+				C55B11370E2D33B4006357C1 /* eas_report.h */,
+				C55B11380E2D33B4006357C1 /* eas_sndlib.h */,
+				C55B11390E2D33B4006357C1 /* eas_synth.h */,
+				C55B113A0E2D33B4006357C1 /* eas_synth_protos.h */,
+				C55B113B0E2D33B4006357C1 /* eas_types.h */,
+				C55B113C0E2D33B4006357C1 /* eas_vm_protos.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		C55B11870E2D39A9006357C1 /* Chorus */ = {
+			isa = PBXGroup;
+			children = (
+				C55B11920E2D39FE006357C1 /* eas_chorus.h */,
+				C55B11930E2D39FE006357C1 /* eas_chorusdata.h */,
+			);
+			name = Chorus;
+			sourceTree = "<group>";
+		};
+		C55B11880E2D39B0006357C1 /* Reverb */ = {
+			isa = PBXGroup;
+			children = (
+				C55B118E0E2D39ED006357C1 /* eas_reverb.h */,
+				C55B118F0E2D39ED006357C1 /* eas_reverbdata.h */,
+			);
+			name = Reverb;
+			sourceTree = "<group>";
+		};
+		C55B11960E2D3A56006357C1 /* Chorus */ = {
+			isa = PBXGroup;
+			children = (
+				C55B11C00E2D3BFD006357C1 /* eas_chorus.c */,
+			);
+			name = Chorus;
+			sourceTree = "<group>";
+		};
+		C55B11970E2D3A5C006357C1 /* Reverb */ = {
+			isa = PBXGroup;
+			children = (
+				C55B11F60E2D3C7B006357C1 /* eas_reverb.c */,
+			);
+			name = Reverb;
+			sourceTree = "<group>";
+		};
+		C55B119A0E2D3A7F006357C1 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				9A56ABD70F719D4600D115A7 /* eas_xmf.c */,
+				9A56ABD80F719D4600D115A7 /* eas_xmf.h */,
+				9A56ABD90F719D4600D115A7 /* eas_xmfdata.c */,
+				9A56ABDA0F719D4600D115A7 /* eas_xmfdata.h */,
+				C55B11D00E2D3C62006357C1 /* eas_imelody.c */,
+				C55B11D10E2D3C62006357C1 /* eas_imelodydata.c */,
+				C55B11D20E2D3C62006357C1 /* eas_mdls.c */,
+				C55B11D30E2D3C62006357C1 /* eas_ota.c */,
+				C55B11D40E2D3C62006357C1 /* eas_otadata.c */,
+				C55B11D50E2D3C62006357C1 /* eas_rtttl.c */,
+				C55B11D60E2D3C62006357C1 /* eas_rtttldata.c */,
+				C55B11DA0E2D3C62006357C1 /* eas_smf.c */,
+				C55B11DB0E2D3C62006357C1 /* eas_smfdata.c */,
+				C55B11DC0E2D3C62006357C1 /* eas_tcdata.c */,
+				C55B11DD0E2D3C62006357C1 /* eas_tonecontrol.c */,
+				C55B11DE0E2D3C62006357C1 /* eas_wavefile.c */,
+				C55B11DF0E2D3C62006357C1 /* eas_wavefiledata.c */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		C55B119B0E2D3A99006357C1 /* SoundLibs */ = {
+			isa = PBXGroup;
+			children = (
+				9A56AB8E0F7197AE00D115A7 /* wt_44khz.c */,
+				C55B11F80E2D3CAC006357C1 /* eastestv37.c */,
+			);
+			name = SoundLibs;
+			sourceTree = "<group>";
+		};
+		C55B119D0E2D3AB6006357C1 /* Wavetable */ = {
+			isa = PBXGroup;
+			children = (
+				C55B12020E2D3D56006357C1 /* eas_dlssynth.c */,
+				C55B12030E2D3D56006357C1 /* eas_wtengine.c */,
+				C55B12040E2D3D56006357C1 /* eas_wtsynth.c */,
+			);
+			name = Wavetable;
+			sourceTree = "<group>";
+		};
+		C6A0FF2B0290797F04C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC043055464E500DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55B113D0E2D33B4006357C1 /* eas.h in Headers */,
+				C55B113E0E2D33B4006357C1 /* eas_audioconst.h in Headers */,
+				C55B11400E2D33B4006357C1 /* eas_config.h in Headers */,
+				C55B11410E2D33B4006357C1 /* eas_data.h in Headers */,
+				C55B11420E2D33B4006357C1 /* eas_host.h in Headers */,
+				C55B11430E2D33B4006357C1 /* eas_math.h in Headers */,
+				C55B11440E2D33B4006357C1 /* eas_midi.h in Headers */,
+				C55B11450E2D33B4006357C1 /* eas_midictrl.h in Headers */,
+				C55B11470E2D33B4006357C1 /* eas_pan.h in Headers */,
+				C55B11480E2D33B4006357C1 /* eas_pcm.h in Headers */,
+				C55B11490E2D33B4006357C1 /* eas_pcmdata.h in Headers */,
+				C55B114B0E2D33B4006357C1 /* eas_report.h in Headers */,
+				C55B114C0E2D33B4006357C1 /* eas_sndlib.h in Headers */,
+				C55B114D0E2D33B4006357C1 /* eas_synth.h in Headers */,
+				C55B114E0E2D33B4006357C1 /* eas_synth_protos.h in Headers */,
+				C55B114F0E2D33B4006357C1 /* eas_types.h in Headers */,
+				C55B11500E2D33B4006357C1 /* eas_vm_protos.h in Headers */,
+				C55B115B0E2D3796006357C1 /* eas_effects.h in Headers */,
+				C55B11640E2D37FC006357C1 /* eas_imelodydata.h in Headers */,
+				C55B11760E2D38CE006357C1 /* eas_mdls.h in Headers */,
+				C55B11770E2D38CE006357C1 /* eas_otadata.h in Headers */,
+				C55B11780E2D38CE006357C1 /* eas_parser.h in Headers */,
+				C55B11790E2D38CE006357C1 /* eas_rtttldata.h in Headers */,
+				C55B117B0E2D38CE006357C1 /* eas_smf.h in Headers */,
+				C55B117C0E2D38CE006357C1 /* eas_smfdata.h in Headers */,
+				C55B117D0E2D38CE006357C1 /* eas_tcdata.h in Headers */,
+				C55B117E0E2D38CE006357C1 /* eas_wavefile.h in Headers */,
+				C55B11830E2D38FB006357C1 /* jet.h in Headers */,
+				C55B11840E2D38FB006357C1 /* jet_data.h in Headers */,
+				C55B11860E2D395F006357C1 /* eas_wtengine.h in Headers */,
+				C55B11900E2D39ED006357C1 /* eas_reverb.h in Headers */,
+				C55B11910E2D39ED006357C1 /* eas_reverbdata.h in Headers */,
+				C55B11940E2D39FE006357C1 /* eas_chorus.h in Headers */,
+				C55B11950E2D39FE006357C1 /* eas_chorusdata.h in Headers */,
+				9A56ABD00F71998600D115A7 /* eas_fmengine.h in Headers */,
+				9A56ABDC0F719D4600D115A7 /* eas_xmf.h in Headers */,
+				9A56ABDE0F719D4600D115A7 /* eas_xmfdata.h in Headers */,
+				9A56AC050F71BCFE00D115A7 /* eas_build.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC045055464E500DB518D /* easwt_vst_lib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91EB08733DB70010E9CD /* Build configuration list for PBXNativeTarget "easwt_vst_lib" */;
+			buildPhases = (
+				D2AAC043055464E500DB518D /* Headers */,
+				D2AAC044055464E500DB518D /* Sources */,
+				D289987405E68DCB004EDB86 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = easwt_vst_lib;
+			productName = easwt_vst_lib;
+			productReference = D2AAC046055464E500DB518D /* libeaswt_vst_lib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91EF08733DB70010E9CD /* Build configuration list for PBXProject "easwt_vst_lib" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* easwt_vst_lib */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC045055464E500DB518D /* easwt_vst_lib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC044055464E500DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55B11460E2D33B4006357C1 /* eas_mixer.c in Sources */,
+				C55B11AE0E2D3B1B006357C1 /* eas_data.c in Sources */,
+				C55B11AF0E2D3B1B006357C1 /* eas_flog.c in Sources */,
+				C55B11B10E2D3B1B006357C1 /* eas_ima_tables.c in Sources */,
+				C55B11B20E2D3B1B006357C1 /* eas_imaadpcm.c in Sources */,
+				C55B11B30E2D3B1B006357C1 /* eas_math.c in Sources */,
+				C55B11B40E2D3B1B006357C1 /* eas_midi.c in Sources */,
+				C55B11B50E2D3B1B006357C1 /* eas_mididata.c in Sources */,
+				C55B11B60E2D3B1B006357C1 /* eas_mixbuf.c in Sources */,
+				C55B11B70E2D3B1B006357C1 /* eas_pan.c in Sources */,
+				C55B11B80E2D3B1B006357C1 /* eas_pcm.c in Sources */,
+				C55B11B90E2D3B1B006357C1 /* eas_pcmdata.c in Sources */,
+				C55B11BA0E2D3B1B006357C1 /* eas_public.c in Sources */,
+				C55B11BB0E2D3B1B006357C1 /* eas_voicemgt.c in Sources */,
+				C55B11BD0E2D3B55006357C1 /* jet.c in Sources */,
+				C55B11C10E2D3BFD006357C1 /* eas_chorus.c in Sources */,
+				C55B11E40E2D3C62006357C1 /* eas_imelody.c in Sources */,
+				C55B11E50E2D3C62006357C1 /* eas_imelodydata.c in Sources */,
+				C55B11E60E2D3C62006357C1 /* eas_mdls.c in Sources */,
+				C55B11E70E2D3C62006357C1 /* eas_ota.c in Sources */,
+				C55B11E80E2D3C62006357C1 /* eas_otadata.c in Sources */,
+				C55B11E90E2D3C62006357C1 /* eas_rtttl.c in Sources */,
+				C55B11EA0E2D3C62006357C1 /* eas_rtttldata.c in Sources */,
+				C55B11EE0E2D3C62006357C1 /* eas_smf.c in Sources */,
+				C55B11EF0E2D3C62006357C1 /* eas_smfdata.c in Sources */,
+				C55B11F00E2D3C62006357C1 /* eas_tcdata.c in Sources */,
+				C55B11F10E2D3C62006357C1 /* eas_tonecontrol.c in Sources */,
+				C55B11F20E2D3C62006357C1 /* eas_wavefile.c in Sources */,
+				C55B11F30E2D3C62006357C1 /* eas_wavefiledata.c in Sources */,
+				C55B11F70E2D3C7B006357C1 /* eas_reverb.c in Sources */,
+				C55B11FA0E2D3CAC006357C1 /* eastestv37.c in Sources */,
+				C55B12050E2D3D56006357C1 /* eas_dlssynth.c in Sources */,
+				C55B12060E2D3D56006357C1 /* eas_wtengine.c in Sources */,
+				C55B12070E2D3D56006357C1 /* eas_wtsynth.c in Sources */,
+				9A56AB8F0F7197AE00D115A7 /* wt_44khz.c in Sources */,
+				9A56ABDB0F719D4600D115A7 /* eas_xmf.c in Sources */,
+				9A56ABDD0F719D4600D115A7 /* eas_xmfdata.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91EC08733DB70010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG_JET=1",
+					"_DEBUG_SMAF=1",
+					"_DEBUG_CMF=1",
+					"JET_INTERFACE=1",
+					"MAX_SMF_STREAMS=32",
+					"NUM_OUTPUT_CHANNELS=2",
+					"_SAMPLE_RATE_44100=1",
+					"_8_BIT_SAMPLES=1",
+					"_FILTER_ENABLED=1",
+					"_NO_DEBUG_PREPROCESSOR=1",
+					"_CORE_CYCLES_PER_MEMORY_CYCLE=1",
+					"_IMA_DECODER=1",
+					"_XMF_PARSER=1",
+					"_DLS_PARSER=1",
+					"MAX_DLS_MEMORY=16777216",
+					"EAS_WT_SYNTH=1",
+					"MAX_SYNTH_VOICES=64",
+					"X_ENHANCER_ENABLED=1",
+					"_REVERB_ENABLED=1",
+					"_CHORUS_ENABLED=1",
+					"DLS_SYNTHESIZER=1",
+					"EXTERNAL_AUDIO=1",
+					"TEST_HARNESS=1",
+					"MMAPI_SUPPORT=1",
+					"X_MAXIMIZER_ENABLED=1",
+					"X_COMPRESSOR_ENABLED=1",
+					"X_STATS=1",
+					"X_DEBUG_DLS=1",
+					"X_OPTIMIZED_MONO=1",
+					"X_CHECKED_BUILD=1",
+					"_NO_ALIGN=1",
+					"_C_REFERENCE=1",
+					"XMAXIMIZER_USE_FLOATING_POINT=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${TARGET_BUILD_DIR}/**",
+					"../../Common/**",
+					"../../Parsers/**",
+					"../../Effects/**",
+					"../../WTSynth/**",
+					"../../FMSynth/**",
+					"../../SplitArch/**",
+					"../../Jet/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = easwt_vst_lib;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB91ED08733DB70010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"JET_INTERFACE=1",
+					"MAX_SMF_STREAMS=32",
+					"NUM_OUTPUT_CHANNELS=2",
+					"_SAMPLE_RATE_44100=1",
+					"_8_BIT_SAMPLES=1",
+					"_FILTER_ENABLED=1",
+					"_NO_DEBUG_PREPROCESSOR=1",
+					"_CORE_CYCLES_PER_MEMORY_CYCLE=1",
+					"_IMA_DECODER=1",
+					"_XMF_PARSER=1",
+					"_DLS_PARSER=1",
+					"MAX_DLS_MEMORY=16777216",
+					"EAS_WT_SYNTH=1",
+					"MAX_SYNTH_VOICES=64",
+					"X_ENHANCER_ENABLED=1",
+					"_REVERB_ENABLED=1",
+					"_CHORUS_ENABLED=1",
+					"DLS_SYNTHESIZER=1",
+					"EXTERNAL_AUDIO=1",
+					"TEST_HARNESS=1",
+					"MMAPI_SUPPORT=1",
+					"X_MAXIMIZER_ENABLED=1",
+					"X_COMPRESSOR_ENABLED=1",
+					"X_STATS=1",
+					"X_DEBUG_DLS=1",
+					"X_OPTIMIZED_MONO=1",
+					"X_CHECKED_BUILD=1",
+					"_NO_ALIGN=1",
+					"_C_REFERENCE=1",
+					"XMAXIMIZER_USE_FLOATING_POINT=1",
+				);
+				GCC_UNROLL_LOOPS = YES;
+				HEADER_SEARCH_PATHS = (
+					"${TARGET_BUILD_DIR}/**",
+					"../../Common/**",
+					"../../Parsers/**",
+					"../../Effects/**",
+					"../../WTSynth/**",
+					"../../FMSynth/**",
+					"../../SplitArch/**",
+					"../../Jet/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = easwt_vst_lib;
+			};
+			name = Release;
+		};
+		1DEB91F008733DB70010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		1DEB91F108733DB70010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91EB08733DB70010E9CD /* Build configuration list for PBXNativeTarget "easwt_vst_lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91EC08733DB70010E9CD /* Debug */,
+				1DEB91ED08733DB70010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91EF08733DB70010E9CD /* Build configuration list for PBXProject "easwt_vst_lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91F008733DB70010E9CD /* Debug */,
+				1DEB91F108733DB70010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

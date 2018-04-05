@@ -47,6 +47,8 @@
 // Init at program start...
 void I_InitSound(void);
 
+void I_OverwriteSoundBuffersWithLumps(void);
+
 // ... shut down and relase at program termination.
 void I_ShutdownSound(void);
 
@@ -61,15 +63,15 @@ void I_SetChannels(void);
 int I_GetSfxLumpNum (sfxinfo_t *sfxinfo);
 
 // Starts a sound in a particular sound channel.
-int I_StartSound(int id, int channel, int vol, int sep, int pitch, int priority);
+long int I_StartSound(int id, int channel, int vol, int sep, int pitch, int priority);
 
 // Stops a sound channel.
-void I_StopSound(int handle);
+void I_StopSound(long int handle);
 
 // Called by S_*() functions
 //  to see if a channel is still playing.
 // Returns 0 if no longer playing, 1 if playing.
-boolean I_SoundIsPlaying(int handle);
+boolean I_SoundIsPlaying(long int handle);
 
 // Called by m_menu.c to let the quit sound play and quit right after it stops
 boolean I_AnySoundStillPlaying(void);

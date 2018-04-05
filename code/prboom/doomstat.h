@@ -42,10 +42,6 @@
 // We need the playr data structure as well.
 #include "d_player.h"
 
-#ifdef __GNUG__
-#pragma interface
-#endif
-
 // ------------------------
 // Command line parameters.
 //
@@ -161,13 +157,14 @@ extern int snd_SfxVolume;      // maximum volume for sound
 extern int snd_MusicVolume;    // maximum volume for music
 
 // CPhipps - screen parameters
-extern unsigned int desired_screenwidth, desired_screenheight;
+extern int desired_screenwidth, desired_screenheight;
 
 // -------------------------
 // Status flags for refresh.
 //
 
 enum automapmode_e {
+  am_none	= 0,
   am_active = 1,  // currently shown
   am_overlay= 2,  // covers the screen, i.e. not overlay mode
   am_rotate = 4,  // rotates to the player facing direction
@@ -277,7 +274,7 @@ extern  int        maketic;
 
 // Networking and tick handling related.
 #ifdef IPHONE
-#define BACKUPTICS              16		// JDC: changed from 12 to 16 to allow and masking instead of mod 
+#define BACKUPTICS              32		// JDC: changed from 12 to 16 to allow and masking instead of mod 
 #define BACKUPTICMASK			(BACKUPTICS-1)	// JDC
 #else
 #define BACKUPTICS              12

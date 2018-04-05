@@ -949,11 +949,6 @@ static void ST_loadData(void)
   ST_loadGraphics(true);
 }
 
-static void ST_unloadData(void)
-{
-  ST_loadGraphics(false);
-}
-
 static void ST_initData(void)
 {
   int i;

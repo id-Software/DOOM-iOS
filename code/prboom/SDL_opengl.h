@@ -14,17 +14,18 @@
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
 
-#define GLAPIENTRY
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-// this needs to be added before each projection matrix
-int iphoneRotateForLandscape();
+#define GLAPIENTRY
 
 // no colorTable in ES
 typedef void (* PFNGLCOLORTABLEEXTPROC) (GLenum target, GLenum internalFormat, GLsizei width, GLenum format, GLenum type, const GLvoid *table);
 
-static GLubyte *gluErrorString( int err ) { return (GLubyte *)"GLU error"; }
-static void *SDL_GL_GetProcAddress( const char *proc ) { return 0; }
-static void SDL_GL_SwapBuffers() {}
+static inline GLubyte *gluErrorString( int err ) { (void)err; return (GLubyte *)"GLU error"; }
+static inline void *SDL_GL_GetProcAddress( const char * proc ) { (void)proc; return 0; }
+static inline void SDL_GL_SwapBuffers() {}
 
 // we need to emulate immediate mode gl for ES
 void glBegin( GLenum prim );
@@ -38,7 +39,7 @@ void glTexCoord2i( GLint s, GLint t );
 void glTexCoord2f( GLfloat s, GLfloat t );
 void glTexCoord2fv( GLfloat *st );
 
-void glEnd();
+void glEnd(void);
 
 // Doom just uses state color for all draw calls, setting it once
 // before a glBegin, rather than setting it each vertex, so we
@@ -79,14 +80,12 @@ typedef double GLdouble;
 // this is the internal format used by the prBoom gl code
 // ES doesn't allow format conversions between external and internal,
 // so we need to manually convert to 5551 before doing glTexSubImage
-#define GL_RGB5_A1	GL_RGBA
 #define GL_RGBA8	GL_RGBA
-#define GL_RGBA4	GL_RGBA
 #define GL_RGBA2	GL_RGBA
 
 // not available in ES, so prBoom's skies must be implemeted differently
-static void glTexGenfv( int a, int b, void *c ) { };
-static void glTexGenf( int a, int b, int c ) { };
+static inline void glTexGenfv( int a, int b, void * c ) { (void)a; (void)b; (void)c; }
+static inline void glTexGenf( int a, int b, int c ) { (void)a; (void)b; (void)c; }
 
 // texGen enums not present in ES
 #define GL_S					0x2000
@@ -192,7 +191,7 @@ typedef GLUtesselator GLUtriangulatorObj;
 #define GLU_TESS_MAX_COORD 1.0e150
 
 /* Internal convenience typedefs */
-typedef void (GLAPIENTRYP _GLUfuncptr)();
+    typedef void (GLAPIENTRYP _GLUfuncptr)(void);
 
 GLAPI void GLAPIENTRY gluTessBeginContour (GLUtesselator* tess);
 GLAPI void GLAPIENTRY gluTessBeginPolygon (GLUtesselator* tess, GLvoid* data);
@@ -205,6 +204,11 @@ GLAPI void GLAPIENTRY gluTessVertex (GLUtesselator* tess, GLdouble *location, GL
 
 GLUtesselator * GLAPIENTRY gluNewTess( void );
 void GLAPIENTRY gluDeleteTess( GLUtesselator *tess );
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif
 

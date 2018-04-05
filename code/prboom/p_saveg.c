@@ -268,6 +268,7 @@ void P_ThinkerToIndex(void)
   // count the number of thinkers, and mark each one with its index, using
   // the prev field as a placeholder, since it can be restored later.
 
+  // suppressing this warning in the compiler with a -w flag as I think it can't be helped -tkidd
   number_of_thinkers = 0;
   for (th = thinkercap.next ; th != &thinkercap ; th=th->next)
     if (th->function == P_MobjThinker)
@@ -421,7 +422,7 @@ static int P_GetMobj(mobj_t* mi, size_t s)
 {
   size_t i = (size_t)mi;
   if (i >= s) I_Error("Corrupt savegame");
-  return i;
+  return (int)i;
 }
 
 void P_UnArchiveThinkers (void)

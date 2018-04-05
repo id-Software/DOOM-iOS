@@ -251,9 +251,11 @@ static void R_DRAWCOLUMN_FUNCNAME(draw_column_vars_t *dcvars)
     const byte          *source = dcvars->source;
     const lighttable_t  *colormap = dcvars->colormap;
     const byte          *translation = dcvars->translation;
+	
 #if (R_DRAWCOLUMN_PIPELINE & (RDC_BILINEAR|RDC_ROUNDED|RDC_DITHERZ))
     int y = dcvars->yl;
     const int x = dcvars->x;
+	(void)x;
 #endif
 #if (R_DRAWCOLUMN_PIPELINE & RDC_DITHERZ)
     const int fracz = (dcvars->z >> 6) & 255;
@@ -275,6 +277,11 @@ static void R_DRAWCOLUMN_FUNCNAME(draw_column_vars_t *dcvars)
     const unsigned int filter_fracu = (dcvars->source == dcvars->nextsource) ? 0 : (dcvars->texu>>8) & 0xff;
 #endif
 
+	/* Prevent unused variable warnings. */
+	(void)source;
+	(void)colormap;
+	(void)translation;
+	
     count++;
 
     // Inner loop that does the actual texture mapping,
@@ -318,7 +325,8 @@ static void R_DRAWCOLUMN_FUNCNAME(draw_column_vars_t *dcvars)
           INCY(y);
       } else {
         fixed_t nextfrac = 0;
-
+		(void)nextfrac;
+		
         heightmask++;
         heightmask <<= FRACBITS;
 

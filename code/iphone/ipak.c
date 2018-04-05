@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  ipak.c
+ *  doom
+ *
+ *  Created by John Carmack on 4/9/09.
+ *  Copyright 2009 Id Software. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -19,10 +27,10 @@
  */
 
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
 pkHeader_t	*pkHeader;
-int			pkSize;
+off_t		pkSize;
 
 // images and wavs have writable state, so they need separate
 // structs that also point to the source in the pak file
@@ -50,7 +58,7 @@ void PK_Init( const char *pakFileName ) {
 	fstat( fd, &s );
 		
 	pkSize = s.st_size;
-	pkHeader = mmap( NULL, pkSize, PROT_READ, MAP_FILE|MAP_PRIVATE, fd, 0 );
+	pkHeader = mmap( NULL, (size_t)pkSize, PROT_READ, MAP_FILE|MAP_PRIVATE, fd, 0 );
 	
 	// mmap keeps the file internally, we can close our descriptor
 	close( fd );
@@ -103,7 +111,7 @@ void PK_Init( const char *pakFileName ) {
 	int	endLoadingWavs = SysIphoneMicroseconds();
 	printf( "%i usec to load wavs\n", endLoadingWavs - startLoadingWavs );
 	
-	printf( "Mapped %i bytes of %s at 0x%p\n", pkSize, pakFileName, pkHeader );
+	printf( "Mapped %lld bytes of %s at 0x%p\n", pkSize, pakFileName, (void*)pkHeader );
 	printf( "%4i textures\n", pkHeader->textures.count );
 	printf( "%4i wavs\n", pkHeader->wavs.count );
 	printf( "%4i raws\n", pkHeader->raws.count );
@@ -112,7 +120,7 @@ void PK_Init( const char *pakFileName ) {
 	for ( int j = 0 ; j < 4 ; j++ ) {
 		int startTime = Sys_Microseconds();
 		int	sum = 0;
-		for ( int i = 0 ; i < pkSize ; i+=16 ) {
+		for ( off_t i = 0 ; i < pkSize ; i+=16 ) {
 			sum += ((byte *)pkHeader)[i];
 		}
 		int endTime = Sys_Microseconds();
@@ -236,12 +244,12 @@ void PK_LoadTexture( pkTexture_t *tex ) {
  ==================
  */
 pkTexture_t *PK_FindTexture( const char *imageName ) {
-	int	index;
-	pkTexture_t *texData = (pkTexture_t *)PK_FindType( imageName, &pkHeader->textures, &index );
+	int	texIndex;
+	pkTexture_t *texData = (pkTexture_t *)PK_FindType( imageName, &pkHeader->textures, &texIndex );
 	if ( !texData ) {
 		return NULL;
 	}
-	pkTexture_t *tex = pkTextures + index;
+	pkTexture_t *tex = pkTextures + texIndex;
 	if ( tex->glTexNum == 0 ) {
 		PK_LoadTexture( tex );
 	}
@@ -255,12 +263,12 @@ pkTexture_t *PK_FindTexture( const char *imageName ) {
  ==================
  */
 pkWav_t *PK_FindWav( const char *soundName ) {
-	int	index;
-	pkWavData_t *wavData = (pkWavData_t *)PK_FindType( soundName, &pkHeader->wavs, &index );
+	int	wavIndex;
+	pkWavData_t *wavData = (pkWavData_t *)PK_FindType( soundName, &pkHeader->wavs, &wavIndex );
 	if ( !wavData ) {
 		return NULL;
 	}
-	pkWav_t *wav = pkWavs + index;
+	pkWav_t *wav = pkWavs + wavIndex;
 	
 	// create the OpenAL buffer
 	
@@ -330,18 +338,18 @@ const pkName_t *PK_FindType( const char *rawName, const pkType_t *type, int *ind
 	
 	int hashChain = hash & (PK_HASH_CHAINS-1);
 	
-	int	index = type->hashChains[hashChain];
-	while ( index != -1 ) {
-		assert( index >= 0 && index < type->count );
-		const pkName_t *name = (pkName_t *)((byte *)pkHeader + type->tableOfs + index * type->structSize );
+	int	typeIndex = type->hashChains[hashChain];
+	while ( typeIndex != -1 ) {
+		assert( typeIndex >= 0 && typeIndex < type->count );
+		const pkName_t *name = (pkName_t *)((byte *)pkHeader + type->tableOfs + typeIndex * type->structSize );
 		if ( name->nameHash == hash && !strcmp( canonicalName, name->name ) ) {
 			// this is it
 			if ( indexOutput ) {
-				*indexOutput = index;
+				*indexOutput = typeIndex;
 			}
 			return name;
 		}
-		index = name->nextOnHashChain;
+		typeIndex = name->nextOnHashChain;
 	}
 	
 	// not found

@@ -1,5 +1,12 @@
+//
+//  EAGLView.m
+//  Doom
+//
+//  Created by Cass Everitt on 2/20/09.
+//  Copyright Id Software 2009. All rights reserved.
+//
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -25,7 +32,6 @@
 #import <OpenGLES/EAGLDrawable.h>
 
 #import "EAGLView.h"
-#import "doomAppDelegate.h"
 
 #include "doomiphone.h"
 
@@ -45,10 +51,8 @@ float screenResolutionScale = 1.0f;
 
 CAEAGLLayer *eaglLayer;
 
-//The GL view is stored in the nib file. When it's unarchived it's sent -initWithCoder:
-- (id)initWithCoder:(NSCoder*)coder {
-    self = [super initWithCoder:coder];
-	
+- (void) Initialize {
+    
 	eaglview = self;
 	
 	// allow multiple touch events
@@ -88,7 +92,7 @@ CAEAGLLayer *eaglLayer;
 	
 	if ( ![EAGLContext setCurrentContext:context]) {
 		[self release];
-		return nil;
+		return;
 	}        
     
     glGenFramebuffersOES(1, &mViewFramebuffer);
@@ -105,8 +109,9 @@ CAEAGLLayer *eaglLayer;
 	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
 	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
     
-    displaywidth = backingHeight;
-    displayheight = backingWidth;
+    /* JDS proper fix for landscape orientation */
+    displaywidth = backingWidth;
+    displayheight = backingHeight;
     
     glGenRenderbuffersOES(1, &mDepthRenderbuffer);
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, mDepthRenderbuffer);
@@ -122,6 +127,22 @@ CAEAGLLayer *eaglLayer;
 		assert( 0 );
     }
 	
+    return;
+}
+
+- (id) initWithCoder:(NSCoder *)aCoder{
+    
+    if(self = [super initWithCoder:aCoder] ) {
+        [self Initialize];
+    }
+    
+    return self;
+}
+
+- (id) initWithFrame:(CGRect)rect{
+    if(self = [super initWithFrame:rect] ) {
+        [self Initialize];
+    }
     return self;
 }
 
@@ -133,30 +154,21 @@ CAEAGLLayer *eaglLayer;
 	
 	memset( touchThisSequence, 0, sizeof( touchThisSequence ) );
 	
-	NSSet *touches = [event allTouches];
+	NSSet *theTouches = [event allTouches];
 //	printf( "count: %i\n", [touches count] );
-
-	// lock the game out temporarily
-	pthread_mutex_lock( &eventMutex );
 	
-    for (UITouch *myTouch in touches)
+    for (UITouch *myTouch in theTouches)
     {
-        CGPoint touchLocation = [myTouch locationInView:nil];
+        CGPoint touchLocation = [myTouch locationInView:self];
         
         // Scale Touches with the screen resolution.
         touchLocation.x *= screenResolutionScale;
         touchLocation.y *= screenResolutionScale;
         
-		// handle landscape mode and flipping
-		int		x, y;
-		if ( revLand->value ) {
-			x = touchLocation.y;
-			y = ( displayheight - 1 ) - touchLocation.x;
-		} else {
-			x = ( displaywidth - 1) - touchLocation.y;
-			y = touchLocation.x;
-		}
-//		printf( "%i, %i\n", x, y );		
+		const int x = touchLocation.x;
+		const int y = touchLocation.y;
+        // JDS Debug
+		//printf( "%i, %i\n", x, y );
 		touchCount++;
     
         
@@ -271,30 +283,31 @@ CAEAGLLayer *eaglLayer;
 		}		
 	}
 
-	// the game is free to copy the touches now
-	pthread_mutex_unlock( &eventMutex );
-	
 	previousTouchCount = touchCount;	
 }
 
 
-- (void) touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-//	printf( "touchesBegan\n" );
+- (void) touchesBegan:(NSSet*)touchSet withEvent:(UIEvent*)event {
+	(void)touchSet;
+	
 	[self handleTouches:event];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-//	printf( "touchesMoved\n" );
+- (void)touchesMoved:(NSSet *)touchSet withEvent:(UIEvent *)event {
+	(void)touchSet;
+	
 	[self handleTouches:event];
 }
 
-- (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
-//	printf( "touchesEnded\n" );
+- (void) touchesEnded:(NSSet*)touchSet withEvent:(UIEvent*)event {
+	(void)touchSet;
+	
 	[self handleTouches:event];
 }
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-//	printf( "touchesCancelled\n" );
+- (void)touchesCancelled:(NSSet *)touchSet withEvent:(UIEvent *)event {
+	(void)touchSet;
+	
 	[self handleTouches:event];
 }
 
@@ -309,6 +322,8 @@ char	consoleCommand[1024];
 
 - (BOOL)textFieldShouldReturn:(UITextField *)_textField 
 {
+	(void)_textField;
+	
 	if ( eaglview->textField == nil ) {
 		return YES;
 	}
@@ -316,9 +331,6 @@ char	consoleCommand[1024];
 	// we can't just execute this, because we are running in another
 	// thread, so fetch the line and the game will catch it next time
 	// around
-
-	// lock the game out temporarily
-	pthread_mutex_lock( &eventMutex );
 
 	const char *line = [ eaglview->textField.text UTF8String ];
 	strncpy( consoleCommand, line, sizeof(consoleCommand)-1 );
@@ -329,8 +341,6 @@ char	consoleCommand[1024];
 	[textField removeFromSuperview];
 	textField = nil;
 	
-	// lock the game out temporarily
-	pthread_mutex_unlock( &eventMutex );
 	
 	return YES;
 }
@@ -357,21 +367,6 @@ void SysIPhoneSwapBuffers() {
     // present the renderbuffer for display
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
     
-}
-
-void SysIPhoneOpenURL( const char *url ) {
-	Com_Printf( "OpenURL char *: %s\n", url );
-	
-	NSString *nss = [NSString stringWithCString: url encoding: NSASCIIStringEncoding];
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: nss]];
-}
-
-void SysIPhoneSetUIKitOrientation( int isLandscapeRight ) {
-	if ( isLandscapeRight ) {
-		[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeRight;
-	} else {
-		[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeLeft;
-	}
 }
 
 

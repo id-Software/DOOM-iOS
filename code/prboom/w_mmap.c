@@ -271,7 +271,7 @@ const void* W_CacheLumpNum(int lump)
 //	printf( "W_CacheLumpNum( %i ) = %s\n", lump, lumpinfo[lump].name );	// JDC tracking hitches
   if (!lumpinfo[lump].wadfile)
     return NULL;
-  return (mapped_wad[lumpinfo[lump].wadfile->handle]+lumpinfo[lump].position);
+  return ((unsigned char*)mapped_wad[lumpinfo[lump].wadfile->handle]+lumpinfo[lump].position);
 }
 #endif
 

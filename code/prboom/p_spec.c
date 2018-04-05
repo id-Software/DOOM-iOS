@@ -184,7 +184,7 @@ void P_InitPicAnims (void)
                   animdefs[i].startname,
                   animdefs[i].endname);
 
-    lastanim->speed = LONG(animdefs[i].speed); // killough 5/5/98: add LONG()
+    lastanim->speed = (int)LONG(animdefs[i].speed); // killough 5/5/98: add LONG()
     lastanim++;
   }
   W_UnlockLumpNum(lump);
@@ -2229,6 +2229,7 @@ void P_PlayerInSpecialSector (player_t* player)
       case 9:
         // Tally player in secret sector, clear secret special
         player->secretcount++;
+        player->message = s_GOTSECRET;
         sector->special = 0;
         break;
 
@@ -2540,15 +2541,15 @@ void P_SpawnSpecials (void)
 
   P_SpawnPushers();   // phares 3/20/98: New pusher model using linedefs
 
-  for (i=0; i<numlines; i++)
+    int s, sec;
+
+    for (i=0; i<numlines; i++)
     switch (lines[i].special)
     {
-      int s, sec;
-
       // killough 3/7/98:
       // support for drawn heights coming from different sector
       case 242:
-        sec = sides[*lines[i].sidenum].sector-sectors;
+        sec = (int)(sides[*lines[i].sidenum].sector-sectors);
         for (s = -1; (s = P_FindSectorFromLineTag(lines+i,s)) >= 0;)
           sectors[s].heightsec = sec;
         break;
@@ -2556,7 +2557,7 @@ void P_SpawnSpecials (void)
       // killough 3/16/98: Add support for setting
       // floor lighting independently (e.g. lava)
       case 213:
-        sec = sides[*lines[i].sidenum].sector-sectors;
+        sec = (int)(sides[*lines[i].sidenum].sector-sectors);
         for (s = -1; (s = P_FindSectorFromLineTag(lines+i,s)) >= 0;)
           sectors[s].floorlightsec = sec;
         break;
@@ -2564,7 +2565,7 @@ void P_SpawnSpecials (void)
       // killough 4/11/98: Add support for setting
       // ceiling lighting independently
       case 261:
-        sec = sides[*lines[i].sidenum].sector-sectors;
+        sec = (int)(sides[*lines[i].sidenum].sector-sectors);
         for (s = -1; (s = P_FindSectorFromLineTag(lines+i,s)) >= 0;)
           sectors[s].ceilinglightsec = sec;
         break;
@@ -2629,13 +2630,14 @@ void T_Scroll(scroll_t *s)
   if (!(dx | dy))                   // no-op if both (x,y) offsets 0
     return;
 
-  switch (s->type)
+    side_t *side;
+    sector_t *sec;
+    fixed_t height, waterheight;  // killough 4/4/98: add waterheight
+    msecnode_t *node;
+    mobj_t *thing;
+
+    switch (s->type)
     {
-      side_t *side;
-      sector_t *sec;
-      fixed_t height, waterheight;  // killough 4/4/98: add waterheight
-      msecnode_t *node;
-      mobj_t *thing;
 
     case sc_side:                   // killough 3/7/98: Scroll wall texture
         side = sides + s->affectee;
@@ -2735,7 +2737,7 @@ static void Add_WallScroller(fixed_t dx, fixed_t dy, const line_t *l,
 {
   fixed_t x = D_abs(l->dx), y = D_abs(l->dy), d;
   if (y > x)
-    d = x, x = y, y = d;
+      (void)(d = x), (void)(x = y), y = d;
   d = FixedDiv(x, finesine[(tantoangle[FixedDiv(y,x) >> DBITS] + ANG90)
                           >> ANGLETOFINESHIFT]);
 
@@ -2781,19 +2783,19 @@ static void P_SpawnScrollers(void)
       if (special >= 245 && special <= 249)         // displacement scrollers
         {
           special += 250-245;
-          control = sides[*l->sidenum].sector - sectors;
+          control = (int)(sides[*l->sidenum].sector - sectors);
         }
       else
         if (special >= 214 && special <= 218)       // accelerative scrollers
           {
             accel = 1;
             special += 250-214;
-            control = sides[*l->sidenum].sector - sectors;
+            control = (int)(sides[*l->sidenum].sector - sectors);
           }
 
+        register int s;
       switch (special)
         {
-          register int s;
 
         case 250:   // scroll effect ceiling
           for (s=-1; (s = P_FindSectorFromLineTag(l,s)) >= 0;)

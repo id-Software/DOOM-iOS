@@ -618,7 +618,7 @@ int EV_DoFloor
         floor->oldspecial = sec->oldspecial;
 
         //jff 5/23/98 use model subroutine to unify fixes and handling
-        sec = P_FindModelFloorSector(floor->floordestheight,sec-sectors);
+        sec = P_FindModelFloorSector(floor->floordestheight,(int)(sec-sectors));
         if (sec)
         {
           floor->texture = sec->floorpic;
@@ -796,14 +796,14 @@ int EV_BuildStairs
         if ( !((sec->lines[i])->flags & ML_TWOSIDED) )
           continue;
 
-        newsecnum = tsec-sectors;
+        newsecnum = (int)(tsec-sectors);
 
         if (secnum != newsecnum)
           continue;
 
         tsec = (sec->lines[i])->backsector;
         if (!tsec) continue;     //jff 5/7/98 if no backside, continue
-        newsecnum = tsec - sectors;
+        newsecnum = (int)(tsec - sectors);
 
         // if sector's floor is different texture, look for another
         if (tsec->floorpic != texture)
@@ -915,7 +915,7 @@ int EV_DoDonut(line_t*  line)
       // killough 4/5/98: changed demo_compatibility to compatibility
       if (comp[comp_model])
       {
-        if ((!s2->lines[i]->flags & ML_TWOSIDED) ||
+          if (((!s2->lines[i]->flags) & ML_TWOSIDED) ||
             (s2->lines[i]->backsector == s1))
           continue;
       }

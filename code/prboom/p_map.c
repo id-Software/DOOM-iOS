@@ -163,7 +163,7 @@ int P_GetFriction(const mobj_t *mo, int *frictionfactor)
      (sec->heightsec != -1 &&
       mo->z <= sectors[sec->heightsec].floorheight &&
       mbf_features)))
-  friction = sec->friction, movefactor = sec->movefactor;
+          (void)(friction = sec->friction), movefactor = sec->movefactor;
 
   if (frictionfactor)
     *frictionfactor = movefactor;
@@ -373,12 +373,12 @@ boolean PIT_CrossLine (line_t* ld)
 
 static int untouched(line_t *ld)
 {
-  fixed_t x, y, tmbbox[4];
+  fixed_t x, y, thetmbbox[4];
   return
-    (tmbbox[BOXRIGHT] = (x=tmthing->x)+tmthing->radius) <= ld->bbox[BOXLEFT] ||
-    (tmbbox[BOXLEFT] = x-tmthing->radius) >= ld->bbox[BOXRIGHT] ||
-    (tmbbox[BOXTOP] = (y=tmthing->y)+tmthing->radius) <= ld->bbox[BOXBOTTOM] ||
-    (tmbbox[BOXBOTTOM] = y-tmthing->radius) >= ld->bbox[BOXTOP] ||
+    (thetmbbox[BOXRIGHT] = (x=tmthing->x)+tmthing->radius) <= ld->bbox[BOXLEFT] ||
+    (thetmbbox[BOXLEFT] = x-tmthing->radius) >= ld->bbox[BOXRIGHT] ||
+    (thetmbbox[BOXTOP] = (y=tmthing->y)+tmthing->radius) <= ld->bbox[BOXBOTTOM] ||
+    (thetmbbox[BOXBOTTOM] = y-tmthing->radius) >= ld->bbox[BOXTOP] ||
     P_BoxOnLineSide(tmbbox, ld) != -1;
 }
 
@@ -532,9 +532,9 @@ static boolean PIT_CheckThing(mobj_t *thing) // killough 3/26/98: make static
       // A flying skull is smacking something.
       // Determine damage amount, and the skull comes to a dead stop.
 
-      int damage = ((P_Random(pr_skullfly)%8)+1)*tmthing->info->damage;
+      int skulldamage = ((P_Random(pr_skullfly)%8)+1)*tmthing->info->damage;
 
-      P_DamageMobj (thing, tmthing, tmthing, damage);
+      P_DamageMobj (thing, tmthing, tmthing, skulldamage);
 
       tmthing->flags &= ~MF_SKULLFLY;
       tmthing->momx = tmthing->momy = tmthing->momz = 0;
@@ -795,7 +795,7 @@ boolean P_TryMove(mobj_t* thing,fixed_t x,fixed_t y,
 
       if (tmceilingz - tmfloorz < thing->height ||     // doesn't fit
     // mobj must lower to fit
-    (floatok = true, !(thing->flags & MF_TELEPORT) &&
+          ((void)(floatok = true), !(thing->flags & MF_TELEPORT) &&
      tmceilingz - thing->z < thing->height) ||
     // too big a step up
     (!(thing->flags & MF_TELEPORT) &&
@@ -952,7 +952,7 @@ static boolean PIT_ApplyTorque(line_t *ld)
     dist = FixedMul(x,x) + FixedMul(y,y);
 
     while (dist > FRACUNIT*4 && mo->gear < MAXGEAR)
-      ++mo->gear, x >>= 1, y >>= 1, dist >>= 1;
+        (void)(++mo->gear), (void)(x >>= 1), (void)(y >>= 1), dist >>= 1;
 
     mo->momx -= x;
     mo->momy += y;
@@ -1267,14 +1267,14 @@ void P_SlideMove(mobj_t *mo)
       // trace along the three leading corners
 
       if (mo->momx > 0)
-  leadx = mo->x + mo->radius, trailx = mo->x - mo->radius;
+          (void)(leadx = mo->x + mo->radius), trailx = mo->x - mo->radius;
       else
-  leadx = mo->x - mo->radius, trailx = mo->x + mo->radius;
+          (void)(leadx = mo->x - mo->radius), trailx = mo->x + mo->radius;
 
       if (mo->momy > 0)
-  leady = mo->y + mo->radius, traily = mo->y - mo->radius;
+          (void)(leady = mo->y + mo->radius), traily = mo->y - mo->radius;
       else
-  leady = mo->y - mo->radius, traily = mo->y + mo->radius;
+          (void)(leady = mo->y - mo->radius), traily = mo->y + mo->radius;
 
       bestslidefrac = FRACUNIT+1;
 
@@ -1715,7 +1715,7 @@ boolean PTR_NoWayTraverse(intercept_t* in)
                                            // This linedef
   return ld->special || !(                 // Ignore specials
    ld->flags & ML_BLOCKING || (            // Always blocking
-   P_LineOpening(ld),                      // Find openings
+                               (void)(P_LineOpening(ld)),                      // Find openings
    openrange <= 0 ||                       // No opening
    openbottom > usething->z+24*FRACUNIT || // Too high it blocks
    opentop < usething->z+usething->height  // Too low it blocks
@@ -2253,7 +2253,7 @@ void P_CreateSecNodeList(mobj_t* thing,fixed_t x,fixed_t y)
    * And for tmbbox - cph 2003/08/10 */
   if ((compatibility_level < boom_compatibility_compatibility) /* ||
       (compatibility_level >= prboom_4_compatibility) */) {
-    tmx = saved_tmx, tmy = saved_tmy;
+          (void)(tmx = saved_tmx), tmy = saved_tmy;
     if (tmthing) {
       tmbbox[BOXTOP]  = tmy + tmthing->radius;
       tmbbox[BOXBOTTOM] = tmy - tmthing->radius;
@@ -2280,7 +2280,7 @@ void P_MapEnd(void) {
 static void SpechitOverrun(line_t *ld)
 {
   //int addr = 0x01C09C98 + (ld - lines) * 0x3E;
-  int addr = 0x00C09C98 + (ld - lines) * 0x3E;
+  int addr = (int)(0x00C09C98 + (ld - lines) * 0x3E);
 
   if (compatibility_level == dosdoom_compatibility || compatibility_level == tasdoom_compatibility)
   {

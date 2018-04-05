@@ -45,6 +45,10 @@
 #include "g_game.h"
 #include "r_main.h"
 
+#include "doomiphone.h"
+
+#include <stdbool.h>
+
 // global heads up display controls
 
 int hud_active;       //jff 2/17/98 controls heads-up display mode
@@ -733,13 +737,13 @@ void HU_MoveHud(void)
 void HU_Drawer(void)
 {
   char *s;
-  player_t *plr;
+  player_t *player;
   char ammostr[80];  //jff 3/8/98 allow plenty room for dehacked mods
   char healthstr[80];//jff
   char armorstr[80]; //jff
   int i,doit;
 
-  plr = &players[displayplayer];         // killough 3/7/98
+  player = &players[displayplayer];         // killough 3/7/98
   // draw the automap widgets if automap is displayed
   if (automapmode & am_active)
   {
@@ -750,7 +754,7 @@ void HU_Drawer(void)
     // x-coord
     if (map_point_coordinates)
     {
-      sprintf(hud_coordstrx,"X: %-5d", (plr->mo->x)>>FRACBITS);
+      sprintf(hud_coordstrx,"X: %-5d", (player->mo->x)>>FRACBITS);
       HUlib_clearTextLine(&w_coordx);
       s = hud_coordstrx;
       while (*s)
@@ -759,7 +763,7 @@ void HU_Drawer(void)
 
       //jff 3/3/98 split coord display into x,y,z lines
       // y-coord
-      sprintf(hud_coordstry,"Y: %-5d", (plr->mo->y)>>FRACBITS);
+      sprintf(hud_coordstry,"Y: %-5d", (player->mo->y)>>FRACBITS);
       HUlib_clearTextLine(&w_coordy);
       s = hud_coordstry;
       while (*s)
@@ -769,7 +773,7 @@ void HU_Drawer(void)
       //jff 3/3/98 split coord display into x,y,z lines
       //jff 2/22/98 added z
       // z-coord
-      sprintf(hud_coordstrz,"Z: %-5d", (plr->mo->z)>>FRACBITS);
+      sprintf(hud_coordstrz,"Z: %-5d", (player->mo->z)>>FRACBITS);
       HUlib_clearTextLine(&w_coordz);
       s = hud_coordstrz;
       while (*s)
@@ -798,15 +802,15 @@ void HU_Drawer(void)
       // clear the widgets internal line
       HUlib_clearTextLine(&w_ammo);
       strcpy(hud_ammostr,"AMM ");
-      if (weaponinfo[plr->readyweapon].ammo == am_noammo)
+      if (weaponinfo[player->readyweapon].ammo == am_noammo)
       { // special case for weapon with no ammo selected - blank bargraph + N/A
         strcat(hud_ammostr,"\x7f\x7f\x7f\x7f\x7f\x7f\x7f N/A");
         w_ammo.cm = CR_GRAY;
       }
       else
       {
-        int ammo = plr->ammo[weaponinfo[plr->readyweapon].ammo];
-        int fullammo = plr->maxammo[weaponinfo[plr->readyweapon].ammo];
+        int ammo = player->ammo[weaponinfo[player->readyweapon].ammo];
+        int fullammo = player->maxammo[weaponinfo[player->readyweapon].ammo];
         int ammopct = (100*ammo)/fullammo;
         int ammobars = ammopct/4;
 
@@ -856,7 +860,7 @@ void HU_Drawer(void)
     // do the hud health display
     if (doit)
     {
-      int health = plr->health;
+      int health = player->health;
       int healthbars = health>100? 25 : health/4;
 
       // clear the widgets internal line
@@ -910,7 +914,7 @@ void HU_Drawer(void)
     // do the hud armor display
     if (doit)
     {
-      int armor = plr->armorpoints;
+      int armor = player->armorpoints;
       int armorbars = armor>100? 25 : armor/4;
 
       // clear the widgets internal line
@@ -992,12 +996,12 @@ void HU_Drawer(void)
         }
         if (!ok) continue;
 
-        ammo = plr->ammo[weaponinfo[w].ammo];
-        fullammo = plr->maxammo[weaponinfo[w].ammo];
+        ammo = player->ammo[weaponinfo[w].ammo];
+        fullammo = player->maxammo[weaponinfo[w].ammo];
         ammopct=0;
 
         // skip weapons not currently posessed
-        if (!plr->weaponowned[w])
+        if (!player->weaponowned[w])
           continue;
 
         ammopct = fullammo? (100*ammo)/fullammo : 100;
@@ -1005,7 +1009,7 @@ void HU_Drawer(void)
         // display each weapon number in a color related to the ammo for it
         hud_weapstr[i++] = '\x1b'; //jff 3/26/98 use ESC not '\' for paths
         if (weaponinfo[w].ammo==am_noammo) //jff 3/14/98 show berserk on HUD
-          hud_weapstr[i++] = plr->powers[pw_strength]? '0'+CR_GREEN : '0'+CR_GRAY;
+          hud_weapstr[i++] = player->powers[pw_strength]? '0'+CR_GREEN : '0'+CR_GRAY;
         else if (ammopct<ammo_red)
           hud_weapstr[i++] = '0'+CR_RED;
         else if (ammopct<ammo_yellow)
@@ -1039,7 +1043,7 @@ void HU_Drawer(void)
         for (k=0;k<6;k++)
         {
           // skip keys not possessed
-          if (!plr->cards[k])
+          if (!player->cards[k])
             continue;
 
           hud_gkeysstr[i++] = '!'+k;   // key number plus '!' is char for key
@@ -1151,7 +1155,7 @@ void HU_Drawer(void)
           for (k=0;k<6;k++)
           {
             // skip any not possessed by the displayed player's stats
-            if (!plr->cards[k])
+            if (!player->cards[k])
               continue;
 
             // use color escapes to make text in key's color
@@ -1237,9 +1241,9 @@ void HU_Drawer(void)
         (
           hud_monsecstr,
           "STS \x1b\x36K \x1b\x33%d \x1b\x36M \x1b\x33%d \x1b\x37I \x1b\x33%d/%d \x1b\x35S \x1b\x33%d/%d",
-          plr->killcount,totallive,
-          plr->itemcount,totalitems,
-          plr->secretcount,totalsecret
+          player->killcount,totallive,
+          player->itemcount,totalitems,
+          player->secretcount,totalsecret
         );
         // transfer the init string to the widget
         s = hud_monsecstr;

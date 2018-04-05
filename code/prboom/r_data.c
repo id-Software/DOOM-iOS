@@ -140,7 +140,7 @@ static void R_InitTextures (void)
   // Load the patch names from pnames.lmp.
   name[8] = 0;
   names = W_CacheLumpNum(names_lump = W_GetNumForName("PNAMES"));
-  nummappatches = LONG(*((const int *)names));
+  nummappatches = (int)LONG(*((const int *)names));
   name_p = names+4;
   patchlookup = malloc(nummappatches*sizeof(*patchlookup));  // killough
 
@@ -172,14 +172,14 @@ static void R_InitTextures (void)
   //  TEXTURE1 for shareware, plus TEXTURE2 for commercial.
 
   maptex = maptex1 = W_CacheLumpNum(maptex_lump[0] = W_GetNumForName("TEXTURE1"));
-  numtextures1 = LONG(*maptex);
+  numtextures1 = (int)LONG(*maptex);
   maxoff = W_LumpLength(maptex_lump[0]);
   directory = maptex+1;
 
   if (W_CheckNumForName("TEXTURE2") != -1)
     {
       maptex2 = W_CacheLumpNum(maptex_lump[1] = W_GetNumForName("TEXTURE2"));
-      numtextures2 = LONG(*maptex2);
+      numtextures2 = (int)LONG(*maptex2);
       maxoff2 = W_LumpLength(maptex_lump[1]);
     }
   else
@@ -208,7 +208,7 @@ static void R_InitTextures (void)
           directory = maptex+1;
         }
 
-      offset = LONG(*directory);
+      offset = (int)LONG(*directory);
 
       if (offset > maxoff)
         I_Error("R_InitTextures: Bad texture directory");
@@ -255,7 +255,6 @@ static void R_InitTextures (void)
 #else
 */
       {
-        int j;
         for(j=0;j<sizeof(texture->name);j++)
           texture->name[j]=mtexture->name[j];
       }
@@ -322,9 +321,9 @@ static void R_InitTextures (void)
     textures[i]->index = -1;
   while (--i >= 0)
     {
-      int j = W_LumpNameHash(textures[i]->name) % (unsigned) numtextures;
-      textures[i]->next = textures[j]->index;   // Prepend to chain
-      textures[j]->index = i;
+      int texturej = W_LumpNameHash(textures[i]->name) % (unsigned) numtextures;
+      textures[i]->next = textures[texturej]->index;   // Prepend to chain
+      textures[texturej]->index = i;
     }
 }
 
@@ -408,16 +407,18 @@ int R_ColormapNumForName(const char *name)
 static inline int between(int l,int u,int x)
 { return (l > x ? l : x > u ? u : x); }
 
-const lighttable_t* R_ColourMap(int lightlevel, fixed_t spryscale)
+const lighttable_t* R_ColourMap(int lightlevel, fixed_t spriteyscale)
 {
   if (fixedcolormap) return fixedcolormap;
   else {
-    if (curline)
-      if (curline->v1->y == curline->v2->y)
-        lightlevel -= 1 << LIGHTSEGSHIFT;
-      else
-        if (curline->v1->x == curline->v2->x)
-          lightlevel += 1 << LIGHTSEGSHIFT;
+      if (curline) {
+          if (curline->v1->y == curline->v2->y)
+              lightlevel -= 1 << LIGHTSEGSHIFT;
+          else {
+              if (curline->v1->x == curline->v2->x)
+                  lightlevel += 1 << LIGHTSEGSHIFT;
+          }
+      }
 
     lightlevel += extralight << LIGHTSEGSHIFT;
 
@@ -434,7 +435,7 @@ const lighttable_t* R_ColourMap(int lightlevel, fixed_t spryscale)
      */
     return fullcolormap + between(0,NUMCOLORMAPS-1,
           ((256-lightlevel)*2*NUMCOLORMAPS/256) - 4
-          - (FixedMul(spryscale,pspriteiscale)/2 >> LIGHTSCALESHIFT)
+          - (FixedMul(spriteyscale,pspriteiscale)/2 >> LIGHTSCALESHIFT)
           )*256;
   }
 }
@@ -532,8 +533,10 @@ void R_InitTranMap(int progress)
                     long best = LONG_MAX;
                     do
                       if ((err = tot[color] - pal[0][color]*r
-                          - pal[1][color]*g - pal[2][color]*b) < best)
-                        best = err, *tp = color;
+                           - pal[1][color]*g - pal[2][color]*b) < best) {
+                          best = err;
+                          *tp = color;
+                      }
                     while (--color >= 0);
                   }
               }
@@ -615,6 +618,39 @@ int PUREFUNC R_CheckTextureNumForName(const char *name)
   return i;
 }
 
+// Maps textures with things we can't show in Germany to appropriate textures.
+//static const char * germanyRemap[][2] = { 
+//    { "ZZWOLF2", "ZZWOLF1" },
+//    { "ZZWOLF3", "ZZWOLF1" },
+//    { "ZZWOLF4", "ZZWOLF1" },
+//    { "ZZWOLF6", "ZZWOLF5" },
+//    { "ZZWOLF7", "ZZWOLF5" },
+//    { "ZZWOLF12", "ZZWOLF11" },
+//    { "ZZWOLF13", "ZZWOLF11" },
+//    { NULL, NULL }
+//};
+	
+//
+// R_RemapTextureForGermany
+// Given a texture name, returns a suitable replacement texture without any images of swastikas
+// or Hitler.
+//
+const char * R_RemapTextureForGermany( const char * name ) {
+    return name;
+    
+//    const char ** currentTestPair = germanyRemap[0];
+//    
+//    while ( currentTestPair[0] != NULL ) {
+//        if ( strncmp( currentTestPair[0], name, 8 ) == 0 ) {
+//            return currentTestPair[1];
+//        }
+//        
+//        currentTestPair += 2;
+//    }
+//
+//    return name;
+}
+
 //
 // R_TextureNumForName
 // Calls R_CheckTextureNumForName,
@@ -623,9 +659,11 @@ int PUREFUNC R_CheckTextureNumForName(const char *name)
 
 int PUREFUNC R_TextureNumForName(const char *name)  // const added -- killough
 {
-  int i = R_CheckTextureNumForName(name);
+  const char * remappedName = R_RemapTextureForGermany( name );
+  
+  int i = R_CheckTextureNumForName(remappedName);
   if (i == -1)
-    I_Error("R_TextureNumForName: %.8s not found", name);
+    I_Error("R_TextureNumForName: %.8s not found", remappedName);
   return i;
 }
 
@@ -634,10 +672,12 @@ int PUREFUNC R_TextureNumForName(const char *name)  // const added -- killough
 // Calls R_CheckTextureNumForName, and changes any error to NO_TEXTURE
 int PUREFUNC R_SafeTextureNumForName(const char *name, int snum)
 {
-  int i = R_CheckTextureNumForName(name);
+  const char * remappedName = R_RemapTextureForGermany( name );
+  
+  int i = R_CheckTextureNumForName(remappedName);
   if (i == -1) {
     i = NO_TEXTURE; // e6y - return "no texture"
-    lprintf(LO_DEBUG,"bad texture '%s' in sidedef %d\n",name,snum);
+    lprintf(LO_DEBUG,"bad texture '%s' in sidedef %d\n",remappedName,snum);
   }
   return i;
 }

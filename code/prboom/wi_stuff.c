@@ -224,39 +224,39 @@ static point_t lnodes[NUMEPISODES][NUMMAPS] =
 //
 static anim_t epsd0animinfo[] =
 {
-  { ANIM_ALWAYS, TICRATE/3, 3, { 224, 104 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 184, 160 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 112, 136 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 72, 112 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 88, 96 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 64, 48 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 192, 40 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 136, 16 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 80, 16 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 64, 24 } }
+  { ANIM_ALWAYS, TICRATE/3, 3, { 224, 104 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 184, 160 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 112, 136 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 72, 112 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 88, 96 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 64, 48 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 192, 40 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 136, 16 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 80, 16 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 64, 24 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 }
 };
 
 static anim_t epsd1animinfo[] =
 {
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 1 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 2 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 3 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 4 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 5 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 6 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 7 },
-  { ANIM_LEVEL,  TICRATE/3, 3, { 192, 144 }, 8 },
-  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 8 }
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 1, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 2, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 3, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 4, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 5, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 6, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 7, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 3, { 192, 144 }, 8, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_LEVEL,  TICRATE/3, 1, { 128, 136 }, 8, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 }
 };
 
 static anim_t epsd2animinfo[] =
 {
-  { ANIM_ALWAYS, TICRATE/3, 3, { 104, 168 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 40, 136 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 160, 96 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 104, 80 } },
-  { ANIM_ALWAYS, TICRATE/3, 3, { 120, 32 } },
-  { ANIM_ALWAYS, TICRATE/4, 3, { 40, 0 } }
+  { ANIM_ALWAYS, TICRATE/3, 3, { 104, 168 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 40, 136 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 160, 96 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 104, 80 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/3, 3, { 120, 32 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 },
+  { ANIM_ALWAYS, TICRATE/4, 3, { 40, 0 }, 0, 0, { {0, 0, 0, 0, 0} }, 0, 0, 0, 0 }
 };
 
 static int NUMANIMS[NUMEPISODES] =
@@ -828,13 +828,13 @@ void WI_initNoState(void)
 //
 // cph - pulled from WI_drawStats below
 
-static void WI_drawTimeStats(int cnt_time, int cnt_total_time, int cnt_par)
+static void WI_drawTimeStats(int cnt_time_sec, int cnt_total_time_sec, int cnt_par_time_sec)
 {
   V_DrawNamePatch(SP_TIMEX, SP_TIMEY, FB, time1, CR_DEFAULT, VPT_STRETCH);
-  WI_drawTime(320/2 - SP_TIMEX, SP_TIMEY, cnt_time);
+  WI_drawTime(320/2 - SP_TIMEX, SP_TIMEY, cnt_time_sec);
 
   V_DrawNamePatch(SP_TIMEX, (SP_TIMEY+200)/2, FB, total, CR_DEFAULT, VPT_STRETCH);
-  WI_drawTime(320/2 - SP_TIMEX, (SP_TIMEY+200)/2, cnt_total_time);
+  WI_drawTime(320/2 - SP_TIMEX, (SP_TIMEY+200)/2, cnt_total_time_sec);
 
   // Ty 04/11/98: redid logic: should skip only if with pwad but
   // without deh patch
@@ -846,7 +846,7 @@ static void WI_drawTimeStats(int cnt_time, int cnt_total_time, int cnt_par)
     if (wbs->epsd < 3)
     {
       V_DrawNamePatch(320/2 + SP_TIMEX, SP_TIMEY, FB, par, CR_DEFAULT, VPT_STRETCH);
-      WI_drawTime(320 - SP_TIMEX, SP_TIMEY, cnt_par);
+      WI_drawTime(320 - SP_TIMEX, SP_TIMEY, cnt_par_time_sec);
     }
   }
 }
@@ -986,22 +986,22 @@ void WI_drawNoState(void)
 int WI_fragSum(int playernum)
 {
   int   i;
-  int   frags = 0;
+  int   numfrags = 0;
 
   for (i=0 ; i<MAXPLAYERS ; i++)
   {
     if (playeringame[i]  // is this player playing?
        && i!=playernum) // and it's not the player we're calculating
     {
-      frags += plrs[playernum].frags[i];
+      numfrags += plrs[playernum].frags[i];
     }
   }
 
 
   // JDC hack - negative frags.
-  frags -= plrs[playernum].frags[playernum];
+  numfrags -= plrs[playernum].frags[playernum];
 
-  return frags;
+  return numfrags;
 }
 
 static int          dm_state;

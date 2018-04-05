@@ -216,7 +216,7 @@ void R_RenderMaskedSegRange(drawseg_t *ds, int x1, int x2)
           if (t + (int_64_t) textureheight[texnum] * spryscale < 0 ||
               t > (int_64_t) MAX_SCREENHEIGHT << FRACBITS*2)
             continue;        // skip if the texture is out of screen's range
-          sprtopscreen = (long)(t >> FRACBITS);
+          sprtopscreen = (int)((long)(t >> FRACBITS));
         }
 
         dcvars.iscale = 0xffffffffu / (unsigned) spryscale;
@@ -479,7 +479,7 @@ void R_StoreWallRange(const int start, const int stop)
 
   if (ds_p == drawsegs+maxdrawsegs)   // killough 1/98 -- fix 2s line HOM
     {
-      unsigned pos = ds_p - drawsegs; // jff 8/9/98 fix from ZDOOM1.14a
+      unsigned pos = (unsigned)(ds_p - drawsegs); // jff 8/9/98 fix from ZDOOM1.14a
       unsigned newmax = maxdrawsegs ? maxdrawsegs*2 : 128; // killough
       drawsegs = realloc(drawsegs,newmax*sizeof(*drawsegs));
       ds_p = drawsegs + pos;          // jff 8/9/98 fix from ZDOOM1.14a

@@ -1,0 +1,1333 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="JET_Programming_Manual_files/filelist.xml">
+<link rel=Edit-Time-Data href="JET_Programming_Manual_files/editdata.mso">
+<link rel=OLE-Object-Data href="JET_Programming_Manual_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>JET PROGRAMMING MANUAL</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Dave Sparks</o:Author>
+  <o:Template>SONiVOX Technical Note.dot</o:Template>
+  <o:LastAuthor>Jennifer Hruska</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>34</o:TotalTime>
+  <o:LastPrinted>2006-06-30T19:06:00Z</o:LastPrinted>
+  <o:Created>2009-03-13T18:45:00Z</o:Created>
+  <o:LastSaved>2009-03-19T14:20:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>3887</o:Words>
+  <o:Characters>22157</o:Characters>
+  <o:Company> </o:Company>
+  <o:Lines>184</o:Lines>
+  <o:Paragraphs>51</o:Paragraphs>
+  <o:CharactersWithSpaces>25993</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>8.15 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-font-kerning:14.0pt;
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-parent:"Comment Text";
+	mso-style-next:"Comment Text";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;
+	mso-bidi-language:AR-SA;
+	font-weight:bold;
+	font-style:italic;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	mso-style-parent:"Heading 4";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+ /* Page Definitions */
+ @page
+	{mso-footnote-separator:url("JET_Programming_Manual_files/header.htm") fs;
+	mso-footnote-continuation-separator:url("JET_Programming_Manual_files/header.htm") fcs;
+	mso-endnote-separator:url("JET_Programming_Manual_files/header.htm") es;
+	mso-endnote-continuation-separator:url("JET_Programming_Manual_files/header.htm") ecs;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-footer:url("JET_Programming_Manual_files/header.htm") f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="5122">
+  <o:colormenu v:ext="edit" fillcolor="none" strokecolor="none"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<pre>
+   Copyright (C) 2009 The Android Open Source Project
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</pre>
+
+<div class=Section1>
+
+<p class=MsoTitle align=left style='text-align:left'><a name="_Toc203292246"></a><a
+name="_Toc203298075"><span style='mso-bookmark:_Toc203292246'><span lang=EN-IE
+style='font-size:20.0pt'>JET™ Programming Manual<o:p></o:p></span></span></a></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span style='mso-bookmark:
+_Toc203298075'><span style='mso-bookmark:_Toc203292246'><span lang=EN-IE>JET
+Interactive Music Engine</span></span></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span style='mso-bookmark:
+_Toc203298075'><span style='mso-bookmark:_Toc203292246'><span lang=EN-IE
+style='font-size:12.0pt'>Vrs 2.0<o:p></o:p></span></span></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span style='mso-bookmark:
+_Toc203298075'><span style='mso-bookmark:_Toc203292246'><span lang=EN-IE
+style='font-size:12.0pt'>Authored by SONiVOX<o:p></o:p></span></span></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span style='mso-bookmark:
+_Toc203298075'><span style='mso-bookmark:_Toc203292246'></span></span><a
+href="http://www.sonivoxrocks.com/"><span style='mso-bookmark:_Toc203298075'><span
+style='mso-bookmark:_Toc203292246'><span lang=EN-IE style='font-size:12.0pt'>www.sonivoxrocks.com</span></span></span><span
+style='mso-bookmark:_Toc203298075'><span style='mso-bookmark:_Toc203292246'></span></span></a><span
+style='mso-bookmark:_Toc203298075'><span style='mso-bookmark:_Toc203292246'><span
+lang=EN-IE style='font-size:12.0pt'><o:p></o:p></span></span></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span style='mso-bookmark:
+_Toc203298075'><span style='mso-bookmark:_Toc203292246'><span lang=EN-IE
+style='font-size:12.0pt'>Copyright 2009 Sonic Network, Inc.<o:p></o:p></span></span></span></p>
+
+<span style='mso-bookmark:_Toc203292246'></span><span style='mso-bookmark:_Toc203298075'></span>
+
+<p class=MsoCommentText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoHeader><o:p>&nbsp;</o:p></p>
+
+<p class=MsoHeader><o:p>&nbsp;</o:p></p>
+
+<h1 align=left style='text-align:left'><a name="_Toc203298082"></a><a
+name="_Toc482161515"><span style='mso-bookmark:_Toc203298082'><i
+style='mso-bidi-font-style:normal'>Introduction</i></span></a><i
+style='mso-bidi-font-style:normal'><o:p></o:p></i></h1>
+
+<p class=MsoNormal>This document contains programmer guidelines for the SONiVOX
+JET Interactive Music System. JET is an interactive music player for small
+embedded devices, including the Google Android platform. It allows applications
+to include interactive music soundtracks, in <st1:place w:st="on">MIDI</st1:place>
+format, that respond in real-time to game play events and user interaction. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>JET works in conjunction with SONiVOX’s Embedded Audio
+Synthesizer (EAS) which is the <st1:place w:st="on">MIDI</st1:place> playback
+device for Android.<span style='mso-spacerun:yes'>  </span>Both the JET and EAS
+engines are integrated into the Android embedded platform as well as inherent
+in <i style='mso-bidi-font-style:normal'>JET Creator</i>, an application for
+authoring JET content files. As such, the JET content author can be sure that
+the playback will sound exactly the same in both <i style='mso-bidi-font-style:
+normal'>JET Creator</i> and the final Android application playing back on
+Android mobile devices.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The programmer of a JET application will want to work
+closely with the content author in designing how real-time application events
+and music will interactively work together. Once decided, the content author
+will create the content and ultimately save a .jet file for the programmer to
+include in the application.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Please see “JET Creator User Documentation” for additional
+information on authoring JET content.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc203298084">Abbreviations and Common Terms</a></h2>
+
+<p class=MsoNormal>It is important to use a common set of terms to minimize confusion.
+Since JET uses <st1:place w:st="on">MIDI</st1:place> in a unique way, normal
+industry terms may not always suffice. Here is the definition of terms as they
+are used in this document and in the JET Creator application:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>Channel</i>: MIDI data
+associated with a specific <st1:place w:st="on">MIDI</st1:place> channel.
+Standard MIDI allows for 16 channels of <st1:place w:st="on">MIDI</st1:place>
+data each of which are typically associated with a specific instrument. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>Controller</i>: A <st1:place
+w:st="on">MIDI</st1:place> event consisting of a channel number, controller
+number, and a controller value. The <st1:place w:st="on">MIDI</st1:place> spec
+associates many controller numbers with specific functions, such as volume,
+expression, sustain pedal, etc. JET also uses controller events as a means of
+embedding special control information in a <st1:place w:st="on">MIDI</st1:place>
+sequence to provide for audio synchronization.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>DAW</i>: Digital Audio
+Workstation. A common term for <st1:place w:st="on">MIDI</st1:place> and audio
+sequencing applications such as Logic, SONAR, Cubase and others. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>EAS:</i> Embedded <st1:place
+w:st="on">MIDI</st1:place> Synthesizer. The name of the SONiVOX MIDI
+synthesizer engine.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>JET</i>: Jet
+Interactive Engine. The name of the SONiVOX JET interactive music engine.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>Segment</i>: A musical
+section such as a chorus or verse that is a component of the overall
+composition. In JET, a segment can be an entire MIDI file or a derived from a
+portion of a <st1:place w:st="on">MIDI</st1:place> file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>SMF-0</i>: Standard
+MIDI File Type 0, a MIDI file that contains a single track, but may be made up
+of multiple channels of <st1:place w:st="on">MIDI</st1:place> data.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>SMF-1</i>: Standard
+MIDI File Type 1, a MIDI file that contains a one more tracks, and each track
+may in turn be made up of one or more channels of <st1:place w:st="on">MIDI</st1:place>
+data. By convention, each channel is stored on a separate track in an SMF-1
+file. However, it is possible to have multiple MIDI channels on a single track,
+or multiple tracks that contain data for the same <st1:place w:st="on">MIDI</st1:place>
+channel.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>Track</i>: A single
+track in a DAW containing a timed sequence of <st1:place w:st="on">MIDI</st1:place>
+events. Be careful not to confuse Tracks with Channels. A MIDI file may contain
+many tracks with several tracks utilizing the same <st1:place w:st="on">MIDI</st1:place>
+channel. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1 align=left style='text-align:left'><a name="_Toc203298085"></a><a
+name="_Toc135723076"></a><a name="_Toc135723793"></a><a name="_Toc135724016"></a><a
+name="_Toc135724241"></a><a name="_Toc135724464"></a><a name="_Toc135724687"></a><a
+name="_Toc135724909"></a><a name="_Toc135725132"></a><a name="_Toc135726607"></a><a
+name="_Toc135727776"></a><a name="_Toc137004452"></a><a name="_Toc135724689"></a><a
+name="_Toc135724467"></a><span style='mso-bookmark:_Toc203298085'>The JET
+Interactive Music Concept</span></h1>
+
+<p class=MsoNormal>Interactive music can be defined as music that changes in
+real-time according to non-predictable events such as user interaction or game
+play events. In this way, interactive music is much more engaging as it has the
+ability to match the energy and mood of a game much closer than a pre-composed
+composition that never changes. In some applications and games, interactive
+music is central to the game play. Guitar Hero is one such popular game. When
+the end user successfully ‘captures’ the musical notes coming down the fret
+board, the music adapts itself and simultaneously keeps score of successes and
+failures. JET allows for these types of music driven games as well.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>There are several methods for making and controlling
+interactive music and JET is one such method. This section describes the
+features of JET and how they might be used in a game or software application.
+It also describes how JET can be used to save memory in small footprint devices
+such as Android enabled mobile handsets.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>JET Operation</h2>
+
+<p class=MsoNormal>JET supports a flexible music format that can be used to
+create extended musical sequences with a minimal amount of data. A musical
+composition is broken up into segments that can be sequenced to create a longer
+piece. The sequencing can be fixed at the time the music file is authored, or
+it can be created dynamically under program control.</p>
+
+<h3><span class=Heading2Char><span style='font-size:14.0pt'>Linear Music
+Example<o:p></o:p></span></span></h3>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:431.25pt;
+ height:294.75pt' o:ole="">
+ <v:imagedata src="JET_Programming_Manual_files/image013.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=393
+src="JET_Programming_Manual_files/image002.png" v:shapes="_x0000_i1025"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1298963236">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
+field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+<span style='mso-element:field-separator'></span><![endif]--><span
+style='mso-no-proof:yes'>1</span><!--[if supportFields]><span style='mso-element:
+field-end'></span><![endif]-->: Linear Music Piece</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>This diagram shows how musical segments are stored. Each
+segment is authored as a separate <st1:place w:st="on">MIDI</st1:place> file. A
+post-processing tool combines the files into a single container file. Each
+segment can contain alternate music tracks that can be muted or un-muted to
+create additional interest. An example might be a brass accent in the chorus
+that is played only the last time through. Also, segments can be transposed up
+or down.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The bottom part of the diagram shows how the musical
+segments can be recombined to create a linear music piece. In this example, the
+bridge might end with a half-step key modulation and the remaining segments
+could be transposed up a half-step to match.</p>
+
+<h3>Non-linear Music Example</h3>
+
+<p class=MsoNormal style='page-break-after:avoid'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:6in;height:291.75pt' o:ole="">
+ <v:imagedata src="JET_Programming_Manual_files/image014.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=389
+src="JET_Programming_Manual_files/image004.png" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1298963237">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
+field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+<span style='mso-element:field-separator'></span><![endif]--><span
+style='mso-no-proof:yes'>2</span><!--[if supportFields]><span style='mso-element:
+field-end'></span><![endif]-->: Non-linear music piece</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In this diagram, we see a non-linear music piece. The
+scenario is a first-person-shooter (FPS) and JET is providing the background
+music. The intro plays as the level is loading and then transitions under
+program control to the Searching segment. This segment is repeated
+indefinitely, perhaps with small variations (using the mute/un-mute feature)
+until activity in the game dictates a change.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>As the player nears a monster lair, the program starts a
+synchronized transition to the Danger segment, increasing the tension level in
+the audio. As the player draws closer to the lair, additional tracks are
+un-muted to increase the tension.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>As the player enters into combat with the monster, the
+program starts a synchronized transition to the Combat segment. The segment
+repeats indefinitely as the combat continues. A Bonus Hit temporarily un-mutes
+a decorative track that notifies the player of a successful attack, and
+similarly, another track is temporarily un-muted to signify when the player
+receives Special Damage.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>At the end of combat, the music transitions to a victory or
+defeat segment based on the outcome of battle.</p>
+
+<h3>Mute/Un-mute Synchronization</h3>
+
+<p class=MsoNormal>JET can also synchronize the muting and un-muting of tracks
+to events in the music. For example, in the FPS game, it would probably be
+desirable to place the musical events relating to bonuses and damage as close
+to the actual game event as possible. However, simply un-muting a track at the
+moment the game event occurs might result in a music clip starting in the
+middle. Alternatively, a clip could be started from the beginning, but then it
+wouldn’t be synchronized with the other music tracks.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>However, with the JET sync engine, a clip can be started at
+the next opportune moment and maintain synchronization. This can be
+accomplished by placing a number of short music clips on a decorative track. A <st1:place
+w:st="on">MIDI</st1:place> event in the stream signifies the start of a clip
+and a second event signifies the end of a clip. When the application calls the
+JET clip function, the next clip in the track is allowed to play fully
+synchronized to the music. Optionally, the track can be automatically muted by
+a second <st1:place w:st="on">MIDI</st1:place> event.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:6in;height:116.25pt' o:ole="">
+ <v:imagedata src="JET_Programming_Manual_files/image015.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=155
+src="JET_Programming_Manual_files/image006.png" v:shapes="_x0000_i1027"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1298963238">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
+field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+<span style='mso-element:field-separator'></span><![endif]--><span
+style='mso-no-proof:yes'>3</span><!--[if supportFields]><span style='mso-element:
+field-end'></span><![endif]-->: Synchronized Mute/Unmute</p>
+
+<h2>Audio Synchronization</h2>
+
+<p class=MsoNormal>JET provides an audio synchronization API that allows game
+play to be synchronized to events in the audio. The mechanism relies on data
+embedded in the <st1:place w:st="on">MIDI</st1:place> file at the time the
+content is authored. When the JET engine senses an event during playback it
+generates a callback into the application program. The timing of the callback
+can be adjusted to compensate for any latency in the audio playback system so
+that audio and video can be synchronized. The diagram below shows an example of
+a simple music game that involves pressing the left and right arrows in time
+with the music.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:6in;height:100.5pt' o:ole="">
+ <v:imagedata src="JET_Programming_Manual_files/image016.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=134
+src="JET_Programming_Manual_files/image008.png" v:shapes="_x0000_i1028"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1298963239">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
+field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+<span style='mso-element:field-separator'></span><![endif]--><span
+style='mso-no-proof:yes'>4</span><!--[if supportFields]><span style='mso-element:
+field-end'></span><![endif]-->: Music Game<span style='mso-no-proof:yes'> with
+Synchronization<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The arrows represent events in the music sequence where game
+events need to be synchronized. In this case, the blue arrow represents a time
+where the player is supposed to press the left button, and the red arrow is for
+the right button. The yellow arrow tells the game engine that the sequence is
+complete. The player is allowed a certain time window before and after the
+event to press the appropriate key.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If an event is received and the player has not pressed a
+button, a timer is set to half the length of the window. If the player presses
+the button before the timer expires, the game registers a success, and if not,
+the game registers a failure. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If the player presses the button before the event is
+received, a timer is set to half the length of the window. If an event is
+received before the timer expires, the game registers a success, and if not,
+the game registers a failure. Game play might also include bonuses for getting
+close to the timing of the actual event. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Operational Details</h2>
+
+<p class=MsoNormal>JET uses the standard EAS library calls to manage multiple <st1:place
+w:st="on">MIDI</st1:place> streams that are synchronized to sound like a
+seamless audio track. JET requires the use of the dynamic memory model, i.e.
+support for malloc() and free() memory allocation functions or their
+equivalent. JET also requires the DLS parser and synthesizer module to support
+custom instruments in JET content files.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>JET uses standard <st1:place w:st="on">MIDI</st1:place>
+events for audio synchronization. This simplifies the authoring process by
+allowing content authors to use their favorite tools for developing content.
+After the content has been developed, a simple post-processing tool pulls the
+content together into a JET compatible content file.</p>
+
+<h3>Synchronization Events</h3>
+
+<p class=MsoNormal>JET uses <st1:place w:st="on">MIDI</st1:place> controller
+events to synchronize audio. The controllers used by JET are among those not
+defined for specific use by the <st1:place w:st="on">MIDI</st1:place>
+specification. The specific controller definitions are as follows:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Controllers
+80-83<span style='mso-tab-count:2'>                 </span>Reserved for use by
+application</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Controller 102<span
+style='mso-tab-count:2'>                       </span>JET event marker</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Controller
+103<span style='mso-tab-count:2'>                       </span>JET clip marker</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Controllers
+104-119<span style='mso-tab-count:2'>             </span>Reserved for future
+use</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h4>Controllers 80-83 – Application Controllers</h4>
+
+<p class=MsoNormal>The application may use controllers in this range for its
+own purposes. When a controller in this range is encountered, the event is
+entered into an event queue that can be queried by the application. Some
+possible uses include synchronizing video events with audio and marking a point
+in a <st1:place w:st="on">MIDI</st1:place> segment to queue up the next
+segment. The range of controllers monitored by the application can be modified
+by the application during initialization.</p>
+
+<h4>Controller 102 – JET Event Marker</h4>
+
+<p class=MsoNormal>Controller 102 is reserved for marking events in the <st1:place
+w:st="on">MIDI</st1:place> streams that are specific to JET functionality.
+Currently, the only defined value is 0, which marks the end of a segment for
+timing purposes. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Normally, JET starts playback of the next segment (or
+repeats the current segment) when the <st1:place w:st="on">MIDI</st1:place>
+end-of-track meta-event is encountered. Some <st1:place w:st="on">MIDI</st1:place>
+authoring tools make it difficult to place the end-of-track marker accurately,
+resulting in synchronization problems when segments are joined together.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To avoid this problem, the author can place a JET
+end-of-segment marker (controller=102, value=0) at the point where the segment is
+to be looped. When the end-of-segment marker is encountered, the next segment
+will be triggered, or if the current segment is looped, playback will resume at
+the start of the segment.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The end-of-segment marker can also be used to allow for
+completion of a musical figure beyond the end of measure that marks the start
+of the next segment. For example, the content author might create a 4-bar
+segment with a drum fill that ends on beat 1 of the 5<sup>th</sup> bar – a bar
+beyond the natural end of the segment. By placing an end-of-segment marker at
+the end of the 4<sup>th</sup> bar, the next segment will be triggered, but the
+drum fill will continue in parallel with the next segment providing musical
+continuity.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:350.25pt;height:138.75pt'
+ o:ole="">
+ <v:imagedata src="JET_Programming_Manual_files/image017.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=467 height=185
+src="JET_Programming_Manual_files/image010.png" v:shapes="_x0000_i1029"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1029"
+  DrawAspect="Content" ObjectID="_1298963240">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure <!--[if supportFields]><span
+style='mso-element:field-begin'></span><span
+style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC <span style='mso-element:
+field-separator'></span><![endif]--><span style='mso-no-proof:yes'>5</span><!--[if supportFields]><span
+style='mso-element:field-end'></span><![endif]-->: End-of-segment Marker</p>
+
+<h4>Controller 103 – JET Clip Marker</h4>
+
+<p class=MsoNormal>Controller 103 is reserved for marking clips in a <st1:place
+w:st="on">MIDI</st1:place> track that can be triggered by the JET_TriggerClip
+API call. The clip ID is encoded in the low 6 bits of the controller value. Bit
+6 is set to one to indicate the start of a clip, and set to zero to indicate
+the end of a clip.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>For example, to identify a clip with a clip ID of 1, the
+author inserts a <st1:place w:st="on">MIDI</st1:place> controller event with
+controller=103 and value=65 at the start of the clip and another event with controller=103
+and value=1 at the end of the clip. When the JET_TriggerClip() function is
+called with a clip ID of 1, the track will be un-muted when the controller
+value 65 is encountered and muted again when the controller value 1 is
+encountered.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1030" type="#_x0000_t75" style='width:369pt;height:275.25pt'
+ o:ole="">
+ <v:imagedata src="JET_Programming_Manual_files/image018.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=492 height=367
+src="JET_Programming_Manual_files/image012.png" v:shapes="_x0000_i1030"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1030"
+  DrawAspect="Content" ObjectID="_1298963241">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure <!--[if supportFields]><span
+style='mso-element:field-begin'></span><span
+style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC <span style='mso-element:
+field-separator'></span><![endif]--><span style='mso-no-proof:yes'>6</span><!--[if supportFields]><span
+style='mso-element:field-end'></span><![endif]-->: Synchronized Clip</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In the figure above, if the JET_TriggerClip() function is
+called prior to the first controller event, Track 3 will be un-muted when the
+first controller event occurs, the first clip will play, and the track will be
+muted when the second controller event occurs. If the JET_TriggerClip()
+function is called after the first controller event has occurred, Track 3 will
+be un-muted when the third controller event occurs, the second clip will play,
+and the track will be muted again when the fourth controller event occurs.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Note:</b> Normally,
+the track containing the clip is muted by the application when the segment is
+initially queued by the call to JET_QueueSegment(). If it is not muted, the clip
+will always play until Jet_TriggerClip() has been called with the clip ID.</p>
+
+<h2>JET Programming</h2>
+
+<p class=MsoNormal>The JET library builds on functionality in the EAS library.
+It is assumed that the reader is familiar with EAS and has implemented basic
+EAS audio functionality in the application. Specifically, the application must
+first initialize EAS by calling EAS_Init() and must call EAS_Render() at
+appropriate times to render audio and stream it to the audio hardware. JET also
+requires the use of the dynamic memory model which uses malloc() and free() or
+functional equivalents. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Most JET function calls return an EAS_RESULT type which
+should be checked against the EAS_SUCCESS return code. Most failures are not
+fatal, i.e. they will not put the library in a state where it must be
+re-initialized. However, some failures such as memory allocation or file
+open/read errors will likely result in the specific open content failing to
+render.</p>
+
+<h3>JET Application Initialization</h3>
+
+<p class=MsoNormal>The JET library is initialized by the JET_Init() function.
+The application must first call EAS_Init() and then pass the EAS data handle
+returned by EAS_Init() to the JET_Init() function. Currently, only a single JET
+application can be active at a time.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The JET_Init function takes 3 arguments: The first is the
+EAS data handle. The second is a pointer to a configuration structure
+S_JET_CONFIG and the third is the size of the configuration structure. For most
+applications, it is sufficient to pass a NULL pointer and size 0 for the
+configuration data. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>However, if desired, the configuration can be modified to
+allow the application to monitor <st1:place w:st="on">MIDI</st1:place> events
+outside the normal range of controllers allocated for JET application events.
+In this case, a configuration structure should be allocated and the data fields
+initialized with the appropriate values with the low and high controller
+numbers to be monitored. The size field should be the sizeof() of the data
+structure. This is to allow for future enhancement of the configuration data
+while maintaining compatibility.</p>
+
+<h3>JET Application Termination</h3>
+
+<p class=MsoNormal>When the JET application terminates, it should call
+JET_Shutdown() to release the resources allocated by the JET engine.<span
+style='mso-spacerun:yes'>  </span>If the application has no other use for the
+EAS library, it should also call EAS_Shutdown(). </p>
+
+<h3>JET Audio Processing</h3>
+
+<p class=MsoNormal>To start the JET engine, the content must first be opened
+with the JET_OpenFile() function. Just as with EAS_OpenFile(), the file locator
+is an opaque value that is passed to the EAS_HWOpenFile() function. It can
+either be a pointer to a filename, or a pointer to an in-memory object,
+depending on the user implementation of file I/O in the eas_host.c or
+eas_hostmm.c module. Only a single JET content file can be opened at a time.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Once the JET file is opened, the application can begin
+queuing up segments for playback by calling the JET_QueueSegment() function.
+Generally, it is advisable to keep a minimum of two segments queued at all
+times:<span style='mso-spacerun:yes'>  </span>the currently playing segment
+plus an additional segment that is ready to start playing when the current
+segment finishes. However, with proper programming, it is possible to queue up
+segments using a “just-in-time” technique. This technique typically involves
+careful placement of application controller events near the end of a segment so
+that the application is informed when a segment is about to end.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After the segment(s) are queued up, playback can begin. By
+default, the segments are initialized in a paused state. To start playback,
+call the JET_Play() function. Playback can be paused again by calling the JET_Pause()
+function. Once initiated, playback will continue as long as the application
+continues to queue up new segments before all the segments in the queue are
+exhausted.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The JET_Status() function can be used to monitor progress.
+It returns the number of segments queued, repeat count, current segment ID, and
+play status. By monitor the number of segments queued, the application can
+determine when it needs to queue another segment and when playback has
+completed.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>When playback has completed and the application is finished
+with the contents of the currently open file, the application should call
+JET_CloseFile() to close the file and release any resources associated with the
+file.</p>
+
+<h4>JET_Init</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_Init
+(EAS_DATA_HANDLE easHandle, S_JET_CONFIG *pConfig, EAS_INT configSize)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Initializes JET library for use by application. Most
+application should simply pass a NULL for pConfig and 0 for configSize, which
+means that only controller events in the application range (80-83) will end up
+in the application event queue. If desired, the application can instantiate an
+S_JET_CONFIG data structure and set the controller range to a different range.
+In this case, the configSize parameter should be set to sizeof(S_JET_CONFIG).</p>
+
+<h4>JET_Shutdown</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_Shutdown
+(EAS_DATA_HANDLE easHandle)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Releases resources used by the JET library. The application
+should call this function when it is no longer using the JET library.</p>
+
+<h4>JET_ OpenFile</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_OpenFile
+(EAS_DATA_HANDLE easHandle, EAS_FILE_LOCATOR locator)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Opens a JET content file for playback. Content must be
+formatted for use by the JET library, which is typically accomplished with the
+jetfile.py script (see “Creating JET Content”). Only a single JET content file
+can be opened at a time. However, since JET can contain many <st1:place w:st="on">MIDI</st1:place>
+files and DLS libraries, this limitation is normally not an issue.</p>
+
+<h4>JET_ CloseFile</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_CloseFile
+(EAS_DATA_HANDLE easHandle)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Closes a JET file and release the resources associated with it.</p>
+
+<h4>JET_ Status</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_Status
+(EAS_DATA_HANDLE easHandle, S_JET_STATUS *pStatus)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Returns the current JET status. The elements of the status
+data structure are as follows:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=Code>typedef struct s_jet_status_tag</p>
+
+<p class=Code>{</p>
+
+<p class=Code><span style='mso-tab-count:1'>     </span>EAS_INT <span
+style='mso-tab-count:1'>  </span>currentUserID;</p>
+
+<p class=Code><span style='mso-tab-count:1'>     </span>EAS_INT <span
+style='mso-tab-count:1'>  </span>segmentRepeatCount;</p>
+
+<p class=Code><span style='mso-tab-count:1'>     </span>EAS_INT <span
+style='mso-tab-count:1'>  </span>numQueuedSegments;</p>
+
+<p class=Code><span style='mso-tab-count:1'>     </span>EAS_BOOL <span
+style='mso-tab-count:1'> </span>paused;</p>
+
+<p class=Code>} S_JET_STATUS;</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>currentUserID</i>: An
+8-bit value assigned by the application.</p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></i></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>segmentRepeatCount</i>:
+Number of times left to repeat. Zero indicates no repeats, a negative number
+indicates an infinite number of repeats. Any positive value indicates that the
+segment will play n+1 times.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>numQueuedSegments</i>:
+Number of segments currently queued to play including the currently playing
+segment. A value of zero indicates that nothing is playing. Normally, the
+application will queue a new segment each time the value is 1 so that playback
+is uninterrupted.</p>
+
+<h4>JET_ QueueSegment</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_QueueSegment
+(EAS_DATA_HANDLE easHandle, EAS_INT segmentNum, EAS_INT libNum, EAS_INT
+repeatCount, EAS_INT transpose, EAS_U32 muteFlags, EAS_U8 userID)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Queues up a JET MIDI segment for playback. The parameters
+are as follows:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>segmentNum</i>:
+Segment number as identified in the JET content configuration file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>libNum</i>: The library
+number as specified in the JET content configuration file. Use -1 to select the
+standard General MIDI library.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>repeatCount</i>: The
+number of times this segment should repeat. Zero indicates no repeat, i.e. play
+only once. Any positive number indicates to play n+1 times. Set to -1 to repeat
+indefinitely.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>transpose:</i> The
+amount of pitch transposition. Set to 0 for normal playback. Range is -12 to
++12.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>muteFlags</i>:
+Specific which MIDI tracks (not <st1:place w:st="on">MIDI</st1:place> channels)
+should be muted during playback. These flags can be changed dynamically using
+the mute functions. Bit 0 = track 0, bit 1 = track 1, etc.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>userID</i>: 8-bit
+value specified by the application that uniquely identifies the segment. This
+value is returned in the JET_Status() function as well as by the application
+event when an event is detected in a segment. Normally, the application keeps
+an 8-bit value that is incremented each time a new segment is queued up. This
+can be used to look up any special characteristics of that track including
+trigger clips and mute flags.</p>
+
+<h4>JET_ Play</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_Play
+(EAS_DATA_HANDLE easHandle)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Starts playback of the current segment. This function must
+be called once after the initial segments are queued up to start playback. It
+is also called after JET_Pause() to resume playback.</p>
+
+<h4>JET_ Pause</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_Pause
+(EAS_DATA_HANDLE easHandle)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Pauses playback of the current segment. Call JET_Pause() to
+resume playback.</p>
+
+<h4>JET_ SetMuteFlags</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_SetMuteFlags
+(EAS_DATA_HANDLE easHandle, EAS_U32 muteFlags, EAS_BOOL sync)</p>
+
+<p class=Code style='margin-left:0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Modifies the mute flags during playback. If the <i
+style='mso-bidi-font-style:normal'>sync</i> parameter is false, the mute flags
+are updated at the beginning of the next render. This means that any new notes
+or controller events will be processed during the next audio frame. If the <i
+style='mso-bidi-font-style:normal'>sync</i> parameter is true, the mute flags
+will be updated at the start of the next segment. If the segment is repeated,
+the flags will take effect the next time segment is repeated. </p>
+
+<h4>JET_ SetMuteFlag</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_SetMuteFlag
+(EAS_DATA_HANDLE easHandle, EAS_INT trackNum, EAS_BOOL muteFlag, EAS_BOOL sync)</p>
+
+<p class=MsoNormal>Modifies a mute flag for a single track during playback. If
+the <i style='mso-bidi-font-style:normal'>sync</i> parameter is false, the mute
+flag is updated at the beginning of the next render. This means that any new
+notes or controller events will be processed during the next audio frame. If
+the <i style='mso-bidi-font-style:normal'>sync</i> parameter is true, the mute
+flag will be updated at the start of the next segment. If the segment is
+repeated, the flag will take effect the next time segment is repeated. </p>
+
+<h4>JET_ TriggerClip</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC EAS_RESULT JET_TriggerClip
+(EAS_DATA_HANDLE easHandle, EAS_INT clipID)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Automatically updates mute flags in sync with the JET Clip
+Marker (controller 103). The parameter <i style='mso-bidi-font-style:normal'>clipID</i>
+must be in the range of 0-63. After the call to JET_TriggerClip, when JET next
+encounters a controller event 103 with bits 0-5 of the value equal to <i
+style='mso-bidi-font-style:normal'>clipID </i>and<i style='mso-bidi-font-style:
+normal'> </i>bit 6 set to 1, it will automatically un-mute the track containing
+the controller event. When JET encounters the complementary controller event
+103 with bits 0-5 of the value equal to <i style='mso-bidi-font-style:normal'>clipID
+</i>and<i style='mso-bidi-font-style:normal'> </i>bit 6 set to 0, it will mute
+the track again.</p>
+
+<h4>JET_ GetEvent</h4>
+
+<p class=Code style='margin-left:0in'>EAS_BOOL JET_GetEvent (EAS_DATA_HANDLE
+easHandle, EAS_U32 *pEventRaw, S_JET_EVENT *pEvent)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Attempts to read an event from the application event queue,
+return EAS_TRUE if an event is found and EAS_FALSE if not. If the application
+passes a valid pointer for <i style='mso-bidi-font-style:normal'>pEventRaw</i>,
+a 32-bit compressed event code is returned. If the application passes a valid
+pointer for <i style='mso-bidi-font-style:normal'>pEvent</i>, the event is
+parsed into the S_JET_EVENT fields. The application can pass NULL for either
+parameter and that variable will be ignored. Normally, the application will
+call JET_GetEvent() repeatedly to retrieve events until it returns EAS_FALSE.</p>
+
+<h4>JET_ ParseEvent</h4>
+
+<p class=Code style='margin-left:0in'>EAS_PUBLIC void JET_ParseEvent (EAS_U32
+event, S_JET_EVENT *pEvent)</p>
+
+<p class=MsoNormal>Parses a 32-bit compressed event code into a data structure.
+The application passes the event code received from JET_GetEvent(). The parsed
+event data is returned in the memory pointed to by <i style='mso-bidi-font-style:
+normal'>pEvent</i>.</p>
+
+<h4>JET_GetAppData</h4>
+
+<p class=Code style='margin-left:0in'>EAS_RESULT JET_GetAppData
+(EAS_DATA_HANDLE easHandle, EAS_I32 *pAppDataOffset, EAS_I32 *pAppDataSize)</p>
+
+<p class=MsoNormal>Returns the offset and size of the JAPP chunk in the JET
+file. The application can use the file I/O functions in the eas_host module to
+retrieve application specific data from the file. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Creating JET Content</h2>
+
+<p class=MsoNormal>JET uses standard MIDI files and DLS files that can be
+created with commercially available content tools such as Logic, Cubase,
+Digital Performer, or SONAR for <st1:place w:st="on">MIDI</st1:place> files and
+Awave for DLS2 files. These source files are then bundled into a .jet package
+file suitable for use in a JET application. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To create JET file use the “JET Creator” desktop
+application. The JET Creator application is written in Python and includes a
+full graphical interface. It is available for MAC and PC platforms. See “JET
+Creator User Manual” for more information.</p>
+
+</div>
+
+</body>
+
+</html>

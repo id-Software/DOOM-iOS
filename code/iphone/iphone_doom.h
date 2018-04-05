@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -17,12 +17,29 @@
  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  
  */
+ 
+#ifndef IPHONE_DOOM_H
+#define IPHONE_DOOM_H
+ 
+#include "../prboom/doomtype.h"
+#include "../prboom/doomdef.h"
+#include "../prboom/doomstat.h"
+#include "../prboom/d_ticcmd.h"
+
+#include "ipak.h"
+#include "cvar.h"
+
+#include <sys/socket.h>
 
 // this is the version number displayed on the menu screen
 #define DOOM_IPHONE_VERSION 0.9
 
 // if defined, the game runs in a separate thread from the app event loop
 #define	USE_GAME_THREAD
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef enum menuState {
 	IPM_GAME,
@@ -38,7 +55,7 @@ typedef enum menuState {
 extern menuState_t menuState;
 extern menuState_t lastState;
 
-void iphoneDrawMenus();
+    void iphoneDrawMenus(void);
 
 #define	VID_WIDTH	480
 #define VID_HEIGHT	320
@@ -119,7 +136,6 @@ extern cvar_t	*showTime;
 extern cvar_t	*showNet;
 extern cvar_t	*showSound;
 extern cvar_t	*cropSprites;
-extern cvar_t	*revLand;
 extern cvar_t	*mapScale;
 extern cvar_t	*drawControls;
 extern cvar_t	*autoUse;
@@ -133,12 +149,16 @@ extern cvar_t	*mpDataset;
 extern cvar_t	*mpSkill;
 extern cvar_t	*mpEpisode;
 extern cvar_t	*mpMap;
+extern cvar_t	*mpExpansion;
 extern cvar_t	*glfinish;
 extern cvar_t	*mapSelectY;
 extern cvar_t	*throttle;
 extern cvar_t	*centerSticks;
 extern cvar_t	*rampTurn;
 extern cvar_t	*netBuffer;
+extern cvar_t   *iwadSelection;
+extern cvar_t   *pwadSelection;
+    
 
 extern int	numTouches;
 extern int	touches[5][2];	// [0] = x, [1] = y in landscape mode, raster order with y = 0 at top
@@ -155,8 +175,11 @@ extern	int		weaponSelected;				// -1 for no change
 typedef unsigned char color4_t[4];
 typedef unsigned char color3_t[3];
 
+extern char* doom_iwad;
+extern char* doom_pwads;
+    
 // networking
-enum {
+typedef enum {
 	PACKET_VERSION_BASE = 0x24350010,
 	PACKET_VERSION_SETUP,
 	PACKET_VERSION_JOIN,
@@ -257,6 +280,10 @@ typedef struct {
 	// netcmds[][(maketic-1)&BACKUPTICMASK] is the most recent
 	int		maketic;
 	
+	// notifies the server of which players are connected. This way we can handle players
+	// that disconnect in the middle of a game.
+	int		playersInGame[MAXPLAYERS];
+	
 	// only the [playersInGame*(maketic-starttic)] will be transmitted
 	ticcmd_t	netcmds[MAXPLAYERS*BACKUPTICS];
 } packetServer_t;
@@ -284,7 +311,8 @@ extern boolean respawnActive;
 typedef enum {
 	NF_NONE,
 	NF_CONSISTANCY,
-	NF_INTERRUPTED
+	NF_INTERRUPTED,
+	NF_LOST_SERVER
 } netFail_t;
 extern netFail_t netGameFailure;				// set by asyncThread
 
@@ -312,7 +340,6 @@ void iphoneProcessPacket( const struct sockaddr *from, const void *data, int len
 
 extern netPeer_t	netServer;
 extern netPlayer_t	netPlayers[MAXPLAYERS];
-extern sem_t *		ticSemaphore;
 
 typedef struct {
 	int		numGameTics;
@@ -336,20 +363,18 @@ int	TouchPressed( int x, int y, int w, int h );
 float iphoneDrawText( float x, float y, float scale, const char *str );
 float iphoneCenterText( float x, float y, float scale, const char *str );
 
-void StartGame();
-void iphoneOpenAutomap();
-void iphoneDrawNotifyText();
+void StartGame(void);
+void iphoneOpenAutomap(void);
+void iphoneDrawNotifyText(void);
 void iphoneSet2D( void );
 
 void R_Draw_Fill( int x, int y, int w, int h, color3_t c );
 void R_Draw_Blend( int x, int y, int w, int h, color4_t c );
 
-void InitImmediateModeGL();
-int iphoneRotateForLandscape();
-void iphoneCheckForLandscapeReverse();
+void InitImmediateModeGL(void);
 
-void iphonePacifierUpdate();
-void iphoneDrawScreen();
+void iphonePacifierUpdate(void);
+void iphoneDrawScreen(void);
 	
 extern int damageflash;
 extern int bonusFrameNum;
@@ -399,13 +424,13 @@ typedef struct {
 extern hud_t	huds;
 
 void HudSetForScheme( int schemeNum );
-void HudSetTexnums();
-void HudEditFrame();
+void HudSetTexnums(void);
+void HudEditFrame(void);
 
-boolean StartNetGame();
+boolean StartNetGame(void);
 
-int BackButton();
-void ResumeGame();
+int BackButton(void);
+void ResumeGame(void);
 
 //---------------------------------------
 // Touch and button
@@ -422,7 +447,6 @@ typedef struct touch_s {
 #define	MAX_TOUCHES		5
 extern touch_t		sysTouches[MAX_TOUCHES];
 extern touch_t		gameTouches[MAX_TOUCHES];
-extern pthread_mutex_t	eventMutex;		// used to sync between game and event threads
 
 touch_t *TouchInBounds( int x, int y, int w, int h );
 touch_t *AnyTouchInBounds( int x, int y, int w, int h );
@@ -451,28 +475,28 @@ void Sound_Init( void );
 void Sound_StartLocalSound( const char *sound );
 void Sound_StartLocalSoundAtVolume( const char *sound, float volume );
 
-void ShowSound();
+void ShowSound(void);
 
 //---------------------------------------
 // iphone_net.c
 //---------------------------------------
 
 // dump all the interfaces and ip addresses for debugging
-void ReportNetworkInterfaces();
+void ReportNetworkInterfaces(void);
 
 // open a UDP socket, pass "en0" for wifi
 int	UDPSocket( const char *interfaceName, int portnum );
 
 // return false if the multiplayer button should be disabled
-boolean NetworkAvailable();
+boolean NetworkAvailable(void);
 
 // this can be called every frame in the menu to highlight
 // the multiplayer icon when a server is already up
-boolean NetworkServerAvailable();
+boolean NetworkServerAvailable(void);
 
 // returns "WiFi", "BlueTooth", or "" for display on the
 // main menu multiplayer icon
-const char *NetworkServerTransport();
+const char *NetworkServerTransport(void);
 
 // this queries DNS for the actual address
 boolean ResolveNetworkServer( struct sockaddr *addr );
@@ -481,25 +505,20 @@ boolean ResolveNetworkServer( struct sockaddr *addr );
 // us available as a bonjour service until we start the game
 // or back out of the multiplayer menu.  Returns false if
 // someone else grabbed it just before we could.
-boolean RegisterGameService();
-void TerminateGameService();
+boolean RegisterGameService(void);
+void TerminateGameService(void);
 
 // called by AsyncTic() to check for server state changes,
 // registers for service browsing on first call.
-void ProcessDNSMessages();
+void ProcessDNSMessages(void);
 
 // draw a graph of packets sent and received
-void ShowNet();
-void ShowMiniNet();
+void ShowNet(void);
+void ShowMiniNet(void);
 
 //---------------------------------------
 // iphone_mapSelect.c
 //---------------------------------------
-
-// returns false if nothing was selected
-// if map->map is -1, the back button was hit instead of choosing a level
-boolean iphoneMapSelectMenu( mapStart_t *map );
-
 mapStats_t *FindMapStats( int dataset, int episode, int map, boolean create );
 const char *FindMapName( int dataset, int episode, int map );
 
@@ -508,9 +527,9 @@ const char *FindMapName( int dataset, int episode, int map );
 //
 // game harness routines
 //---------------------------------------
-void ResumeGame();
-boolean StartNetGame();
-void StartSaveGame();
+void ResumeGame(void);
+boolean StartNetGame(void);
+void StartSaveGame(void);
 void StartSinglePlayerGame( mapStart_t	map );
 void StartDemoGame( boolean timeDemoMode );
 
@@ -519,12 +538,19 @@ void StartDemoGame( boolean timeDemoMode );
 //---------------------------------------
 void iphoneSetNotifyText( const char *str, ... );
 void iphoneIntermission( wbstartstruct_t* wbstartstruct );
-void iphoneStartLevel();
-void iphoneStartMusic();
-void iphoneStopMusic();
+void iphoneStartLevel(void);
+void iphoneStartMusic(void);
+void iphoneStopMusic(void);
 void iphonePlayMusic( const char *name );
-void iphonePauseMusic();
-void iphoneResumeMusic();
+void iphonePauseMusic(void);
+void iphoneResumeMusic(void);
+void iphoneDoomStartup(void);
+void iphoneIWADSelect( const char* iwad );
+void iphonePWADAdd( const char* pwad  );
+void iphonePWADRemove( const char* pwad  );
+void iphoneClearPWADs(void);
+void iphoneLoadMissionPack(void);
+void iphoneAddPWADFiles(void);
 	
 //---------------------------------------
 // interfaces to Objective-C land
@@ -535,25 +561,39 @@ void iphoneResumeMusic();
 // execute it, and clear it under mutex.
 extern char	consoleCommand[1024];
 
-void SysIPhoneSwapBuffers();
-void SysIPhoneVibrate();
+void SysIPhoneSwapBuffers(void);
+void SysIPhoneVibrate(void);
 void SysIPhoneOpenURL( const char *url );
+int SysIPhoneIsDeviceLandscapeRight( void );
 void SysIPhoneSetUIKitOrientation( int isLandscapeRight );
-const char * SysIPhoneGetConsoleTextField();
+const char * SysIPhoneGetConsoleTextField(void);
 void SysIPhoneSetConsoleTextField(const char *);
-void SysIPhoneInitAudioSession();
-int SysIPhoneOtherAudioIsPlaying();
-int SysIphoneMilliseconds();
-int SysIphoneMicroseconds();
-const char * SysIphoneGetAppDir();
-const char * SysIphoneGetDocDir();
+void SysIPhoneInitAudioSession(void);
+int SysIPhoneOtherAudioIsPlaying(void);
+int SysIphoneMilliseconds(void);
+int SysIphoneMicroseconds(void);
+const char * SysIphoneGetAppDir(void);
+const char * SysIphoneGetDocDir(void);
+const char * SysIphoneGetTempDir(void);
+
+void ShowGLView( void );
 
 //---------------------------------------
 // interfaces from Objective-C land
 //---------------------------------------
-void iphoneStartup();
-void iphoneShutdown();
-void iphoneFrame();
-void iphoneAsyncTic();
+void iphoneStartup(void);
+void iphoneShutdown(void);
+void iphoneFrame(void);
+void iphoneAsyncTic(void);
 void iphoneTiltEvent( float *tilts );
+void iphoneMainMenu(void);
+void iphonePopGL(void);
+void iphoneNSLog(const char* message);
 
+#ifdef __cplusplus
+}
+#endif
+
+#define DEFAULTS_MISSIONPACK_KEY "missionPack"
+
+#endif

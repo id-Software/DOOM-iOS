@@ -1,5 +1,15 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  ipak.h
+ *  General purpose data file management intended to be used
+ *  as a read-only memory mapped file to play nice with iPhone OS's
+ *  non-swapping and variable memory management.
+ *
+ *  Created by John Carmack on 4/9/09.
+ *  Copyright 2009 id Software. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -18,6 +28,8 @@
  
  */
 
+#ifndef IPAK_H
+#define IPAK_H
 
 //============================================================
 //
@@ -161,10 +173,11 @@ void			PK_DrawTexture( pkTexture_t *tex, int x, int y );
 void			PK_StretchTexture( pkTexture_t *tex, float x, float y, float w, float h );
 
 extern pkHeader_t *	pkHeader;
-extern int			pkSize;
+extern off_t		pkSize;
 
 // images and wavs have writable state, so they need separate
 // structs that also point to the source in the pak file
 extern pkTexture_t *pkTextures;
 extern pkWav_t *	pkWavs;
 
+#endif

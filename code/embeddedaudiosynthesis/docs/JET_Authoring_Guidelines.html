@@ -1,0 +1,2442 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>JET Authoring Guidelines</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Jennifer Hruska</o:Author>
+  <o:Description>Copyright 2009</o:Description>
+  <o:Template>techdoc.dot</o:Template>
+  <o:LastAuthor>Jennifer Hruska</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>1339</o:TotalTime>
+  <o:LastPrinted>2006-02-09T12:22:00Z</o:LastPrinted>
+  <o:Created>2009-03-17T23:33:00Z</o:Created>
+  <o:LastSaved>2009-03-19T14:21:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>3524</o:Words>
+  <o:Characters>20089</o:Characters>
+  <o:Company>Sonic Network, Inc. (SONiVOX)</o:Company>
+  <o:Lines>167</o:Lines>
+  <o:Paragraphs>47</o:Paragraphs>
+  <o:CharactersWithSpaces>23566</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+ <o:CustomDocumentProperties>
+  <o:_AdHocReviewCycleID dt:dt="float">-1127674187</o:_AdHocReviewCycleID>
+  <o:_EmailSubject dt:dt="string">New lib doc</o:_EmailSubject>
+  <o:_AuthorEmail dt:dt="string">jhruska@sonicnetworkinc.com</o:_AuthorEmail>
+  <o:_AuthorEmailDisplayName dt:dt="string">Jennifer Hruska</o:_AuthorEmailDisplayName>
+  <o:_ReviewingToolsShownOnce dt:dt="string"></o:_ReviewingToolsShownOnce>
+ </o:CustomDocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="8" DLLVersion="513" NLCheck="0">1</w:ActiveWritingStyle>
+  <w:ActiveWritingStyle Lang="EN-IE" VendorID="8" DLLVersion="513" NLCheck="0">1</w:ActiveWritingStyle>
+  <w:ActiveWritingStyle Lang="EN-GB" VendorID="8" DLLVersion="513" NLCheck="0">1</w:ActiveWritingStyle>
+  <w:DocumentProtectionNotEnforced>TrackedChanges</w:DocumentProtectionNotEnforced>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseWord97LineBreakingRules/>
+   <w:SelectEntireFieldWithStartOrEnd/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-update:auto;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.3in;
+	text-indent:-.3in;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-list:l11 level1 lfo1;
+	tab-stops:list .3in;
+	font-size:14.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-font-kerning:14.0pt;
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-update:auto;
+	mso-style-link:"Heading 2 Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.4in;
+	text-indent:-.4in;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-list:l11 level2 lfo1;
+	tab-stops:list .4in;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-list:l11 level3 lfo1;
+	tab-stops:list .5in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-IE;
+	font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.6in;
+	text-indent:-.6in;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	mso-list:l11 level4 lfo1;
+	tab-stops:list .6in;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.7in;
+	text-indent:-.7in;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:5;
+	mso-list:l11 level5 lfo1;
+	tab-stops:list .7in;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-IE;
+	font-weight:normal;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.8in;
+	text-indent:-.8in;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:6;
+	mso-list:l11 level6 lfo1;
+	tab-stops:list .8in;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-IE;
+	font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.9in;
+	text-indent:-.9in;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:7;
+	mso-list:l11 level7 lfo1;
+	tab-stops:list .9in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:1.0in;
+	text-indent:-1.0in;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:8;
+	mso-list:l11 level8 lfo1;
+	tab-stops:list 1.0in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:1.1in;
+	text-indent:-1.1in;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:9;
+	mso-list:l11 level9 lfo1;
+	tab-stops:list 1.1in;
+	font-size:9.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex2, li.MsoIndex2, div.MsoIndex2
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex3, li.MsoIndex3, div.MsoIndex3
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex4, li.MsoIndex4, div.MsoIndex4
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex5, li.MsoIndex5, div.MsoIndex5
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex6, li.MsoIndex6, div.MsoIndex6
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex7, li.MsoIndex7, div.MsoIndex7
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex8, li.MsoIndex8, div.MsoIndex8
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:88.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndex9, li.MsoIndex9, div.MsoIndex9
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:99.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:10.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:20.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:30.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:40.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:50.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:70.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:80.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoIndexHeading, li.MsoIndexHeading, div.MsoIndexHeading
+	{mso-style-noshow:yes;
+	mso-style-next:"Index 1";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoTof, li.MsoTof, div.MsoTof
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoEnvelopeAddress, li.MsoEnvelopeAddress, div.MsoEnvelopeAddress
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:2.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	mso-element:frame;
+	mso-element-frame-width:5.5in;
+	mso-element-frame-height:99.0pt;
+	mso-element-frame-hspace:9.0pt;
+	mso-element-wrap:auto;
+	mso-element-anchor-horizontal:page;
+	mso-element-left:center;
+	mso-element-top:bottom;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoEnvelopeReturn, li.MsoEnvelopeReturn, div.MsoEnvelopeReturn
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToa, li.MsoToa, div.MsoToa
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-noshow:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan lines-together;
+	tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoToaHeading, li.MsoToaHeading, div.MsoToaHeading
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{mso-style-update:auto;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l9 level1 lfo2;
+	tab-stops:list .25in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l8 level1 lfo3;
+	tab-stops:list .25in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoList2, li.MsoList2, div.MsoList2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoList3, li.MsoList3, div.MsoList3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoList4, li.MsoList4, div.MsoList4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoList5, li.MsoList5, div.MsoList5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{mso-style-update:auto;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l7 level1 lfo4;
+	tab-stops:list .5in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{mso-style-update:auto;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l6 level1 lfo5;
+	tab-stops:list .75in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
+	{mso-style-update:auto;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l5 level1 lfo6;
+	tab-stops:list 1.0in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListBullet5, li.MsoListBullet5, div.MsoListBullet5
+	{mso-style-update:auto;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l4 level1 lfo7;
+	tab-stops:list 1.25in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l3 level1 lfo8;
+	tab-stops:list .5in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l2 level1 lfo9;
+	tab-stops:list .75in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListNumber4, li.MsoListNumber4, div.MsoListNumber4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l1 level1 lfo10;
+	tab-stops:list 1.0in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListNumber5, li.MsoListNumber5, div.MsoListNumber5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	mso-list:l0 level1 lfo11;
+	tab-stops:list 1.25in;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-font-kerning:14.0pt;
+	mso-ansi-language:EN-IE;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoClosing, li.MsoClosing, div.MsoClosing
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:3.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoSignature, li.MsoSignature, div.MsoSignature
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:3.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListContinue, li.MsoListContinue, div.MsoListContinue
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListContinue2, li.MsoListContinue2, div.MsoListContinue2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListContinue3, li.MsoListContinue3, div.MsoListContinue3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.75in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListContinue4, li.MsoListContinue4, div.MsoListContinue4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:1.0in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoListContinue5, li.MsoListContinue5, div.MsoListContinue5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:1.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoMessageHeader, li.MsoMessageHeader, div.MsoMessageHeader
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	margin-bottom:.0001pt;
+	text-indent:-.75in;
+	mso-pagination:widow-orphan lines-together;
+	background:#CCCCCC;
+	mso-shading:windowtext;
+	mso-pattern:gray-20 auto;
+	border:none;
+	mso-border-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan lines-together;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoSalutation, li.MsoSalutation, div.MsoSalutation
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoDate, li.MsoDate, div.MsoDate
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyTextFirstIndent, li.MsoBodyTextFirstIndent, div.MsoBodyTextFirstIndent
+	{mso-style-parent:"Body Text";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-indent:10.5pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyTextFirstIndent2, li.MsoBodyTextFirstIndent2, div.MsoBodyTextFirstIndent2
+	{mso-style-parent:"Body Text Indent";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	text-indent:10.5pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoNoteHeading, li.MsoNoteHeading, div.MsoNoteHeading
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:200%;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:8.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	line-height:200%;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:8.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:6.0pt;
+	margin-left:1.0in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	background:navy;
+	font-size:10.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-IE;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-IE;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-IE;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:12.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-IE;
+	mso-fareast-language:EN-US;
+	mso-bidi-language:AR-SA;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.Body, li.Body, div.Body
+	{mso-style-name:Body;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;}
+p.FunctionPrototype, li.FunctionPrototype, div.FunctionPrototype
+	{mso-style-name:"Function Prototype";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan lines-together;
+	font-size:9.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-IE;}
+ /* Page Definitions */
+ @page
+	{mso-footnote-separator:url("JET_Authoring_Guidelines_files/header.htm") fs;
+	mso-footnote-continuation-separator:url("JET_Authoring_Guidelines_files/header.htm") fcs;
+	mso-endnote-separator:url("JET_Authoring_Guidelines_files/header.htm") es;
+	mso-endnote-continuation-separator:url("JET_Authoring_Guidelines_files/header.htm") ecs;}
+@page Section1
+	{size:595.45pt 841.7pt;
+	margin:1.1in 1.25in 1.1in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.4in;
+	mso-title-page:yes;
+	mso-even-header:url("JET_Authoring_Guidelines_files/header.htm") eh1;
+	mso-header:url("JET_Authoring_Guidelines_files/header.htm") h1;
+	mso-even-footer:url("JET_Authoring_Guidelines_files/header.htm") ef1;
+	mso-footer:url("JET_Authoring_Guidelines_files/header.htm") f1;
+	mso-first-footer:url("JET_Authoring_Guidelines_files/header.htm") ff1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:-132;
+	mso-list-type:simple;
+	mso-list-template-ids:-762522690;}
+@list l0:level1
+	{mso-level-style-link:"List Number 5";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:-131;
+	mso-list-type:simple;
+	mso-list-template-ids:828031264;}
+@list l1:level1
+	{mso-level-style-link:"List Number 4";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:-130;
+	mso-list-type:simple;
+	mso-list-template-ids:1556219102;}
+@list l2:level1
+	{mso-level-style-link:"List Number 3";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:-129;
+	mso-list-type:simple;
+	mso-list-template-ids:1492152526;}
+@list l3:level1
+	{mso-level-style-link:"List Number 2";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:-128;
+	mso-list-type:simple;
+	mso-list-template-ids:373048972;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-style-link:"List Bullet 5";
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:-127;
+	mso-list-type:simple;
+	mso-list-template-ids:-1897731242;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-style-link:"List Bullet 4";
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:-126;
+	mso-list-type:simple;
+	mso-list-template-ids:213402420;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-style-link:"List Bullet 3";
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:-125;
+	mso-list-type:simple;
+	mso-list-template-ids:-1230352896;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-style-link:"List Bullet 2";
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:-120;
+	mso-list-type:simple;
+	mso-list-template-ids:-1099685254;}
+@list l8:level1
+	{mso-level-style-link:"List Number";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:-119;
+	mso-list-type:simple;
+	mso-list-template-ids:-1849629656;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-style-link:"List Bullet";
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10
+	{mso-list-id:794131674;
+	mso-list-type:hybrid;
+	mso-list-template-ids:751336376 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l10:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:1411350143;
+	mso-list-template-ids:1661217014;}
+@list l11:level1
+	{mso-level-style-link:"Heading 1";
+	mso-level-text:%1;
+	mso-level-tab-stop:.3in;
+	mso-level-number-position:left;
+	margin-left:.3in;
+	text-indent:-.3in;}
+@list l11:level2
+	{mso-level-style-link:"Heading 2";
+	mso-level-text:"%1\.%2";
+	mso-level-tab-stop:.4in;
+	mso-level-number-position:left;
+	margin-left:.4in;
+	text-indent:-.4in;}
+@list l11:level3
+	{mso-level-style-link:"Heading 3";
+	mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.5in;}
+@list l11:level4
+	{mso-level-style-link:"Heading 4";
+	mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:.6in;
+	mso-level-number-position:left;
+	margin-left:.6in;
+	text-indent:-.6in;}
+@list l11:level5
+	{mso-level-style-link:"Heading 5";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:.7in;
+	mso-level-number-position:left;
+	margin-left:.7in;
+	text-indent:-.7in;}
+@list l11:level6
+	{mso-level-style-link:"Heading 6";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:.8in;
+	mso-level-number-position:left;
+	margin-left:.8in;
+	text-indent:-.8in;}
+@list l11:level7
+	{mso-level-style-link:"Heading 7";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:.9in;
+	mso-level-number-position:left;
+	margin-left:.9in;
+	text-indent:-.9in;}
+@list l11:level8
+	{mso-level-style-link:"Heading 8";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-1.0in;}
+@list l11:level9
+	{mso-level-style-link:"Heading 9";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:1.1in;
+	mso-level-number-position:left;
+	margin-left:1.1in;
+	text-indent:-1.1in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="9218" fill="f" fillcolor="white"
+  stroke="f">
+  <v:fill color="white" on="f"/>
+  <v:stroke on="f"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+	    
+<pre>
+   Copyright (C) 2009 The Android Open Source Project
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</pre>
+
+<div class=Section1>
+
+<p class=MsoTitle align=left style='text-align:left'><a name="_Toc203298075"></a><a
+name="_Toc203292246"><span style='mso-bookmark:_Toc203298075'><span lang=EN-IE
+style='font-size:20.0pt'>JET™ Content Authoring Guidelines</span></span></a><span
+lang=EN-IE style='font-size:20.0pt'><o:p></o:p></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><a name="_Toc194831970"></a><a
+name="_Toc194830086"></a><a name="_Toc194740814"></a><a name="_Toc194738556"></a><a
+name="_Toc203298078"></a><a name="_Toc203292249"><span style='mso-bookmark:
+_Toc203298078'><span style='mso-bookmark:_Toc194738556'><span style='mso-bookmark:
+_Toc194740814'><span style='mso-bookmark:_Toc194830086'><span style='mso-bookmark:
+_Toc194831970'><span lang=EN-IE>JET Interactive Music Engine</span></span></span></span></span></span></a></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-IE
+style='font-size:12.0pt'>Vrs 1.0<o:p></o:p></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-IE
+style='font-size:12.0pt'>Authored by SONiVOX<o:p></o:p></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-IE
+style='font-size:12.0pt'><a href="http://www.sonivoxrocks.com/">www.sonivoxrocks.com</a><o:p></o:p></span></p>
+
+<p class=MsoTitle align=left style='text-align:left'><span lang=EN-IE
+style='font-size:12.0pt'>Copyright 2009 Sonic Network, Inc.<o:p></o:p></span></p>
+
+<p class=MsoCommentText><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoHeader><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_Toc482161515"></a><a name="_Toc203298082"><span style='mso-bookmark:
+_Toc482161515'><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Introduction</span></span></a></h1>
+
+<h2><a name="_Toc203298083"><![if !supportLists]><span lang=EN-IE
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Overview</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-IE>This document contains content creation
+guidelines for composers and sound designers authoring music and sound effects
+for the SONiVOX JET platform.<span style='mso-spacerun:yes'>  </span>JET is an
+interactive music player for small embedded devices, including the Google Android
+platform. It allows applications to include interactive music soundtracks, in <st1:place
+w:st="on">MIDI</st1:place> format, that respond in real-time to game play
+events and user interaction. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>JET works in conjunction with SONiVOX’s
+Embedded Audio Synthesizer (EAS) which is the <st1:place w:st="on">MIDI</st1:place>
+playback device for Android.<span style='mso-spacerun:yes'>  </span>Both the
+JET and EAS engines are integrated into the Android embedded platform as well
+as inherent in the JET Creator application. As such, the JET content author can
+be sure that the playback will sound exactly the same in both the JET Creator
+and the final Android application playing back on Android mobile devices.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>The JET content author works in up to three
+different applications to create JET content; a standard <st1:place w:st="on">MIDI</st1:place>
+sequencer (Logic, Cubase, etc.), optionally a DLS2 instrument editor (Awave),
+and the JET Creator application to add and audition JET interactive elements. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>The final result is a .jet file that the
+content author gives to the application programmer for use in the game or
+application.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><a name="_Toc203298084"><![if !supportLists]><span lang=EN-IE
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Abbreviations and Common Terms</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-IE>It is important to use a common set of
+terms to minimize confusion. Since JET uses <st1:place w:st="on">MIDI</st1:place>
+in a unique way, normal industry terms may not always suffice. Here is the
+definition of terms as they are used in this document and in the JET Creator
+application:</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>Channel</span></i><span
+lang=EN-IE>: MIDI data associated with a specific <st1:place w:st="on">MIDI</st1:place>
+channel. Standard MIDI allows for 16 channels of <st1:place w:st="on">MIDI</st1:place>
+data each of which are typically associated with a specific instrument. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>Controller</span></i><span
+lang=EN-IE>: A <st1:place w:st="on">MIDI</st1:place> event consisting of a
+channel number, controller number, and a controller value. The <st1:place
+w:st="on">MIDI</st1:place> spec associates many controller numbers with
+specific functions, such as volume, expression, sustain pedal, etc. JET also
+uses controller events as a means of embedding special control information in a
+<st1:place w:st="on">MIDI</st1:place> sequence to provide for audio
+synchronization.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>DAW</span></i><span
+lang=EN-IE>: Digital Audio Workstation. A common term for <st1:place w:st="on">MIDI</st1:place>
+and audio sequencing applications such as Logic, SONAR, Cubase and others. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>EAS:</span></i><span
+lang=EN-IE> Embedded <st1:place w:st="on">MIDI</st1:place> Synthesizer. The
+name of the SONiVOX MIDI synthesizer engine.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>JET</span></i><span
+lang=EN-IE>: Jet Interactive Engine. The name of the SONiVOX JET interactive
+music engine.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>Segment</span></i><span
+lang=EN-IE>: A musical section such as a chorus or verse that is a component of
+the overall composition. In JET, a segment can be an entire MIDI file or a
+derived from a portion of a <st1:place w:st="on">MIDI</st1:place> file.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>SMF-0</span></i><span
+lang=EN-IE>: Standard MIDI File Type 0, a MIDI file that contains a single
+track, but may be made up of multiple channels of <st1:place w:st="on">MIDI</st1:place>
+data.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>SMF-1</span></i><span
+lang=EN-IE>: Standard MIDI File Type 1, a MIDI file that contains a one more
+tracks, and each track may in turn be made up of one or more channels of <st1:place
+w:st="on">MIDI</st1:place> data. By convention, each channel is stored on a
+separate track in an SMF-1 file. However, it is possible to have multiple MIDI
+channels on a single track, or multiple tracks that contain data for the same <st1:place
+w:st="on">MIDI</st1:place> channel.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'><span lang=EN-IE>Track</span></i><span
+lang=EN-IE>: A single track in a DAW containing a timed sequence of <st1:place
+w:st="on">MIDI</st1:place> events. Be careful not to confuse Tracks with
+Channels. A MIDI file may contain many tracks with several tracks utilizing the
+same <st1:place w:st="on">MIDI</st1:place> channel. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_Toc203298085"></a><a name="_Toc135723076"></a><a
+name="_Toc135723793"></a><a name="_Toc135724016"></a><a name="_Toc135724241"></a><a
+name="_Toc135724464"></a><a name="_Toc135724687"></a><a name="_Toc135724909"></a><a
+name="_Toc135725132"></a><a name="_Toc135726607"></a><a name="_Toc135727776"></a><a
+name="_Toc137004452"></a><a name="_Toc135724689"></a><a name="_Toc135724467"></a><![if !supportLists]><span
+style='mso-bookmark:_Toc203298085'><span lang=EN-IE style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></span><![endif]><span style='mso-bookmark:_Toc203298085'><span
+lang=EN-IE>The JET Interactive Music Concept</span></span></h1>
+
+<p class=MsoNormal><span lang=EN-IE>Interactive music can be defined as music
+that changes in real-time according to non-predictable events such as user
+interaction or game play events. In this way, interactive music is much more
+engaging as it has the ability to match the energy and mood of a game much
+closer than a pre-composed composition that never changes. In some applications
+and games, interactive music is central to the game play. Guitar Hero is one
+such popular game. When the end user successfully ‘captures’ the musical notes
+coming down the fret board, the music adapts itself and simultaneously keeps
+score of successes and failures. JET allows for these types of music driven
+games as well.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>There are several methods for making and
+controlling interactive music and JET is one such method. This section
+describes the features of JET and how they might be used in a game or software
+application. It also describes how JET can be used to save memory in small
+footprint devices such as Android enabled mobile handsets.</span></p>
+
+<h3><a name="_Toc203298086"><![if !supportLists]><span class=Heading2Char><span
+lang=EN-IE style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-fareast-font-family:
+Arial;mso-bidi-font-weight:normal'><span style='mso-list:Ignore'>1.1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span><![endif]><span
+class=Heading2Char><span lang=EN-IE style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-weight:normal'>Data Compression</span></span></a><span
+style='mso-bookmark:_Toc203298086'></span><span class=Heading2Char><span
+lang=EN-IE style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-bidi-font-weight:
+normal'><o:p></o:p></span></span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>JET supports a flexible music format that
+can be used to create extended musical sequences with a minimal amount of data.
+A musical composition is broken up into segments that can be sequenced to
+create a longer piece. The sequencing can be fixed at the time the music file
+is authored, or it can be created dynamically under program control.</span></p>
+
+<h3><a name="_Toc203298087"><![if !supportLists]><span class=Heading2Char><span
+lang=EN-IE style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-fareast-font-family:
+Arial;mso-bidi-font-weight:normal'><span style='mso-list:Ignore'>1.1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span><![endif]><span
+class=Heading2Char><span lang=EN-IE style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-weight:normal'>Linear Music Example</span></span></a><span
+style='mso-bookmark:_Toc203298087'></span><span class=Heading2Char><span
+lang=EN-IE style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-bidi-font-weight:
+normal'><o:p></o:p></span></span></h3>
+
+<p class=MsoNormal><span lang=EN-IE><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:431.25pt;
+ height:294.75pt' o:ole="">
+ <v:imagedata src="JET_Authoring_Guidelines_files/image002.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=575 height=393
+src="JET_Authoring_Guidelines_files/image013.gif" v:shapes="_x0000_i1025"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1298963276">
+ </o:OLEObject>
+</xml><![endif]--></span></p>
+
+<p class=MsoCaption><span lang=EN-IE>Figure <span style='mso-field-code:" SEQ Figure \\* ARABIC "'><span
+style='mso-no-proof:yes'>1</span></span>: Linear Music Piece</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>This diagram shows how musical segments are
+stored. Each segment is authored as a separate <st1:place w:st="on">MIDI</st1:place>
+file. A post-processing tool combines the files into a single container file.
+Each segment can contain alternate music tracks that can be muted or un-muted
+to create additional interest. An example might be a brass accent in the chorus
+that is played only the last time through. Also, segments can be transposed up
+or down.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>The bottom part of the diagram shows how
+the musical segments can be recombined to create a linear music piece. In this
+example, the bridge might end with a half-step key modulation and the remaining
+segments could be transposed up a half-step to match.</span></p>
+
+<h3><a name="_Toc203298088"><![if !supportLists]><span lang=EN-IE
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Non-linear Music Example</span></a></h3>
+
+<p class=MsoNormal><span lang=EN-IE><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:6in;height:291.75pt' o:ole="">
+ <v:imagedata src="JET_Authoring_Guidelines_files/image004.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=389
+src="JET_Authoring_Guidelines_files/image014.gif" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1298963277">
+ </o:OLEObject>
+</xml><![endif]--></span></p>
+
+<p class=MsoCaption><span lang=EN-IE>Figure <span style='mso-field-code:" SEQ Figure \\* ARABIC "'><span
+style='mso-no-proof:yes'>2</span></span>: Non-linear music piece</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>In this diagram, we see a non-linear music
+piece. The scenario is a first-person-shooter (FPS) and JET is providing the
+background music. The intro plays as the level is loading and then transitions
+under program control to the Searching segment. This segment is repeated
+indefinitely, perhaps with small variations (using the mute/un-mute feature)
+until activity in the game dictates a change.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>As the player nears a monster lair, the
+program starts a synchronized transition to the Danger segment, increasing the
+tension level in the audio. As the player draws closer to the lair, additional
+tracks are un-muted to increase the tension.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>As the player enters into combat with the
+monster, the program starts a synchronized transition to the Combat segment.
+The segment repeats indefinitely as the combat continues. A Bonus Hit
+temporarily un-mutes a decorative track that notifies the player of a
+successful attack, and similarly, another track is temporarily un-muted to
+signify when the player receives Special Damage.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>At the end of combat, the music transitions
+to a victory or defeat segment based on the outcome of battle.</span></p>
+
+<h3><a name="_Toc203298089"><![if !supportLists]><span lang=EN-IE
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.1.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Mute/Un-mute Synchronization</span></a></h3>
+
+<p class=MsoNormal><span lang=EN-IE>JET can also synchronize the muting and
+un-muting of tracks to events in the music. For example, in the FPS game, it
+would probably be desirable to place the musical events relating to bonuses and
+damage as close to the actual game event as possible. However, simply un-muting
+a track at the moment the game event occurs might result in a music clip
+starting in the middle. Alternatively, a clip could be started from the
+beginning, but then it wouldn’t be synchronized with the other music tracks.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>However, with the JET sync engine, a clip
+can be started at the next opportune moment and maintain synchronization. This
+can be accomplished by placing a number of short music clips on a decorative
+track. A <st1:place w:st="on">MIDI</st1:place> event in the stream signifies
+the start of a clip and a second event signifies the end of a clip. When the
+application calls the JET clip function, the next clip in the track is allowed
+to play fully synchronized to the music. Optionally, the track can be
+automatically muted by a second <st1:place w:st="on">MIDI</st1:place> event.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:6in;height:116.25pt' o:ole="">
+ <v:imagedata src="JET_Authoring_Guidelines_files/image006.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=155
+src="JET_Authoring_Guidelines_files/image008.gif" v:shapes="_x0000_i1027"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1298963279">
+ </o:OLEObject>
+</xml><![endif]--></span></p>
+
+<p class=MsoCaption><span lang=EN-IE>Figure <span style='mso-field-code:" SEQ Figure \\* ARABIC "'><span
+style='mso-no-proof:yes'>3</span></span>: Synchronized Mute/Unmute</span></p>
+
+<h2><a name="_Toc203298090"><![if !supportLists]><span lang=EN-IE
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Audio Synchronization</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-IE>JET provides an audio synchronization API
+that allows game play to be synchronized to events in the audio. The mechanism
+relies on data embedded in the <st1:place w:st="on">MIDI</st1:place> file at
+the time the content is authored. When the JET engine senses an event during
+playback it generates a callback into the application program. The timing of
+the callback can be adjusted to compensate for any latency in the audio
+playback system so that audio and video can be synchronized. The diagram below
+shows an example of a simple music game that involves pressing the left and
+right arrows in time with the music.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+ type="#_x0000_t75" style='width:6in;height:100.5pt' o:ole="">
+ <v:imagedata src="JET_Authoring_Guidelines_files/image015.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=576 height=134
+src="JET_Authoring_Guidelines_files/image010.gif" v:shapes="_x0000_i1028"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Visio.Drawing.11" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1298963280">
+ </o:OLEObject>
+</xml><![endif]--></span></p>
+
+<p class=MsoCaption><span lang=EN-IE>Figure <span style='mso-field-code:" SEQ Figure \\* ARABIC "'><span
+style='mso-no-proof:yes'>4</span></span>: Music Game<span style='mso-no-proof:
+yes'> with Synchronization<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>The arrows represent events in the music
+sequence where game events need to be synchronized. In this case, the blue
+arrow represents a time where the player is supposed to press the left button,
+and the red arrow is for the right button. The yellow arrow tells the game
+engine that the sequence is complete. The player is allowed a certain time
+window before and after the event to press the appropriate key.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>If an event is received and the player has
+not pressed a button, a timer is set to half the length of the window. If the
+player presses the button before the timer expires, the game registers a
+success, and if not, the game registers a failure. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>If the player presses the button before the
+event is received, a timer is set to half the length of the window. If an event
+is received before the timer expires, the game registers a success, and if not,
+the game registers a failure. Game play might also include bonuses for getting
+close to the timing of the actual event. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_Toc203298091"><![if !supportLists]><span lang=EN-IE
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>JET Content Authoring Overview</span></a></h1>
+
+<p class=MsoNormal><span lang=EN-IE>To author JET files and hear them playback interactively,
+the content author will work in two or three applications which are designed to
+work together smoothly. The first is application is any off-the-shelf <st1:place
+w:st="on">MIDI</st1:place> sequencing application or Digital Audio Workstation
+that supports VST (for PC) or AU (for Mac) plugins. (Logic, SONAR, Cubase, etc)
+Here the author will compose their <st1:place w:st="on">MIDI</st1:place> music
+files using the SONiVOX EAS Synth plugin as the playback synthesizer. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Once the composer has completed their <st1:place
+w:st="on">MIDI</st1:place> file(s), they import them into the JET Creator application.
+Here the author will setup and audition the conditions for interactive playback
+within the JET enabled game.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Optionally, the author may elect to create
+a custom DLS soundbank. This can be created in any off-the-shelf DLS authoring
+application, such as Awave from MJSoft, and loaded into JET Creator along with
+the <st1:place w:st="on">MIDI</st1:place> files.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Below is an overview of this process. A
+more detailed explanation of each step follows.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo12;tab-stops:list .5in'><span
+     lang=EN-IE>Launch digital audio workstation (DAW) </span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Assign the SONiVOX EAS Synth plugin as the playback
+      synthesizer</span></li>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Optionally load a custom DLS2 soundset </span></li>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Compose and save <st1:place w:st="on">MIDI</st1:place> file(s)</span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo12;tab-stops:list .5in'><span
+     lang=EN-IE>Launch the JET Creator application</span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Create segments using the <st1:place w:st="on">MIDI</st1:place>
+      and DLS2 source files</span></li>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Add interactive elements</span></li>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Audition interactive elements</span></li>
+  <li class=MsoNormal style='mso-list:l10 level2 lfo12;tab-stops:list 1.0in'><span
+      lang=EN-IE>Save and Export JET files for use in the Android application</span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Launch DAW – Content authors will need to
+use a third party MIDI authoring application to compose their <st1:place w:st="on">MIDI</st1:place>
+files. It is recommended they use a digital audio workstation (DAW) application
+that supports VST or AU plugins as this will enable them to listen to the EAS
+MIDI Synthesizer and DLS2 soundsets that will be utilized in the Android
+application itself. Some examples of popular DAWs include SONAR (PC) and LOGIC
+(MAC). </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Assign SONiVOX EAS Synth plugin as the
+playback synthesizer – The SONiVOX EAS Synth plugin is a VST and AU compatible
+virtual instrument that plugs into VST or AU compatible DAWs. This software
+plugin uses the same SONiVOX EAS MIDI synthesizer engine and default General
+MIDI<span style='mso-spacerun:yes'>  </span>wavetable soundset inherent in
+Android. Using this plugin allows content authors to hear the exact audio
+rendering of the instruments and <st1:place w:st="on">MIDI</st1:place> file
+that will be used in their Android applications.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Optionally Load DLS2 Soundset – The SONiVOX
+EAS Synth plugin allows for the loading of any DLS2 compatible soundset for
+playback. These could include a new GM wavetable set, or a small collection of
+just a few custom instruments for a given application. Note, the DLS file does
+not replace the internal GM wavetable used by the EAS engine. DLS soundsets
+play in conjunction with the internal GM wavetable. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Compose MIDI File – Compose <st1:place
+w:st="on">MIDI</st1:place> soundtracks for the Android application.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Launch JET Creator – Once all DLS2 and <st1:place
+w:st="on">MIDI</st1:place> source files have been authored, the content author
+should launch the JET Creator and begin creating JET Segments. The segments
+will reference the <st1:place w:st="on">MIDI</st1:place> files and any custom
+DLS2 soundbanks.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Assign JET Segment Attributes – After
+creating segments the content author interactive elements. Interactive elements
+include mute and unmute settings of individual tracks in the MIDI file(s) as
+well as <st1:place w:st="on">MIDI</st1:place> controller numbers that serve as
+“events” in the game. These attributes tell the JET engine how and when to play
+the different musical segments according to the JET API commands in the Android
+application. See below for more detail on this.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Audition Interactive Playback – After
+assigning the segment attributes and creating the JET file, the content author
+can audition all interactive playback elements in the JET Audition window.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Save .jtc File – After the author is
+satisfied with the result, it is recommended they save the JET Creator .jtc
+file which will save their settings, references to source files, etc.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Export Files – Exporting the JET Creator
+file will bundle all source files and their attributes into a single .zip file.
+The zip file will also contain a .jet file for use by the Android application.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h1><a name="_Toc203298092"></a><a name="_Toc135724912"></a><a
+name="_Toc135725135"></a><a name="_Toc135726610"></a><a name="_Toc135727779"></a><a
+name="_Toc137004455"></a><![if !supportLists]><span style='mso-bookmark:_Toc203298092'><span
+lang=EN-IE style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></span><![endif]><span style='mso-bookmark:_Toc203298092'><span
+lang=EN-IE>EAS Synth Virtual Instrument Plugin</span></span></h1>
+
+<p class=MsoNormal><span lang=EN-IE>Included in the JET Creator package is the
+EAS software synthesizer in plug-in format. The EAS plugin synth allows the
+composer to hear the instruments used in Android as they are composing their <st1:place
+w:st="on">MIDI</st1:place> sequence. The EAS Synth plugin allows for the
+loading of custom DLS2 sounds as well.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Installing the EAS Synth Plugin</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>Follow the instructions for your individual
+DAW to install and utilize the plugin. For Mac users this will typically
+involve copying the “EAS Synth.componant” file into your plugins folder which
+is usually located at /Library/Audio/Plug-ins/Components. PC users will want to
+install the “EAS Synth.dll” into the plugin folder that their DAW requires. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Requirements and Settings for
+using the EAS Synth Plugin</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>The EAS Synth is an embedded synthesizer
+for small mobile devices. This means it does not have the flexibility of high
+end synthesizers typically utilized in a professional application such as
+Logic, Digital Performer, etc. As such, only the following attributes are
+supported.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Macintosh:</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Mac OSX (Intel) Macs </span></p>
+
+<p class=MsoNormal><span lang=EN-IE>ASIO Supported Soundcards </span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Sample Rate:<span style='mso-tab-count:
+1'>    </span>44100 hz</span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Buffer Size:<span style='mso-tab-count:
+1'>       </span>256 kbytes</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>PC:</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Windows 2000 or <st1:place w:st="on">Vista</st1:place>
+operating systems</span></p>
+
+<p class=MsoNormal><span lang=EN-IE>ASIO supported soundcards</span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Sample Rate:<span style='mso-tab-count:
+1'>    </span>44100 hz</span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Buffer Size:<span style='mso-tab-count:
+1'>       </span>256 kbytes</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Assigning <st1:place w:st="on">MIDI</st1:place>
+Tracks to use the EAS Synth</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>Each DAW has its own particular method of
+assigning <st1:place w:st="on">MIDI</st1:place> tracks to virtual instrument
+plugins such as the SONiVOX EAS Synth. Please consult the user manual for your
+DAW for detailed instructions. Below are some general guidelines for Logic
+(Mac) and SONAR (PC).</span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>LOGIC 8</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>The SONiVOX EAS Synth virtual instrument is
+a multi-timbral synthesizer. (i.e. it plays back multiple instruments on unique
+<st1:place w:st="on">MIDI</st1:place> channels in a single instance) In Logic
+8, however, you’ll want to set up 16 Logic <i style='mso-bidi-font-style:normal'>Instruments,</i>
+each with their own instance of the EAS Synth. Each Instrument should be assigned
+its own <st1:place w:st="on">MIDI</st1:place> channel. Use Channel 10 for
+Drums. The reason for this is that MIDI controller messages, such as Volume
+(CC7) and Pan (CC10) will not be channelized if the plugin is assigned to only
+a single Instrument and all <st1:place w:st="on">MIDI</st1:place> tracks are
+set to playback on that Instrument. In order for each <st1:place w:st="on">MIDI</st1:place>
+channel to respond to its own controller messages, you must assign 16 different
+EAS Synth instances to 16 unique Logic Instruments.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>A Logic 8 template file has been included
+in the Android Cupcake release to facilitate the above.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Playback in Logic 8 may require you to be
+in record enable mode for each track you are auditioning. To record enable
+multiple tracks hold down the Option key.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>To write out a standard <st1:place w:st="on">MIDI</st1:place>
+(type 1) file from Logic, you need to use the File Export command. IMPORTANT:
+Most edits in Logic are non-destructive edits meaning they are not modifying
+the actual data but rather adding an overlay onto to the data. Quantize is one
+such non-destructive edit. Therefore when you export a <st1:place w:st="on">MIDI</st1:place>
+file, you may not see your quanitization settings. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>In addition, the mix parameters for volume,
+pan and program changes may not appear in the event list and therefore may not
+write out with the <st1:place w:st="on">MIDI</st1:place> file. Before exporting
+a <st1:place w:st="on">MIDI</st1:place> file in Logic it is recommended you do
+the following:</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Select All and use the “Insert MIDI &gt;
+Insert MIDI Settings as Events” command.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>Select All and use the “Apply Quantization
+Settings Destructively” command. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Cakewalk SONAR 7</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>Sonar 7 is a bit easier to set up, use and
+save than Logic 8. Simply open or start a new <st1:place w:st="on">MIDI</st1:place>
+file. Go to the Insert menu and select Insert Soft Synth&gt;SONiVOX&gt;EAS
+Synth. Then assign each <st1:place w:st="on">MIDI</st1:place> track’s output to
+the EAS Synth. There is no need to record enable a track to hear it play back.
+When saving, be sure to select MIDI Type 1.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>SONAR 8 works similarly to SONAR 7.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Digital Performer</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>We’ve seen some instances when creating
+content with Digital Performer where notes with a release velocity of non-0
+will generate an extra note-on event in the EAS synth. If you are hearing a
+doubling, editing the release velocity events to zero should fix this problem.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Using Custom DLS2 Soundsets</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>The SONiVOX EAS Synthesizer supports two
+simultaneous soundsets or wavetables. One is the internal General MIDI wavetable
+inherent to the SONiVOX EAS Synthesizer. The other is a Downloadable Sounds
+Level 2 (DLS2) soundset. The internal wavetable is a GM Level 1 compliant
+wavetable with 127 melodic instruments and 1 drumkit. It is in a proprietary
+SONiVOX format. The DLS2 soundsets are an open format published by the MIDI
+Manufactures Association. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>In the Android Cupcake release, the
+internal wavetable is only 200 kbytes, very small, in order to be compliant
+with all Android devices which may not have a lot of memory. DLS2 soundsets can
+be any size that a particular device supports. Upgraded (larger) internal
+wavetables as well as custom DLS2 instruments can be licensed from SONiVOX.</span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Loading a DLS2 Soundset</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>To load a custom soundset, click on the
+Load DLS button in the EAS Synth plugin interface. Browse to the DLS2 file you
+wish to load and say OK. <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Only DLS Level 2 formatted soundsets are
+supported.<o:p></o:p></i></b></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>3.4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Using a DLS2 Soundset</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>Since both the internal EAS GM wavetable
+and a custom DLS2 soundset are used simultaneously, you must be sure you have
+your MIDI Program Changes set correctly. DLS2 instruments must be assigned to a
+Bank <i style='mso-bidi-font-style:normal'>other</i> than the default GM bank
+used by the internal synthesizer. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>The internal EAS synthesizer is assigned to
+Banks 121 (melodic instruments) and 120 (drum instruments). This follows the
+General MIDI Level 1 specification. Note: Most <st1:place w:st="on">MIDI</st1:place>
+sequencers require you to use Bank 0 to select the default wavetable. Custom
+DLS2 soundsets, therefore, should utilize a different Bank. We recommend Bank
+1.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>The EAS synth supports MSB (Controller 0),
+LSB (Controller 32) Bank change messages. There are two places you need to set
+this Bank and Program Change number. The first is in your DLS2 soundset. Using
+Bank 1, each Instrument would be assigned MSB 1, LSB 0, then the Instrument
+Program Change number. The second place to use the Bank and Program Change
+number is in your <st1:place w:st="on">MIDI</st1:place> sequence. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>In your <st1:place w:st="on">MIDI</st1:place>
+track, the MSB should be sent first followed by the LSB and then the Instrument
+number. For example, if your DLS2 instrument is assigned MSB 1, LSB 0,
+Program1, you would send CC0, 1 followed by CC32, 0 followed by Program Change
+Message 1. This might look like the following in an event window:</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+ type="#_x0000_t75" style='width:278.25pt;height:504.75pt'>
+ <v:imagedata src="JET_Authoring_Guidelines_files/image011.png" o:title="Event List"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=371 height=673
+src="JET_Authoring_Guidelines_files/image012.gif" v:shapes="_x0000_i1029"><![endif]></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h1><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>JET Creator Guidelines</span></h1>
+
+<p class=MsoNormal><span lang=EN-IE>JET Creator is the desktop application
+where you’ll edit and audition the JET interactive music elements. For details
+on the JET Creator application please see the “JET Creator User Manual”. Below
+are some additional guidelines to help you out.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Order of Tasks</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>As with all projects, its best to discuss and
+design the interactive music scheme with the game designer and programmer
+before beginning your composition. An outline and/or specification can go a
+long way in saving you from having to redo things after the game is in place.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE>In general you’ll want to first write your
+music in your DAW of choice the way you’re used to composing, then break up the
+final <st1:place w:st="on">MIDI</st1:place> file as needed for the application.
+Next, move to JET Creator and create all of your music segments in the order
+easiest to preview them when played in order. Finally, add the JET Events to
+control the segments via the Android game and Audition them as needed in JET
+Creator. Finally, save the project in JET Creator and hand off the .jet file to
+the programmer to integrate it in the game. After previewing there will likely
+be changes to the <st1:place w:st="on">MIDI</st1:place> file(s) and JET Creator
+attributes. </span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Conserving Memory</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>If you’re trying to conserve memory,
+compose as few MIDI files as possible, and create several segments from that <st1:place
+w:st="on">MIDI</st1:place> file. For example a 12 bar <st1:place w:st="on">MIDI</st1:place>
+file with three sections of 4 bars, A, B, C, can create a much longer song.
+Simply create multiple segments that reference the one <st1:place w:st="on">MIDI</st1:place>
+file, then order them however you like. For example, A, A, B, A, C, A, B, A, A
+would create a 36 bar song. Use JET to add repeats, transpose segments, and
+interactively mute and unmute tracks to keep it even more interesting.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Replicate</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>To make adding segments or events faster,
+use the Replicate command. Replicate can add multiple segments or events at one
+time and uses an offset parameter and prefix naming convention to keep things
+easy to read. The MOVE command is also useful for moving multiple events by a
+set number of measures, beats or ticks.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<h2><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Interactive Options</span></h2>
+
+<p class=MsoNormal><span lang=EN-IE>There are several interactive audio
+concepts possible in JET. Below are a few examples although we hope developers
+will come up with others we haven’t thought of! These are:</span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Multiple Segment Triggering</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>In this method the application is
+triggering specific segments based on events in the game. For example a hallway
+with lots of fighting might trigger segment 1 and a hallway with no fighting
+might trigger segment 2. Using JET TriggerClips in conjunction with this method
+creates even more diversity.</span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Mute Arrays</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>In this method the application is
+triggering mute and unmute events to specific tracks in a single <st1:place
+w:st="on">MIDI</st1:place> sequence. For example a hallway with lots of
+fighting might play <st1:place w:st="on">MIDI</st1:place> tracks 1-16 and a
+hallway with no fighting might play the same midi file but mute tracks 9-16.
+Using JET TriggerClips in conjunction with this method creates even more
+diversity.</span></p>
+
+<h3><![if !supportLists]><span lang=EN-IE style='mso-fareast-font-family:Arial'><span
+style='mso-list:Ignore'>4.4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span lang=EN-IE>Music Driven Gameplay</span></h3>
+
+<p class=MsoNormal><span lang=EN-IE>Music driven gaming is similar to what
+Guitar Hero and JETBOY have done in that the music content determines how
+graphic events are displayed. The application then queries the user response to
+the graphic events and interactively modifies the music in response. In this
+method the game is utilizing JET Application Events, MIDI controllers that are
+embedded in the <st1:place w:st="on">MIDI</st1:place> file and read by the game
+in real-time. Based on the user response, multiple segment triggering and/or
+mute arrays can be set.</span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-IE><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

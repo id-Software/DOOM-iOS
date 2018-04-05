@@ -88,7 +88,7 @@ void checksum_gamestate(int tic) {
 #endif
         buffer[sizeof(buffer)-1] = 0;
 
-        MD5Update(&md5ctx, (md5byte const *)&buffer, strlen(buffer));
+        MD5Update(&md5ctx, (md5byte const *)&buffer, (unsigned)strlen(buffer));
     }
     MD5Final(digest, &md5ctx);
     for (i=0; i<16; i++) {

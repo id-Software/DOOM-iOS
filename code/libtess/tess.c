@@ -232,6 +232,9 @@ gluTessProperty( GLUtesselator *tess, GLenum which, GLdouble value )
   CALL_ERROR_OR_ERROR_DATA( GLU_INVALID_VALUE );
 }
 
+void GLAPIENTRY
+gluGetTessProperty( GLUtesselator *tess, GLenum which, GLdouble *value );
+
 /* Returns tessellator property */
 void GLAPIENTRY
 gluGetTessProperty( GLUtesselator *tess, GLenum which, GLdouble *value )
@@ -603,16 +606,16 @@ gluDeleteMesh( GLUmesh *mesh )
 /*******************************************************/
 
 /* Obsolete calls -- for backward compatibility */
-
+/*
 void GLAPIENTRY
 gluBeginPolygon( GLUtesselator *tess )
 {
   gluTessBeginPolygon( tess, NULL );
   gluTessBeginContour( tess );
 }
+*/
 
-
-/*ARGSUSED*/
+/*ARGSUSED*//*
 void GLAPIENTRY
 gluNextContour( GLUtesselator *tess, GLenum type )
 {
@@ -626,4 +629,4 @@ gluEndPolygon( GLUtesselator *tess )
 {
   gluTessEndContour( tess );
   gluTessEndPolygon( tess );
-}
+}*/

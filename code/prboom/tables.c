@@ -120,6 +120,7 @@ void R_LoadTrigTables(void)
 #define CORRECT_TABLE_ENDIAN(tbl) \
     for (n = 0; n<sizeof(tbl)/sizeof(tbl[0]); n++) tbl[n] = doom_swap_l(tbl[n])
 
+    // suppressing this warning in the compiler with a -w flag as I think it can't be helped -tkidd
     CORRECT_TABLE_ENDIAN(finesine);
     CORRECT_TABLE_ENDIAN(finetangent);
     CORRECT_TABLE_ENDIAN(tantoangle);

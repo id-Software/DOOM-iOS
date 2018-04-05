@@ -8,14 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		4333CCE80F5CC23E00AE2B6F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */; };
-		434669A60F8D08C000EA7D6D /* doomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 434669A50F8D08C000EA7D6D /* doomAppDelegate.m */; };
 		4364BF3F0F5CB25900F29317 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4364BF3E0F5CB25900F29317 /* dist.plist */; };
-		43A945150F82D75900FFD32E /* iphone_sys.c in Sources */ = {isa = PBXBuildFile; fileRef = 43A945140F82D75900FFD32E /* iphone_sys.c */; };
 		43CF02FF0F56974E00E4A23D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CF02FE0F56974E00E4A23D /* Default.png */; };
 		43CF030A0F56D5C200E4A23D /* iphone_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 43CF03090F56D5C200E4A23D /* iphone_loop.c */; };
-		43DD8392100295F70006E1DD /* iphone_async.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DD8391100295F70006E1DD /* iphone_async.c */; };
 		43E8D2E10F4FC61E003F09B2 /* iphone_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 43E8D2DF0F4FC61E003F09B2 /* iphone_main.c */; };
 		43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */; };
 		720EBBAE0F82E0BB003F989A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720EBBAD0F82E0BB003F989A /* QuartzCore.framework */; };
@@ -24,12 +20,9 @@
 		7239452C0F9C0E7500EADD62 /* iphone_mapSelect.c in Sources */ = {isa = PBXBuildFile; fileRef = 7239452B0F9C0E7500EADD62 /* iphone_mapSelect.c */; };
 		72484E5E0FB0E99900124E1C /* iphone_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 72484E5D0FB0E99900124E1C /* iphone_render.c */; };
 		724C531F0FBDBCEE000E4348 /* BackgroundMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 724C531E0FBDBCEE000E4348 /* BackgroundMusic.cpp */; };
-		72A55EEF1003A94300F788A5 /* iphone_start.c in Sources */ = {isa = PBXBuildFile; fileRef = 72A55EEE1003A94300F788A5 /* iphone_start.c */; };
 		72A560E21004FAEE00F788A5 /* iphone_net.c in Sources */ = {isa = PBXBuildFile; fileRef = 72A560E11004FAEE00F788A5 /* iphone_net.c */; };
-		72A7E8F70F5F2063005B83C0 /* iphone_menus.c in Sources */ = {isa = PBXBuildFile; fileRef = 72A7E8F60F5F2063005B83C0 /* iphone_menus.c */; };
 		72B5FF390F7E5C3D00C8A372 /* hud.c in Sources */ = {isa = PBXBuildFile; fileRef = 72B5FF380F7E5C3D00C8A372 /* hud.c */; };
 		72D50DBC0F8ED98000BB49E6 /* ipak.c in Sources */ = {isa = PBXBuildFile; fileRef = 72D50DBB0F8ED98000BB49E6 /* ipak.c */; };
-		72E731EB0F97E68100E702CD /* iphone_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E731EA0F97E68100E702CD /* iphone_sound.c */; };
 		72E847650F93C61900AB3C99 /* am_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847640F93C61900AB3C99 /* am_map.c */; };
 		72E847740F93FFDB00AB3C99 /* d_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8476F0F93FFDB00AB3C99 /* d_client.c */; };
 		72E847750F93FFDB00AB3C99 /* d_deh.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847700F93FFDB00AB3C99 /* d_deh.c */; };
@@ -41,7 +34,7 @@
 		72E847B80F9400D700AB3C99 /* f_finale.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8478B0F9400D700AB3C99 /* f_finale.c */; };
 		72E847B90F9400D700AB3C99 /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8478D0F9400D700AB3C99 /* f_wipe.c */; };
 		72E847BA0F9400D700AB3C99 /* g_game.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8478F0F9400D700AB3C99 /* g_game.c */; };
-		72E847BB0F9400D700AB3C99 /* gl_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847920F9400D700AB3C99 /* gl_main.c */; };
+		72E847BB0F9400D700AB3C99 /* gl_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847920F9400D700AB3C99 /* gl_main.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		72E847BC0F9400D700AB3C99 /* gl_texture.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847940F9400D700AB3C99 /* gl_texture.c */; };
 		72E847BD0F9400D700AB3C99 /* hu_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847950F9400D700AB3C99 /* hu_lib.c */; };
 		72E847BE0F9400D700AB3C99 /* hu_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847970F9400D700AB3C99 /* hu_stuff.c */; };
@@ -57,7 +50,7 @@
 		72E848070F941A5900AB3C99 /* p_ceilng.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E40F941A5900AB3C99 /* p_ceilng.c */; };
 		72E848080F941A5900AB3C99 /* p_checksum.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E50F941A5900AB3C99 /* p_checksum.c */; };
 		72E848090F941A5900AB3C99 /* p_doors.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E70F941A5900AB3C99 /* p_doors.c */; };
-		72E8480A0F941A5900AB3C99 /* p_enemy.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E80F941A5900AB3C99 /* p_enemy.c */; };
+		72E8480A0F941A5900AB3C99 /* p_enemy.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E80F941A5900AB3C99 /* p_enemy.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		72E8480B0F941A5900AB3C99 /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EA0F941A5900AB3C99 /* p_floor.c */; };
 		72E8480C0F941A5900AB3C99 /* p_genlin.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EB0F941A5900AB3C99 /* p_genlin.c */; };
 		72E8480D0F941A5900AB3C99 /* p_inter.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EC0F941A5900AB3C99 /* p_inter.c */; };
@@ -67,7 +60,7 @@
 		72E848110F941A5900AB3C99 /* p_mobj.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F30F941A5900AB3C99 /* p_mobj.c */; };
 		72E848120F941A5900AB3C99 /* p_plats.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F50F941A5900AB3C99 /* p_plats.c */; };
 		72E848130F941A5900AB3C99 /* p_pspr.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F60F941A5900AB3C99 /* p_pspr.c */; };
-		72E848140F941A5900AB3C99 /* p_saveg.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F80F941A5900AB3C99 /* p_saveg.c */; };
+		72E848140F941A5900AB3C99 /* p_saveg.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F80F941A5900AB3C99 /* p_saveg.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		72E848150F941A5900AB3C99 /* p_setup.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FA0F941A5900AB3C99 /* p_setup.c */; };
 		72E848160F941A5900AB3C99 /* p_sight.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FC0F941A5900AB3C99 /* p_sight.c */; };
 		72E848170F941A5900AB3C99 /* p_spec.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FD0F941A5900AB3C99 /* p_spec.c */; };
@@ -91,7 +84,7 @@
 		72E8485C0F941ADC00AB3C99 /* sounds.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848460F941ADC00AB3C99 /* sounds.c */; };
 		72E8485D0F941ADC00AB3C99 /* st_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848480F941ADC00AB3C99 /* st_lib.c */; };
 		72E8485E0F941ADC00AB3C99 /* st_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484A0F941ADC00AB3C99 /* st_stuff.c */; };
-		72E8485F0F941ADC00AB3C99 /* tables.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484C0F941ADC00AB3C99 /* tables.c */; };
+		72E8485F0F941ADC00AB3C99 /* tables.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484C0F941ADC00AB3C99 /* tables.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		72E848600F941ADC00AB3C99 /* v_video.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484E0F941ADC00AB3C99 /* v_video.c */; };
 		72E848610F941ADC00AB3C99 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848500F941ADC00AB3C99 /* version.c */; };
 		72E848630F941ADC00AB3C99 /* w_mmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848530F941ADC00AB3C99 /* w_mmap.c */; };
@@ -113,11 +106,174 @@
 		72F1F9BC0F96C18800AD49AC /* sweep.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9AE0F96C18800AD49AC /* sweep.c */; };
 		72F1F9BD0F96C18800AD49AC /* tess.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9B00F96C18800AD49AC /* tess.c */; };
 		72F1F9BE0F96C18800AD49AC /* tessmono.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9B20F96C18800AD49AC /* tessmono.c */; };
-		C8139A7913F9E0440094C2C0 /* UICustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C8139A7813F9E0440094C2C0 /* UICustomSlider.m */; };
+		A11290502069B62B00BEDEB5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */; };
+		A12302A4205736BC0075CBAD /* dls.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ECC20563B53000955AE /* dls.h */; };
+		A12302A5205736BC0075CBAD /* dls2.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0720563B5E000955AE /* dls2.h */; };
+		A12302A6205736BC0075CBAD /* eas_audioconst.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EDE20563B55000955AE /* eas_audioconst.h */; };
+		A12302A7205736BC0075CBAD /* eas_chorusdata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EE220563B56000955AE /* eas_chorusdata.h */; };
+		A12302A8205736BC0075CBAD /* eas_ctype.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0020563B5C000955AE /* eas_ctype.h */; };
+		A12302A9205736BC0075CBAD /* eas_data.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EC920563B53000955AE /* eas_data.h */; };
+		A12302AA205736BC0075CBAD /* eas_dlssynth.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF220563B5A000955AE /* eas_dlssynth.h */; };
+		A12302AB205736BC0075CBAD /* eas_effects.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0820563B5E000955AE /* eas_effects.h */; };
+		A12302AC205736BC0075CBAD /* eas_imelodydata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF820563B5B000955AE /* eas_imelodydata.h */; };
+		A12302AD205736BC0075CBAD /* eas_math.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EEE20563B59000955AE /* eas_math.h */; };
+		A12302AE205736BC0075CBAD /* eas_mdls.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EDD20563B55000955AE /* eas_mdls.h */; };
+		A12302AF205736BC0075CBAD /* eas_midi.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ED320563B54000955AE /* eas_midi.h */; };
+		A12302B0205736BC0075CBAD /* eas_midictrl.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EFE20563B5C000955AE /* eas_midictrl.h */; };
+		A12302B1205736BC0075CBAD /* eas_miditypes.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F1120563B60000955AE /* eas_miditypes.h */; };
+		A12302B2205736BC0075CBAD /* eas_mixer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF120563B5A000955AE /* eas_mixer.h */; };
+		A12302B3205736BC0075CBAD /* eas_otadata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0A20563B5E000955AE /* eas_otadata.h */; };
+		A12302B4205736BC0075CBAD /* eas_pan.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ED920563B54000955AE /* eas_pan.h */; };
+		A12302B5205736BC0075CBAD /* eas_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ED520563B54000955AE /* eas_parser.h */; };
+		A12302B6205736BC0075CBAD /* eas_pcm.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0320563B5D000955AE /* eas_pcm.h */; };
+		A12302B7205736BC0075CBAD /* eas_pcmdata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EE620563B58000955AE /* eas_pcmdata.h */; };
+		A12302B8205736BC0075CBAD /* eas_reverbdata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF620563B5B000955AE /* eas_reverbdata.h */; };
+		A12302B9205736BC0075CBAD /* eas_rtttldata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ECD20563B53000955AE /* eas_rtttldata.h */; };
+		A12302BA205736BC0075CBAD /* eas_smf.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0920563B5E000955AE /* eas_smf.h */; };
+		A12302BB205736BC0075CBAD /* eas_smfdata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ED220563B54000955AE /* eas_smfdata.h */; };
+		A12302BC205736BC0075CBAD /* eas_sndlib.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF520563B5A000955AE /* eas_sndlib.h */; };
+		A12302BD205736BC0075CBAD /* eas_synth_protos.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF320563B5A000955AE /* eas_synth_protos.h */; };
+		A12302BE205736BC0075CBAD /* eas_synth.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EC820563B53000955AE /* eas_synth.h */; };
+		A12302BF205736BC0075CBAD /* eas_synthcfg.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EDF20563B55000955AE /* eas_synthcfg.h */; };
+		A12302C0205736BC0075CBAD /* eas_tcdata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63ED420563B54000955AE /* eas_tcdata.h */; };
+		A12302C1205736BC0075CBAD /* eas_vm_protos.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EFB20563B5B000955AE /* eas_vm_protos.h */; };
+		A12302C2205736BC0075CBAD /* eas_wavefile.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63F0120563B5C000955AE /* eas_wavefile.h */; };
+		A12302C3205736BC0075CBAD /* eas_wt_IPC_frame.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EE020563B55000955AE /* eas_wt_IPC_frame.h */; };
+		A12302C4205736BC0075CBAD /* eas_wtengine.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EE720563B58000955AE /* eas_wtengine.h */; };
+		A12302C5205736BC0075CBAD /* eas_wtsynth.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EF420563B5A000955AE /* eas_wtsynth.h */; };
+		A12302C6205736BC0075CBAD /* eas_xmf.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EEA20563B59000955AE /* eas_xmf.h */; };
+		A12302C7205736BC0075CBAD /* eas_xmfdata.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EDB20563B55000955AE /* eas_xmfdata.h */; };
+		A12302C8205736BC0075CBAD /* jet_data.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63EE920563B59000955AE /* jet_data.h */; };
+		A12302C9205736BC0075CBAD /* eas_build.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E45205634E7000955AE /* eas_build.h */; };
+		A12302CA205736BC0075CBAD /* eas_chorus.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E43205634E7000955AE /* eas_chorus.h */; };
+		A12302CB205736BC0075CBAD /* eas_config.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E4A205634E7000955AE /* eas_config.h */; };
+		A12302CC205736BC0075CBAD /* eas_debugmsgs.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E3F205634E7000955AE /* eas_debugmsgs.h */; };
+		A12302CD205736BC0075CBAD /* eas_host.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E46205634E7000955AE /* eas_host.h */; };
+		A12302CE205736BC0075CBAD /* eas_report.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E47205634E7000955AE /* eas_report.h */; };
+		A12302CF205736BC0075CBAD /* eas_reverb.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E3E205634E7000955AE /* eas_reverb.h */; };
+		A12302D0205736BC0075CBAD /* eas_types.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E44205634E7000955AE /* eas_types.h */; };
+		A12302D1205736BC0075CBAD /* eas_wave.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E48205634E7000955AE /* eas_wave.h */; };
+		A12302D2205736BC0075CBAD /* eas.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E41205634E7000955AE /* eas.h */; };
+		A12302D3205736BC0075CBAD /* jet.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63E49205634E7000955AE /* jet.h */; };
+		A12302E2205737F50075CBAD /* LocalizationObjectiveC.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302D5205737F40075CBAD /* LocalizationObjectiveC.h */; };
+		A12302E3205737F50075CBAD /* Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302D6205737F40075CBAD /* Label.mm */; };
+		A12302E4205737F50075CBAD /* LabelButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302D7205737F40075CBAD /* LabelButton.mm */; };
+		A12302E5205737F50075CBAD /* RenderContext.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302D8205737F40075CBAD /* RenderContext.h */; };
+		A12302E6205737F50075CBAD /* Localization.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302D9205737F40075CBAD /* Localization.h */; };
+		A12302E7205737F50075CBAD /* RenderContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DA205737F40075CBAD /* RenderContext.mm */; };
+		A12302E8205737F50075CBAD /* Switch.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302DB205737F40075CBAD /* Switch.h */; };
+		A12302E9205737F50075CBAD /* View.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DC205737F40075CBAD /* View.mm */; };
+		A12302EA205737F50075CBAD /* LabelButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302DD205737F40075CBAD /* LabelButton.h */; };
+		A12302EB205737F50075CBAD /* Localization.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DE205737F40075CBAD /* Localization.mm */; };
+		A12302EC205737F50075CBAD /* Label.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302DF205737F50075CBAD /* Label.h */; };
+		A12302ED205737F50075CBAD /* View.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302E0205737F50075CBAD /* View.h */; };
+		A12302EE205737F50075CBAD /* Switch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302E1205737F50075CBAD /* Switch.mm */; };
+		A12302F1205738270075CBAD /* Slider.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302EF205738270075CBAD /* Slider.h */; };
+		A12302F2205738270075CBAD /* Slider.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302F0205738270075CBAD /* Slider.mm */; };
+		A12302F5205738560075CBAD /* Carousel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302F3205738560075CBAD /* Carousel.mm */; };
+		A12302F6205738560075CBAD /* Carousel.h in Headers */ = {isa = PBXBuildFile; fileRef = A12302F4205738560075CBAD /* Carousel.h */; };
+		A12302F72057408A0075CBAD /* SoundEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A63DFB20562FAE000955AE /* SoundEngine.h */; };
+		A12302FB205783E70075CBAD /* prboom.wad in Resources */ = {isa = PBXBuildFile; fileRef = A12302F8205783E70075CBAD /* prboom.wad */; };
+		A12302FC205783E70075CBAD /* doom.wad in Resources */ = {isa = PBXBuildFile; fileRef = A12302F9205783E70075CBAD /* doom.wad */; };
+		A12302FD205783E70075CBAD /* base.iPack in Resources */ = {isa = PBXBuildFile; fileRef = A12302FA205783E70075CBAD /* base.iPack */; };
+		A176AC09206492DD00A96B7E /* EpisodeCell~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A176AC08206492DD00A96B7E /* EpisodeCell~ipad.xib */; };
+		A1A184282063E63200302393 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A184252063E63200302393 /* EpisodeCell.xib */; };
+		A1A63DBD20562B2B000955AE /* ControlsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DB420562B2A000955AE /* ControlsMenuViewController.mm */; };
+		A1A63DBF20562B2B000955AE /* ControlsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DB620562B2B000955AE /* ControlsMenuView.xib */; };
+		A1A63DC020562B2B000955AE /* SecretMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DB720562B2B000955AE /* SecretMenuViewController.mm */; };
+		A1A63DC220562B2B000955AE /* CreditsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DBA20562B2B000955AE /* CreditsMenuView~ipad.xib */; };
+		A1A63DC320562B2B000955AE /* ControlsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DBB20562B2B000955AE /* ControlsMenuView~ipad.xib */; };
+		A1A63DC420562B2B000955AE /* SecretMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DBC20562B2B000955AE /* SecretMenuView.xib */; };
+		A1A63DE320562B76000955AE /* MissionMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DC620562B73000955AE /* MissionMenuView~ipad.xib */; };
+		A1A63DE420562B76000955AE /* LegalMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DC720562B73000955AE /* LegalMenuViewController.mm */; };
+		A1A63DE620562B76000955AE /* SettingsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DC920562B73000955AE /* SettingsMenuView~ipad.xib */; };
+		A1A63DE720562B76000955AE /* EpisodeMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCA20562B73000955AE /* EpisodeMenuView.xib */; };
+		A1A63DE820562B76000955AE /* LegalMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCB20562B73000955AE /* LegalMenuView~ipad.xib */; };
+		A1A63DE920562B76000955AE /* MissionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCC20562B73000955AE /* MissionMenuView.xib */; };
+		A1A63DEB20562B76000955AE /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCE20562B73000955AE /* MainMenuView.xib */; };
+		A1A63DED20562B76000955AE /* MissionMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DD020562B74000955AE /* MissionMenuViewController.mm */; };
+		A1A63DEF20562B76000955AE /* OpenGLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DD220562B74000955AE /* OpenGLView.xib */; };
+		A1A63DF220562B76000955AE /* SettingsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DD620562B74000955AE /* SettingsMenuView.xib */; };
+		A1A63DF320562B76000955AE /* MainMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DD820562B75000955AE /* MainMenuViewController.mm */; };
+		A1A63DF420562B76000955AE /* MainMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DD920562B75000955AE /* MainMenuView~ipad.xib */; };
+		A1A63DF520562B76000955AE /* EpisodeMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DDA20562B75000955AE /* EpisodeMenuView~ipad.xib */; };
+		A1A63DF620562B76000955AE /* EpisodeMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DDB20562B75000955AE /* EpisodeMenuViewController.mm */; };
+		A1A63DF720562B76000955AE /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DDC20562B75000955AE /* MainNavController.m */; };
+		A1A63DF820562B76000955AE /* LegalMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DE020562B76000955AE /* LegalMenuView.xib */; };
+		A1A63DF920562B76000955AE /* SettingsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DE120562B76000955AE /* SettingsMenuViewController.mm */; };
+		A1A63DFA20562B76000955AE /* OpenGLView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DE220562B76000955AE /* OpenGLView~ipad.xib */; };
+		A1A63E0C20562FB0000955AE /* iphone_glViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DFE20562FAE000955AE /* iphone_glViewController.mm */; };
+		A1A63E0D20562FB0000955AE /* iphone_async.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0020562FAE000955AE /* iphone_async.cpp */; };
+		A1A63E0E20562FB0000955AE /* iphone_delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0320562FAF000955AE /* iphone_delegate.mm */; };
+		A1A63E0F20562FB0000955AE /* iphone_start.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0520562FAF000955AE /* iphone_start.cpp */; };
+		A1A63E1020562FB0000955AE /* iphone_common.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0620562FAF000955AE /* iphone_common.mm */; };
+		A1A63E1120562FB0000955AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E0720562FAF000955AE /* Localizable.strings */; };
+		A1A63E1220562FB0000955AE /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0820562FAF000955AE /* SoundEngine.cpp */; };
+		A1A63E1320562FB0000955AE /* iphone_sound.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0920562FAF000955AE /* iphone_sound.mm */; };
+		A1A63E1420562FB0000955AE /* iphone_sys.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0A20562FAF000955AE /* iphone_sys.mm */; };
+		A1A63E1920562FC4000955AE /* DOOM_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1520562FC3000955AE /* DOOM_152.png */; };
+		A1A63E1A20562FC4000955AE /* DOOM_144.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1620562FC3000955AE /* DOOM_144.png */; };
+		A1A63E1B20562FC4000955AE /* DOOM_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1720562FC3000955AE /* DOOM_120.png */; };
+		A1A63E1C20562FC4000955AE /* DOOM_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1820562FC4000955AE /* DOOM_76.png */; };
+		A1A63E1F20562FD1000955AE /* Doom_App.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E1D20562FD1000955AE /* Doom_App.m */; };
+		A1A63E2420563253000955AE /* i_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E2320563253000955AE /* i_sound.c */; };
+		A1A63E29205632E2000955AE /* SDL_Mixer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E27205632E2000955AE /* SDL_Mixer.m */; };
+		A1A63E3320563345000955AE /* r_drawcolpipeline.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E2A20563344000955AE /* r_drawcolpipeline.inl */; };
+		A1A63E3420563345000955AE /* mmus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E2B20563344000955AE /* mmus2mid.c */; };
+		A1A63E3520563345000955AE /* r_drawcolumn.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E2D20563344000955AE /* r_drawcolumn.inl */; };
+		A1A63E3620563345000955AE /* Makefile.am in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E2E20563345000955AE /* Makefile.am */; };
+		A1A63E3820563345000955AE /* r_drawflush.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E3020563345000955AE /* r_drawflush.inl */; };
+		A1A63E3920563345000955AE /* r_drawspan.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E3120563345000955AE /* r_drawspan.inl */; };
+		A1A63E4D205634E8000955AE /* eas_report.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E40205634E7000955AE /* eas_report.c */; };
+		A1A63E4E205634E8000955AE /* eas_hostmm.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E42205634E7000955AE /* eas_hostmm.c */; };
+		A1A63E4F205634E8000955AE /* eas_config.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E4B205634E7000955AE /* eas_config.c */; };
+		A1A63E50205634E8000955AE /* eas_wave.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E4C205634E7000955AE /* eas_wave.c */; };
+		A1A63E5320563A06000955AE /* EASGlue.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E5120563A06000955AE /* EASGlue.c */; };
+		A1A63E5520563A6D000955AE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A63E5420563A6D000955AE /* AVFoundation.framework */; };
+		A1A63F1320563B60000955AE /* eas_xmfdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECA20563B53000955AE /* eas_xmfdata.c */; };
+		A1A63F1420563B60000955AE /* eas_xmf.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECB20563B53000955AE /* eas_xmf.c */; };
+		A1A63F1520563B60000955AE /* eas_otadata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECE20563B53000955AE /* eas_otadata.c */; };
+		A1A63F1620563B60000955AE /* eas_data.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECF20563B53000955AE /* eas_data.c */; };
+		A1A63F1720563B60000955AE /* eas_imaadpcm.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED020563B54000955AE /* eas_imaadpcm.c */; };
+		A1A63F1820563B60000955AE /* eas_rtttl.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED120563B54000955AE /* eas_rtttl.c */; };
+		A1A63F1920563B60000955AE /* eas_wavefile.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED620563B54000955AE /* eas_wavefile.c */; };
+		A1A63F1A20563B60000955AE /* eas_mixer.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED720563B54000955AE /* eas_mixer.c */; };
+		A1A63F1B20563B60000955AE /* eas_ota.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED820563B54000955AE /* eas_ota.c */; };
+		A1A63F1C20563B60000955AE /* eas_pcmdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EDA20563B54000955AE /* eas_pcmdata.c */; };
+		A1A63F1D20563B60000955AE /* eas_chorusdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EDC20563B55000955AE /* eas_chorusdata.c */; };
+		A1A63F1E20563B60000955AE /* eas_chorus.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE120563B55000955AE /* eas_chorus.c */; };
+		A1A63F1F20563B60000955AE /* eas_midi.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE320563B56000955AE /* eas_midi.c */; };
+		A1A63F2020563B60000955AE /* wt_22khz.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE420563B56000955AE /* wt_22khz.c */; };
+		A1A63F2120563B60000955AE /* eas_smfdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE520563B56000955AE /* eas_smfdata.c */; };
+		A1A63F2220563B60000955AE /* eas_wtsynth.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE820563B58000955AE /* eas_wtsynth.c */; };
+		A1A63F2420563B60000955AE /* eas_mixbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EEC20563B59000955AE /* eas_mixbuf.c */; };
+		A1A63F2520563B60000955AE /* eas_smf.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EED20563B59000955AE /* eas_smf.c */; };
+		A1A63F2620563B60000955AE /* eas_dlssynth.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EEF20563B59000955AE /* eas_dlssynth.c */; };
+		A1A63F2720563B60000955AE /* eas_pcm.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EF020563B5A000955AE /* eas_pcm.c */; };
+		A1A63F2820563B60000955AE /* eas_tonecontrol.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EF720563B5B000955AE /* eas_tonecontrol.c */; };
+		A1A63F2920563B60000955AE /* eas_wavefiledata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EF920563B5B000955AE /* eas_wavefiledata.c */; };
+		A1A63F2A20563B60000955AE /* eas_wtengine.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFA20563B5B000955AE /* eas_wtengine.c */; };
+		A1A63F2B20563B60000955AE /* eas_imelodydata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFC20563B5C000955AE /* eas_imelodydata.c */; };
+		A1A63F2C20563B60000955AE /* eas_mididata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFD20563B5C000955AE /* eas_mididata.c */; };
+		A1A63F2D20563B60000955AE /* eas_rtttldata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFF20563B5C000955AE /* eas_rtttldata.c */; };
+		A1A63F2E20563B60000955AE /* eas_flog.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0220563B5C000955AE /* eas_flog.c */; };
+		A1A63F2F20563B60000955AE /* eas_reverbdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0420563B5D000955AE /* eas_reverbdata.c */; };
+		A1A63F3020563B60000955AE /* eas_public.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0520563B5D000955AE /* eas_public.c */; };
+		A1A63F3120563B60000955AE /* eas_ima_tables.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0620563B5D000955AE /* eas_ima_tables.c */; };
+		A1A63F3220563B60000955AE /* eas_voicemgt.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0B20563B5E000955AE /* eas_voicemgt.c */; };
+		A1A63F3320563B60000955AE /* eas_imelody.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0C20563B5F000955AE /* eas_imelody.c */; };
+		A1A63F3420563B60000955AE /* eas_pan.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0D20563B5F000955AE /* eas_pan.c */; };
+		A1A63F3520563B60000955AE /* eas_reverb.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0E20563B5F000955AE /* eas_reverb.c */; };
+		A1A63F3620563B60000955AE /* eas_tcdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0F20563B5F000955AE /* eas_tcdata.c */; };
+		A1A63F3720563B60000955AE /* eas_math.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F1020563B5F000955AE /* eas_math.c */; };
+		A1A63F3820563B60000955AE /* eas_mdls.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F1220563B60000955AE /* eas_mdls.c */; };
+		A1E89C8E2067469D00760204 /* CreditsMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */; };
+		A1E89C8F2067469D00760204 /* CreditsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */; };
+		A1E89C902067469D00760204 /* CreditsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E89C8D2067469D00760204 /* CreditsMenuView.xib */; };
+		A1E89C9420689D4C00760204 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E89C9320689D4B00760204 /* GameController.framework */; };
+		A1E89C9620689D9500760204 /* GameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C9520689D9500760204 /* GameController.mm */; };
 		C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */; };
 		C8139AB513FADA9D0094C2C0 /* SliderSkull~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */; };
-		C81E0C7213DF471000B1049A /* UIFontButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C81E0C7113DF471000B1049A /* UIFontButton.m */; };
-		C81E0C8F13DF4A1B00B1049A /* UIFontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C81E0C8E13DF4A1B00B1049A /* UIFontLabel.m */; };
 		C81E0E5E13E076E400B1049A /* idGinzaNar-Md2.otf in Resources */ = {isa = PBXBuildFile; fileRef = C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */; };
 		C81E104C13E1CCA000B1049A /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104013E1CCA000B1049A /* BackButton.png */; };
 		C81E104D13E1CCA000B1049A /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104113E1CCA000B1049A /* Button.png */; };
@@ -131,12 +287,6 @@
 		C81E105513E1CCA000B1049A /* Nightmare.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104913E1CCA000B1049A /* Nightmare.png */; };
 		C81E105613E1CCA000B1049A /* ResumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104A13E1CCA000B1049A /* ResumeButton.png */; };
 		C81E105713E1CCA000B1049A /* SelectedBracket.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104B13E1CCA000B1049A /* SelectedBracket.png */; };
-		C84F829213D76E96006D01AB /* MapMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C84F829013D76E96006D01AB /* MapMenuView.m */; };
-		C84F83F613D7A99C006D01AB /* GenericMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C84F83F513D7A99C006D01AB /* GenericMenuView.m */; };
-		C84F855913D8B55C006D01AB /* SettingsMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C84F855813D8B55C006D01AB /* SettingsMenuView.m */; };
-		C861F27213BD2DC600DB34A8 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C861F27113BD2DC600DB34A8 /* MainWindow-iPad.xib */; };
-		C86F966813D617740069B7B6 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C86F966713D617740069B7B6 /* MenuViewController.mm */; };
-		C86F975E13D6377B0069B7B6 /* IBGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = C86F975D13D6377B0069B7B6 /* IBGlue.m */; };
 		C8792ED813F5AFE5003D834F /* BackButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */; };
 		C8792ED913F5AFE6003D834F /* Button_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED213F5AFE5003D834F /* Button_Highlighted.png */; };
 		C8792EDA13F5AFE6003D834F /* NextButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED313F5AFE5003D834F /* NextButton_Highlighted.png */; };
@@ -172,9 +322,6 @@
 		C87931F713F610B9003D834F /* SliderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E913F610B9003D834F /* SliderBackground.png */; };
 		C87931F813F610B9003D834F /* SliderBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931EA13F610B9003D834F /* SliderBar.png */; };
 		C87931F913F610B9003D834F /* SliderSkull.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931EB13F610B9003D834F /* SliderSkull.png */; };
-		C879320113F6143C003D834F /* UICustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = C879320013F6143C003D834F /* UICustomSwitch.m */; };
-		C88530C913D8CBEA00A5FBF7 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C88530C813D8CBEA00A5FBF7 /* MainMenuView.m */; };
-		C885314413D8D79400A5FBF7 /* ControlsMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C885314213D8D79400A5FBF7 /* ControlsMenuView.m */; };
 		C8D1CF6813DE1EB600F0EAC6 /* DOOM_57.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */; };
 		C8D1CF6A13DE1EF500F0EAC6 /* DOOM_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */; };
 		C8D1CF6C13DE1F0600F0EAC6 /* DOOM_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */; };
@@ -191,17 +338,12 @@
 
 /* Begin PBXFileReference section */
 		1D6058910D05DD3D006BFB54 /* Doom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		434669A30F8D08C000EA7D6D /* doom_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doom_Prefix.pch; sourceTree = "<group>"; };
-		434669A40F8D08C000EA7D6D /* doomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doomAppDelegate.h; sourceTree = "<group>"; };
-		434669A50F8D08C000EA7D6D /* doomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doomAppDelegate.m; sourceTree = "<group>"; };
 		4364BF3E0F5CB25900F29317 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dist.plist; sourceTree = "<group>"; };
-		43A945140F82D75900FFD32E /* iphone_sys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_sys.c; sourceTree = "<group>"; };
 		43CF02FE0F56974E00E4A23D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		43CF03090F56D5C200E4A23D /* iphone_loop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_loop.c; sourceTree = "<group>"; };
-		43DD8391100295F70006E1DD /* iphone_async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_async.c; sourceTree = "<group>"; };
 		43E8D2DF0F4FC61E003F09B2 /* iphone_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_main.c; sourceTree = "<group>"; };
 		43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = /System/Library/Frameworks/OpenAL.framework; sourceTree = "<absolute>"; };
 		720EBBAD0F82E0BB003F989A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
@@ -213,14 +355,11 @@
 		72484E5D0FB0E99900124E1C /* iphone_render.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_render.c; sourceTree = "<group>"; };
 		724C531E0FBDBCEE000E4348 /* BackgroundMusic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundMusic.cpp; sourceTree = "<group>"; };
 		727886A20FBDBA740020D469 /* gles_glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gles_glue.h; sourceTree = "<group>"; };
-		72A55EEE1003A94300F788A5 /* iphone_start.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_start.c; sourceTree = "<group>"; };
 		72A560E11004FAEE00F788A5 /* iphone_net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_net.c; sourceTree = "<group>"; };
 		72A7E8F30F5F2001005B83C0 /* iphone_doom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_doom.h; sourceTree = "<group>"; };
-		72A7E8F60F5F2063005B83C0 /* iphone_menus.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_menus.c; sourceTree = "<group>"; };
 		72B5FF380F7E5C3D00C8A372 /* hud.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hud.c; sourceTree = "<group>"; };
 		72D50DBA0F8ED98000BB49E6 /* ipak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ipak.h; sourceTree = "<group>"; };
 		72D50DBB0F8ED98000BB49E6 /* ipak.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ipak.c; sourceTree = "<group>"; };
-		72E731EA0F97E68100E702CD /* iphone_sound.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iphone_sound.c; sourceTree = "<group>"; };
 		72E847640F93C61900AB3C99 /* am_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = am_map.c; path = ../prboom/am_map.c; sourceTree = SOURCE_ROOT; };
 		72E847680F93FF2F00AB3C99 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../prboom/config.h; sourceTree = SOURCE_ROOT; };
 		72E8476E0F93FFDB00AB3C99 /* am_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = am_map.h; path = ../prboom/am_map.h; sourceTree = SOURCE_ROOT; };
@@ -399,14 +538,195 @@
 		72F1F9B20F96C18800AD49AC /* tessmono.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tessmono.c; path = ../libtess/tessmono.c; sourceTree = SOURCE_ROOT; };
 		72F1F9B30F96C18800AD49AC /* tessmono.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tessmono.h; path = ../libtess/tessmono.h; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8139A7713F9E0440094C2C0 /* UICustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomSlider.h; sourceTree = "<group>"; };
-		C8139A7813F9E0440094C2C0 /* UICustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomSlider.m; sourceTree = "<group>"; };
+		A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A12302D5205737F40075CBAD /* LocalizationObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalizationObjectiveC.h; path = ../ios/LocalizationObjectiveC.h; sourceTree = "<group>"; };
+		A12302D6205737F40075CBAD /* Label.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Label.mm; path = ../ios/Label.mm; sourceTree = "<group>"; };
+		A12302D7205737F40075CBAD /* LabelButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LabelButton.mm; path = ../ios/LabelButton.mm; sourceTree = "<group>"; };
+		A12302D8205737F40075CBAD /* RenderContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderContext.h; path = ../ios/RenderContext.h; sourceTree = "<group>"; };
+		A12302D9205737F40075CBAD /* Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Localization.h; path = ../ios/Localization.h; sourceTree = "<group>"; };
+		A12302DA205737F40075CBAD /* RenderContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RenderContext.mm; path = ../ios/RenderContext.mm; sourceTree = "<group>"; };
+		A12302DB205737F40075CBAD /* Switch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Switch.h; path = ../ios/Switch.h; sourceTree = "<group>"; };
+		A12302DC205737F40075CBAD /* View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = View.mm; path = ../ios/View.mm; sourceTree = "<group>"; };
+		A12302DD205737F40075CBAD /* LabelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelButton.h; path = ../ios/LabelButton.h; sourceTree = "<group>"; };
+		A12302DE205737F40075CBAD /* Localization.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Localization.mm; path = ../ios/Localization.mm; sourceTree = "<group>"; };
+		A12302DF205737F50075CBAD /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Label.h; path = ../ios/Label.h; sourceTree = "<group>"; };
+		A12302E0205737F50075CBAD /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = View.h; path = ../ios/View.h; sourceTree = "<group>"; };
+		A12302E1205737F50075CBAD /* Switch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Switch.mm; path = ../ios/Switch.mm; sourceTree = "<group>"; };
+		A12302EF205738270075CBAD /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Slider.h; path = ../ios/Slider.h; sourceTree = "<group>"; };
+		A12302F0205738270075CBAD /* Slider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Slider.mm; path = ../ios/Slider.mm; sourceTree = "<group>"; };
+		A12302F3205738560075CBAD /* Carousel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Carousel.mm; path = ../ios/Carousel.mm; sourceTree = "<group>"; };
+		A12302F4205738560075CBAD /* Carousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Carousel.h; path = ../ios/Carousel.h; sourceTree = "<group>"; };
+		A12302F8205783E70075CBAD /* prboom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = prboom.wad; path = ../../base/prboom.wad; sourceTree = "<group>"; };
+		A12302F9205783E70075CBAD /* doom.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = doom.wad; path = ../../base/doom.wad; sourceTree = "<group>"; };
+		A12302FA205783E70075CBAD /* base.iPack */ = {isa = PBXFileReference; lastKnownFileType = file; name = base.iPack; path = ../../base/base.iPack; sourceTree = "<group>"; };
+		A176AC08206492DD00A96B7E /* EpisodeCell~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EpisodeCell~ipad.xib"; sourceTree = "<group>"; };
+		A1A184252063E63200302393 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		A1A63DB320562B2A000955AE /* SecretMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DB420562B2A000955AE /* ControlsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ControlsMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DB620562B2B000955AE /* ControlsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlsMenuView.xib; sourceTree = "<group>"; };
+		A1A63DB720562B2B000955AE /* SecretMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SecretMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DB820562B2B000955AE /* ControlsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DBA20562B2B000955AE /* CreditsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CreditsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DBB20562B2B000955AE /* ControlsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ControlsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DBC20562B2B000955AE /* SecretMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecretMenuView.xib; sourceTree = "<group>"; };
+		A1A63DC520562B72000955AE /* SettingsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DC620562B73000955AE /* MissionMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MissionMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DC720562B73000955AE /* LegalMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LegalMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DC920562B73000955AE /* SettingsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SettingsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DCA20562B73000955AE /* EpisodeMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeMenuView.xib; sourceTree = "<group>"; };
+		A1A63DCB20562B73000955AE /* LegalMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LegalMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DCC20562B73000955AE /* MissionMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MissionMenuView.xib; sourceTree = "<group>"; };
+		A1A63DCE20562B73000955AE /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
+		A1A63DD020562B74000955AE /* MissionMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MissionMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DD220562B74000955AE /* OpenGLView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenGLView.xib; sourceTree = "<group>"; };
+		A1A63DD420562B74000955AE /* LegalMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegalMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DD620562B74000955AE /* SettingsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsMenuView.xib; sourceTree = "<group>"; };
+		A1A63DD720562B75000955AE /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
+		A1A63DD820562B75000955AE /* MainMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DD920562B75000955AE /* MainMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DDA20562B75000955AE /* EpisodeMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EpisodeMenuView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DDB20562B75000955AE /* EpisodeMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EpisodeMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DDC20562B75000955AE /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
+		A1A63DDD20562B75000955AE /* MissionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DDE20562B75000955AE /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DDF20562B76000955AE /* EpisodeMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeMenuViewController.h; sourceTree = "<group>"; };
+		A1A63DE020562B76000955AE /* LegalMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegalMenuView.xib; sourceTree = "<group>"; };
+		A1A63DE120562B76000955AE /* SettingsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsMenuViewController.mm; sourceTree = "<group>"; };
+		A1A63DE220562B76000955AE /* OpenGLView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "OpenGLView~ipad.xib"; sourceTree = "<group>"; };
+		A1A63DFB20562FAE000955AE /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
+		A1A63DFC20562FAE000955AE /* iphone_wolf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_wolf.h; sourceTree = "<group>"; };
+		A1A63DFD20562FAE000955AE /* iphone_delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_delegate.h; sourceTree = "<group>"; };
+		A1A63DFE20562FAE000955AE /* iphone_glViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_glViewController.mm; sourceTree = "<group>"; };
+		A1A63DFF20562FAE000955AE /* iphone_qgl_enumerants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_qgl_enumerants.h; sourceTree = "<group>"; };
+		A1A63E0020562FAE000955AE /* iphone_async.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iphone_async.cpp; sourceTree = "<group>"; };
+		A1A63E0120562FAE000955AE /* iphone_qgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_qgl.h; sourceTree = "<group>"; };
+		A1A63E0220562FAE000955AE /* iphone_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_common.h; sourceTree = "<group>"; };
+		A1A63E0320562FAF000955AE /* iphone_delegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_delegate.mm; sourceTree = "<group>"; };
+		A1A63E0420562FAF000955AE /* iphone_glViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iphone_glViewController.h; sourceTree = "<group>"; };
+		A1A63E0520562FAF000955AE /* iphone_start.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iphone_start.cpp; sourceTree = "<group>"; };
+		A1A63E0620562FAF000955AE /* iphone_common.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_common.mm; sourceTree = "<group>"; };
+		A1A63E0720562FAF000955AE /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A1A63E0820562FAF000955AE /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
+		A1A63E0920562FAF000955AE /* iphone_sound.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_sound.mm; sourceTree = "<group>"; };
+		A1A63E0A20562FAF000955AE /* iphone_sys.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iphone_sys.mm; sourceTree = "<group>"; };
+		A1A63E0B20562FB0000955AE /* arialGlyphRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arialGlyphRects.h; sourceTree = "<group>"; };
+		A1A63E1520562FC3000955AE /* DOOM_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_152.png; sourceTree = "<group>"; };
+		A1A63E1620562FC3000955AE /* DOOM_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_144.png; sourceTree = "<group>"; };
+		A1A63E1720562FC3000955AE /* DOOM_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_120.png; sourceTree = "<group>"; };
+		A1A63E1820562FC4000955AE /* DOOM_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_76.png; sourceTree = "<group>"; };
+		A1A63E1D20562FD1000955AE /* Doom_App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doom_App.m; sourceTree = "<group>"; };
+		A1A63E1E20562FD1000955AE /* Doom_App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doom_App.h; sourceTree = "<group>"; };
+		A1A63E2320563253000955AE /* i_sound.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sound.c; sourceTree = "<group>"; };
+		A1A63E27205632E2000955AE /* SDL_Mixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_Mixer.m; sourceTree = "<group>"; };
+		A1A63E28205632E2000955AE /* SDL_Mixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_Mixer.h; sourceTree = "<group>"; };
+		A1A63E2A20563344000955AE /* r_drawcolpipeline.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = r_drawcolpipeline.inl; path = ../prboom/r_drawcolpipeline.inl; sourceTree = "<group>"; };
+		A1A63E2B20563344000955AE /* mmus2mid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mmus2mid.c; path = ../prboom/mmus2mid.c; sourceTree = "<group>"; };
+		A1A63E2C20563344000955AE /* mmus2mid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mmus2mid.h; path = ../prboom/mmus2mid.h; sourceTree = "<group>"; };
+		A1A63E2D20563344000955AE /* r_drawcolumn.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = r_drawcolumn.inl; path = ../prboom/r_drawcolumn.inl; sourceTree = "<group>"; };
+		A1A63E2E20563345000955AE /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Makefile.am; path = ../prboom/Makefile.am; sourceTree = "<group>"; };
+		A1A63E3020563345000955AE /* r_drawflush.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = r_drawflush.inl; path = ../prboom/r_drawflush.inl; sourceTree = "<group>"; };
+		A1A63E3120563345000955AE /* r_drawspan.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = r_drawspan.inl; path = ../prboom/r_drawspan.inl; sourceTree = "<group>"; };
+		A1A63E3E205634E7000955AE /* eas_reverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_reverb.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_reverb.h"; sourceTree = "<group>"; };
+		A1A63E3F205634E7000955AE /* eas_debugmsgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_debugmsgs.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_debugmsgs.h"; sourceTree = "<group>"; };
+		A1A63E40205634E7000955AE /* eas_report.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_report.c; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_report.c"; sourceTree = "<group>"; };
+		A1A63E41205634E7000955AE /* eas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas.h"; sourceTree = "<group>"; };
+		A1A63E42205634E7000955AE /* eas_hostmm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_hostmm.c; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_hostmm.c"; sourceTree = "<group>"; };
+		A1A63E43205634E7000955AE /* eas_chorus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_chorus.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_chorus.h"; sourceTree = "<group>"; };
+		A1A63E44205634E7000955AE /* eas_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_types.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_types.h"; sourceTree = "<group>"; };
+		A1A63E45205634E7000955AE /* eas_build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_build.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_build.h"; sourceTree = "<group>"; };
+		A1A63E46205634E7000955AE /* eas_host.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_host.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_host.h"; sourceTree = "<group>"; };
+		A1A63E47205634E7000955AE /* eas_report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_report.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_report.h"; sourceTree = "<group>"; };
+		A1A63E48205634E7000955AE /* eas_wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wave.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_wave.h"; sourceTree = "<group>"; };
+		A1A63E49205634E7000955AE /* jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jet.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/jet.h"; sourceTree = "<group>"; };
+		A1A63E4A205634E7000955AE /* eas_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_config.h; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_config.h"; sourceTree = "<group>"; };
+		A1A63E4B205634E7000955AE /* eas_config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_config.c; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_config.c"; sourceTree = "<group>"; };
+		A1A63E4C205634E7000955AE /* eas_wave.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wave.c; path = "../embeddedaudiosynthesis/arm-wt-22k/host_src/eas_wave.c"; sourceTree = "<group>"; };
+		A1A63E5120563A06000955AE /* EASGlue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = EASGlue.c; path = ../embeddedaudiosynthesis/EASGlue.c; sourceTree = "<group>"; };
+		A1A63E5220563A06000955AE /* EASGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EASGlue.h; path = ../embeddedaudiosynthesis/EASGlue.h; sourceTree = "<group>"; };
+		A1A63E5420563A6D000955AE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A1A63EC820563B53000955AE /* eas_synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_synth.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_synth.h"; sourceTree = "<group>"; };
+		A1A63EC920563B53000955AE /* eas_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_data.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_data.h"; sourceTree = "<group>"; };
+		A1A63ECA20563B53000955AE /* eas_xmfdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_xmfdata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_xmfdata.c"; sourceTree = "<group>"; };
+		A1A63ECB20563B53000955AE /* eas_xmf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_xmf.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_xmf.c"; sourceTree = "<group>"; };
+		A1A63ECC20563B53000955AE /* dls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dls.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/dls.h"; sourceTree = "<group>"; };
+		A1A63ECD20563B53000955AE /* eas_rtttldata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_rtttldata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_rtttldata.h"; sourceTree = "<group>"; };
+		A1A63ECE20563B53000955AE /* eas_otadata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_otadata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_otadata.c"; sourceTree = "<group>"; };
+		A1A63ECF20563B53000955AE /* eas_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_data.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_data.c"; sourceTree = "<group>"; };
+		A1A63ED020563B54000955AE /* eas_imaadpcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_imaadpcm.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_imaadpcm.c"; sourceTree = "<group>"; };
+		A1A63ED120563B54000955AE /* eas_rtttl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_rtttl.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_rtttl.c"; sourceTree = "<group>"; };
+		A1A63ED220563B54000955AE /* eas_smfdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_smfdata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_smfdata.h"; sourceTree = "<group>"; };
+		A1A63ED320563B54000955AE /* eas_midi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_midi.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_midi.h"; sourceTree = "<group>"; };
+		A1A63ED420563B54000955AE /* eas_tcdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_tcdata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_tcdata.h"; sourceTree = "<group>"; };
+		A1A63ED520563B54000955AE /* eas_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_parser.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_parser.h"; sourceTree = "<group>"; };
+		A1A63ED620563B54000955AE /* eas_wavefile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wavefile.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wavefile.c"; sourceTree = "<group>"; };
+		A1A63ED720563B54000955AE /* eas_mixer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mixer.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mixer.c"; sourceTree = "<group>"; };
+		A1A63ED820563B54000955AE /* eas_ota.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_ota.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_ota.c"; sourceTree = "<group>"; };
+		A1A63ED920563B54000955AE /* eas_pan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_pan.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_pan.h"; sourceTree = "<group>"; };
+		A1A63EDA20563B54000955AE /* eas_pcmdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_pcmdata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_pcmdata.c"; sourceTree = "<group>"; };
+		A1A63EDB20563B55000955AE /* eas_xmfdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_xmfdata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_xmfdata.h"; sourceTree = "<group>"; };
+		A1A63EDC20563B55000955AE /* eas_chorusdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_chorusdata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_chorusdata.c"; sourceTree = "<group>"; };
+		A1A63EDD20563B55000955AE /* eas_mdls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_mdls.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mdls.h"; sourceTree = "<group>"; };
+		A1A63EDE20563B55000955AE /* eas_audioconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_audioconst.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_audioconst.h"; sourceTree = "<group>"; };
+		A1A63EDF20563B55000955AE /* eas_synthcfg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_synthcfg.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_synthcfg.h"; sourceTree = "<group>"; };
+		A1A63EE020563B55000955AE /* eas_wt_IPC_frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wt_IPC_frame.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wt_IPC_frame.h"; sourceTree = "<group>"; };
+		A1A63EE120563B55000955AE /* eas_chorus.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_chorus.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_chorus.c"; sourceTree = "<group>"; };
+		A1A63EE220563B56000955AE /* eas_chorusdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_chorusdata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_chorusdata.h"; sourceTree = "<group>"; };
+		A1A63EE320563B56000955AE /* eas_midi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_midi.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_midi.c"; sourceTree = "<group>"; };
+		A1A63EE420563B56000955AE /* wt_22khz.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wt_22khz.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/wt_22khz.c"; sourceTree = "<group>"; };
+		A1A63EE520563B56000955AE /* eas_smfdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_smfdata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_smfdata.c"; sourceTree = "<group>"; };
+		A1A63EE620563B58000955AE /* eas_pcmdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_pcmdata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_pcmdata.h"; sourceTree = "<group>"; };
+		A1A63EE720563B58000955AE /* eas_wtengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wtengine.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wtengine.h"; sourceTree = "<group>"; };
+		A1A63EE820563B58000955AE /* eas_wtsynth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wtsynth.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wtsynth.c"; sourceTree = "<group>"; };
+		A1A63EE920563B59000955AE /* jet_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jet_data.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/jet_data.h"; sourceTree = "<group>"; };
+		A1A63EEA20563B59000955AE /* eas_xmf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_xmf.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_xmf.h"; sourceTree = "<group>"; };
+		A1A63EEB20563B59000955AE /* jet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jet.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/jet.c"; sourceTree = "<group>"; };
+		A1A63EEC20563B59000955AE /* eas_mixbuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mixbuf.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mixbuf.c"; sourceTree = "<group>"; };
+		A1A63EED20563B59000955AE /* eas_smf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_smf.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_smf.c"; sourceTree = "<group>"; };
+		A1A63EEE20563B59000955AE /* eas_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_math.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_math.h"; sourceTree = "<group>"; };
+		A1A63EEF20563B59000955AE /* eas_dlssynth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_dlssynth.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_dlssynth.c"; sourceTree = "<group>"; };
+		A1A63EF020563B5A000955AE /* eas_pcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_pcm.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_pcm.c"; sourceTree = "<group>"; };
+		A1A63EF120563B5A000955AE /* eas_mixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_mixer.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mixer.h"; sourceTree = "<group>"; };
+		A1A63EF220563B5A000955AE /* eas_dlssynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_dlssynth.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_dlssynth.h"; sourceTree = "<group>"; };
+		A1A63EF320563B5A000955AE /* eas_synth_protos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_synth_protos.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_synth_protos.h"; sourceTree = "<group>"; };
+		A1A63EF420563B5A000955AE /* eas_wtsynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wtsynth.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wtsynth.h"; sourceTree = "<group>"; };
+		A1A63EF520563B5A000955AE /* eas_sndlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_sndlib.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_sndlib.h"; sourceTree = "<group>"; };
+		A1A63EF620563B5B000955AE /* eas_reverbdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_reverbdata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_reverbdata.h"; sourceTree = "<group>"; };
+		A1A63EF720563B5B000955AE /* eas_tonecontrol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_tonecontrol.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_tonecontrol.c"; sourceTree = "<group>"; };
+		A1A63EF820563B5B000955AE /* eas_imelodydata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_imelodydata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_imelodydata.h"; sourceTree = "<group>"; };
+		A1A63EF920563B5B000955AE /* eas_wavefiledata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wavefiledata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wavefiledata.c"; sourceTree = "<group>"; };
+		A1A63EFA20563B5B000955AE /* eas_wtengine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_wtengine.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wtengine.c"; sourceTree = "<group>"; };
+		A1A63EFB20563B5B000955AE /* eas_vm_protos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_vm_protos.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_vm_protos.h"; sourceTree = "<group>"; };
+		A1A63EFC20563B5C000955AE /* eas_imelodydata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_imelodydata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_imelodydata.c"; sourceTree = "<group>"; };
+		A1A63EFD20563B5C000955AE /* eas_mididata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mididata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mididata.c"; sourceTree = "<group>"; };
+		A1A63EFE20563B5C000955AE /* eas_midictrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_midictrl.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_midictrl.h"; sourceTree = "<group>"; };
+		A1A63EFF20563B5C000955AE /* eas_rtttldata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_rtttldata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_rtttldata.c"; sourceTree = "<group>"; };
+		A1A63F0020563B5C000955AE /* eas_ctype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_ctype.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_ctype.h"; sourceTree = "<group>"; };
+		A1A63F0120563B5C000955AE /* eas_wavefile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_wavefile.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_wavefile.h"; sourceTree = "<group>"; };
+		A1A63F0220563B5C000955AE /* eas_flog.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_flog.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_flog.c"; sourceTree = "<group>"; };
+		A1A63F0320563B5D000955AE /* eas_pcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_pcm.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_pcm.h"; sourceTree = "<group>"; };
+		A1A63F0420563B5D000955AE /* eas_reverbdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_reverbdata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_reverbdata.c"; sourceTree = "<group>"; };
+		A1A63F0520563B5D000955AE /* eas_public.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_public.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_public.c"; sourceTree = "<group>"; };
+		A1A63F0620563B5D000955AE /* eas_ima_tables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_ima_tables.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_ima_tables.c"; sourceTree = "<group>"; };
+		A1A63F0720563B5E000955AE /* dls2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dls2.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/dls2.h"; sourceTree = "<group>"; };
+		A1A63F0820563B5E000955AE /* eas_effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_effects.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_effects.h"; sourceTree = "<group>"; };
+		A1A63F0920563B5E000955AE /* eas_smf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_smf.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_smf.h"; sourceTree = "<group>"; };
+		A1A63F0A20563B5E000955AE /* eas_otadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_otadata.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_otadata.h"; sourceTree = "<group>"; };
+		A1A63F0B20563B5E000955AE /* eas_voicemgt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_voicemgt.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_voicemgt.c"; sourceTree = "<group>"; };
+		A1A63F0C20563B5F000955AE /* eas_imelody.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_imelody.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_imelody.c"; sourceTree = "<group>"; };
+		A1A63F0D20563B5F000955AE /* eas_pan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_pan.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_pan.c"; sourceTree = "<group>"; };
+		A1A63F0E20563B5F000955AE /* eas_reverb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_reverb.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_reverb.c"; sourceTree = "<group>"; };
+		A1A63F0F20563B5F000955AE /* eas_tcdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_tcdata.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_tcdata.c"; sourceTree = "<group>"; };
+		A1A63F1020563B5F000955AE /* eas_math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_math.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_math.c"; sourceTree = "<group>"; };
+		A1A63F1120563B60000955AE /* eas_miditypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_miditypes.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_miditypes.h"; sourceTree = "<group>"; };
+		A1A63F1220563B60000955AE /* eas_mdls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mdls.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mdls.c"; sourceTree = "<group>"; };
+		A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenuViewController.h; sourceTree = "<group>"; };
+		A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreditsMenuViewController.mm; sourceTree = "<group>"; };
+		A1E89C8D2067469D00760204 /* CreditsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsMenuView.xib; sourceTree = "<group>"; };
+		A1E89C9320689D4B00760204 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		A1E89C9520689D9500760204 /* GameController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameController.mm; sourceTree = "<group>"; };
+		A1E89C9720689DB100760204 /* GameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SliderSkull@2x.png"; path = "../../IB Images/SliderSkull@2x.png"; sourceTree = SOURCE_ROOT; };
 		C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SliderSkull~ipad.png"; path = "../../IB Images/SliderSkull~ipad.png"; sourceTree = SOURCE_ROOT; };
-		C81E0C7013DF471000B1049A /* UIFontButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFontButton.h; sourceTree = "<group>"; };
-		C81E0C7113DF471000B1049A /* UIFontButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFontButton.m; sourceTree = "<group>"; };
-		C81E0C8D13DF4A1B00B1049A /* UIFontLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFontLabel.h; sourceTree = "<group>"; };
-		C81E0C8E13DF4A1B00B1049A /* UIFontLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFontLabel.m; sourceTree = "<group>"; };
 		C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "idGinzaNar-Md2.otf"; path = "../../idGinzaNar-Md2.otf"; sourceTree = SOURCE_ROOT; };
 		C81E104013E1CCA000B1049A /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackButton.png; path = "../../IB Images/BackButton.png"; sourceTree = SOURCE_ROOT; };
 		C81E104113E1CCA000B1049A /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button.png; path = "../../IB Images/Button.png"; sourceTree = SOURCE_ROOT; };
@@ -420,18 +740,6 @@
 		C81E104913E1CCA000B1049A /* Nightmare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nightmare.png; path = "../../IB Images/Nightmare.png"; sourceTree = SOURCE_ROOT; };
 		C81E104A13E1CCA000B1049A /* ResumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ResumeButton.png; path = "../../IB Images/ResumeButton.png"; sourceTree = SOURCE_ROOT; };
 		C81E104B13E1CCA000B1049A /* SelectedBracket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectedBracket.png; path = "../../IB Images/SelectedBracket.png"; sourceTree = SOURCE_ROOT; };
-		C84F829013D76E96006D01AB /* MapMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapMenuView.m; sourceTree = "<group>"; };
-		C84F829113D76E96006D01AB /* MapMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapMenuView.h; sourceTree = "<group>"; };
-		C84F83F413D7A99C006D01AB /* GenericMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericMenuView.h; sourceTree = "<group>"; };
-		C84F83F513D7A99C006D01AB /* GenericMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericMenuView.m; sourceTree = "<group>"; };
-		C84F855713D8B55C006D01AB /* SettingsMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMenuView.h; sourceTree = "<group>"; };
-		C84F855813D8B55C006D01AB /* SettingsMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMenuView.m; sourceTree = "<group>"; };
-		C861F27113BD2DC600DB34A8 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
-		C86F965513D615F70069B7B6 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
-		C86F966613D617740069B7B6 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		C86F966713D617740069B7B6 /* MenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
-		C86F975C13D6377B0069B7B6 /* IBGlue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = IBGlue.h; sourceTree = "<group>"; };
-		C86F975D13D6377B0069B7B6 /* IBGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBGlue.m; sourceTree = "<group>"; };
 		C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackButton_Highlighted.png; path = "../../IB Images/BackButton_Highlighted.png"; sourceTree = SOURCE_ROOT; };
 		C8792ED213F5AFE5003D834F /* Button_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button_Highlighted.png; path = "../../IB Images/Button_Highlighted.png"; sourceTree = SOURCE_ROOT; };
 		C8792ED313F5AFE5003D834F /* NextButton_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextButton_Highlighted.png; path = "../../IB Images/NextButton_Highlighted.png"; sourceTree = SOURCE_ROOT; };
@@ -467,11 +775,6 @@
 		C87931E913F610B9003D834F /* SliderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SliderBackground.png; path = "../../IB Images/SliderBackground.png"; sourceTree = SOURCE_ROOT; };
 		C87931EA13F610B9003D834F /* SliderBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SliderBar.png; path = "../../IB Images/SliderBar.png"; sourceTree = SOURCE_ROOT; };
 		C87931EB13F610B9003D834F /* SliderSkull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SliderSkull.png; path = "../../IB Images/SliderSkull.png"; sourceTree = SOURCE_ROOT; };
-		C87931FF13F6143C003D834F /* UICustomSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomSwitch.h; sourceTree = "<group>"; };
-		C879320013F6143C003D834F /* UICustomSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomSwitch.m; sourceTree = "<group>"; };
-		C88530C813D8CBEA00A5FBF7 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
-		C885314213D8D79400A5FBF7 /* ControlsMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsMenuView.m; sourceTree = "<group>"; };
-		C885314313D8D79400A5FBF7 /* ControlsMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsMenuView.h; sourceTree = "<group>"; };
 		C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_57.png; sourceTree = "<group>"; };
 		C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_114.png; sourceTree = "<group>"; };
 		C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DOOM_72.png; sourceTree = "<group>"; };
@@ -492,6 +795,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E89C9420689D4C00760204 /* GameController.framework in Frameworks */,
+				A1A63E5520563A6D000955AE /* AVFoundation.framework in Frameworks */,
 				43E8D4E00F51B48B003F09B2 /* OpenAL.framework in Frameworks */,
 				4333CCE80F5CC23E00AE2B6F /* AudioToolbox.framework in Frameworks */,
 				720EBBAE0F82E0BB003F989A /* QuartzCore.framework in Frameworks */,
@@ -517,17 +822,22 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */,
+				A1A63E1820562FC4000955AE /* DOOM_76.png */,
+				A1A63E1720562FC3000955AE /* DOOM_120.png */,
+				A1A63E1620562FC3000955AE /* DOOM_144.png */,
+				A1A63E1520562FC3000955AE /* DOOM_152.png */,
 				C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */,
 				C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */,
-				C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */,
 				C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */,
+				C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */,
+				C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */,
 				C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */,
 				C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */,
-				C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -535,41 +845,58 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C86F965213D615BB0069B7B6 /* InterfaceBuilder */,
-				72F1F94B0F96B55B00AD49AC /* libtess */,
-				72E847620F93C5F900AB3C99 /* prboom */,
+				A12302D4205737DE0075CBAD /* iOS */,
+				A1A63E3B2056341C000955AE /* EAS */,
+				A1A63E0B20562FB0000955AE /* arialGlyphRects.h */,
+				724C531E0FBDBCEE000E4348 /* BackgroundMusic.cpp */,
+				72E84A280F9503F100AB3C99 /* cmd.c */,
 				72E8495C0F942B9300AB3C99 /* cvar.c */,
 				72E8495D0F942B9300AB3C99 /* cvar.h */,
-				72E84A280F9503F100AB3C99 /* cmd.c */,
-				72E8495E0F942B9300AB3C99 /* misc.c */,
-				72E8495F0F942B9300AB3C99 /* misc.h */,
+				A1A63E1E20562FD1000955AE /* Doom_App.h */,
+				A1A63E1D20562FD1000955AE /* Doom_App.m */,
 				434669A30F8D08C000EA7D6D /* doom_Prefix.pch */,
-				434669A40F8D08C000EA7D6D /* doomAppDelegate.h */,
-				434669A50F8D08C000EA7D6D /* doomAppDelegate.m */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-				724C531E0FBDBCEE000E4348 /* BackgroundMusic.cpp */,
-				7229CE540F6C8CDE004123C5 /* gles_glue.c */,
-				727886A20FBDBA740020D469 /* gles_glue.h */,
+				7229CC8E0F6B3363004123C5 /* doomiphone.h */,
 				7229CE450F6C89F8004123C5 /* EAGLView.h */,
 				7229CE460F6C89F8004123C5 /* EAGLView.m */,
+				7229CE540F6C8CDE004123C5 /* gles_glue.c */,
+				727886A20FBDBA740020D469 /* gles_glue.h */,
 				72B5FF380F7E5C3D00C8A372 /* hud.c */,
-				7229CC8E0F6B3363004123C5 /* doomiphone.h */,
-				72D50DBA0F8ED98000BB49E6 /* ipak.h */,
+				C86F965213D615BB0069B7B6 /* InterfaceBuilder */,
 				72D50DBB0F8ED98000BB49E6 /* ipak.c */,
-				72E849F50F94ED1100AB3C99 /* prboomInterface.c */,
-				43A945140F82D75900FFD32E /* iphone_sys.c */,
-				72A7E8F60F5F2063005B83C0 /* iphone_menus.c */,
-				72A560E11004FAEE00F788A5 /* iphone_net.c */,
-				72E731EA0F97E68100E702CD /* iphone_sound.c */,
-				7239452B0F9C0E7500EADD62 /* iphone_mapSelect.c */,
-				72484E5D0FB0E99900124E1C /* iphone_render.c */,
-				43CF03090F56D5C200E4A23D /* iphone_loop.c */,
+				72D50DBA0F8ED98000BB49E6 /* ipak.h */,
+				A1A63E0020562FAE000955AE /* iphone_async.cpp */,
+				A1A63E0220562FAE000955AE /* iphone_common.h */,
+				A1A63E0620562FAF000955AE /* iphone_common.mm */,
+				A1A63DFD20562FAE000955AE /* iphone_delegate.h */,
+				A1A63E0320562FAF000955AE /* iphone_delegate.mm */,
 				72A7E8F30F5F2001005B83C0 /* iphone_doom.h */,
-				43E8D2DF0F4FC61E003F09B2 /* iphone_main.c */,
-				43DD8391100295F70006E1DD /* iphone_async.c */,
-				72A55EEE1003A94300F788A5 /* iphone_start.c */,
 				ED9AB3CF10966E85000B5852 /* iphone_email.h */,
 				ED9AB3D010966E85000B5852 /* iphone_email.m */,
+				A1A63E0420562FAF000955AE /* iphone_glViewController.h */,
+				A1A63DFE20562FAE000955AE /* iphone_glViewController.mm */,
+				43CF03090F56D5C200E4A23D /* iphone_loop.c */,
+				43E8D2DF0F4FC61E003F09B2 /* iphone_main.c */,
+				7239452B0F9C0E7500EADD62 /* iphone_mapSelect.c */,
+				72A560E11004FAEE00F788A5 /* iphone_net.c */,
+				A1A63DFF20562FAE000955AE /* iphone_qgl_enumerants.h */,
+				A1A63E0120562FAE000955AE /* iphone_qgl.h */,
+				72484E5D0FB0E99900124E1C /* iphone_render.c */,
+				A1A63E0920562FAF000955AE /* iphone_sound.mm */,
+				A1A63E0520562FAF000955AE /* iphone_start.cpp */,
+				A1A63E0A20562FAF000955AE /* iphone_sys.mm */,
+				A1A63DFC20562FAE000955AE /* iphone_wolf.h */,
+				72F1F94B0F96B55B00AD49AC /* libtess */,
+				A1A63E0720562FAF000955AE /* Localizable.strings */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				72E8495E0F942B9300AB3C99 /* misc.c */,
+				72E8495F0F942B9300AB3C99 /* misc.h */,
+				72E847620F93C5F900AB3C99 /* prboom */,
+				72E849F50F94ED1100AB3C99 /* prboomInterface.c */,
+				A1A63E25205632E2000955AE /* SDL_shim */,
+				A1A63E0820562FAF000955AE /* SoundEngine.cpp */,
+				A1A63DFB20562FAE000955AE /* SoundEngine.h */,
+				A1E89C9520689D9500760204 /* GameController.mm */,
+				A1E89C9720689DB100760204 /* GameController.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -577,10 +904,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A12302FA205783E70075CBAD /* base.iPack */,
+				A12302F9205783E70075CBAD /* doom.wad */,
+				A12302F8205783E70075CBAD /* prboom.wad */,
 				C84F820613D73D28006D01AB /* Interface Builder Images */,
-				C861F27113BD2DC600DB34A8 /* MainWindow-iPad.xib */,
 				43CF02FE0F56974E00E4A23D /* Default.png */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
@@ -589,6 +917,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1E89C9320689D4B00760204 /* GameController.framework */,
+				A1A63E5420563A6D000955AE /* AVFoundation.framework */,
 				720EBBAD0F82E0BB003F989A /* QuartzCore.framework */,
 				4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */,
 				43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */,
@@ -603,58 +933,73 @@
 		72E847620F93C5F900AB3C99 /* prboom */ = {
 			isa = PBXGroup;
 			children = (
-				72E848460F941ADC00AB3C99 /* sounds.c */,
-				72E848470F941ADC00AB3C99 /* sounds.h */,
-				72E848480F941ADC00AB3C99 /* st_lib.c */,
-				72E848490F941ADC00AB3C99 /* st_lib.h */,
-				72E8484A0F941ADC00AB3C99 /* st_stuff.c */,
-				72E8484B0F941ADC00AB3C99 /* st_stuff.h */,
-				72E8484C0F941ADC00AB3C99 /* tables.c */,
-				72E8484D0F941ADC00AB3C99 /* tables.h */,
-				72E8484E0F941ADC00AB3C99 /* v_video.c */,
-				72E8484F0F941ADC00AB3C99 /* v_video.h */,
-				72E848500F941ADC00AB3C99 /* version.c */,
-				72E848510F941ADC00AB3C99 /* version.h */,
-				72E848530F941ADC00AB3C99 /* w_mmap.c */,
-				72E848540F941ADC00AB3C99 /* w_wad.c */,
-				72E848550F941ADC00AB3C99 /* w_wad.h */,
-				72E848560F941ADC00AB3C99 /* wi_stuff.c */,
-				72E848570F941ADC00AB3C99 /* wi_stuff.h */,
-				72E848580F941ADC00AB3C99 /* z_bmalloc.c */,
-				72E848590F941ADC00AB3C99 /* z_bmalloc.h */,
-				72E8485A0F941ADC00AB3C99 /* z_zone.c */,
-				72E8485B0F941ADC00AB3C99 /* z_zone.h */,
-				72E8482A0F941AAC00AB3C99 /* r_filter.c */,
-				72E8482B0F941AAC00AB3C99 /* r_filter.h */,
-				72E8482C0F941AAC00AB3C99 /* r_fps.c */,
-				72E8482D0F941AAC00AB3C99 /* r_fps.h */,
-				72E8482E0F941AAC00AB3C99 /* r_main.c */,
-				72E8482F0F941AAC00AB3C99 /* r_main.h */,
-				72E848300F941AAC00AB3C99 /* r_patch.c */,
-				72E848310F941AAC00AB3C99 /* r_patch.h */,
-				72E848320F941AAC00AB3C99 /* r_plane.c */,
-				72E848330F941AAC00AB3C99 /* r_plane.h */,
-				72E848340F941AAC00AB3C99 /* r_segs.c */,
-				72E848350F941AAC00AB3C99 /* r_segs.h */,
-				72E848360F941AAC00AB3C99 /* r_sky.c */,
-				72E848370F941AAC00AB3C99 /* r_sky.h */,
-				72E848380F941AAC00AB3C99 /* r_state.h */,
-				72E848390F941AAC00AB3C99 /* r_things.c */,
-				72E8483A0F941AAC00AB3C99 /* r_things.h */,
-				72E8483B0F941AAC00AB3C99 /* s_sound.c */,
-				72E8483C0F941AAC00AB3C99 /* s_sound.h */,
-				72E8481C0F941A8300AB3C99 /* protocol.h */,
-				72E8481D0F941A8300AB3C99 /* r_bsp.c */,
-				72E8481E0F941A8300AB3C99 /* r_bsp.h */,
-				72E8481F0F941A8300AB3C99 /* r_data.c */,
-				72E848200F941A8300AB3C99 /* r_data.h */,
-				72E848210F941A8300AB3C99 /* r_defs.h */,
-				72E848220F941A8300AB3C99 /* r_demo.c */,
-				72E848230F941A8300AB3C99 /* r_demo.h */,
-				72E848240F941A8300AB3C99 /* r_draw.c */,
-				72E848250F941A8300AB3C99 /* r_draw.h */,
+				72E847640F93C61900AB3C99 /* am_map.c */,
+				72E8476E0F93FFDB00AB3C99 /* am_map.h */,
+				72E847680F93FF2F00AB3C99 /* config.h */,
+				72E8476F0F93FFDB00AB3C99 /* d_client.c */,
+				72E847700F93FFDB00AB3C99 /* d_deh.c */,
+				72E847710F93FFDB00AB3C99 /* d_deh.h */,
+				72E847720F93FFDB00AB3C99 /* d_englsh.h */,
+				72E847730F93FFDB00AB3C99 /* d_event.h */,
+				72E8477A0F9400D700AB3C99 /* d_items.c */,
+				72E8477B0F9400D700AB3C99 /* d_items.h */,
+				72E8477C0F9400D700AB3C99 /* d_main.c */,
+				72E8477D0F9400D700AB3C99 /* d_main.h */,
+				72E8477E0F9400D700AB3C99 /* d_net.h */,
+				72E8477F0F9400D700AB3C99 /* d_player.h */,
+				72E847810F9400D700AB3C99 /* d_think.h */,
+				72E847820F9400D700AB3C99 /* d_ticcmd.h */,
+				72E847830F9400D700AB3C99 /* doomdata.h */,
+				72E847840F9400D700AB3C99 /* doomdef.c */,
+				72E847850F9400D700AB3C99 /* doomdef.h */,
+				72E847860F9400D700AB3C99 /* doomstat.c */,
+				72E847870F9400D700AB3C99 /* doomstat.h */,
+				72E847880F9400D700AB3C99 /* doomtype.h */,
+				72E847890F9400D700AB3C99 /* dstrings.c */,
+				72E8478A0F9400D700AB3C99 /* dstrings.h */,
+				72E8478B0F9400D700AB3C99 /* f_finale.c */,
+				72E8478C0F9400D700AB3C99 /* f_finale.h */,
+				72E8478D0F9400D700AB3C99 /* f_wipe.c */,
+				72E8478E0F9400D700AB3C99 /* f_wipe.h */,
+				72E8478F0F9400D700AB3C99 /* g_game.c */,
+				72E847900F9400D700AB3C99 /* g_game.h */,
+				72E847910F9400D700AB3C99 /* gl_intern.h */,
+				72E847920F9400D700AB3C99 /* gl_main.c */,
+				72E847930F9400D700AB3C99 /* gl_struct.h */,
+				72E847940F9400D700AB3C99 /* gl_texture.c */,
+				72E847950F9400D700AB3C99 /* hu_lib.c */,
+				72E847960F9400D700AB3C99 /* hu_lib.h */,
+				72E847970F9400D700AB3C99 /* hu_stuff.c */,
+				72E847980F9400D700AB3C99 /* hu_stuff.h */,
+				72E847990F9400D700AB3C99 /* i_joy.h */,
+				72E8479A0F9400D700AB3C99 /* i_main.h */,
+				72E8479B0F9400D700AB3C99 /* i_network.h */,
+				72E8479C0F9400D700AB3C99 /* i_sound.h */,
+				72E8479D0F9400D700AB3C99 /* i_system.h */,
+				72E8479E0F9400D700AB3C99 /* i_video.h */,
+				72E8479F0F9400D700AB3C99 /* info.c */,
+				72E847A00F9400D700AB3C99 /* info.h */,
+				72E847A10F9400D700AB3C99 /* lprintf.c */,
+				72E847A20F9400D700AB3C99 /* lprintf.h */,
+				72E847A30F9400D700AB3C99 /* m_argv.c */,
+				72E847A40F9400D700AB3C99 /* m_argv.h */,
+				72E847A50F9400D700AB3C99 /* m_bbox.c */,
+				72E847A60F9400D700AB3C99 /* m_bbox.h */,
+				72E847A70F9400D700AB3C99 /* m_cheat.c */,
+				72E847A80F9400D700AB3C99 /* m_cheat.h */,
+				72E847A90F9400D700AB3C99 /* m_fixed.h */,
+				72E847AA0F9400D700AB3C99 /* m_menu.c */,
+				72E847AB0F9400D700AB3C99 /* m_menu.h */,
+				72E847AC0F9400D700AB3C99 /* m_misc.c */,
+				72E847AD0F9400D700AB3C99 /* m_misc.h */,
+				72E847AE0F9400D700AB3C99 /* m_random.c */,
+				72E847AF0F9400D700AB3C99 /* m_random.h */,
+				72E847B00F9400D700AB3C99 /* m_swap.h */,
+				A1A63E2E20563345000955AE /* Makefile.am */,
 				72E847E00F941A5900AB3C99 /* md5.c */,
 				72E847E10F941A5900AB3C99 /* md5.h */,
+				A1A63E2B20563344000955AE /* mmus2mid.c */,
+				A1A63E2C20563344000955AE /* mmus2mid.h */,
 				72E847E40F941A5900AB3C99 /* p_ceilng.c */,
 				72E847E50F941A5900AB3C99 /* p_checksum.c */,
 				72E847E60F941A5900AB3C99 /* p_checksum.h */,
@@ -688,69 +1033,62 @@
 				72E848020F941A5900AB3C99 /* p_tick.h */,
 				72E848030F941A5900AB3C99 /* p_user.c */,
 				72E848040F941A5900AB3C99 /* p_user.h */,
+				72E8481C0F941A8300AB3C99 /* protocol.h */,
+				72E8481D0F941A8300AB3C99 /* r_bsp.c */,
+				72E8481E0F941A8300AB3C99 /* r_bsp.h */,
+				72E8481F0F941A8300AB3C99 /* r_data.c */,
+				72E848200F941A8300AB3C99 /* r_data.h */,
+				72E848210F941A8300AB3C99 /* r_defs.h */,
+				72E848220F941A8300AB3C99 /* r_demo.c */,
+				72E848230F941A8300AB3C99 /* r_demo.h */,
+				72E848240F941A8300AB3C99 /* r_draw.c */,
+				72E848250F941A8300AB3C99 /* r_draw.h */,
+				A1A63E2A20563344000955AE /* r_drawcolpipeline.inl */,
+				A1A63E2D20563344000955AE /* r_drawcolumn.inl */,
+				A1A63E3020563345000955AE /* r_drawflush.inl */,
+				A1A63E3120563345000955AE /* r_drawspan.inl */,
+				72E8482A0F941AAC00AB3C99 /* r_filter.c */,
+				72E8482B0F941AAC00AB3C99 /* r_filter.h */,
+				72E8482C0F941AAC00AB3C99 /* r_fps.c */,
+				72E8482D0F941AAC00AB3C99 /* r_fps.h */,
+				72E8482E0F941AAC00AB3C99 /* r_main.c */,
+				72E8482F0F941AAC00AB3C99 /* r_main.h */,
+				72E848300F941AAC00AB3C99 /* r_patch.c */,
+				72E848310F941AAC00AB3C99 /* r_patch.h */,
+				72E848320F941AAC00AB3C99 /* r_plane.c */,
+				72E848330F941AAC00AB3C99 /* r_plane.h */,
+				72E848340F941AAC00AB3C99 /* r_segs.c */,
+				72E848350F941AAC00AB3C99 /* r_segs.h */,
+				72E848360F941AAC00AB3C99 /* r_sky.c */,
+				72E848370F941AAC00AB3C99 /* r_sky.h */,
+				72E848380F941AAC00AB3C99 /* r_state.h */,
+				72E848390F941AAC00AB3C99 /* r_things.c */,
+				72E8483A0F941AAC00AB3C99 /* r_things.h */,
+				72E8483B0F941AAC00AB3C99 /* s_sound.c */,
+				72E8483C0F941AAC00AB3C99 /* s_sound.h */,
+				A1A63E2220563253000955AE /* SDL */,
 				72E847CA0F94096C00AB3C99 /* SDL_opengl.h */,
-				72E8477A0F9400D700AB3C99 /* d_items.c */,
-				72E8477B0F9400D700AB3C99 /* d_items.h */,
-				72E8477C0F9400D700AB3C99 /* d_main.c */,
-				72E8477D0F9400D700AB3C99 /* d_main.h */,
-				72E8477E0F9400D700AB3C99 /* d_net.h */,
-				72E8477F0F9400D700AB3C99 /* d_player.h */,
-				72E847810F9400D700AB3C99 /* d_think.h */,
-				72E847820F9400D700AB3C99 /* d_ticcmd.h */,
-				72E847830F9400D700AB3C99 /* doomdata.h */,
-				72E847840F9400D700AB3C99 /* doomdef.c */,
-				72E847850F9400D700AB3C99 /* doomdef.h */,
-				72E847860F9400D700AB3C99 /* doomstat.c */,
-				72E847870F9400D700AB3C99 /* doomstat.h */,
-				72E847880F9400D700AB3C99 /* doomtype.h */,
-				72E847890F9400D700AB3C99 /* dstrings.c */,
-				72E8478A0F9400D700AB3C99 /* dstrings.h */,
-				72E8478B0F9400D700AB3C99 /* f_finale.c */,
-				72E8478C0F9400D700AB3C99 /* f_finale.h */,
-				72E8478D0F9400D700AB3C99 /* f_wipe.c */,
-				72E8478E0F9400D700AB3C99 /* f_wipe.h */,
-				72E8478F0F9400D700AB3C99 /* g_game.c */,
-				72E847900F9400D700AB3C99 /* g_game.h */,
-				72E847950F9400D700AB3C99 /* hu_lib.c */,
-				72E847960F9400D700AB3C99 /* hu_lib.h */,
-				72E847970F9400D700AB3C99 /* hu_stuff.c */,
-				72E847980F9400D700AB3C99 /* hu_stuff.h */,
-				72E847990F9400D700AB3C99 /* i_joy.h */,
-				72E8479A0F9400D700AB3C99 /* i_main.h */,
-				72E8479B0F9400D700AB3C99 /* i_network.h */,
-				72E8479C0F9400D700AB3C99 /* i_sound.h */,
-				72E8479D0F9400D700AB3C99 /* i_system.h */,
-				72E8479E0F9400D700AB3C99 /* i_video.h */,
-				72E8479F0F9400D700AB3C99 /* info.c */,
-				72E847A00F9400D700AB3C99 /* info.h */,
-				72E847A10F9400D700AB3C99 /* lprintf.c */,
-				72E847A20F9400D700AB3C99 /* lprintf.h */,
-				72E847A30F9400D700AB3C99 /* m_argv.c */,
-				72E847A40F9400D700AB3C99 /* m_argv.h */,
-				72E847A50F9400D700AB3C99 /* m_bbox.c */,
-				72E847A60F9400D700AB3C99 /* m_bbox.h */,
-				72E847A70F9400D700AB3C99 /* m_cheat.c */,
-				72E847A80F9400D700AB3C99 /* m_cheat.h */,
-				72E847AA0F9400D700AB3C99 /* m_menu.c */,
-				72E847A90F9400D700AB3C99 /* m_fixed.h */,
-				72E847AB0F9400D700AB3C99 /* m_menu.h */,
-				72E847AC0F9400D700AB3C99 /* m_misc.c */,
-				72E847AD0F9400D700AB3C99 /* m_misc.h */,
-				72E847AE0F9400D700AB3C99 /* m_random.c */,
-				72E847AF0F9400D700AB3C99 /* m_random.h */,
-				72E847B00F9400D700AB3C99 /* m_swap.h */,
-				72E8476E0F93FFDB00AB3C99 /* am_map.h */,
-				72E8476F0F93FFDB00AB3C99 /* d_client.c */,
-				72E847700F93FFDB00AB3C99 /* d_deh.c */,
-				72E847710F93FFDB00AB3C99 /* d_deh.h */,
-				72E847720F93FFDB00AB3C99 /* d_englsh.h */,
-				72E847730F93FFDB00AB3C99 /* d_event.h */,
-				72E847640F93C61900AB3C99 /* am_map.c */,
-				72E847680F93FF2F00AB3C99 /* config.h */,
-				72E847910F9400D700AB3C99 /* gl_intern.h */,
-				72E847930F9400D700AB3C99 /* gl_struct.h */,
-				72E847940F9400D700AB3C99 /* gl_texture.c */,
-				72E847920F9400D700AB3C99 /* gl_main.c */,
+				72E848460F941ADC00AB3C99 /* sounds.c */,
+				72E848470F941ADC00AB3C99 /* sounds.h */,
+				72E848480F941ADC00AB3C99 /* st_lib.c */,
+				72E848490F941ADC00AB3C99 /* st_lib.h */,
+				72E8484A0F941ADC00AB3C99 /* st_stuff.c */,
+				72E8484B0F941ADC00AB3C99 /* st_stuff.h */,
+				72E8484C0F941ADC00AB3C99 /* tables.c */,
+				72E8484D0F941ADC00AB3C99 /* tables.h */,
+				72E8484E0F941ADC00AB3C99 /* v_video.c */,
+				72E8484F0F941ADC00AB3C99 /* v_video.h */,
+				72E848500F941ADC00AB3C99 /* version.c */,
+				72E848510F941ADC00AB3C99 /* version.h */,
+				72E848530F941ADC00AB3C99 /* w_mmap.c */,
+				72E848540F941ADC00AB3C99 /* w_wad.c */,
+				72E848550F941ADC00AB3C99 /* w_wad.h */,
+				72E848560F941ADC00AB3C99 /* wi_stuff.c */,
+				72E848570F941ADC00AB3C99 /* wi_stuff.h */,
+				72E848580F941ADC00AB3C99 /* z_bmalloc.c */,
+				72E848590F941ADC00AB3C99 /* z_bmalloc.h */,
+				72E8485A0F941ADC00AB3C99 /* z_zone.c */,
+				72E8485B0F941ADC00AB3C99 /* z_zone.h */,
 			);
 			name = prboom;
 			sourceTree = "<group>";
@@ -783,6 +1121,180 @@
 				72F1F9B30F96C18800AD49AC /* tessmono.h */,
 			);
 			name = libtess;
+			sourceTree = "<group>";
+		};
+		A12302D4205737DE0075CBAD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A12302F4205738560075CBAD /* Carousel.h */,
+				A12302F3205738560075CBAD /* Carousel.mm */,
+				A12302EF205738270075CBAD /* Slider.h */,
+				A12302F0205738270075CBAD /* Slider.mm */,
+				A12302DF205737F50075CBAD /* Label.h */,
+				A12302D6205737F40075CBAD /* Label.mm */,
+				A12302DD205737F40075CBAD /* LabelButton.h */,
+				A12302D7205737F40075CBAD /* LabelButton.mm */,
+				A12302D9205737F40075CBAD /* Localization.h */,
+				A12302DE205737F40075CBAD /* Localization.mm */,
+				A12302D5205737F40075CBAD /* LocalizationObjectiveC.h */,
+				A12302D8205737F40075CBAD /* RenderContext.h */,
+				A12302DA205737F40075CBAD /* RenderContext.mm */,
+				A12302DB205737F40075CBAD /* Switch.h */,
+				A12302E1205737F50075CBAD /* Switch.mm */,
+				A12302E0205737F50075CBAD /* View.h */,
+				A12302DC205737F40075CBAD /* View.mm */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		A1A63E2220563253000955AE /* SDL */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63E2320563253000955AE /* i_sound.c */,
+			);
+			name = SDL;
+			path = ../prboom/SDL;
+			sourceTree = "<group>";
+		};
+		A1A63E25205632E2000955AE /* SDL_shim */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63E26205632E2000955AE /* ios */,
+				A1A63E28205632E2000955AE /* SDL_Mixer.h */,
+			);
+			name = SDL_shim;
+			path = ../SDL_shim;
+			sourceTree = "<group>";
+		};
+		A1A63E26205632E2000955AE /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63E27205632E2000955AE /* SDL_Mixer.m */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		A1A63E3B2056341C000955AE /* EAS */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63E5120563A06000955AE /* EASGlue.c */,
+				A1A63E5220563A06000955AE /* EASGlue.h */,
+				A1A63E3C2056342A000955AE /* arm-wt-22k */,
+			);
+			name = EAS;
+			sourceTree = "<group>";
+		};
+		A1A63E3C2056342A000955AE /* arm-wt-22k */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63E5620563ACC000955AE /* lib_src */,
+				A1A63E3D20563436000955AE /* host_src */,
+			);
+			name = "arm-wt-22k";
+			sourceTree = "<group>";
+		};
+		A1A63E3D20563436000955AE /* host_src */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63E45205634E7000955AE /* eas_build.h */,
+				A1A63E43205634E7000955AE /* eas_chorus.h */,
+				A1A63E4B205634E7000955AE /* eas_config.c */,
+				A1A63E4A205634E7000955AE /* eas_config.h */,
+				A1A63E3F205634E7000955AE /* eas_debugmsgs.h */,
+				A1A63E46205634E7000955AE /* eas_host.h */,
+				A1A63E42205634E7000955AE /* eas_hostmm.c */,
+				A1A63E40205634E7000955AE /* eas_report.c */,
+				A1A63E47205634E7000955AE /* eas_report.h */,
+				A1A63E3E205634E7000955AE /* eas_reverb.h */,
+				A1A63E44205634E7000955AE /* eas_types.h */,
+				A1A63E4C205634E7000955AE /* eas_wave.c */,
+				A1A63E48205634E7000955AE /* eas_wave.h */,
+				A1A63E41205634E7000955AE /* eas.h */,
+				A1A63E49205634E7000955AE /* jet.h */,
+			);
+			name = host_src;
+			sourceTree = "<group>";
+		};
+		A1A63E5620563ACC000955AE /* lib_src */ = {
+			isa = PBXGroup;
+			children = (
+				A1A63ECC20563B53000955AE /* dls.h */,
+				A1A63F0720563B5E000955AE /* dls2.h */,
+				A1A63EDE20563B55000955AE /* eas_audioconst.h */,
+				A1A63EE120563B55000955AE /* eas_chorus.c */,
+				A1A63EDC20563B55000955AE /* eas_chorusdata.c */,
+				A1A63EE220563B56000955AE /* eas_chorusdata.h */,
+				A1A63F0020563B5C000955AE /* eas_ctype.h */,
+				A1A63ECF20563B53000955AE /* eas_data.c */,
+				A1A63EC920563B53000955AE /* eas_data.h */,
+				A1A63EEF20563B59000955AE /* eas_dlssynth.c */,
+				A1A63EF220563B5A000955AE /* eas_dlssynth.h */,
+				A1A63F0820563B5E000955AE /* eas_effects.h */,
+				A1A63F0220563B5C000955AE /* eas_flog.c */,
+				A1A63F0620563B5D000955AE /* eas_ima_tables.c */,
+				A1A63ED020563B54000955AE /* eas_imaadpcm.c */,
+				A1A63F0C20563B5F000955AE /* eas_imelody.c */,
+				A1A63EFC20563B5C000955AE /* eas_imelodydata.c */,
+				A1A63EF820563B5B000955AE /* eas_imelodydata.h */,
+				A1A63F1020563B5F000955AE /* eas_math.c */,
+				A1A63EEE20563B59000955AE /* eas_math.h */,
+				A1A63F1220563B60000955AE /* eas_mdls.c */,
+				A1A63EDD20563B55000955AE /* eas_mdls.h */,
+				A1A63EE320563B56000955AE /* eas_midi.c */,
+				A1A63ED320563B54000955AE /* eas_midi.h */,
+				A1A63EFE20563B5C000955AE /* eas_midictrl.h */,
+				A1A63EFD20563B5C000955AE /* eas_mididata.c */,
+				A1A63F1120563B60000955AE /* eas_miditypes.h */,
+				A1A63EEC20563B59000955AE /* eas_mixbuf.c */,
+				A1A63ED720563B54000955AE /* eas_mixer.c */,
+				A1A63EF120563B5A000955AE /* eas_mixer.h */,
+				A1A63ED820563B54000955AE /* eas_ota.c */,
+				A1A63ECE20563B53000955AE /* eas_otadata.c */,
+				A1A63F0A20563B5E000955AE /* eas_otadata.h */,
+				A1A63F0D20563B5F000955AE /* eas_pan.c */,
+				A1A63ED920563B54000955AE /* eas_pan.h */,
+				A1A63ED520563B54000955AE /* eas_parser.h */,
+				A1A63EF020563B5A000955AE /* eas_pcm.c */,
+				A1A63F0320563B5D000955AE /* eas_pcm.h */,
+				A1A63EDA20563B54000955AE /* eas_pcmdata.c */,
+				A1A63EE620563B58000955AE /* eas_pcmdata.h */,
+				A1A63F0520563B5D000955AE /* eas_public.c */,
+				A1A63F0E20563B5F000955AE /* eas_reverb.c */,
+				A1A63F0420563B5D000955AE /* eas_reverbdata.c */,
+				A1A63EF620563B5B000955AE /* eas_reverbdata.h */,
+				A1A63ED120563B54000955AE /* eas_rtttl.c */,
+				A1A63EFF20563B5C000955AE /* eas_rtttldata.c */,
+				A1A63ECD20563B53000955AE /* eas_rtttldata.h */,
+				A1A63EED20563B59000955AE /* eas_smf.c */,
+				A1A63F0920563B5E000955AE /* eas_smf.h */,
+				A1A63EE520563B56000955AE /* eas_smfdata.c */,
+				A1A63ED220563B54000955AE /* eas_smfdata.h */,
+				A1A63EF520563B5A000955AE /* eas_sndlib.h */,
+				A1A63EF320563B5A000955AE /* eas_synth_protos.h */,
+				A1A63EC820563B53000955AE /* eas_synth.h */,
+				A1A63EDF20563B55000955AE /* eas_synthcfg.h */,
+				A1A63F0F20563B5F000955AE /* eas_tcdata.c */,
+				A1A63ED420563B54000955AE /* eas_tcdata.h */,
+				A1A63EF720563B5B000955AE /* eas_tonecontrol.c */,
+				A1A63EFB20563B5B000955AE /* eas_vm_protos.h */,
+				A1A63F0B20563B5E000955AE /* eas_voicemgt.c */,
+				A1A63ED620563B54000955AE /* eas_wavefile.c */,
+				A1A63F0120563B5C000955AE /* eas_wavefile.h */,
+				A1A63EF920563B5B000955AE /* eas_wavefiledata.c */,
+				A1A63EE020563B55000955AE /* eas_wt_IPC_frame.h */,
+				A1A63EFA20563B5B000955AE /* eas_wtengine.c */,
+				A1A63EE720563B58000955AE /* eas_wtengine.h */,
+				A1A63EE820563B58000955AE /* eas_wtsynth.c */,
+				A1A63EF420563B5A000955AE /* eas_wtsynth.h */,
+				A1A63ECB20563B53000955AE /* eas_xmf.c */,
+				A1A63EEA20563B59000955AE /* eas_xmf.h */,
+				A1A63ECA20563B53000955AE /* eas_xmfdata.c */,
+				A1A63EDB20563B55000955AE /* eas_xmfdata.h */,
+				A1A63EE920563B59000955AE /* jet_data.h */,
+				A1A63EEB20563B59000955AE /* jet.c */,
+				A1A63EE420563B56000955AE /* wt_22khz.c */,
+			);
+			name = lib_src;
 			sourceTree = "<group>";
 		};
 		C84F820613D73D28006D01AB /* Interface Builder Images */ = {
@@ -845,33 +1357,117 @@
 		C86F965213D615BB0069B7B6 /* InterfaceBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				C8139A7713F9E0440094C2C0 /* UICustomSlider.h */,
-				C8139A7813F9E0440094C2C0 /* UICustomSlider.m */,
-				C84F83F413D7A99C006D01AB /* GenericMenuView.h */,
-				C84F83F513D7A99C006D01AB /* GenericMenuView.m */,
-				C84F829013D76E96006D01AB /* MapMenuView.m */,
-				C84F829113D76E96006D01AB /* MapMenuView.h */,
-				C84F855713D8B55C006D01AB /* SettingsMenuView.h */,
-				C84F855813D8B55C006D01AB /* SettingsMenuView.m */,
-				C885314213D8D79400A5FBF7 /* ControlsMenuView.m */,
-				C885314313D8D79400A5FBF7 /* ControlsMenuView.h */,
-				C86F966613D617740069B7B6 /* MenuViewController.h */,
-				C86F966713D617740069B7B6 /* MenuViewController.mm */,
-				C86F965513D615F70069B7B6 /* MainMenuView.h */,
-				C88530C813D8CBEA00A5FBF7 /* MainMenuView.m */,
-				C86F975C13D6377B0069B7B6 /* IBGlue.h */,
-				C86F975D13D6377B0069B7B6 /* IBGlue.m */,
-				C81E0C7013DF471000B1049A /* UIFontButton.h */,
-				C81E0C7113DF471000B1049A /* UIFontButton.m */,
-				C81E0C8D13DF4A1B00B1049A /* UIFontLabel.h */,
-				C81E0C8E13DF4A1B00B1049A /* UIFontLabel.m */,
-				C87931FF13F6143C003D834F /* UICustomSwitch.h */,
-				C879320013F6143C003D834F /* UICustomSwitch.m */,
+				A1A63DB620562B2B000955AE /* ControlsMenuView.xib */,
+				A1A63DBB20562B2B000955AE /* ControlsMenuView~ipad.xib */,
+				A1A63DB820562B2B000955AE /* ControlsMenuViewController.h */,
+				A1A63DB420562B2A000955AE /* ControlsMenuViewController.mm */,
+				A1E89C8D2067469D00760204 /* CreditsMenuView.xib */,
+				A1A63DBA20562B2B000955AE /* CreditsMenuView~ipad.xib */,
+				A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */,
+				A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */,
+				A1A184252063E63200302393 /* EpisodeCell.xib */,
+				A176AC08206492DD00A96B7E /* EpisodeCell~ipad.xib */,
+				A1A63DCA20562B73000955AE /* EpisodeMenuView.xib */,
+				A1A63DDA20562B75000955AE /* EpisodeMenuView~ipad.xib */,
+				A1A63DDF20562B76000955AE /* EpisodeMenuViewController.h */,
+				A1A63DDB20562B75000955AE /* EpisodeMenuViewController.mm */,
+				A1A63DE020562B76000955AE /* LegalMenuView.xib */,
+				A1A63DCB20562B73000955AE /* LegalMenuView~ipad.xib */,
+				A1A63DD420562B74000955AE /* LegalMenuViewController.h */,
+				A1A63DC720562B73000955AE /* LegalMenuViewController.mm */,
+				A1A63DCE20562B73000955AE /* MainMenuView.xib */,
+				A1A63DD920562B75000955AE /* MainMenuView~ipad.xib */,
+				A1A63DDE20562B75000955AE /* MainMenuViewController.h */,
+				A1A63DD820562B75000955AE /* MainMenuViewController.mm */,
+				A1A63DD720562B75000955AE /* MainNavController.h */,
+				A1A63DDC20562B75000955AE /* MainNavController.m */,
+				A1A63DCC20562B73000955AE /* MissionMenuView.xib */,
+				A1A63DC620562B73000955AE /* MissionMenuView~ipad.xib */,
+				A1A63DDD20562B75000955AE /* MissionMenuViewController.h */,
+				A1A63DD020562B74000955AE /* MissionMenuViewController.mm */,
+				A1A63DD220562B74000955AE /* OpenGLView.xib */,
+				A1A63DE220562B76000955AE /* OpenGLView~ipad.xib */,
+				A1A63DBC20562B2B000955AE /* SecretMenuView.xib */,
+				A1A63DB320562B2A000955AE /* SecretMenuViewController.h */,
+				A1A63DB720562B2B000955AE /* SecretMenuViewController.mm */,
+				A1A63DD620562B74000955AE /* SettingsMenuView.xib */,
+				A1A63DC920562B73000955AE /* SettingsMenuView~ipad.xib */,
+				A1A63DC520562B72000955AE /* SettingsMenuViewController.h */,
+				A1A63DE120562B76000955AE /* SettingsMenuViewController.mm */,
 			);
 			name = InterfaceBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A12302A32057365B0075CBAD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A12302F72057408A0075CBAD /* SoundEngine.h in Headers */,
+				A1E89C8E2067469D00760204 /* CreditsMenuViewController.h in Headers */,
+				A12302A4205736BC0075CBAD /* dls.h in Headers */,
+				A12302A5205736BC0075CBAD /* dls2.h in Headers */,
+				A12302A6205736BC0075CBAD /* eas_audioconst.h in Headers */,
+				A12302EC205737F50075CBAD /* Label.h in Headers */,
+				A12302A7205736BC0075CBAD /* eas_chorusdata.h in Headers */,
+				A12302A8205736BC0075CBAD /* eas_ctype.h in Headers */,
+				A12302A9205736BC0075CBAD /* eas_data.h in Headers */,
+				A12302AA205736BC0075CBAD /* eas_dlssynth.h in Headers */,
+				A12302AB205736BC0075CBAD /* eas_effects.h in Headers */,
+				A12302F1205738270075CBAD /* Slider.h in Headers */,
+				A12302AC205736BC0075CBAD /* eas_imelodydata.h in Headers */,
+				A12302AD205736BC0075CBAD /* eas_math.h in Headers */,
+				A12302AE205736BC0075CBAD /* eas_mdls.h in Headers */,
+				A12302AF205736BC0075CBAD /* eas_midi.h in Headers */,
+				A12302B0205736BC0075CBAD /* eas_midictrl.h in Headers */,
+				A12302B1205736BC0075CBAD /* eas_miditypes.h in Headers */,
+				A12302ED205737F50075CBAD /* View.h in Headers */,
+				A12302B2205736BC0075CBAD /* eas_mixer.h in Headers */,
+				A12302B3205736BC0075CBAD /* eas_otadata.h in Headers */,
+				A12302B4205736BC0075CBAD /* eas_pan.h in Headers */,
+				A12302B5205736BC0075CBAD /* eas_parser.h in Headers */,
+				A12302B6205736BC0075CBAD /* eas_pcm.h in Headers */,
+				A12302B7205736BC0075CBAD /* eas_pcmdata.h in Headers */,
+				A12302EA205737F50075CBAD /* LabelButton.h in Headers */,
+				A12302B8205736BC0075CBAD /* eas_reverbdata.h in Headers */,
+				A12302B9205736BC0075CBAD /* eas_rtttldata.h in Headers */,
+				A12302BA205736BC0075CBAD /* eas_smf.h in Headers */,
+				A12302BB205736BC0075CBAD /* eas_smfdata.h in Headers */,
+				A12302BC205736BC0075CBAD /* eas_sndlib.h in Headers */,
+				A12302BD205736BC0075CBAD /* eas_synth_protos.h in Headers */,
+				A12302E5205737F50075CBAD /* RenderContext.h in Headers */,
+				A12302BE205736BC0075CBAD /* eas_synth.h in Headers */,
+				A12302BF205736BC0075CBAD /* eas_synthcfg.h in Headers */,
+				A12302C0205736BC0075CBAD /* eas_tcdata.h in Headers */,
+				A12302C1205736BC0075CBAD /* eas_vm_protos.h in Headers */,
+				A12302C2205736BC0075CBAD /* eas_wavefile.h in Headers */,
+				A12302E8205737F50075CBAD /* Switch.h in Headers */,
+				A12302C3205736BC0075CBAD /* eas_wt_IPC_frame.h in Headers */,
+				A12302C4205736BC0075CBAD /* eas_wtengine.h in Headers */,
+				A12302C5205736BC0075CBAD /* eas_wtsynth.h in Headers */,
+				A12302C6205736BC0075CBAD /* eas_xmf.h in Headers */,
+				A12302C7205736BC0075CBAD /* eas_xmfdata.h in Headers */,
+				A12302C8205736BC0075CBAD /* jet_data.h in Headers */,
+				A12302C9205736BC0075CBAD /* eas_build.h in Headers */,
+				A12302E2205737F50075CBAD /* LocalizationObjectiveC.h in Headers */,
+				A12302CA205736BC0075CBAD /* eas_chorus.h in Headers */,
+				A12302CB205736BC0075CBAD /* eas_config.h in Headers */,
+				A12302CC205736BC0075CBAD /* eas_debugmsgs.h in Headers */,
+				A12302CD205736BC0075CBAD /* eas_host.h in Headers */,
+				A12302F6205738560075CBAD /* Carousel.h in Headers */,
+				A12302CE205736BC0075CBAD /* eas_report.h in Headers */,
+				A12302CF205736BC0075CBAD /* eas_reverb.h in Headers */,
+				A12302D0205736BC0075CBAD /* eas_types.h in Headers */,
+				A12302E6205737F50075CBAD /* Localization.h in Headers */,
+				A12302D1205736BC0075CBAD /* eas_wave.h in Headers */,
+				A12302D2205736BC0075CBAD /* eas.h in Headers */,
+				A12302D3205736BC0075CBAD /* jet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1D6058900D05DD3D006BFB54 /* Doom */ = {
@@ -881,7 +1477,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				435F41A90F532CA300887552 /* ShellScript */,
+				A12302A32057365B0075CBAD /* Headers */,
 			);
 			buildRules = (
 			);
@@ -897,6 +1493,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Doom" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -921,10 +1520,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				43CF02FF0F56974E00E4A23D /* Default.png in Resources */,
 				4364BF3F0F5CB25900F29317 /* dist.plist in Resources */,
-				C861F27213BD2DC600DB34A8 /* MainWindow-iPad.xib in Resources */,
 				C8D1CF6813DE1EB600F0EAC6 /* DOOM_57.png in Resources */,
 				C8D1CF6A13DE1EF500F0EAC6 /* DOOM_114.png in Resources */,
 				C8D1CF6C13DE1F0600F0EAC6 /* DOOM_72.png in Resources */,
@@ -933,18 +1530,32 @@
 				C81E0E5E13E076E400B1049A /* idGinzaNar-Md2.otf in Resources */,
 				C81E104C13E1CCA000B1049A /* BackButton.png in Resources */,
 				C81E104D13E1CCA000B1049A /* Button.png in Resources */,
+				A1E89C902067469D00760204 /* CreditsMenuView.xib in Resources */,
+				A1A63DC220562B2B000955AE /* CreditsMenuView~ipad.xib in Resources */,
+				A1A63DC420562B2B000955AE /* SecretMenuView.xib in Resources */,
 				C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */,
+				A1A184282063E63200302393 /* EpisodeCell.xib in Resources */,
 				C81E104F13E1CCA000B1049A /* DoomLogo.png in Resources */,
+				A1A63DC320562B2B000955AE /* ControlsMenuView~ipad.xib in Resources */,
 				C81E105013E1CCA000B1049A /* Easy.png in Resources */,
+				A1A63DE620562B76000955AE /* SettingsMenuView~ipad.xib in Resources */,
+				A1A63DEB20562B76000955AE /* MainMenuView.xib in Resources */,
 				C81E105113E1CCA000B1049A /* Hard.png in Resources */,
+				A1A63DF420562B76000955AE /* MainMenuView~ipad.xib in Resources */,
+				A1A63E1A20562FC4000955AE /* DOOM_144.png in Resources */,
 				C81E105213E1CCA000B1049A /* MapOverlay.png in Resources */,
 				C81E105313E1CCA000B1049A /* Medium.png in Resources */,
 				C81E105413E1CCA000B1049A /* MenuBackground.png in Resources */,
+				A1A63E3320563345000955AE /* r_drawcolpipeline.inl in Resources */,
+				A1A63DBF20562B2B000955AE /* ControlsMenuView.xib in Resources */,
 				C81E105513E1CCA000B1049A /* Nightmare.png in Resources */,
 				C81E105613E1CCA000B1049A /* ResumeButton.png in Resources */,
+				A1A63DE720562B76000955AE /* EpisodeMenuView.xib in Resources */,
+				A1A63E3620563345000955AE /* Makefile.am in Resources */,
 				C81E105713E1CCA000B1049A /* SelectedBracket.png in Resources */,
 				C8D1CFA813E1CDBD00F0EAC6 /* Default-Portrait~ipad.png in Resources */,
 				C8D1CFAA13E1CDC600F0EAC6 /* Default-Landscape~ipad.png in Resources */,
+				A1A63DF220562B76000955AE /* SettingsMenuView.xib in Resources */,
 				C8792ED813F5AFE5003D834F /* BackButton_Highlighted.png in Resources */,
 				C8792ED913F5AFE6003D834F /* Button_Highlighted.png in Resources */,
 				C8792EDA13F5AFE6003D834F /* NextButton_Highlighted.png in Resources */,
@@ -952,56 +1563,59 @@
 				C8792EDC13F5AFE6003D834F /* SubMenuBackground.png in Resources */,
 				C8792EDD13F5AFE6003D834F /* SubMenuButton_Highlighted.png in Resources */,
 				C8792EDE13F5AFE6003D834F /* SubMenuButton.png in Resources */,
+				A1A63DF520562B76000955AE /* EpisodeMenuView~ipad.xib in Resources */,
 				C879308F13F5D8AA003D834F /* DifficultyBackground.png in Resources */,
 				C879309013F5D8AA003D834F /* DownArrow_Highlighted.png in Resources */,
 				C879309113F5D8AA003D834F /* DownArrow.png in Resources */,
 				C879309213F5D8AA003D834F /* Episode1Background.png in Resources */,
 				C879309313F5D8AA003D834F /* Episode2Background.png in Resources */,
 				C879309413F5D8AA003D834F /* Episode3Background.png in Resources */,
+				A1A63E1120562FB0000955AE /* Localizable.strings in Resources */,
 				C879309513F5D8AA003D834F /* Episode4Background.png in Resources */,
 				C879309613F5D8AA003D834F /* MissonBackground.png in Resources */,
+				A11290502069B62B00BEDEB5 /* Launch Screen.storyboard in Resources */,
 				C879309713F5D8AA003D834F /* UpArrow_Highlighted.png in Resources */,
 				C879309813F5D8AA003D834F /* UpArrow.png in Resources */,
+				A1A63E3920563345000955AE /* r_drawspan.inl in Resources */,
 				C87930E513F5EC1B003D834F /* Episode1Background_Highlighted.png in Resources */,
 				C87930E613F5EC1B003D834F /* Episode2Background_Highlighted.png in Resources */,
 				C87930E713F5EC1B003D834F /* Episode3Background_Highlighted.png in Resources */,
 				C87930E813F5EC1B003D834F /* Episode4Background_Highlighted.png in Resources */,
+				A1A63DE320562B76000955AE /* MissionMenuView~ipad.xib in Resources */,
+				A1A63DFA20562B76000955AE /* OpenGLView~ipad.xib in Resources */,
+				A176AC09206492DD00A96B7E /* EpisodeCell~ipad.xib in Resources */,
 				C87931EC13F610B9003D834F /* AdvancedButton_Highlighted.png in Resources */,
+				A1A63DE820562B76000955AE /* LegalMenuView~ipad.xib in Resources */,
+				A1A63E1C20562FC4000955AE /* DOOM_76.png in Resources */,
 				C87931ED13F610B9003D834F /* AdvancedButton.png in Resources */,
 				C87931EE13F610B9003D834F /* Divide.png in Resources */,
 				C87931EF13F610B9003D834F /* LayoutDualButton_Highlighted.png in Resources */,
 				C87931F013F610B9003D834F /* LayoutDualButton.png in Resources */,
+				A1A63E1B20562FC4000955AE /* DOOM_120.png in Resources */,
 				C87931F113F610B9003D834F /* LayoutSingleButton_Highlighted.png in Resources */,
 				C87931F213F610B9003D834F /* LayoutSingleButton.png in Resources */,
 				C87931F313F610B9003D834F /* LayoutWheelButton_Highlighted.png in Resources */,
+				A1A63E3820563345000955AE /* r_drawflush.inl in Resources */,
 				C87931F413F610B9003D834F /* LayoutWheelButton.png in Resources */,
 				C87931F513F610B9003D834F /* SettingsButton_Highlighted.png in Resources */,
 				C87931F613F610B9003D834F /* SettingsButton.png in Resources */,
+				A1A63E1920562FC4000955AE /* DOOM_152.png in Resources */,
 				C87931F713F610B9003D834F /* SliderBackground.png in Resources */,
 				C87931F813F610B9003D834F /* SliderBar.png in Resources */,
+				A12302FB205783E70075CBAD /* prboom.wad in Resources */,
+				A12302FC205783E70075CBAD /* doom.wad in Resources */,
+				A12302FD205783E70075CBAD /* base.iPack in Resources */,
+				A1A63DEF20562B76000955AE /* OpenGLView.xib in Resources */,
+				A1A63E3520563345000955AE /* r_drawcolumn.inl in Resources */,
 				C87931F913F610B9003D834F /* SliderSkull.png in Resources */,
+				A1A63DE920562B76000955AE /* MissionMenuView.xib in Resources */,
 				C8139AB313FADA800094C2C0 /* SliderSkull@2x.png in Resources */,
 				C8139AB513FADA9D0094C2C0 /* SliderSkull~ipad.png in Resources */,
+				A1A63DF820562B76000955AE /* LegalMenuView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		435F41A90F532CA300887552 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/bin/sh -x";
-			shellScript = "PBXCP=${DEVELOPER_DIR}/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp\n${PBXCP} -exclude .svn \"${PROJECT_DIR}/../../base\" \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -1010,116 +1624,171 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				43E8D2E10F4FC61E003F09B2 /* iphone_main.c in Sources */,
-				C86F975E13D6377B0069B7B6 /* IBGlue.m in Sources */,
 				43CF030A0F56D5C200E4A23D /* iphone_loop.c in Sources */,
-				72A7E8F70F5F2063005B83C0 /* iphone_menus.c in Sources */,
+				A1A63F3820563B60000955AE /* eas_mdls.c in Sources */,
 				7229CE4A0F6C89F8004123C5 /* EAGLView.m in Sources */,
+				A1A63E1F20562FD1000955AE /* Doom_App.m in Sources */,
 				7229CE550F6C8CDE004123C5 /* gles_glue.c in Sources */,
 				72B5FF390F7E5C3D00C8A372 /* hud.c in Sources */,
-				43A945150F82D75900FFD32E /* iphone_sys.c in Sources */,
-				434669A60F8D08C000EA7D6D /* doomAppDelegate.m in Sources */,
+				A12302EB205737F50075CBAD /* Localization.mm in Sources */,
 				72D50DBC0F8ED98000BB49E6 /* ipak.c in Sources */,
+				A12302E9205737F50075CBAD /* View.mm in Sources */,
+				A1A63F3620563B60000955AE /* eas_tcdata.c in Sources */,
+				A1A63E0E20562FB0000955AE /* iphone_delegate.mm in Sources */,
 				72E847650F93C61900AB3C99 /* am_map.c in Sources */,
 				72E847740F93FFDB00AB3C99 /* d_client.c in Sources */,
 				72E847750F93FFDB00AB3C99 /* d_deh.c in Sources */,
+				A1A63E0D20562FB0000955AE /* iphone_async.cpp in Sources */,
 				72E847B20F9400D700AB3C99 /* d_items.c in Sources */,
 				72E847B30F9400D700AB3C99 /* d_main.c in Sources */,
+				A1A63E4D205634E8000955AE /* eas_report.c in Sources */,
+				A1A63F1320563B60000955AE /* eas_xmfdata.c in Sources */,
 				72E847B50F9400D700AB3C99 /* doomdef.c in Sources */,
 				72E847B60F9400D700AB3C99 /* doomstat.c in Sources */,
+				A1A63E0F20562FB0000955AE /* iphone_start.cpp in Sources */,
 				72E847B70F9400D700AB3C99 /* dstrings.c in Sources */,
 				72E847B80F9400D700AB3C99 /* f_finale.c in Sources */,
+				A12302E7205737F50075CBAD /* RenderContext.mm in Sources */,
+				A1A63F1B20563B60000955AE /* eas_ota.c in Sources */,
 				72E847B90F9400D700AB3C99 /* f_wipe.c in Sources */,
 				72E847BA0F9400D700AB3C99 /* g_game.c in Sources */,
+				A1A63F2B20563B60000955AE /* eas_imelodydata.c in Sources */,
+				A1A63DED20562B76000955AE /* MissionMenuViewController.mm in Sources */,
 				72E847BB0F9400D700AB3C99 /* gl_main.c in Sources */,
 				72E847BC0F9400D700AB3C99 /* gl_texture.c in Sources */,
 				72E847BD0F9400D700AB3C99 /* hu_lib.c in Sources */,
 				72E847BE0F9400D700AB3C99 /* hu_stuff.c in Sources */,
 				72E847BF0F9400D700AB3C99 /* info.c in Sources */,
+				A1A63E1020562FB0000955AE /* iphone_common.mm in Sources */,
 				72E847C00F9400D700AB3C99 /* lprintf.c in Sources */,
 				72E847C10F9400D700AB3C99 /* m_argv.c in Sources */,
 				72E847C20F9400D700AB3C99 /* m_bbox.c in Sources */,
+				A1A63E4E205634E8000955AE /* eas_hostmm.c in Sources */,
 				72E847C30F9400D700AB3C99 /* m_cheat.c in Sources */,
 				72E847C40F9400D700AB3C99 /* m_menu.c in Sources */,
+				A1A63DF320562B76000955AE /* MainMenuViewController.mm in Sources */,
 				72E847C50F9400D700AB3C99 /* m_misc.c in Sources */,
+				A1A63F1420563B60000955AE /* eas_xmf.c in Sources */,
+				A1A63F1520563B60000955AE /* eas_otadata.c in Sources */,
+				A1A63DF620562B76000955AE /* EpisodeMenuViewController.mm in Sources */,
 				72E847C60F9400D700AB3C99 /* m_random.c in Sources */,
 				72E848050F941A5900AB3C99 /* md5.c in Sources */,
+				A1A63F2220563B60000955AE /* eas_wtsynth.c in Sources */,
 				72E848070F941A5900AB3C99 /* p_ceilng.c in Sources */,
 				72E848080F941A5900AB3C99 /* p_checksum.c in Sources */,
 				72E848090F941A5900AB3C99 /* p_doors.c in Sources */,
 				72E8480A0F941A5900AB3C99 /* p_enemy.c in Sources */,
+				A1A63F3420563B60000955AE /* eas_pan.c in Sources */,
 				72E8480B0F941A5900AB3C99 /* p_floor.c in Sources */,
+				A1A63E3420563345000955AE /* mmus2mid.c in Sources */,
 				72E8480C0F941A5900AB3C99 /* p_genlin.c in Sources */,
+				A12302F5205738560075CBAD /* Carousel.mm in Sources */,
+				A1A63F2D20563B60000955AE /* eas_rtttldata.c in Sources */,
+				A1A63F1720563B60000955AE /* eas_imaadpcm.c in Sources */,
 				72E8480D0F941A5900AB3C99 /* p_inter.c in Sources */,
 				72E8480E0F941A5900AB3C99 /* p_lights.c in Sources */,
 				72E8480F0F941A5900AB3C99 /* p_map.c in Sources */,
 				72E848100F941A5900AB3C99 /* p_maputl.c in Sources */,
+				A1E89C9620689D9500760204 /* GameController.mm in Sources */,
 				72E848110F941A5900AB3C99 /* p_mobj.c in Sources */,
 				72E848120F941A5900AB3C99 /* p_plats.c in Sources */,
 				72E848130F941A5900AB3C99 /* p_pspr.c in Sources */,
 				72E848140F941A5900AB3C99 /* p_saveg.c in Sources */,
+				A1A63F2F20563B60000955AE /* eas_reverbdata.c in Sources */,
+				A1A63E29205632E2000955AE /* SDL_Mixer.m in Sources */,
+				A1A63F2520563B60000955AE /* eas_smf.c in Sources */,
 				72E848150F941A5900AB3C99 /* p_setup.c in Sources */,
+				A1A63F2C20563B60000955AE /* eas_mididata.c in Sources */,
 				72E848160F941A5900AB3C99 /* p_sight.c in Sources */,
+				A1A63E50205634E8000955AE /* eas_wave.c in Sources */,
+				A1A63E5320563A06000955AE /* EASGlue.c in Sources */,
+				A1A63F1F20563B60000955AE /* eas_midi.c in Sources */,
 				72E848170F941A5900AB3C99 /* p_spec.c in Sources */,
+				A1A63F2020563B60000955AE /* wt_22khz.c in Sources */,
 				72E848180F941A5900AB3C99 /* p_switch.c in Sources */,
+				A1A63F1920563B60000955AE /* eas_wavefile.c in Sources */,
+				A1A63F1E20563B60000955AE /* eas_chorus.c in Sources */,
 				72E848190F941A5900AB3C99 /* p_telept.c in Sources */,
 				72E8481A0F941A5900AB3C99 /* p_tick.c in Sources */,
+				A1A63F2720563B60000955AE /* eas_pcm.c in Sources */,
+				A1A63E0C20562FB0000955AE /* iphone_glViewController.mm in Sources */,
 				72E8481B0F941A5900AB3C99 /* p_user.c in Sources */,
 				72E848260F941A8300AB3C99 /* r_bsp.c in Sources */,
 				72E848270F941A8300AB3C99 /* r_data.c in Sources */,
 				72E848280F941A8300AB3C99 /* r_demo.c in Sources */,
 				72E848290F941A8300AB3C99 /* r_draw.c in Sources */,
+				A1E89C8F2067469D00760204 /* CreditsMenuViewController.mm in Sources */,
+				A1A63E1320562FB0000955AE /* iphone_sound.mm in Sources */,
 				72E8483D0F941AAC00AB3C99 /* r_filter.c in Sources */,
 				72E8483E0F941AAC00AB3C99 /* r_fps.c in Sources */,
+				A1A63E1220562FB0000955AE /* SoundEngine.cpp in Sources */,
+				A1A63F2620563B60000955AE /* eas_dlssynth.c in Sources */,
 				72E8483F0F941AAC00AB3C99 /* r_main.c in Sources */,
 				72E848400F941AAC00AB3C99 /* r_patch.c in Sources */,
 				72E848410F941AAC00AB3C99 /* r_plane.c in Sources */,
+				A1A63E1420562FB0000955AE /* iphone_sys.mm in Sources */,
 				72E848420F941AAC00AB3C99 /* r_segs.c in Sources */,
 				72E848430F941AAC00AB3C99 /* r_sky.c in Sources */,
 				72E848440F941AAC00AB3C99 /* r_things.c in Sources */,
+				A1A63E2420563253000955AE /* i_sound.c in Sources */,
+				A1A63F2A20563B60000955AE /* eas_wtengine.c in Sources */,
+				A1A63F3220563B60000955AE /* eas_voicemgt.c in Sources */,
+				A1A63DE420562B76000955AE /* LegalMenuViewController.mm in Sources */,
+				A1A63F2920563B60000955AE /* eas_wavefiledata.c in Sources */,
+				A1A63F3320563B60000955AE /* eas_imelody.c in Sources */,
 				72E848450F941AAC00AB3C99 /* s_sound.c in Sources */,
 				72E8485C0F941ADC00AB3C99 /* sounds.c in Sources */,
+				A1A63F1620563B60000955AE /* eas_data.c in Sources */,
 				72E8485D0F941ADC00AB3C99 /* st_lib.c in Sources */,
+				A1A63F1A20563B60000955AE /* eas_mixer.c in Sources */,
 				72E8485E0F941ADC00AB3C99 /* st_stuff.c in Sources */,
 				72E8485F0F941ADC00AB3C99 /* tables.c in Sources */,
 				72E848600F941ADC00AB3C99 /* v_video.c in Sources */,
 				72E848610F941ADC00AB3C99 /* version.c in Sources */,
+				A1A63F2E20563B60000955AE /* eas_flog.c in Sources */,
+				A1A63E4F205634E8000955AE /* eas_config.c in Sources */,
 				72E848630F941ADC00AB3C99 /* w_mmap.c in Sources */,
+				A1A63F3520563B60000955AE /* eas_reverb.c in Sources */,
 				72E848640F941ADC00AB3C99 /* w_wad.c in Sources */,
 				72E848650F941ADC00AB3C99 /* wi_stuff.c in Sources */,
 				72E848660F941ADC00AB3C99 /* z_bmalloc.c in Sources */,
+				A1A63F2120563B60000955AE /* eas_smfdata.c in Sources */,
+				A1A63F2420563B60000955AE /* eas_mixbuf.c in Sources */,
 				72E848670F941ADC00AB3C99 /* z_zone.c in Sources */,
+				A1A63F3020563B60000955AE /* eas_public.c in Sources */,
 				72E849600F942B9300AB3C99 /* cvar.c in Sources */,
 				72E849610F942B9300AB3C99 /* misc.c in Sources */,
+				A1A63DF920562B76000955AE /* SettingsMenuViewController.mm in Sources */,
 				72E849F60F94ED1100AB3C99 /* prboomInterface.c in Sources */,
 				72E84A290F9503F100AB3C99 /* cmd.c in Sources */,
+				A12302F2205738270075CBAD /* Slider.mm in Sources */,
 				72F1F9B40F96C18800AD49AC /* dict.c in Sources */,
+				A12302E4205737F50075CBAD /* LabelButton.mm in Sources */,
+				A12302EE205737F50075CBAD /* Switch.mm in Sources */,
+				A1A63F1820563B60000955AE /* eas_rtttl.c in Sources */,
 				72F1F9B50F96C18800AD49AC /* geom.c in Sources */,
 				72F1F9B60F96C18800AD49AC /* memalloc.c in Sources */,
+				A1A63F1C20563B60000955AE /* eas_pcmdata.c in Sources */,
 				72F1F9B70F96C18800AD49AC /* mesh.c in Sources */,
+				A1A63DC020562B2B000955AE /* SecretMenuViewController.mm in Sources */,
+				A1A63F2820563B60000955AE /* eas_tonecontrol.c in Sources */,
 				72F1F9B80F96C18800AD49AC /* normal.c in Sources */,
+				A12302E3205737F50075CBAD /* Label.mm in Sources */,
 				72F1F9BA0F96C18800AD49AC /* priorityq.c in Sources */,
 				72F1F9BB0F96C18800AD49AC /* render.c in Sources */,
+				A1A63F1D20563B60000955AE /* eas_chorusdata.c in Sources */,
+				A1A63F3720563B60000955AE /* eas_math.c in Sources */,
 				72F1F9BC0F96C18800AD49AC /* sweep.c in Sources */,
+				A1A63DF720562B76000955AE /* MainNavController.m in Sources */,
+				A1A63F3120563B60000955AE /* eas_ima_tables.c in Sources */,
 				72F1F9BD0F96C18800AD49AC /* tess.c in Sources */,
 				72F1F9BE0F96C18800AD49AC /* tessmono.c in Sources */,
-				72E731EB0F97E68100E702CD /* iphone_sound.c in Sources */,
 				7239452C0F9C0E7500EADD62 /* iphone_mapSelect.c in Sources */,
 				72484E5E0FB0E99900124E1C /* iphone_render.c in Sources */,
-				43DD8392100295F70006E1DD /* iphone_async.c in Sources */,
-				72A55EEF1003A94300F788A5 /* iphone_start.c in Sources */,
+				A1A63DBD20562B2B000955AE /* ControlsMenuViewController.mm in Sources */,
 				72A560E21004FAEE00F788A5 /* iphone_net.c in Sources */,
 				ED9AB3D110966E85000B5852 /* iphone_email.m in Sources */,
-				C86F966813D617740069B7B6 /* MenuViewController.mm in Sources */,
-				C84F829213D76E96006D01AB /* MapMenuView.m in Sources */,
-				C84F83F613D7A99C006D01AB /* GenericMenuView.m in Sources */,
-				C84F855913D8B55C006D01AB /* SettingsMenuView.m in Sources */,
 				724C531F0FBDBCEE000E4348 /* BackgroundMusic.cpp in Sources */,
-				C88530C913D8CBEA00A5FBF7 /* MainMenuView.m in Sources */,
-				C885314413D8D79400A5FBF7 /* ControlsMenuView.m in Sources */,
-				C81E0C7213DF471000B1049A /* UIFontButton.m in Sources */,
-				C81E0C8F13DF4A1B00B1049A /* UIFontLabel.m in Sources */,
-				C879320113F6143C003D834F /* UICustomSwitch.m in Sources */,
-				C8139A7913F9E0440094C2C0 /* UICustomSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,24 +1799,40 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					_DEBUG,
 					HAVE_CONFIG_H,
 					IPHONE,
+					_DEBUG,
+					_SAMPLE_RATE_22050,
+					EAS_WT_SYNTH,
+					_8_BIT_SAMPLES,
+					_REVERB_ENABLED,
+					_CHORUS_ENABLED,
+					_FILTER_ENABLED,
+					"MAX_SYNTH_VOICES=32",
+					"NUM_OUTPUT_CHANNELS=2",
+					UNIFIED_DEBUG_MESSAGES,
+					DLS_SYNTHESIZER,
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Doom;
 				PROFILE_PREFIX = com.idsoftware;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1157,21 +1842,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					IPHONE,
+					_SAMPLE_RATE_22050,
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					HAVE_CONFIG_H,
+					IPHONE,
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Doom;
 				PROFILE_PREFIX = com.idsoftware;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1180,20 +1876,43 @@
 		4364BF480F5CB27300F29317 /* AdHocDist */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = Doom;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = AdHocDist;
 		};
@@ -1201,9 +1920,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1212,10 +1935,12 @@
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Doom;
 				PROFILE_PREFIX = com.idsoftware;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1224,17 +1949,40 @@
 		43AE7CA40F61EC4E00B2F562 /* ReleaseLite */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gregory Hodges (255R7FQ4L3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gregory Hodges (255R7FQ4L3)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = Doom;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = ReleaseLite;
 		};
@@ -1242,10 +1990,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1254,11 +2006,13 @@
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DoomLite;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1267,17 +2021,41 @@
 		43AE7CAE0F61FC9200B2F562 /* DebugLite */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gregory Hodges (255R7FQ4L3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gregory Hodges (255R7FQ4L3)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRODUCT_NAME = Doom;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = DebugLite;
 		};
@@ -1285,10 +2063,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1299,11 +2081,13 @@
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = DoomLite;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1312,12 +2096,40 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"HAVE_CONFIG_H=1",
+					UNIFIED_DEBUG_MESSAGES,
+					_SAMPLE_RATE_22050,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1332,40 +2144,94 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					UNIFIED_DEBUG_MESSAGES,
+					_SAMPLE_RATE_22050,
+				);
 				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = Doom;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 		ED06595B1087C51800E5450B /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: id Software";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					UNIFIED_DEBUG_MESSAGES,
+					_SAMPLE_RATE_22050,
+				);
 				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = Doom;
 				PROVISIONING_PROFILE = "31C73095-0DD9-4ABA-BB25-8D23F661F10F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "31C73095-0DD9-4ABA-BB25-8D23F661F10F";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -1373,23 +2239,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: id Software";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = doom_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					IPHONE,
+					_SAMPLE_RATE_22050,
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Doom;
 				PROFILE_PREFIX = com.idsoftware;
-				PROVISIONING_PROFILE = "2ADBE5F0-FC02-4DBF-BEC1-220CF6D12D16";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18BCE49D-8823-4A0C-B597-CFE83C7820BE";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

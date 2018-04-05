@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  doomiphone.h
+ *  doom
+ *
+ *  Created by John Carmack on 3/13/09.
+ *  Copyright 2009 idSoftware. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -20,6 +28,17 @@
 
 #ifndef _DOOM_IPHONE_H_
 #define _DOOM_IPHONE_H_
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
+#define IPHONE_X_BOTTOM_INSET 64
+
+#define PWAD_LIST_SEPARATOR ':'
 
 #include <string.h>
 #include <stdarg.h>
@@ -48,7 +67,7 @@
 
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
-#include "iphone/gles_glue.h"
+#include "gles_glue.h"
 
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
@@ -56,8 +75,9 @@
 #undef ALCAPI
 #define ALCAPI
 
-#undef false
-#undef true
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "prboom/SDL_opengl.h"
 
@@ -111,14 +131,17 @@
 #undef glScissor
 
 // our vestigial system environment
-#include "iphone/misc.h"
-#include "iphone/cvar.h"
+#include "misc.h"
+#include "cvar.h"
 
 // new iphone code
-#include "iphone/IBGlue.h"
-#include "iphone/ipak.h"
-#include "iphone/iphone_doom.h"
-#include "iphone/iphone_email.h" //gsh, adds support for emailing the console to id
+#include "ipak.h"
+#include "iphone_email.h" //gsh, adds support for emailing the console to id
+    
+#ifdef __cplusplus
+}
+#endif
 
+#include "iphone_doom.h"
 
 #endif 

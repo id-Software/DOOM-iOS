@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  iphone_mapSelect.c
+ *  doom
+ *
+ *  Created by John Carmack on 4/19/09.
+ *  Copyright 2009 id Software. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -19,7 +27,7 @@
  */
 
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
 typedef struct {
 	int		dataset;
@@ -186,10 +194,10 @@ mapData_t mapData[] = {
  happen when people have an absurd number of downloaded levels.
  ===================
  */
-mapStats_t *FindMapStats( int dataset, int episode, int map, boolean create ) {
+mapStats_t *FindMapStats( int dataset, int theEpisode, int map, boolean create ) {
 	for ( int i = 0 ; i < playState.numMapStats ; i++ ) {
 		mapStats_t *ms = &playState.mapStats[i];
-		if ( ms->dataset == dataset && ms->episode == episode && ms->map == map ) {
+		if ( ms->dataset == dataset && ms->episode == theEpisode && ms->map == map ) {
 			return ms;
 		}
 	}
@@ -203,7 +211,7 @@ mapStats_t *FindMapStats( int dataset, int episode, int map, boolean create ) {
 	}
 	mapStats_t *cms = &playState.mapStats[playState.numMapStats];
 	cms->dataset = dataset;
-	cms->episode = episode;
+	cms->episode = theEpisode;
 	cms->map = map;
 	playState.numMapStats++;
 	
@@ -217,219 +225,12 @@ mapStats_t *FindMapStats( int dataset, int episode, int map, boolean create ) {
  episodes and maps are one base 
  ==================
  */
-const char *FindMapName( int dataset, int episode, int map ) {
+const char *FindMapName( int dataset, int theEpisode, int map ) {
 	for ( mapData_t *md = mapData ; md->name ; md++ ) {
-		if ( md->dataset == dataset && md->episode == episode && md->map == map ) {
+		if ( md->dataset == dataset && md->episode == theEpisode && md->map == map ) {
 			return md->name;
 		}
 	}
 	return "UNKNOWN MAP NAME";
 }
 
-
-/*
- ==================
- iphoneMapSelectMenu
- 
- Skills are zero based:
- sk_baby=0,
- sk_easy,
- sk_medium,
- sk_hard,
- sk_nightmare=4
- 
- episodes are one base
- 
- ==================
- */
-static const int MAP_ROW_HEIGHT = 52;
-ibutton_t	btnSkills[4];	
-int		dragVelocity;
-ibutton_t	dragScroll;
-mapData_t *selectedMap;
-int		totalDrag;		// for determining if a release will activate the level
-boolean iphoneMapSelectMenu( mapStart_t *map ) {
-	static int prevDragY;
-	
-	if ( !dragScroll.x ) {
-		// first initialization
-		dragScroll.drawWidth = 480 - 80 - 64;
-		dragScroll.drawHeight = 320;
-		dragScroll.x = 64 + dragScroll.drawWidth / 2;
-		dragScroll.y = 160;
-
-		static char * skillNames[4] = {
-			"iphone/skill_easy.tga",
-			"iphone/skill_normal.tga",
-			"iphone/skill_hard.tga",
-			"iphone/skill_nightmare.tga" };	// not really "nightmare" skill since easy is "baby"
-		for ( int i = 0 ; i < 4 ; i++ ) {
-			SetButtonPics( &btnSkills[i], skillNames[i], "", 400, i*80 );
-		}
-	}
-	
-	// check for drag-scrolling
-	if ( dragScroll.touch ) {
-		if ( dragScroll.touch->y != prevDragY ) {
-			dragVelocity = dragScroll.touch->y - prevDragY;
-			prevDragY = dragScroll.touch->y;
-			totalDrag += abs( dragVelocity );
-		}
-	}
-	Cvar_SetValue( mapSelectY->name, mapSelectY->value - dragVelocity );
-	
-	// decay the dragVelocity
-	for ( int i = 0 ; i < 2 ; i++ ) {
-		if ( dragVelocity < 0 ) {
-			dragVelocity++;
-		} else if ( dragVelocity > 0 ) {
-			dragVelocity--;
-		}
-	}
-	
-	int	iskill = (int)skill->value;
-	if ( iskill < 0 ) {
-		iskill = 0;
-		Cvar_SetValue( skill->name, iskill );
-	} else if ( iskill >= MAX_SKILLS ) {
-		iskill = MAX_SKILLS-1;
-		Cvar_SetValue( skill->name, iskill );
-	}
-	
-	// snap back to bounds if dragging past end
-	if ( mapSelectY->value < 0 ) {
-		Cvar_SetValue( mapSelectY->name, 0 );
-	}
-	int	numMaps = 0;
-	for ( mapData_t *map = mapData ; map->name != NULL ; map++ ) {
-		numMaps++;
-	}
-	if ( mapSelectY->value > numMaps * MAP_ROW_HEIGHT - 320 ) {
-		Cvar_SetValue( mapSelectY->name, numMaps * MAP_ROW_HEIGHT - 320 );
-	}
-		
-	// scrolling display of levels
-	int		y = -mapSelectY->value;
-	mapData_t	*startMap = NULL;
-	for ( mapData_t *map = mapData ; map->name != NULL ; map++ ) {
-		if ( y > -64 && y < 320 ) {
-			// find the mapStat_t for this map, if it has ever been started
-			int	completionFlags = 0;
-			mapStats_t *ms = FindMapStats( map->dataset, map->episode, map->map, false );
-			if ( ms ) {
-				completionFlags = ms->completionFlags[iskill];
-			}
-		
-			// if we aren't already dragging, check for a touch on a map button
-			if ( !dragScroll.touch ) {
-				touch_t *touch = TouchInBounds( 120, y, 400-128, 48 );
-				if ( touch ) {
-					Sound_StartLocalSound( "iphone/bdown_01.wav" );	
-					dragScroll.touch = touch;
-					prevDragY = touch->y;
-					touch->controlOwner = &dragScroll;
-					selectedMap = map;
-				}
-			}
-			
-			// color background based on selected / entered / completed state
-			if ( selectedMap == map ) {
-				glColor4f( 1,1,1,1 );	// launch if released
-			} else if ( completionFlags & MF_COMPLETED ) {
-				glColor4f( 0.2, 0.5, 0.2, 1 );
-			} else if ( completionFlags & MF_TRIED ) {
-				glColor4f( 0.5, 0.2, 0.2, 1 );
-			} else {
-				glColor4f( 0.4, 0.4, 0.4, 1 );
-			}
-			
-			// use -1 x to avoid a texture wrap seam
-			PK_StretchTexture( PK_FindTexture( "iphone/long_string_box.tga" ),  110, y, 400-114, 48 );
-			glColor4f( 1,1,1,1 );
-
-			// draw the text
-			float w = StringFontWidth( map->name );
-			float fontScale = 0.75;
-			if ( w > 360 ) {
-				fontScale *= ( 360 / w );
-			}
-			iphoneDrawText( 120, y+32, fontScale, map->name );
-			
-			// add the awards
-			if ( completionFlags & MF_KILLS ) {
-				PK_DrawTexture( PK_FindTexture( "iphone/kills.tga" ),  80, y+4 );
-			}
-			if ( completionFlags & MF_TIME ) {
-				PK_DrawTexture( PK_FindTexture( "iphone/par.tga" ),  40, y+4 );
-			}
-			if ( completionFlags & MF_SECRETS ) {
-				PK_DrawTexture( PK_FindTexture( "iphone/secrets.tga" ),  0, y+4 );
-			}
-			
-		}
-		y += MAP_ROW_HEIGHT;
-	}
-	
-	if ( numTouches == 0 ) {
-		totalDrag = 0;
-	}
-		
-	// draw the skill level	
-	for ( int i = 0 ; i < 4 ; i++ ) {			
-		if ( i == iskill ) {
-			btnSkills[i].buttonFlags = 0;
-		} else {
-			btnSkills[i].buttonFlags = BF_DIMMED;
-		}
-		if ( HandleButton( &btnSkills[i] ) ) {
-			Cvar_SetValue( skill->name, i );
-		}
-	}
-	glColor4f( 1, 1, 1, 1 );
-		
-	// handle back button before checking for touches in the awards area
-	if ( BackButton() ) {
-		map->map = -1;
-		return true;
-	}
-	
-	// if we aren't already dragging, check for a touch anywhere outside the skill buttons
-	if ( !dragScroll.touch ) {
-		touch_t *touch = TouchInBounds( 0, 0, 400-128, 320 );
-		if ( touch ) {
-			dragScroll.touch = touch;
-			prevDragY = touch->y;
-			touch->controlOwner = &dragScroll;
-			selectedMap = NULL;
-			Sound_StartLocalSoundAtVolume( "iphone/controller_down_01_SILENCE.wav", touchClick->value );
-		}
-	} else {
-		// if we dragged more than a few pixels, don't launch the level
-		if ( totalDrag > 8 ) {
-			selectedMap = NULL;
-		}
-		if ( !dragScroll.touch->down ) {
-			// lifted finger
-			dragScroll.touch = NULL;
-			if ( selectedMap ) {
-				Sound_StartLocalSound( "iphone/baction_01.wav" );	
-				startMap = selectedMap;
-				selectedMap = NULL;
-			} else {
-				Sound_StartLocalSoundAtVolume( "iphone/controller_up_01_SILENCE.wav", touchClick->value );
-			}
-		}
-	}
-	
-	
-	if ( !startMap ) {
-		return false;
-	}
-
-	map->skill = iskill;
-	map->episode = startMap->episode;
-	map->map = startMap->map;
-	map->dataset = startMap->dataset;
-
-	return true;
-}

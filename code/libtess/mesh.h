@@ -35,7 +35,7 @@
 #ifndef __mesh_h_
 #define __mesh_h_
 
-// JDC #include <GL/glu.h>
+#include <OpenGLES/ES1/gl.h>
 
 typedef struct GLUmesh GLUmesh; 
 
@@ -118,8 +118,8 @@ struct GLUvertex {
   void		*data;		/* client's data */
 
   /* Internal data (keep hidden) */
-  GLdouble	coords[3];	/* vertex location in 3D */
-  GLdouble	s, t;		/* projection onto the sweep plane */
+  double	coords[3];	/* vertex location in 3D */
+  double	s, t;		/* projection onto the sweep plane */
   long		pqHandle;	/* to allow deletion from priority queue */
 };
 

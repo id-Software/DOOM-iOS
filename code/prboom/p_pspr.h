@@ -49,9 +49,6 @@
 
 #include "info.h"
 
-#ifdef __GNUG__
-#pragma interface
-#endif
 
 /*
  * Frame flags:
@@ -92,6 +89,10 @@ void P_SetupPsprites(struct player_s *curplayer);
 void P_MovePsprites(struct player_s *curplayer);
 void P_DropWeapon(struct player_s *player);
 
+// suppressing these for now, will come back to later -tkidd
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
 void A_Light0();
 void A_WeaponReady();
 void A_Lower();
@@ -115,5 +116,6 @@ void A_FirePlasma();
 void A_BFGsound();
 void A_FireBFG();
 void A_BFGSpray();
+#pragma clang diagnostic pop
 
 #endif

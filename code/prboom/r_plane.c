@@ -198,7 +198,7 @@ void R_ClearPlanes(void)
 
   // opening / clipping determination
   for (i=0 ; i<viewwidth ; i++)
-    floorclip[i] = viewheight, ceilingclip[i] = -1;
+      (void)(floorclip[i] = viewheight), ceilingclip[i] = -1;
 
   for (i=0;i<MAXVISPLANES;i++)    // new code -- killough
     for (*freehead = visplanes[i], visplanes[i] = NULL; *freehead; )
@@ -255,7 +255,7 @@ visplane_t *R_DupPlane(const visplane_t *pl, int start, int stop)
 // killough 2/28/98: Add offsets
 
 visplane_t *R_FindPlane(fixed_t height, int picnum, int lightlevel,
-                        fixed_t xoffs, fixed_t yoffs)
+                        fixed_t xoffset, fixed_t yoffset)
 {
   visplane_t *check;
   unsigned hash;                      // killough
@@ -270,8 +270,8 @@ visplane_t *R_FindPlane(fixed_t height, int picnum, int lightlevel,
     if (height == check->height &&
         picnum == check->picnum &&
         lightlevel == check->lightlevel &&
-        xoffs == check->xoffs &&      // killough 2/28/98: Add offset checks
-        yoffs == check->yoffs)
+        xoffset == check->xoffs &&      // killough 2/28/98: Add offset checks
+        yoffset == check->yoffs)
       return check;
 
   check = new_visplane(hash);         // killough
@@ -281,8 +281,8 @@ visplane_t *R_FindPlane(fixed_t height, int picnum, int lightlevel,
   check->lightlevel = lightlevel;
   check->minx = viewwidth; // Was SCREENWIDTH -- killough 11/98
   check->maxx = -1;
-  check->xoffs = xoffs;               // killough 2/28/98: Save offsets
-  check->yoffs = yoffs;
+  check->xoffs = xoffset;               // killough 2/28/98: Save offsets
+  check->yoffs = yoffset;
 
   memset (check->top, 0xff, sizeof check->top);
 
@@ -297,14 +297,14 @@ visplane_t *R_CheckPlane(visplane_t *pl, int start, int stop)
   int intrl, intrh, unionl, unionh, x;
 
   if (start < pl->minx)
-    intrl   = pl->minx, unionl = start;
+      (void)(intrl   = pl->minx), unionl = start;
   else
-    unionl  = pl->minx,  intrl = start;
+      (void)(unionl  = pl->minx),  intrl = start;
 
   if (stop  > pl->maxx)
-    intrh   = pl->maxx, unionh = stop;
+      (void)(intrh   = pl->maxx), unionh = stop;
   else
-    unionh  = pl->maxx, intrh  = stop;
+      (void)(unionh  = pl->maxx), intrh  = stop;
 
   for (x=intrl ; x <= intrh && pl->top[x] == 0xffffffffu; x++) // dropoff overflow
     ;
