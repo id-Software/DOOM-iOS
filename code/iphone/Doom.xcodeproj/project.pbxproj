@@ -277,15 +277,12 @@
 		C81E0E5E13E076E400B1049A /* idGinzaNar-Md2.otf in Resources */ = {isa = PBXBuildFile; fileRef = C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */; };
 		C81E104C13E1CCA000B1049A /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104013E1CCA000B1049A /* BackButton.png */; };
 		C81E104D13E1CCA000B1049A /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104113E1CCA000B1049A /* Button.png */; };
-		C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */; };
 		C81E104F13E1CCA000B1049A /* DoomLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104313E1CCA000B1049A /* DoomLogo.png */; };
 		C81E105013E1CCA000B1049A /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104413E1CCA000B1049A /* Easy.png */; };
 		C81E105113E1CCA000B1049A /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104513E1CCA000B1049A /* Hard.png */; };
-		C81E105213E1CCA000B1049A /* MapOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104613E1CCA000B1049A /* MapOverlay.png */; };
 		C81E105313E1CCA000B1049A /* Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104713E1CCA000B1049A /* Medium.png */; };
 		C81E105413E1CCA000B1049A /* MenuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104813E1CCA000B1049A /* MenuBackground.png */; };
 		C81E105513E1CCA000B1049A /* Nightmare.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104913E1CCA000B1049A /* Nightmare.png */; };
-		C81E105613E1CCA000B1049A /* ResumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104A13E1CCA000B1049A /* ResumeButton.png */; };
 		C81E105713E1CCA000B1049A /* SelectedBracket.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104B13E1CCA000B1049A /* SelectedBracket.png */; };
 		C8792ED813F5AFE5003D834F /* BackButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */; };
 		C8792ED913F5AFE6003D834F /* Button_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED213F5AFE5003D834F /* Button_Highlighted.png */; };
@@ -730,15 +727,12 @@
 		C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "idGinzaNar-Md2.otf"; path = "../../idGinzaNar-Md2.otf"; sourceTree = SOURCE_ROOT; };
 		C81E104013E1CCA000B1049A /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackButton.png; path = "../../IB Images/BackButton.png"; sourceTree = SOURCE_ROOT; };
 		C81E104113E1CCA000B1049A /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button.png; path = "../../IB Images/Button.png"; sourceTree = SOURCE_ROOT; };
-		C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DOOM_sigil_decal.png; path = "../../IB Images/DOOM_sigil_decal.png"; sourceTree = SOURCE_ROOT; };
 		C81E104313E1CCA000B1049A /* DoomLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DoomLogo.png; path = "../../IB Images/DoomLogo.png"; sourceTree = SOURCE_ROOT; };
 		C81E104413E1CCA000B1049A /* Easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Easy.png; path = "../../IB Images/Easy.png"; sourceTree = SOURCE_ROOT; };
 		C81E104513E1CCA000B1049A /* Hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hard.png; path = "../../IB Images/Hard.png"; sourceTree = SOURCE_ROOT; };
-		C81E104613E1CCA000B1049A /* MapOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapOverlay.png; path = "../../IB Images/MapOverlay.png"; sourceTree = SOURCE_ROOT; };
 		C81E104713E1CCA000B1049A /* Medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Medium.png; path = "../../IB Images/Medium.png"; sourceTree = SOURCE_ROOT; };
 		C81E104813E1CCA000B1049A /* MenuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MenuBackground.png; path = "../../IB Images/MenuBackground.png"; sourceTree = SOURCE_ROOT; };
 		C81E104913E1CCA000B1049A /* Nightmare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nightmare.png; path = "../../IB Images/Nightmare.png"; sourceTree = SOURCE_ROOT; };
-		C81E104A13E1CCA000B1049A /* ResumeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ResumeButton.png; path = "../../IB Images/ResumeButton.png"; sourceTree = SOURCE_ROOT; };
 		C81E104B13E1CCA000B1049A /* SelectedBracket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectedBracket.png; path = "../../IB Images/SelectedBracket.png"; sourceTree = SOURCE_ROOT; };
 		C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackButton_Highlighted.png; path = "../../IB Images/BackButton_Highlighted.png"; sourceTree = SOURCE_ROOT; };
 		C8792ED213F5AFE5003D834F /* Button_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Button_Highlighted.png; path = "../../IB Images/Button_Highlighted.png"; sourceTree = SOURCE_ROOT; };
@@ -1300,56 +1294,53 @@
 		C84F820613D73D28006D01AB /* Interface Builder Images */ = {
 			isa = PBXGroup;
 			children = (
-				C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */,
-				C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */,
 				C87931DE13F610B9003D834F /* AdvancedButton_Highlighted.png */,
 				C87931DF13F610B9003D834F /* AdvancedButton.png */,
+				C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */,
+				C81E104013E1CCA000B1049A /* BackButton.png */,
+				C8792ED213F5AFE5003D834F /* Button_Highlighted.png */,
+				C81E104113E1CCA000B1049A /* Button.png */,
+				C879308513F5D8AA003D834F /* DifficultyBackground.png */,
 				C87931E013F610B9003D834F /* Divide.png */,
+				C81E104313E1CCA000B1049A /* DoomLogo.png */,
+				C879308613F5D8AA003D834F /* DownArrow_Highlighted.png */,
+				C879308713F5D8AA003D834F /* DownArrow.png */,
+				C81E104413E1CCA000B1049A /* Easy.png */,
+				C87930E113F5EC1B003D834F /* Episode1Background_Highlighted.png */,
+				C879308813F5D8AA003D834F /* Episode1Background.png */,
+				C87930E213F5EC1B003D834F /* Episode2Background_Highlighted.png */,
+				C879308913F5D8AA003D834F /* Episode2Background.png */,
+				C87930E313F5EC1B003D834F /* Episode3Background_Highlighted.png */,
+				C879308A13F5D8AA003D834F /* Episode3Background.png */,
+				C87930E413F5EC1B003D834F /* Episode4Background_Highlighted.png */,
+				C879308B13F5D8AA003D834F /* Episode4Background.png */,
+				C81E104513E1CCA000B1049A /* Hard.png */,
+				C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */,
 				C87931E113F610B9003D834F /* LayoutDualButton_Highlighted.png */,
 				C87931E213F610B9003D834F /* LayoutDualButton.png */,
 				C87931E313F610B9003D834F /* LayoutSingleButton_Highlighted.png */,
 				C87931E413F610B9003D834F /* LayoutSingleButton.png */,
 				C87931E513F610B9003D834F /* LayoutWheelButton_Highlighted.png */,
 				C87931E613F610B9003D834F /* LayoutWheelButton.png */,
+				C81E104713E1CCA000B1049A /* Medium.png */,
+				C81E104813E1CCA000B1049A /* MenuBackground.png */,
+				C879308C13F5D8AA003D834F /* MissonBackground.png */,
+				C8792ED313F5AFE5003D834F /* NextButton_Highlighted.png */,
+				C8792ED413F5AFE5003D834F /* NextButton.png */,
+				C81E104913E1CCA000B1049A /* Nightmare.png */,
+				C81E104B13E1CCA000B1049A /* SelectedBracket.png */,
 				C87931E713F610B9003D834F /* SettingsButton_Highlighted.png */,
 				C87931E813F610B9003D834F /* SettingsButton.png */,
 				C87931E913F610B9003D834F /* SliderBackground.png */,
 				C87931EA13F610B9003D834F /* SliderBar.png */,
 				C87931EB13F610B9003D834F /* SliderSkull.png */,
-				C87930E113F5EC1B003D834F /* Episode1Background_Highlighted.png */,
-				C87930E213F5EC1B003D834F /* Episode2Background_Highlighted.png */,
-				C87930E313F5EC1B003D834F /* Episode3Background_Highlighted.png */,
-				C87930E413F5EC1B003D834F /* Episode4Background_Highlighted.png */,
-				C879308513F5D8AA003D834F /* DifficultyBackground.png */,
-				C879308613F5D8AA003D834F /* DownArrow_Highlighted.png */,
-				C879308713F5D8AA003D834F /* DownArrow.png */,
-				C879308813F5D8AA003D834F /* Episode1Background.png */,
-				C879308913F5D8AA003D834F /* Episode2Background.png */,
-				C879308A13F5D8AA003D834F /* Episode3Background.png */,
-				C879308B13F5D8AA003D834F /* Episode4Background.png */,
-				C879308C13F5D8AA003D834F /* MissonBackground.png */,
-				C879308D13F5D8AA003D834F /* UpArrow_Highlighted.png */,
-				C879308E13F5D8AA003D834F /* UpArrow.png */,
-				C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */,
-				C8792ED213F5AFE5003D834F /* Button_Highlighted.png */,
-				C8792ED313F5AFE5003D834F /* NextButton_Highlighted.png */,
-				C8792ED413F5AFE5003D834F /* NextButton.png */,
+				C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */,
+				C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */,
 				C8792ED513F5AFE5003D834F /* SubMenuBackground.png */,
 				C8792ED613F5AFE5003D834F /* SubMenuButton_Highlighted.png */,
 				C8792ED713F5AFE5003D834F /* SubMenuButton.png */,
-				C81E104013E1CCA000B1049A /* BackButton.png */,
-				C81E104113E1CCA000B1049A /* Button.png */,
-				C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */,
-				C81E104313E1CCA000B1049A /* DoomLogo.png */,
-				C81E104413E1CCA000B1049A /* Easy.png */,
-				C81E104513E1CCA000B1049A /* Hard.png */,
-				C81E104613E1CCA000B1049A /* MapOverlay.png */,
-				C81E104713E1CCA000B1049A /* Medium.png */,
-				C81E104813E1CCA000B1049A /* MenuBackground.png */,
-				C81E104913E1CCA000B1049A /* Nightmare.png */,
-				C81E104A13E1CCA000B1049A /* ResumeButton.png */,
-				C81E104B13E1CCA000B1049A /* SelectedBracket.png */,
-				C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */,
+				C879308D13F5D8AA003D834F /* UpArrow_Highlighted.png */,
+				C879308E13F5D8AA003D834F /* UpArrow.png */,
 			);
 			name = "Interface Builder Images";
 			sourceTree = "<group>";
@@ -1533,7 +1524,6 @@
 				A1E89C902067469D00760204 /* CreditsMenuView.xib in Resources */,
 				A1A63DC220562B2B000955AE /* CreditsMenuView~ipad.xib in Resources */,
 				A1A63DC420562B2B000955AE /* SecretMenuView.xib in Resources */,
-				C81E104E13E1CCA000B1049A /* DOOM_sigil_decal.png in Resources */,
 				A1A184282063E63200302393 /* EpisodeCell.xib in Resources */,
 				C81E104F13E1CCA000B1049A /* DoomLogo.png in Resources */,
 				A1A63DC320562B2B000955AE /* ControlsMenuView~ipad.xib in Resources */,
@@ -1543,13 +1533,11 @@
 				C81E105113E1CCA000B1049A /* Hard.png in Resources */,
 				A1A63DF420562B76000955AE /* MainMenuView~ipad.xib in Resources */,
 				A1A63E1A20562FC4000955AE /* DOOM_144.png in Resources */,
-				C81E105213E1CCA000B1049A /* MapOverlay.png in Resources */,
 				C81E105313E1CCA000B1049A /* Medium.png in Resources */,
 				C81E105413E1CCA000B1049A /* MenuBackground.png in Resources */,
 				A1A63E3320563345000955AE /* r_drawcolpipeline.inl in Resources */,
 				A1A63DBF20562B2B000955AE /* ControlsMenuView.xib in Resources */,
 				C81E105513E1CCA000B1049A /* Nightmare.png in Resources */,
-				C81E105613E1CCA000B1049A /* ResumeButton.png in Resources */,
 				A1A63DE720562B76000955AE /* EpisodeMenuView.xib in Resources */,
 				A1A63E3620563345000955AE /* Makefile.am in Resources */,
 				C81E105713E1CCA000B1049A /* SelectedBracket.png in Resources */,

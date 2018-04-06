@@ -10,6 +10,12 @@ Improvements/Changes
 - Basic MFi controller support
 - Structure and View Controller usage grafted in from the DOOM-iOS2 repository and public user forks, unused code and embedded xcodeproj use eliminated
 
-This commit only includes the changes made to the original source code and the original files. An "IB Images" directory is still required to build correctly, as is a `idGinzaNar-Md2.otf` font file along with `doom.wad` and `base.iPack`, but as those consist of copyrighted material, I have not included them in this commit. 
+This commit adds placeholder files for the "IB Images" folder and the `idGinzaNar-Md2.otf` font file. You will still need to provide your own copies of `doom.wad` and `base.iPack`. 
 
-My plan is to do a pull request to id Software on this commit and then make a second commit with placeholder menu art and font for others to be able to compile once they provide a `doom.wad` file and `base.iPack` file. The `doom.wad` file can be found in any installation of DOOM but the `base.iPack` file must be sourced from elsewhere or created with a utility that I have yet to write.
+You can find the file `doom.wad` in any installation of DOOM, available on [Steam](http://store.steampowered.com/app/2280/Ultimate_Doom/), [GOG](https://www.gog.com/game/the_ultimate_doom), and floppy disk from 1-800-IDGAMES (note: do not call 1-800-IDGAMES I don't know where it goes anymore). 
+
+The file `base.iPack` is not included in any DOOM installation and is specific to the iOS port. I can't include it in this repo because it contains copyrighted material and I can't tell you where to find it either, but you will need to source it yourself. The history is included in this [lengthy article](http://schnapple.com/wolfenstein-3d-and-doom-on-ios-11/) I wrote on the subject. At some point I hope to have a utility that will let you construct a `base.iPack` file but for now I don't. 
+
+This repo contains changes from id's [DOOM-iOS2](https://github.com/id-Software/DOOM-IOS2) repo (different than the parent of this repo), changes from the [FinalJudgement](https://github.com/JadingTsunami/FinalJudgment-iOS) repo by [JadingTsunami](https://github.com/JadingTsunami/), and [MFi controller code](https://github.com/TheRohans/DOOM-IOS2/commit/5a6b69d5e9821134f4013b069faef29190dcd7a1) from [TheRohans](https://github.com/TheRohans/).
+
+Have fun. For any questions I can be reached at tomkidd@gmail.com
