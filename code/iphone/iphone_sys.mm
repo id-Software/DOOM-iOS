@@ -70,14 +70,20 @@ void SysIPhoneVibrate() {
 
 
 void SysIPhoneOpenURL( const char *url ) {
+#if !TARGET_OS_TV
 	Com_Printf( "OpenURL char *: %s\n", url );
 	
 	NSString *nss = [NSString stringWithCString: url encoding: NSASCIIStringEncoding];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: nss]];
+#endif
 }
 
 int SysIPhoneIsDeviceLandscapeRight( void ) {
+#if TARGET_OS_TV
+    return 0;
+#else
 	return [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight;
+#endif
 }
 
 void SysIPhoneSetUIKitOrientation( int isLandscapeRight ) {

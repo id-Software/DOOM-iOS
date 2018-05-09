@@ -51,14 +51,20 @@ static ALCdevice *Device;
 }
 - (void)registerInterruptionListener {
     
+#if !TARGET_OS_TV
 [[NSNotificationCenter defaultCenter] addObserver:self
                                          selector:@selector(handleAudioSessionInterruption:)
                                              name:AVAudioSessionInterruptionNotification
                                            object:[AVAudioSession sharedInstance]];
+#endif
 
 }
 
 - (void)handleAudioSessionInterruption:(NSNotification *)notification {
+    
+#if !TARGET_OS_TV
+
+
     NSDictionary *interruptionDict = notification.userInfo;
     NSInteger interruptionType = [[interruptionDict valueForKey:AVAudioSessionInterruptionTypeKey] integerValue];
     printf("Session interrupted! --- %s ---\n", interruptionType == AVAudioSessionInterruptionTypeBegan ? "Begin Interruption" : "End Interruption");
@@ -135,6 +141,8 @@ static ALCdevice *Device;
             iphoneResumeMusic();
     }
      */
+    
+#endif
 }
 @end
 
@@ -194,6 +202,7 @@ void Sound_Init(void) {
 	
 	Cmd_AddCommand( "play", Sound_Play_f );
 	
+#if !TARGET_OS_TV
 	// make sure background ipod music mixes with our sound effects
 	Com_Printf( "...Initializing AudioSession\n" );
    
@@ -239,7 +248,8 @@ void Sound_Init(void) {
         NSLog(@"%@", error);
     }
 	//JDS deprecated status = AudioSessionSetActive(true);                                       // else "couldn't set audio session active\n"
-    
+#endif
+
 	Com_Printf( "...Initializing OpenAL subsystem\n" );
 	
 	// get the OpenAL device

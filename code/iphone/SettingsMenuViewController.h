@@ -20,6 +20,7 @@
 
 #import <UIKit/UIKit.h>
 #import "../ios/Switch.h"
+#import "../ios/LabelButton.h"
 
 /*
  ================================================================================================
@@ -38,7 +39,18 @@
     IBOutlet idSwitch * musicSwitch;
     IBOutlet idSwitch * centerSticksSwitch;
     IBOutlet idSwitch * rampTurnSwitch;
-    
+    IBOutlet idLabelButton * resetButton;
+
+    IBOutlet UIImageView * autoUseSelection;
+    IBOutlet UIImageView * statusbarSelection;
+    IBOutlet UIImageView * touchclickSelection;
+    IBOutlet UIImageView * textMessageSelection;
+    IBOutlet UIImageView * drawControlsSelection;
+    IBOutlet UIImageView * musicSelection;
+    IBOutlet UIImageView * centerSticksSelection;
+    IBOutlet UIImageView * rampTurnSelection;
+    IBOutlet UIImageView * resetSelection;
+
 
 }
 

@@ -19,6 +19,7 @@
  */
 
 #include "doomiphone.h"
+#include "TargetConditionals.h"
 
 playState_t playState;
 
@@ -894,6 +895,11 @@ void iphoneDrawRotorControl( ibutton_t *hud ) {
 
 
 void iphoneDrawHudControl( ibutton_t *hud ) {
+    
+    if (TARGET_OS_TV) {
+        return;
+    }
+    
 	if ( hud->buttonFlags & BF_IGNORE ) {
 		return;
 	}
@@ -1513,8 +1519,9 @@ void iphoneFrame() {
 			// this probably doesn't need to be tic-synced, but it doesn't hurt
 			if (players[displayplayer].mo) {
 				// move positional sounds and free up channels that have completed
-				S_UpdateSounds(players[displayplayer].mo);
-			}			
+                //GUS temporarily removed
+                //S_UpdateSounds(players[displayplayer].mo);
+			}
 		}
 	}
 	
@@ -1599,11 +1606,17 @@ void iphoneDrawScreen() {
 	if ( statusBar->modified ) {
 		statusBar->modified = false;
 		
-		if ( statusBar->value ) {
-			R_SetViewSize( 10 );
-		} else {
-			R_SetViewSize( 11 );
-		}
+        if ( statusBar->value ) {
+            R_SetViewSize( 10 );
+            hud_displayed = 0;
+            hud_active = 0;
+            hud_distributed = 0;
+        } else {
+            R_SetViewSize( 11 );
+            hud_displayed = 1;
+            hud_active = 2;
+            hud_distributed = 1;
+        }
 	}
 
 	//------------------------------------------------
@@ -1675,12 +1688,25 @@ void iphoneDrawScreen() {
 			if ( players[consoleplayer].playerstate == PST_DEAD ) {
 				// when dead, only show the main menu con and the
 				// respawn / load game icons
+#if !TARGET_OS_TV
 				if ( HandleButton( &huds.menu ) ) {
 					iphonePauseMusic();
 					menuState = IPM_MAIN;
                     iphoneMainMenu();
 				}
+#endif
 				if ( !deathmatch && !netgame ) {
+                    
+                    // for now we're going to not draw these on the screen for the TV version
+                    // all you can do is respawn with the USE button (A)
+                    
+#if TARGET_OS_TV
+                    static ibutton_t btnRespawn;
+                    SetButtonPicsAndSizes( &btnRespawn, "iphone/respawn.tga", "Press A to restart", 240 - 48, 80, 96, 96 );
+                    if ( HandleButton( &btnRespawn ) ) {
+//                        players[consoleplayer].playerstate = PST_REBORN;
+                    }
+#else
 					static ibutton_t btnSaved;
 					static ibutton_t btnRespawn;
 					static ibutton_t btnGear;
@@ -1702,6 +1728,7 @@ void iphoneDrawScreen() {
 					    players[consoleplayer].playerstate = PST_REBORN;
 						addGear = true;
 					}
+#endif
 				} else {
 					static ibutton_t btnNetRespawn;
 					if ( !btnNetRespawn.texture ) {
@@ -1724,17 +1751,20 @@ void iphoneDrawScreen() {
 					iphoneDrawRotorControl( &huds.turnRotor );
 //					iphoneDrawHudControl( &huds.fire );
 				}
-				
-				if ( HandleButton( &huds.menu ) ) {
-					iphonePauseMusic();
-					menuState = IPM_MAIN;
-                    iphoneMainMenu();
-				}
-				if ( HandleButton( &huds.map ) ) {
-					AM_Start();
-				}
-				if ( HandleButton( &huds.fire ) ) {
-				}
+                
+                if (!TARGET_OS_TV) {
+                    
+                    if ( HandleButton( &huds.menu ) ) {
+                        iphonePauseMusic();
+                        menuState = IPM_MAIN;
+                        iphoneMainMenu();
+                    }
+                    if ( HandleButton( &huds.map ) ) {
+                        AM_Start();
+                    }
+                    if ( HandleButton( &huds.fire ) ) {
+                    }
+                }
 				
 				if ( netgame ) {
 #if 0				

@@ -41,6 +41,12 @@
     IBOutlet idLabel *  hardSelectionLabel;
     IBOutlet idLabel *  nightmareSelectionLabel;
     
+    
+    IBOutlet idLabelButton *    easyButton;
+    IBOutlet idLabelButton *    normalButton;
+    IBOutlet idLabelButton *    hardButton;
+    IBOutlet idLabelButton *    nightmareButton;
+    
     IBOutlet idLabelButton * playButton;
     IBOutlet idLabel * playLabel;
     

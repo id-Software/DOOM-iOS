@@ -34,8 +34,10 @@
 - (bool) IsDisplaying;
 
 // JDS revised orientation code
+#if !TARGET_OS_TV
 -(BOOL)shouldAutorotate;
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation;
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations;
+#endif
 
 @end

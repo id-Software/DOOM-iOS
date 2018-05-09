@@ -108,11 +108,18 @@ bool iphoneControllerIsAvailable() {
     if(!initialized) {
         NSArray *controllers = [GCController controllers];
         if(controllers.count > 0) {
-            controller = controllers[0]; // Just use the first one
+//            controller = controllers[0]; // Just use the first one
             
             // If we have neither gamepad nor extended gamepad support, just make controller nil
-            if(![controller gamepad] && ![controller extendedGamepad]) {
+//            if(![controller gamepad] && ![controller extendedGamepad]) {
                 controller = nil;
+//            }
+            
+            for (int i = 0; i < controllers.count; i++)
+            {
+                if([controllers[i] gamepad] || [controllers[i] extendedGamepad]) {
+                    controller = controllers[i];
+                }
             }
             
             setupPauseButtonHandler(controller);
@@ -173,6 +180,18 @@ void iphoneControllerInput(ticcmd_t* cmd) {
             cmd->buttons |= newWeapon << BT_WEAPONSHIFT;
         }
         
+//        if(gamepad.dpad.left.pressed && players[consoleplayer].playerstate == PST_DEAD) {
+//            cmd->buttons |= BT_USE;
+//        }
+//        
+//        if(gamepad.dpad.up.pressed && players[consoleplayer].playerstate == PST_DEAD) {
+//            cmd->buttons |= BT_SPECIAL;
+//        }
+//        
+//        if(gamepad.dpad.right.pressed && players[consoleplayer].playerstate == PST_DEAD) {
+//            cmd->buttons |= BT_SPECIALMASK;
+//        }
+
         if(togglePause) {
             cmd->buttons |= BT_SPECIAL | (BTS_PAUSE & BT_SPECIALMASK);
             togglePause = false;

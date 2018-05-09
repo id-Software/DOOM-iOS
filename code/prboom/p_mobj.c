@@ -918,6 +918,9 @@ void P_RemoveMobj (mobj_t* mobj)
 
   // stop any playing sound
 
+    // GUS temporarily disable
+    //S_StopSound (mobj);
+    // MAY NEED TVOS STUFF HERE -tkidd
   S_StopSound (mobj);
 
   // killough 11/98:

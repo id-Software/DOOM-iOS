@@ -18,6 +18,7 @@
  
  */
 
+#if !TARGET_OS_TV
 #import "Slider.h"
 
 
@@ -45,6 +46,7 @@
 	[ self setThumbImage:thumbImage forState:UIControlStateHighlighted ];
     
 }
+#endif
 
 
 

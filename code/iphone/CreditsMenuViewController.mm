@@ -196,7 +196,7 @@ static const int CreditSizes[CREDITS_LINES] = {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"MyIdentifier";
+    static NSString *MyIdentifier = @"CreditsIdentifier";
     
     UITableViewCell *cell = (UITableViewCell*)[self.creditsList dequeueReusableCellWithIdentifier:MyIdentifier];
     
@@ -271,5 +271,11 @@ static const int CreditSizes[CREDITS_LINES] = {
         return size;
     }
 }
+
+#if TARGET_OS_TV
+-(NSArray<id<UIFocusEnvironment>> *)preferredFocusEnvironments {
+    return @[creditsList];
+}
+#endif
 
 @end

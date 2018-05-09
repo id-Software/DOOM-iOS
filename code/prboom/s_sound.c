@@ -175,6 +175,9 @@ void S_Start(void)
   // kill all playing sounds at start of level
   //  (trust me - a good idea)
 
+    //S_Stop();
+    //Gus Temporarily Disable
+    // MAY NEED TVOS STUFF HERE -tkidd
   S_Stop();
 
   //jff 1/22/98 return if music is not enabled

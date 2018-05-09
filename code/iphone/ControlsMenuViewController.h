@@ -27,11 +27,12 @@
  */
 @interface Doom_ControlsMenuViewController : UIViewController {
     
+#if !TARGET_OS_TV
     IBOutlet UISlider * movestickSize;
     IBOutlet UISlider * turnstickSize;
     IBOutlet UISlider * tiltMoveSpeed;
     IBOutlet UISlider * tiltTurnSpeed;
-    
+#endif
     
     IBOutlet UIButton * singleThumbButton;
     IBOutlet UIButton * dualThumbButton;
@@ -39,10 +40,11 @@
     
 }
 
-
+#if !TARGET_OS_TV
 - (void) SetupSlider:(UISlider*)slider minimumTrack:(UIImage*)minImage
         maximumTrack:(UIImage*)maxImage
                thumb:(UIImage*)thumbImage;
+#endif
 
 - (IBAction) BackToMain;
 - (IBAction) HudLayoutPressed;

@@ -29,6 +29,7 @@
 
 #include "doomiphone.h"
 //#include "DoomGameCenterMatch.h"
+#include "TargetConditionals.h"
 
 //#include "ios/GameCenter.h"
 
@@ -552,6 +553,7 @@ static void iphoneBuildTiccmd(ticcmd_t* cmd) {
 		if ( numTouches == numPrevTouches + 1 ) {
 			cmd->buttons |= BT_ATTACK;
 		}
+        iphoneControllerInput(cmd);
 		return;
 	}
 	
@@ -562,7 +564,21 @@ static void iphoneBuildTiccmd(ticcmd_t* cmd) {
 	
 	// don't built a tic when dead, other than the respawn use
 	if ( players[consoleplayer].playerstate == PST_DEAD ) {
-		return;
+#if TARGET_OS_TV
+        // unless we're on apple tv
+        iphoneControllerInput(cmd);
+        
+        // just to keep things simple all we can do is respawn
+        // load saved game and respawn with gear are not possible
+        // may re-evaluate this later but for now this is a tv change
+        if (cmd->buttons & BT_USE) {
+            players[consoleplayer].playerstate = PST_REBORN;
+        }
+
+        return;
+#else
+        return;
+#endif
 	}
 	
 	//------------------------

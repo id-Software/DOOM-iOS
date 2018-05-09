@@ -19,6 +19,7 @@
  */
 
 #include "doomiphone.h"
+#include "TargetConditionals.h"
 #include <math.h>
 
 hud_t	huds;
@@ -67,6 +68,7 @@ void SetHudSpot( ibutton_t *hp, int x, int y, int dw, int dh ) {
 }
 
 void HudSetTexnums() {
+    
 	SetHudPic( &huds.forwardStick, "iphone/up_down.tga" );
 	SetHudPic( &huds.sideStick, "iphone/side_2_side.tga" );
 	SetHudPic( &huds.turnStick, "iphone/directional_2.tga" );
@@ -79,6 +81,7 @@ void HudSetTexnums() {
 }
 
 void HudSetForScheme( int schemeNum ) {
+    
 	for ( ibutton_t *hud = (ibutton_t *)&huds ; hud != (ibutton_t *)(&huds+1) ; hud++ ) {
 		hud->buttonFlags = BF_IGNORE;
 	}

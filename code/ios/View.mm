@@ -131,7 +131,9 @@ idView * gMainView; // global openGL View.
  */
 - (void) Initialize {
     
+#if !TARGET_OS_TV
     self.multipleTouchEnabled = YES;
+#endif
 	gMainView = self;
     
     // Double the resolution on iPhone 4.   

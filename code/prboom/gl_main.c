@@ -2667,7 +2667,7 @@ static void gld_DrawSprite(GLSprite *sprite)
     
   	// transparent sprites blend and don't write to the depth buffer
 	glEnable( GL_BLEND );
-	glDepthMask( 0 );
+//    glDepthMask( 0 );
 	
 	glEnable( GL_ALPHA_TEST );
     
@@ -2707,7 +2707,7 @@ static void gld_DrawSprite(GLSprite *sprite)
   }
     
     glDisable( GL_ALPHA_TEST );
-	glDepthMask( 1 );
+//    glDepthMask( 1 );
 }
 
 void gld_AddSprite(vissprite_t *vspr)

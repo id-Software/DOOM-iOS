@@ -25,6 +25,13 @@
 
 @synthesize on;
 
+#if TARGET_OS_TV
+- (BOOL)canBecomeFocused {
+    return YES;
+}
+#endif
+
+
 /*
  ========================
  setOn
@@ -51,9 +58,11 @@
  */
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-	[super touchesBegan:touches withEvent:event];
+    NSLog(@"DOOM: touchesEnded");
+    [super touchesBegan:touches withEvent:event];
+#if !TARGET_OS_TV
 	[self setOn: !on ];
-    
+#endif
 }
 
 
@@ -64,8 +73,9 @@
  */
 - (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
 {
-	[super touchesEnded:touches withEvent:event];
-    
+    NSLog(@"DOOM: touchesEnded");
+    [super touchesEnded:touches withEvent:event];
+#if !TARGET_OS_TV
     if (on)
 	{
 		[ self setHighlighted: YES ];
@@ -74,6 +84,31 @@
 	{
 		[ self setHighlighted: NO ];
 	}
+#endif
 }
+
+- (void)pressesBegan:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
+    NSLog(@"DOOM: pressesBegan");
+    [super pressesBegan:presses withEvent:event];
+#if TARGET_OS_TV
+//    [self setOn: !on ];
+//    if (on)
+//    {
+//        [ self setHighlighted: YES ];
+//    }
+//    else
+//    {
+//        [ self setHighlighted: NO ];
+//    }
+#endif
+}
+
+- (void)pressesEnded:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
+    NSLog(@"DOOM: pressesEnded");
+}
+
+//- (void)drawRect:(CGRect)rect {
+//    
+//}
 
 @end

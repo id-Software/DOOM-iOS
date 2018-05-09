@@ -35,7 +35,6 @@
     int                         episodeSelection;
     IBOutlet idLabelButton *    nextButton;
     IBOutlet idLabel *          nextLabel;
-    
 }
 
 @property (nonatomic, assign) IBOutlet UITableViewCell *episodeCell;

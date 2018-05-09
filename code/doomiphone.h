@@ -37,6 +37,7 @@
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
 #define IPHONE_X_BOTTOM_INSET 64
+#define IS_TV (TARGET_OS_TV)
 
 #define PWAD_LIST_SEPARATOR ':'
 

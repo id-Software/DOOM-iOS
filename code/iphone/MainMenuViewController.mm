@@ -146,6 +146,11 @@
  */
 @implementation Doom_MainMenuViewController
 
+BOOL playMenuSelected = NO;
+BOOL extrasMenuSelected = NO;
+BOOL aboutMenuSelected = NO;
+BOOL settingsMenuSelected = NO;
+
 /*
  ========================
  MainMenuViewController::initWithNibName
@@ -209,9 +214,7 @@
 - (IBAction) NewGamePressed {
     
     // Switch to episode view menu.
-    Doom_EpisodeMenuViewController *vc = nil;
-	
-    vc = [[Doom_EpisodeMenuViewController alloc] initWithNibName:@"EpisodeMenuView" bundle:nil];
+    Doom_EpisodeMenuViewController *vc = [[Doom_EpisodeMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"EpisodeMenuView"] bundle:nil];
 
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
@@ -267,9 +270,7 @@
  */
 - (IBAction) CreditsPressed {
     
-    Doom_CreditsMenuViewController *vc = nil;
-	
-    vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:@"CreditsMenuView" bundle:nil];
+    Doom_CreditsMenuViewController *vc = [[Doom_CreditsMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"CreditsMenuView"] bundle:nil];
 
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
@@ -296,10 +297,8 @@
  */
 - (IBAction) LegalPressed {
     
-    Doom_LegalMenuViewController *vc = nil;
-	
-    vc = [[Doom_LegalMenuViewController alloc] initWithNibName:@"LegalMenuView" bundle:nil];
-	
+    Doom_LegalMenuViewController *vc = [[Doom_LegalMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"LegalMenuView"] bundle:nil];
+
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
     
@@ -339,9 +338,7 @@
  */
 - (IBAction) ControlsOptionsPressed {
     
-    Doom_ControlsMenuViewController *vc = nil;
-	
-    vc = [[Doom_ControlsMenuViewController alloc] initWithNibName:@"ControlsMenuView" bundle:nil];
+    Doom_ControlsMenuViewController *vc = [[Doom_ControlsMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"ControlsMenuView"] bundle:nil];
 
     [self.navigationController pushViewController:vc animated:NO];
     [vc release];
@@ -357,10 +354,7 @@
  */
 - (IBAction) SettingsOptionsPressed {
     
-
-	Doom_SettingsMenuViewController *vc = nil;
-	
-    vc = [[Doom_SettingsMenuViewController alloc] initWithNibName:@"SettingsMenuView" bundle:nil];
+    Doom_SettingsMenuViewController *vc = [[Doom_SettingsMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"SettingsMenuView"] bundle:nil];
 
      [self.navigationController pushViewController:vc animated:NO];
      [vc release];
@@ -385,6 +379,15 @@
     [ mExtrasSubMenu Hide ];
     [ mAboutSubMenu Hide ];
     
+#if TARGET_OS_TV
+    playMenuSelected = YES;
+    extrasMenuSelected = NO;
+    settingsMenuSelected = NO;
+    aboutMenuSelected = NO;
+    [self setNeedsFocusUpdate];
+    [self updateFocusIfNeeded];
+#endif
+    
 }
 
 /*
@@ -403,6 +406,15 @@
     [ mPlaySubMenu Hide ];
     [ mExtrasSubMenu Hide ];
     [ mAboutSubMenu Hide ];
+
+#if TARGET_OS_TV
+    playMenuSelected = NO;
+    extrasMenuSelected = NO;
+    settingsMenuSelected = YES;
+    aboutMenuSelected = NO;
+    [self setNeedsFocusUpdate];
+    [self updateFocusIfNeeded];
+#endif
 }
 
 /*
@@ -421,6 +433,16 @@
     [ mPlaySubMenu Hide ];
     [ mSettingsSubMenu Hide ];
     [ mExtrasSubMenu Hide ];
+    
+#if TARGET_OS_TV
+    playMenuSelected = NO;
+    extrasMenuSelected = NO;
+    settingsMenuSelected = NO;
+    aboutMenuSelected = YES;
+    [self setNeedsFocusUpdate];
+    [self updateFocusIfNeeded];
+#endif
+
 }
 
 /*
@@ -448,8 +470,85 @@
     [ mPlaySubMenu Hide ];
     [ mExtrasSubMenu Show ];
     [ mAboutSubMenu Hide ];
+    
+    
+#if TARGET_OS_TV
+    playMenuSelected = NO;
+    extrasMenuSelected = YES;
+    settingsMenuSelected = NO;
+    aboutMenuSelected = NO;
+    [self setNeedsFocusUpdate];
+    [self updateFocusIfNeeded];
+#endif
 
 }
 
+#if TARGET_OS_TV
+-(NSArray<id<UIFocusEnvironment>> *)preferredFocusEnvironments {
+    if (playMenuSelected) {
+        return @[mPlaySubMenu];
+    } else if (extrasMenuSelected) {
+        return @[mExtrasSubMenu];
+    } else if (settingsMenuSelected) {
+        return @[mSettingsSubMenu];
+    } else if (aboutMenuSelected) {
+        return @[mAboutSubMenu];
+    } else {
+        return @[mPlayButton];
+    }
+}
+
+- (void)pressesBegan:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
+    for (UIPress* press in presses) {
+        switch (press.type) {
+            case UIPressTypeMenu:
+                if (playMenuSelected || extrasMenuSelected || settingsMenuSelected || aboutMenuSelected) {
+                    break;
+                } else {
+                    [super pressesBegan: presses withEvent: event];
+                }
+                default:
+                    [super pressesBegan: presses withEvent: event];
+                break;
+        }
+    }
+}
+
+- (void)pressesEnded:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
+    for (UIPress* press in presses) {
+        switch (press.type) {
+            case UIPressTypeMenu:
+                if (playMenuSelected) {
+                    playMenuSelected = NO;
+                    [mPlaySubMenu Hide];
+                    [self setNeedsFocusUpdate];
+                    [self updateFocusIfNeeded];
+                } else if (extrasMenuSelected) {
+                    extrasMenuSelected = NO;
+                    [mExtrasSubMenu Hide];
+                    [self setNeedsFocusUpdate];
+                    [self updateFocusIfNeeded];
+                } else if (settingsMenuSelected) {
+                    settingsMenuSelected = NO;
+                    [mSettingsSubMenu Hide];
+                    [self setNeedsFocusUpdate];
+                    [self updateFocusIfNeeded];
+                } else if (aboutMenuSelected) {
+                    aboutMenuSelected = NO;
+                    [mAboutSubMenu Hide];
+                    [self setNeedsFocusUpdate];
+                    [self updateFocusIfNeeded];
+                } else {
+                    [super pressesEnded: presses withEvent: event];
+                }
+                break;
+            default:
+                [super pressesEnded: presses withEvent: event];
+                break;
+        }
+    }
+}
+
+#endif
 
 @end

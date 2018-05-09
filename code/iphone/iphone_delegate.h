@@ -24,8 +24,12 @@
 
 @class EAGLView;
 
-@interface iphoneApp : NSObject <UIApplicationDelegate, UIAccelerometerDelegate> {
-    
+#if TARGET_OS_TV
+    @interface iphoneApp : NSObject <UIApplicationDelegate> {
+#else
+    @interface iphoneApp : NSObject <UIApplicationDelegate, UIAccelerometerDelegate> {
+#endif
+
     UIWindow *                  window;                 // Main Application Window.
     UINavigationController *    navigationController;   // Our View Stack
     iphone_glViewController  *  openGLViewController;   // our OpenGL (Game) View
@@ -45,6 +49,8 @@ extern iphoneApp * gAppDelegate;
 - (void) ShowGLView;
 - (void) HideGLView;
 - (void) PopGLView;
+
+- (NSString*) GetNibNameForDevice:(NSString*) nibName;
 
 @end
 

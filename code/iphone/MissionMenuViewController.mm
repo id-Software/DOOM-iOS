@@ -36,6 +36,8 @@
  */
 @implementation Doom_MissionMenuViewController
 
+BOOL levelSelected = NO;
+
 #define TOTAL_EPISODES 4
 
 static const char * const MissionNames[TOTAL_EPISODES][9] = {
@@ -100,6 +102,8 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     hardSelectionLabel.hidden   = YES;
     NightmareSelection.hidden   = YES;
     nightmareSelectionLabel.hidden = YES;
+    
+    [missionList reloadData];
 }
 
 /*
@@ -236,6 +240,9 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     nightmareSelectionLabel.hidden = YES;
     
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
+#if TARGET_OS_TV
+    [self Play];
+#endif
 }
 
 /*
@@ -256,7 +263,10 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     nightmareSelectionLabel.hidden = YES;
     
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
-    
+#if TARGET_OS_TV
+    [self Play];
+#endif
+
 }
 
 /*
@@ -277,7 +287,10 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     nightmareSelectionLabel.hidden = YES;
     
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
-    
+#if TARGET_OS_TV
+    [self Play];
+#endif
+
 }
 
 /*
@@ -298,6 +311,9 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     nightmareSelectionLabel.hidden = NO;
     
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
+#if TARGET_OS_TV
+    [self Play];
+#endif
 }
 
 /*
@@ -314,6 +330,13 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     
     [self setCellSelected:YES atIndexPath:indexPath];
     
+    
+#if TARGET_OS_TV
+    levelSelected = YES;
+    [self setNeedsFocusUpdate];
+    [self updateFocusIfNeeded];
+#endif
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -321,7 +344,7 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"MyIdentifier";
+    static NSString *MyIdentifier = @"MissionIdentifier";
 
     UITableViewCell *cell = (UITableViewCell*)[self.missionList dequeueReusableCellWithIdentifier:MyIdentifier];
     
@@ -380,5 +403,52 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     UITableViewCell * cell = [missionList cellForRowAtIndexPath:indexPath];
     cell.textLabel.highlighted = selected;
 }
+
+#if TARGET_OS_TV
+-(NSArray<id<UIFocusEnvironment>> *)preferredFocusEnvironments {
+    if (levelSelected) {
+        levelSelected = NO;
+        return @[normalButton];
+    }
+    else {
+        return @[missionList];
+    }
+}
+
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
+    NSLog(@"%@", context.nextFocusedView);
+    
+    [super didUpdateFocusInContext:context withAnimationCoordinator:coordinator];
+    
+    if ([context.nextFocusedView isKindOfClass:[idLabelButton class]]) {
+        
+        if (context.nextFocusedView.tag > 0) {
+            easySelection.hidden        = YES;
+            easySelectionLabel.hidden   = YES;
+            mediumSelection.hidden      = YES;
+            mediumSelectionLabel.hidden = YES;
+            hardSelection.hidden        = YES;
+            hardSelectionLabel.hidden   = YES;
+            NightmareSelection.hidden   = YES;
+            nightmareSelectionLabel.hidden = YES;
+
+            
+            if (context.nextFocusedView.tag == 1) {
+                easySelection.hidden        = NO;
+                easySelectionLabel.hidden   = NO;
+            } else if (context.nextFocusedView.tag == 2) {
+                mediumSelection.hidden      = NO;
+                mediumSelectionLabel.hidden = NO;
+            } else if (context.nextFocusedView.tag == 3) {
+                hardSelection.hidden        = NO;
+                hardSelectionLabel.hidden   = NO;
+            } else if (context.nextFocusedView.tag == 4) {
+                NightmareSelection.hidden   = NO;
+                nightmareSelectionLabel.hidden = NO;
+            }
+        }
+    }
+}
+#endif
 
 @end

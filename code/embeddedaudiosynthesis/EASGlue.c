@@ -51,12 +51,12 @@ void EASGlueInit(void) {
 	assert( EASLibraryCheck(pLibConfig) );
 	
     if (polyphony > pLibConfig->maxVoices)
-        polyphony = pLibConfig->maxVoices;
-		
+        polyphony = (int)pLibConfig->maxVoices;
+
 	EAS_I32 mixSize = pLibConfig->mixBufferSize;
 	
-	bufferSize = mixSize * pLibConfig->numChannels * (EAS_I32)sizeof(EAS_PCM) * NUM_BUFFERS;
-	
+    bufferSize = (int)(mixSize * pLibConfig->numChannels * (EAS_I32)sizeof(EAS_PCM) * NUM_BUFFERS);
+
     /* calculate buffer size */
     //bufferSize = pLibConfig->mixBufferSize * pLibConfig->numChannels * (EAS_I32)sizeof(EAS_PCM) * NUM_BUFFERS;
 

@@ -1528,6 +1528,9 @@ void G_LoadGame(int slot, boolean command)
   } else {
     // Do the old thing, immediate load
     gameaction = ga_loadgame;
+//#warning FIXME checksum:  was false, but issues when loading savegames (checksum seems to be different)
+//      forced_loadgame = true;
+    // MAY NEED TVOS FIXES? -tkidd
     forced_loadgame = false;
     savegameslot = slot;
     demoplayback = false;

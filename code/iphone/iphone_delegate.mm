@@ -40,6 +40,9 @@ touch_t		sysTouches[MAX_TOUCHES];
 touch_t		gameTouches[MAX_TOUCHES];
 
 #define FRAME_HERTZ 30.0f
+#if !TARGET_OS_TV
+const static float ACCELEROMETER_UPDATE_INTERVAL = 1.0f / FRAME_HERTZ;
+#endif
 //FIXME: JadingTsunami (fix) const static float ACCELEROMETER_UPDATE_INTERVAL = 1.0f / FRAME_HERTZ;
 
 /*
@@ -59,6 +62,8 @@ touch_t		gameTouches[MAX_TOUCHES];
     // Disable Screen Dimming.
     [[ UIApplication sharedApplication] setIdleTimerDisabled: YES ];
     
+#if !TARGET_OS_TV
+    
     // Initial Application Style config.
     [UIApplication sharedApplication].statusBarHidden = YES;
 	
@@ -68,6 +73,8 @@ touch_t		gameTouches[MAX_TOUCHES];
     [ accelerometer setDelegate: self ];
     [ accelerometer setUpdateInterval: ACCELEROMETER_UPDATE_INTERVAL ];
      */
+    
+#endif
     
     [self InitializeInterfaceBuilder ];
 
@@ -145,6 +152,8 @@ touch_t		gameTouches[MAX_TOUCHES];
 	[super dealloc];
 }
 
+#if !TARGET_OS_TV
+
 /*
  ========================
  accelerometer 
@@ -161,7 +170,9 @@ touch_t		gameTouches[MAX_TOUCHES];
 	iphoneTiltEvent( acc );
 }
 */
- 
+
+#endif
+
 /*
  ========================
  HACK_PushController  - Removes Flicker from Loading Wads.
@@ -218,6 +229,17 @@ touch_t		gameTouches[MAX_TOUCHES];
  */
 - (void) InitializeInterfaceBuilder {
     
+}
+
+- (NSString*) GetNibNameForDevice:(NSString*) nibName
+{
+    NSString *extension = @"";
+    
+#if TARGET_OS_TV
+        extension = @"-tvos";
+#endif
+    
+    return [NSString stringWithFormat:@"%@%@", nibName, extension];
 }
 
 @end

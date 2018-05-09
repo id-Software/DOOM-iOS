@@ -98,14 +98,14 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
     
     // TODO: Select the current episode. Haven't yet figured out a good way to get the table
     // view to load with a default row selected, so for now always select episode 1.
+#if !TARGET_OS_TV
     int initialEpisode = 0;
-    
     NSIndexPath *initialPath = [NSIndexPath indexPathForRow:initialEpisode inSection:0];
     
     [self.episodeList selectRowAtIndexPath:initialPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     [self handleSelectionAtIndexPath:initialPath];
     self.episodeList.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+#endif
 }
 
 /*
@@ -126,11 +126,8 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
  */
 - (IBAction) NextToMissions {
     
-    Doom_MissionMenuViewController *vc = nil;
-	
-	
-    vc = [[Doom_MissionMenuViewController alloc] initWithNibName:@"MissionMenuView" bundle:nil];
-	
+    Doom_MissionMenuViewController *vc = [[Doom_MissionMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"MissionMenuView"] bundle:nil];
+
     [self.navigationController pushViewController:vc animated:NO];
     [vc setEpisode:episodeSelection ];
     [vc release];
@@ -151,7 +148,6 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
     Cvar_SetValue( episode->name, indexPath.row );
     
     [self setCellSelected:YES atIndexPath:indexPath];
-
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -159,12 +155,12 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *MyIdentifier = @"MyIdentifier";
+    static NSString *MyIdentifier = @"EpisodeIdentifier";
     UITableViewCell *cell = (UITableViewCell*)[self.episodeList dequeueReusableCellWithIdentifier:MyIdentifier];
     
     if (cell == nil) {
         //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
-        [[NSBundle mainBundle] loadNibNamed:@"EpisodeCell" owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:[gAppDelegate GetNibNameForDevice:@"EpisodeCell"] owner:self options:nil];
         
         if ( episodeCell == nil ) {
             // Couldn't create from nib file, load a default cell.
@@ -230,10 +226,26 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IS_IPAD) {
         return 158;
+    } else if (IS_TV) {
+        return 185;
     } else {
         return 79;
     }
 }
+
+#if TARGET_OS_TV
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
+    
+    [super didUpdateFocusInContext:context withAnimationCoordinator:coordinator];
+    
+    if ([context.nextFocusedView isKindOfClass:[UITableViewCell class]]) {
+        [coordinator addCoordinatedAnimations:^{
+            [context.nextFocusedView setBackgroundColor:[UIColor redColor]];
+            [context.previouslyFocusedView setBackgroundColor:[UIColor clearColor]];
+        } completion:nil];
+    }
+}
+#endif
 
 - (void)setCellSelected:(BOOL)selected atIndexPath:(NSIndexPath*)indexPath {
     // Get the cell that was selected.
@@ -241,9 +253,12 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
     [ nextLabel setEnabled: YES ];
     episodeSelection = (int)indexPath.row;
 
+#if TARGET_OS_TV
+    [self NextToMissions];
+#else
     UITableViewCell * cell = [episodeList cellForRowAtIndexPath:indexPath];
-    
     [self setCellSelected:selected cell:cell];
+#endif
 }
 
 - (void)setCellSelected:(BOOL)selected cell:(UITableViewCell*)cell {

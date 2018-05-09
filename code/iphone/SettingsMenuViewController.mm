@@ -29,6 +29,8 @@
  */
 @implementation Doom_SettingsMenuViewController
 
+UIFocusGuide *focusGuide;
+
 /*
  ========================
  Doom_SettingsMenuViewController::initWithNibName
@@ -67,14 +69,18 @@
 {
     [super viewDidLoad];
     
-    [ autoUseSwitch setOn: (BOOL)autoUse->value ];
-    [ statusbarSwitch setOn: (BOOL)statusBar->value ];
-    [ touchclickSwitch setOn: (BOOL)touchClick->value ];
-    [ textMessageSwitch setOn: (BOOL)messages->value ];
-    [ drawControlsSwitch setOn: (BOOL)drawControls->value ];
-    [ musicSwitch setOn: (BOOL)music->value ];
-    [ centerSticksSwitch setOn: (BOOL)centerSticks->value ];
-    [ rampTurnSwitch setOn: (BOOL)rampTurn->value ];
+    [self setValues];
+    
+#if TARGET_OS_TV
+    focusGuide = [[UIFocusGuide alloc] init];
+    [self.view addLayoutGuide:focusGuide];
+    
+    [focusGuide.widthAnchor constraintEqualToAnchor:textMessageSwitch.widthAnchor].active = YES;
+    [focusGuide.heightAnchor constraintEqualToAnchor:resetButton.heightAnchor].active = YES;
+    [focusGuide.topAnchor constraintEqualToAnchor:resetButton.topAnchor].active = YES;
+    focusGuide.preferredFocusEnvironments = @[resetButton];
+
+#endif
 }
 
 /*
@@ -85,6 +91,30 @@
 - (IBAction) BackToMain {
     [self.navigationController popViewControllerAnimated:NO];    
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
+}
+
+- (void)setValues {
+    [ autoUseSwitch setOn: (BOOL)autoUse->value ];
+    [ statusbarSwitch setOn: (BOOL)statusBar->value ];
+    [ touchclickSwitch setOn: (BOOL)touchClick->value ];
+    [ textMessageSwitch setOn: (BOOL)messages->value ];
+    [ drawControlsSwitch setOn: (BOOL)drawControls->value ];
+    [ musicSwitch setOn: (BOOL)music->value ];
+    [ centerSticksSwitch setOn: (BOOL)centerSticks->value ];
+    [ rampTurnSwitch setOn: (BOOL)rampTurn->value ];
+    
+#if TARGET_OS_TV
+    // This may be a bad way to do it but it lets me leave them as idSwitches instead of changing the type
+    [ autoUseSwitch setImage:(BOOL)autoUse->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ statusbarSwitch setImage:(BOOL)statusBar->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ touchclickSwitch setImage:(BOOL)touchClick->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ textMessageSwitch setImage:(BOOL)messages->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ drawControlsSwitch setImage:(BOOL)drawControls->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ musicSwitch setImage:(BOOL)music->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ centerSticksSwitch setImage:(BOOL)centerSticks->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+    [ rampTurnSwitch setImage:(BOOL)rampTurn->value ? [UIImage imageNamed:@"SettingsButton_Highlighted"] : [UIImage imageNamed:@"SettingsButton"]  forState:UIControlStateFocused];
+
+#endif
 }
 
 /*
@@ -105,14 +135,7 @@
 	
     Sound_StartLocalSound( "iphone/controller_down_01_SILENCE.wav" );
     
-    [ autoUseSwitch setOn: (BOOL)autoUse->value ];
-    [ statusbarSwitch setOn: (BOOL)statusBar->value ];
-    [ touchclickSwitch setOn: (BOOL)touchClick->value ];
-    [ textMessageSwitch setOn: (BOOL)messages->value ];
-    [ drawControlsSwitch setOn: (BOOL)drawControls->value ];
-    [ musicSwitch setOn: (BOOL)music->value ];
-    [ centerSticksSwitch setOn: (BOOL)centerSticks->value ];
-    [ rampTurnSwitch setOn: (BOOL)rampTurn->value ];
+    [self setValues];
 }
 
 /*
@@ -122,6 +145,8 @@
  */
 - (IBAction) AutoUseChanged {
     Cvar_SetValue( autoUse->name, !autoUse->value );
+//    NSLog(@"DOOM: AutoUseChanged: %f", autoUse->value);
+    [self setValues];
 }
 
 /*
@@ -131,6 +156,8 @@
  */
 - (IBAction) StatusBarChanged {
     Cvar_SetValue( statusBar->name, !statusBar->value );
+//    NSLog(@"DOOM: StatusBarChanged: %f", statusBar->value);
+    [self setValues];
 }
 
 /*
@@ -140,6 +167,8 @@
  */
 - (IBAction) TouchClickChanged {
     Cvar_SetValue( touchClick->name, !touchClick->value );
+//    NSLog(@"DOOM: TouchClickChanged: %f", touchClick->value);
+    [self setValues];
 }
 
 /*
@@ -149,6 +178,8 @@
  */
 - (IBAction) TextMessagesChanged {
     Cvar_SetValue( messages->name, !messages->value );
+//    NSLog(@"DOOM: TextMessagesChanged: %f", messages->value);
+    [self setValues];
 }
 
 /*
@@ -158,6 +189,8 @@
  */
 - (IBAction) DrawControlsChanged {
     Cvar_SetValue( drawControls->name, !drawControls->value );
+//    NSLog(@"DOOM: DrawControlsChanged: %f", drawControls->value);
+    [self setValues];
 }
 extern int mus_pause_opt; // From m_misc.c
 extern bool mus_on;
@@ -170,6 +203,8 @@ extern bool mus_on;
 - (IBAction) MusicChanged {
     if ( !SysIPhoneOtherAudioIsPlaying() ) {
         Cvar_SetValue( music->name, !music->value );
+//        NSLog(@"DOOM: MusicChanged: %f", music->value);
+        [self setValues];
         if ( music->value ) {
 			mus_on = true;
 			mus_pause_opt = 1;
@@ -190,6 +225,8 @@ extern bool mus_on;
  */
 - (IBAction) CenterSticksChanged {
     Cvar_SetValue( centerSticks->name, !centerSticks->value );
+//    NSLog(@"DOOM: CenterSticksChanged: %f", centerSticks->value);
+    [self setValues];
 }
 
 /*
@@ -199,6 +236,54 @@ extern bool mus_on;
  */
 - (IBAction) RampTurnChanged {
     Cvar_SetValue( rampTurn->name, !rampTurn->value );
+//    NSLog(@"DOOM: RampTurnChanged: %f", rampTurn->value);
+    [self setValues];
 }
+
+#if TARGET_OS_TV
+
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
+    NSLog(@"DOOM: %@", context.nextFocusedView);
+    NSLog(@"DOOM: %@", context.previouslyFocusedView);
+
+    [super didUpdateFocusInContext:context withAnimationCoordinator:coordinator];
+    
+    if ([context.nextFocusedView isKindOfClass:[idSwitch class]]) {
+        
+        if (context.nextFocusedView.tag > 0) {
+            
+            autoUseSelection.hidden         = YES;
+            statusbarSelection.hidden       = YES;
+            touchclickSelection.hidden      = YES;
+            textMessageSelection.hidden     = YES;
+            drawControlsSelection.hidden    = YES;
+            musicSelection.hidden           = YES;
+            centerSticksSelection.hidden    = YES;
+            rampTurnSelection.hidden        = YES;
+            
+            if (context.nextFocusedView.tag == 1) {
+                autoUseSelection.hidden         = NO;
+            } else if (context.nextFocusedView.tag == 2) {
+                statusbarSelection.hidden       = NO;
+            } else if (context.nextFocusedView.tag == 3) {
+                touchclickSelection.hidden      = NO;
+            } else if (context.nextFocusedView.tag == 4) {
+                textMessageSelection.hidden     = NO;
+            } else if (context.nextFocusedView.tag == 5) {
+                drawControlsSelection.hidden    = NO;
+            } else if (context.nextFocusedView.tag == 6) {
+                musicSelection.hidden           = NO;
+            } else if (context.nextFocusedView.tag == 7) {
+                centerSticksSelection.hidden    = NO;
+            } else if (context.nextFocusedView.tag == 8) {
+                rampTurnSelection.hidden        = NO;
+            }
+        }
+        
+        [self setValues];
+    }
+}
+
+#endif
 
 @end

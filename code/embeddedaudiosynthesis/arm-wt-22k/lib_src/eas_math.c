@@ -117,7 +117,7 @@ EAS_I32 EAS_Calculate2toX (EAS_I32 nCents)
 */
 EAS_U16 EAS_LogToLinear16 (EAS_I32 nGain)
 {
-    EAS_INT nExp;
+    EAS_LONG nExp;
     EAS_U16 nTemp;
 
     /* bias to positive */

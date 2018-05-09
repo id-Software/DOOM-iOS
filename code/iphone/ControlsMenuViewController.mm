@@ -42,19 +42,30 @@
 	UIImage* minimumTrackImage = [UIImage imageNamed:@"SliderBar.png"];
 	NSInteger minimumTrackImageCap = (NSInteger)(minimumTrackImage.size.width * 0.5f);
     
-	UIImage* minimumTrackImageCapped = [minimumTrackImage stretchableImageWithLeftCapWidth:minimumTrackImageCap topCapHeight: 0];
-    
+#if TARGET_OS_TV
+    UIImage* minimumTrackImageCapped = [minimumTrackImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, minimumTrackImageCap, 0, 0)];
+    NSLog(@"%@", minimumTrackImageCapped);
+#else
+    UIImage* minimumTrackImageCapped = [minimumTrackImage stretchableImageWithLeftCapWidth:minimumTrackImageCap topCapHeight: 0];
+#endif
     
 	// Maximum track image setup.
 	UIImage* maximumTrackImage = [UIImage imageNamed:@"SliderBackground.png"];
 	NSInteger maximumTrackImageCap = (NSInteger)(maximumTrackImage.size.width * 0.5f);
     
-	UIImage* maximumTrackImageCapped = [maximumTrackImage stretchableImageWithLeftCapWidth:maximumTrackImageCap topCapHeight: 0];
+#if TARGET_OS_TV
+    UIImage* maximumTrackImageCapped = [maximumTrackImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, maximumTrackImageCap, 0, 0)];
+    NSLog(@"%@", maximumTrackImageCapped);
+#else
+    UIImage* maximumTrackImageCapped = [maximumTrackImage stretchableImageWithLeftCapWidth:maximumTrackImageCap topCapHeight: 0];
+#endif
     
-	// Thumb image.
-	UIImage* thumbImage = [UIImage imageNamed:@"SliderSkull.png"];
+#if !TARGET_OS_TV
     
-	// Set up slider instances.
+    // Thumb image.
+    UIImage* thumbImage = [UIImage imageNamed:@"SliderSkull.png"];
+
+    // Set up slider instances.
 	[self SetupSlider:movestickSize minimumTrack:minimumTrackImageCapped
          maximumTrack:maximumTrackImageCapped
                 thumb:thumbImage];
@@ -81,7 +92,8 @@
     turnstickSize.value = stickTurn->value / 255;
     tiltMoveSpeed.value = tiltMove->value;
     tiltTurnSpeed.value = tiltTurn->value;
-    
+#endif
+
     if( controlScheme->value == 0 ) {
         singleThumbButton.enabled = NO;
         dualThumbButton.enabled = YES;
@@ -138,6 +150,7 @@
     [ self Initialize ];
 }
 
+#if !TARGET_OS_TV
 /*
  ========================
  Doom_ControlsMenuViewController::SetupSlider
@@ -153,6 +166,7 @@
 	[slider setThumbImage:thumbImage forState:UIControlStateNormal];
 	[slider setThumbImage:thumbImage forState:UIControlStateHighlighted];
 }
+#endif
 
 /*
  ========================
@@ -260,8 +274,10 @@
  */
 - (IBAction) MoveStickValChanged {
     
+#if !TARGET_OS_TV
     Cvar_SetValue( stickMove->name, movestickSize.value * 256.0f );
-    
+#endif
+
 }
 
 /*
@@ -271,7 +287,9 @@
  */
 - (IBAction) TurnStickValChanged {
     
+#if !TARGET_OS_TV
     Cvar_SetValue( stickTurn->name, turnstickSize.value * 256.0f );
+#endif
 }
 
 /*
@@ -280,6 +298,7 @@
  ========================
  */
 - (IBAction) TiltMoveValChanged {
+#if !TARGET_OS_TV
     Cvar_SetValue( tiltMove->name, tiltMoveSpeed.value );
     
     if ( tiltMove->value == 100 ) {
@@ -290,7 +309,8 @@
 		Cvar_SetValue( tiltTurn->name, 0 );
         tiltTurnSpeed.value = tiltTurn->value;
 	}
-    
+#endif
+
     
     
 }
@@ -301,6 +321,7 @@
  ========================
  */
 - (IBAction) TiltTurnValChanged {
+#if !TARGET_OS_TV
     Cvar_SetValue( tiltTurn->name, tiltTurnSpeed.value );
     
     if ( tiltTurn->value == 1500 ) {
@@ -311,7 +332,7 @@
 		Cvar_SetValue( tiltMove->name, 0 );
         tiltMoveSpeed.value = tiltMove->value;
 	}
-    
+#endif
     
     
 }

@@ -21,8 +21,13 @@
 #import "EAGLView.h"
 #import <QuartzCore/CADisplayLink.h>
 #include "doomiphone.h"
+#include "iphone_delegate.h"
 
+#if TARGET_OS_TV
+const static int   DISPLAY_LINK_FRAME_INTERVAL = 30;
+#else
 const static int   DISPLAY_LINK_FRAME_INTERVAL = 2;
+#endif
 
 // Need one buffer frame when transitioning from IB menus to the OpenGL game view.
 // Otherwise, occasionally the IB view stays onscreen during the Doom loading frame.
@@ -66,14 +71,22 @@ static bool inTransition = false;
     if (self) {
         
         // Create the OpenGL View.
+#if TARGET_OS_TV
         EAGLView *glView = [[EAGLView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+#else
+        EAGLView *glView = [[EAGLView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+#endif
         self.view = glView;
         [glView release];
         
         
         // Setup the Display Link
         CADisplayLink *aDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runFrame)];
+#if TARGET_OS_TV
+        aDisplayLink.preferredFramesPerSecond= DISPLAY_LINK_FRAME_INTERVAL;
+#else
         [ aDisplayLink setFrameInterval: DISPLAY_LINK_FRAME_INTERVAL];
+#endif
         [ aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         [ self setDisplayLink: aDisplayLink ];
         
@@ -92,6 +105,7 @@ shouldAutorotateToInterfaceOrientation
 }
 */
 
+#if !TARGET_OS_TV
 - (BOOL)shouldAutorotate {
     return NO;
 }
@@ -103,6 +117,7 @@ shouldAutorotateToInterfaceOrientation
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
 }
+#endif
 
 
 /*
@@ -147,6 +162,14 @@ shouldAutorotateToInterfaceOrientation
  */
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+#if TARGET_OS_TV
+    [ gAppDelegate HideGLView ];
+#endif
 }
 
 /*
