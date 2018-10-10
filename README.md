@@ -26,3 +26,52 @@ For a rundown of the effort to get it running on tvOS, I wrote a [second lenghty
 [Video of DOOM running on an Apple TV](https://www.youtube.com/watch?v=P8QmMSabaqQ)
 
 Have fun. For any questions I can be reached at tomkidd@gmail.com
+
+---
+
+base.iPack icon and texture credits:
+
+Font texture created with [LMNOpc Font Builder](http://www.lmnopc.com/bitmapfontbuilder/)
+
+Font used is [ChicagoFLF](https://fontlibrary.org/en/font/chicagoflf), public domain
+
+[Control Pad by Guillaume Berry from the Noun Project]
+(https://thenounproject.com/term/control-pad/40359)
+
+[explosion by BomSymbols from the Noun Project]
+(https://thenounproject.com/term/explosion/938854)
+
+[Compass by Adrien Coquet from the Noun Project]
+(https://thenounproject.com/term/compass/1941270)
+
+[Move by useiconic.com from the Noun Project]
+(https://thenounproject.com/term/move/45502)
+
+[turn by shashank singh from the Noun Project]
+(https://thenounproject.com/term/turn/530562)
+
+[drive by priyanka from the Noun Project]
+(https://thenounproject.com/term/drive/1568697)
+
+[Melted Paint]
+(https://publicdomaintextures.wordpress.com/2014/02/14/melted-paint/)
+
+[Plaster in Black and White]
+(https://publicdomaintextures.wordpress.com/2014/04/03/plaster-in-black-and-white/)
+
+[Tool by Ker'is from the Noun Project]
+(https://thenounproject.com/term/tool/1977834)
+
+[circle arrow by Paul Verhulst from the Noun Project]
+(https://thenounproject.com/term/circle-arrow/1979648)
+
+[Save by Markus from the Noun Project]
+(https://thenounproject.com/term/save/1715647)
+
+
+Click sound effects
+[1](https://freesound.org/people/EdgardEdition/sounds/113634/)
+[2](https://freesound.org/people/dersuperanton/sounds/435845/)
+[3](https://freesound.org/people/Eponn/sounds/420997/)
+[4](https://freesound.org/people/BehanSean/sounds/422431/)
+
