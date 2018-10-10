@@ -117,6 +117,7 @@ extern int		consoleActive;
 extern boolean	iphoneTimeDemo;
 extern int		timeDemoStart;
 extern char		timeDemoResultString[80];
+extern float    screenResolutionScale;
 
 extern cvar_t	*skill;
 extern cvar_t	*episode;

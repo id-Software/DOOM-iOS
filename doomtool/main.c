@@ -53,9 +53,9 @@ typedef unsigned char byte;
 
 #include "doomtool.h" 
 
-const char *assetDirectory = "/Volumes/Work/idMobileDepot/Archive/DoomClassicDepot/assets";
-const char *outputFile = "/Volumes/Work/idMobileDepot/Archive/DoomClassicDepot/base.iPack";
-const char *parmFile = "/Volumes/Work/idMobileDepot/Archive/DoomClassicDepot/base.parm";
+const char *assetDirectory = "/Users/tomkidd/Documents/GitHub/DOOM-iOS/assets";
+const char *outputFile = "/Users/tomkidd/Documents/GitHub/DOOM-iOS/base/base.iPack";
+const char *parmFile = "/Users/tomkidd/Documents/GitHub/DOOM-iOS/base.parm";
 
 pkHeader_t	buildHeader;
 FILE		*pakFile;
