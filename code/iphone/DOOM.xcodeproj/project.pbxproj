@@ -535,7 +535,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D6058910D05DD3D006BFB54 /* Doom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* DOOM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOOM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		434669A30F8D08C000EA7D6D /* doom_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doom_Prefix.pch; sourceTree = "<group>"; };
@@ -917,7 +917,7 @@
 		A1A63F1020563B5F000955AE /* eas_math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_math.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_math.c"; sourceTree = "<group>"; };
 		A1A63F1120563B60000955AE /* eas_miditypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eas_miditypes.h; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_miditypes.h"; sourceTree = "<group>"; };
 		A1A63F1220563B60000955AE /* eas_mdls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_mdls.c; path = "../embeddedaudiosynthesis/arm-wt-22k/lib_src/eas_mdls.c"; sourceTree = "<group>"; };
-		A1B98DEA207EFEE800827A46 /* DoomTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoomTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B98DEA207EFEE800827A46 /* DOOM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOOM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B98DF7207EFEEA00827A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B98E01207EFF8A00827A46 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		A1B98E02207EFF8A00827A46 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
@@ -1050,9 +1050,9 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Doom.app */,
+				1D6058910D05DD3D006BFB54 /* DOOM.app */,
 				4364BF3E0F5CB25900F29317 /* dist.plist */,
-				A1B98DEA207EFEE800827A46 /* DoomTV.app */,
+				A1B98DEA207EFEE800827A46 /* DOOM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1060,29 +1060,16 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				A1EA3B86207F9DE20038650E /* DOOM_400.png */,
-				A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */,
-				A1A63E1820562FC4000955AE /* DOOM_76.png */,
-				A1A63E1720562FC3000955AE /* DOOM_120.png */,
-				A1A63E1620562FC3000955AE /* DOOM_144.png */,
-				A1A63E1520562FC3000955AE /* DOOM_152.png */,
-				C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */,
-				C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */,
-				C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */,
-				C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */,
-				C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */,
-				C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */,
-				C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */,
-				A1B98DEB207EFEE800827A46 /* DoomTV */,
+				29B97315FDCFA39411CA2CEA /* DOOM-iOS */,
+				A1B98DEB207EFEE800827A46 /* DOOM-tvOS */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
 		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+		29B97315FDCFA39411CA2CEA /* DOOM-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				A12302D4205737DE0075CBAD /* iOS */,
@@ -1138,12 +1125,25 @@
 				A1E89C9520689D9500760204 /* GameController.mm */,
 				A1E89C9720689DB100760204 /* GameController.h */,
 			);
-			name = "Other Sources";
+			name = "DOOM-iOS";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1EA3B86207F9DE20038650E /* DOOM_400.png */,
+				A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */,
+				A1A63E1820562FC4000955AE /* DOOM_76.png */,
+				A1A63E1720562FC3000955AE /* DOOM_120.png */,
+				A1A63E1620562FC3000955AE /* DOOM_144.png */,
+				A1A63E1520562FC3000955AE /* DOOM_152.png */,
+				C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */,
+				C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */,
+				C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */,
+				C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */,
+				C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */,
+				C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */,
+				C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */,
 				A1B98E13207EFFEA00827A46 /* icons.xcassets */,
 				A12302FA205783E70075CBAD /* base.iPack */,
 				A12302F9205783E70075CBAD /* doom.wad */,
@@ -1548,12 +1548,12 @@
 			name = lib_src;
 			sourceTree = "<group>";
 		};
-		A1B98DEB207EFEE800827A46 /* DoomTV */ = {
+		A1B98DEB207EFEE800827A46 /* DOOM-tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				A1B98DF7207EFEEA00827A46 /* Info.plist */,
 			);
-			path = DoomTV;
+			path = "DOOM-tvOS";
 			sourceTree = "<group>";
 		};
 		C84F820613D73D28006D01AB /* Interface Builder Images */ = {
@@ -1686,9 +1686,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* Doom */ = {
+		1D6058900D05DD3D006BFB54 /* DOOM-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Doom" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "DOOM-iOS" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -1699,14 +1699,14 @@
 			);
 			dependencies = (
 			);
-			name = Doom;
+			name = "DOOM-iOS";
 			productName = Doom;
-			productReference = 1D6058910D05DD3D006BFB54 /* Doom.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* DOOM.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A1B98DE9207EFEE800827A46 /* DoomTV */ = {
+		A1B98DE9207EFEE800827A46 /* DOOM-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B98E00207EFEEA00827A46 /* Build configuration list for PBXNativeTarget "DoomTV" */;
+			buildConfigurationList = A1B98E00207EFEEA00827A46 /* Build configuration list for PBXNativeTarget "DOOM-tvOS" */;
 			buildPhases = (
 				A1B98DE8207EFEE800827A46 /* Resources */,
 				A1B98DE6207EFEE800827A46 /* Sources */,
@@ -1717,9 +1717,9 @@
 			);
 			dependencies = (
 			);
-			name = DoomTV;
+			name = "DOOM-tvOS";
 			productName = DoomTV;
-			productReference = A1B98DEA207EFEE800827A46 /* DoomTV.app */;
+			productReference = A1B98DEA207EFEE800827A46 /* DOOM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1735,7 +1735,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Doom" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DOOM" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -1750,8 +1750,8 @@
 			projectDirPath = "";
 			projectRoot = ../..;
 			targets = (
-				1D6058900D05DD3D006BFB54 /* Doom */,
-				A1B98DE9207EFEE800827A46 /* DoomTV */,
+				1D6058900D05DD3D006BFB54 /* DOOM-iOS */,
+				A1B98DE9207EFEE800827A46 /* DOOM-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -2333,7 +2333,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = Doom;
+				PRODUCT_NAME = DOOM;
 				PROFILE_PREFIX = com.idsoftware;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2368,7 +2368,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = Doom;
+				PRODUCT_NAME = DOOM;
 				PROFILE_PREFIX = com.idsoftware;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2440,7 +2440,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = Doom;
+				PRODUCT_NAME = DOOM;
 				PROFILE_PREFIX = com.idsoftware;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2510,7 +2510,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = DoomLite;
+				PRODUCT_NAME = DOOMLite;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2585,7 +2585,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = DoomLite;
+				PRODUCT_NAME = DOOMLite;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2642,11 +2642,11 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = DoomTV/Info.plist;
+				INFOPLIST_FILE = "Doom-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DOOM;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
@@ -2690,11 +2690,11 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = DoomTV/Info.plist;
+				INFOPLIST_FILE = "Doom-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DOOM;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
@@ -2741,11 +2741,11 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = DoomTV/Info.plist;
+				INFOPLIST_FILE = "Doom-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DOOM;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
@@ -2787,11 +2787,11 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = DoomTV/Info.plist;
+				INFOPLIST_FILE = "Doom-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DOOM;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
@@ -2833,11 +2833,11 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = DoomTV/Info.plist;
+				INFOPLIST_FILE = "Doom-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DOOM;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
@@ -2880,11 +2880,11 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = DoomTV/Info.plist;
+				INFOPLIST_FILE = "Doom-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DOOM;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
@@ -3054,7 +3054,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = Doom;
+				PRODUCT_NAME = DOOM;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18BCE49D-8823-4A0C-B597-CFE83C7820BE";
@@ -3067,7 +3067,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Doom" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "DOOM-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -3080,7 +3080,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1B98E00207EFEEA00827A46 /* Build configuration list for PBXNativeTarget "DoomTV" */ = {
+		A1B98E00207EFEEA00827A46 /* Build configuration list for PBXNativeTarget "DOOM-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B98DFA207EFEEA00827A46 /* Debug */,
@@ -3093,7 +3093,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Doom" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DOOM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

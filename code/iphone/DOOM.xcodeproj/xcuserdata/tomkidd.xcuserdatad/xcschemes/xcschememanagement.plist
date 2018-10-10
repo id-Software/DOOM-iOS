@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Doom.xcscheme</key>
+		<key>DOOM-iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>DoomTV.xcscheme</key>
+		<key>DOOM-tvOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>

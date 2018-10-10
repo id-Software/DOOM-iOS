@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Doom.xcodeproj">
+      location = "self:/Users/tomkidd/Documents/GitHub/DOOM-iOS/code/iphone/DOOM.xcodeproj">
    </FileRef>
 </Workspace>
