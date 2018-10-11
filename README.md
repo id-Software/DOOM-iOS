@@ -35,38 +35,27 @@ Font texture created with [LMNOpc Font Builder](http://www.lmnopc.com/bitmapfont
 
 Font used is [ChicagoFLF](https://fontlibrary.org/en/font/chicagoflf), public domain
 
-[Control Pad by Guillaume Berry from the Noun Project]
-(https://thenounproject.com/term/control-pad/40359)
+[Control Pad by Guillaume Berry from the Noun Project](https://thenounproject.com/term/control-pad/40359)
 
-[explosion by BomSymbols from the Noun Project]
-(https://thenounproject.com/term/explosion/938854)
+[explosion by BomSymbols from the Noun Project](https://thenounproject.com/term/explosion/938854)
 
-[Compass by Adrien Coquet from the Noun Project]
-(https://thenounproject.com/term/compass/1941270)
+[Compass by Adrien Coquet from the Noun Project](https://thenounproject.com/term/compass/1941270)
 
-[Move by useiconic.com from the Noun Project]
-(https://thenounproject.com/term/move/45502)
+[Move by useiconic.com from the Noun Project](https://thenounproject.com/term/move/45502)
 
-[turn by shashank singh from the Noun Project]
-(https://thenounproject.com/term/turn/530562)
+[turn by shashank singh from the Noun Project](https://thenounproject.com/term/turn/530562)
 
-[drive by priyanka from the Noun Project]
-(https://thenounproject.com/term/drive/1568697)
+[drive by priyanka from the Noun Project](https://thenounproject.com/term/drive/1568697)
 
-[Melted Paint]
-(https://publicdomaintextures.wordpress.com/2014/02/14/melted-paint/)
+[Melted Paint](https://publicdomaintextures.wordpress.com/2014/02/14/melted-paint/)
 
-[Plaster in Black and White]
-(https://publicdomaintextures.wordpress.com/2014/04/03/plaster-in-black-and-white/)
+[Plaster in Black and White](https://publicdomaintextures.wordpress.com/2014/04/03/plaster-in-black-and-white/)
 
-[Tool by Ker'is from the Noun Project]
-(https://thenounproject.com/term/tool/1977834)
+[Tool by Ker'is from the Noun Project](https://thenounproject.com/term/tool/1977834)
 
-[circle arrow by Paul Verhulst from the Noun Project]
-(https://thenounproject.com/term/circle-arrow/1979648)
+[circle arrow by Paul Verhulst from the Noun Project](https://thenounproject.com/term/circle-arrow/1979648)
 
-[Save by Markus from the Noun Project]
-(https://thenounproject.com/term/save/1715647)
+[Save by Markus from the Noun Project](https://thenounproject.com/term/save/1715647)
 
 
 Click sound effects
