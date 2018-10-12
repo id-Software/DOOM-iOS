@@ -414,7 +414,7 @@
 		A1063A09216EFCEE00BDE196 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E0720562FAF000955AE /* Localizable.strings */; };
 		A1063A0A216EFCEE00BDE196 /* Episode4Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308B13F5D8AA003D834F /* Episode4Background.png */; };
 		A1063A0B216EFCEE00BDE196 /* MissonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308C13F5D8AA003D834F /* MissonBackground.png */; };
-		A1063A0C216EFCEE00BDE196 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */; };
+		A1063A0C216EFCEE00BDE196 /* DOOMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */; };
 		A1063A0D216EFCEE00BDE196 /* UpArrow_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308D13F5D8AA003D834F /* UpArrow_Highlighted.png */; };
 		A1063A0E216EFCEE00BDE196 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308E13F5D8AA003D834F /* UpArrow.png */; };
 		A1063A0F216EFCEE00BDE196 /* r_drawspan.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E3120563345000955AE /* r_drawspan.inl */; };
@@ -890,7 +890,7 @@
 		A1063C0A216F096A00BDE196 /* doom.wad in Resources */ = {isa = PBXBuildFile; fileRef = A12302F9205783E70075CBAD /* doom.wad */; };
 		A1063C0B216F0B1D00BDE196 /* plutonia.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1063AF1216EFD9800BDE196 /* plutonia.wad */; };
 		A1063C0C216F0B2100BDE196 /* tnt.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1063AF0216EFD9800BDE196 /* tnt.wad */; };
-		A11290502069B62B00BEDEB5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */; };
+		A11290502069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */; };
 		A12302E3205737F50075CBAD /* Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302D6205737F40075CBAD /* Label.mm */; };
 		A12302E4205737F50075CBAD /* LabelButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302D7205737F40075CBAD /* LabelButton.mm */; };
 		A12302E7205737F50075CBAD /* RenderContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DA205737F40075CBAD /* RenderContext.mm */; };
@@ -955,7 +955,7 @@
 		A187083A216EB633006C013F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E0720562FAF000955AE /* Localizable.strings */; };
 		A187083B216EB633006C013F /* Episode4Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308B13F5D8AA003D834F /* Episode4Background.png */; };
 		A187083C216EB633006C013F /* MissonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308C13F5D8AA003D834F /* MissonBackground.png */; };
-		A187083D216EB633006C013F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */; };
+		A187083D216EB633006C013F /* DOOMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */; };
 		A187083E216EB633006C013F /* UpArrow_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308D13F5D8AA003D834F /* UpArrow_Highlighted.png */; };
 		A187083F216EB633006C013F /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308E13F5D8AA003D834F /* UpArrow.png */; };
 		A1870840216EB633006C013F /* r_drawspan.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E3120563345000955AE /* r_drawspan.inl */; };
@@ -1502,7 +1502,6 @@
 		A1B98FBC207F091B00827A46 /* eas_wave.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E4C205634E7000955AE /* eas_wave.c */; };
 		A1B9E45D21700601003E9731 /* DOOM-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9E45C21700601003E9731 /* DOOM-iOS.xcassets */; };
 		A1B9E45F217006D2003E9731 /* DOOM2-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9E45E217006D2003E9731 /* DOOM2-iOS.xcassets */; };
-		A1B9E4612170078A003E9731 /* FinalDOOM-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */; };
 		A1CF62A3207F13640096F91C /* i_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E2320563253000955AE /* i_sound.c */; };
 		A1CF62AD207F138A0096F91C /* sounds.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848460F941ADC00AB3C99 /* sounds.c */; };
 		A1CF62AE207F138A0096F91C /* st_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848480F941ADC00AB3C99 /* st_lib.c */; };
@@ -1516,6 +1515,9 @@
 		A1CF62B6207F138A0096F91C /* z_bmalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848580F941ADC00AB3C99 /* z_bmalloc.c */; };
 		A1CF62B7207F138A0096F91C /* z_zone.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8485A0F941ADC00AB3C99 /* z_zone.c */; };
 		A1CF62B8207F143F0096F91C /* SDL_Mixer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E27205632E2000955AE /* SDL_Mixer.m */; };
+		A1D39933217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */; };
+		A1D39934217144B500FD11C3 /* FinalDOOM-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */; };
+		A1D399362171462F00FD11C3 /* DOOM2LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */; };
 		A1E89C8F2067469D00760204 /* CreditsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */; };
 		A1E89C902067469D00760204 /* CreditsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E89C8D2067469D00760204 /* CreditsMenuView.xib */; };
 		A1E89C9420689D4C00760204 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E89C9320689D4B00760204 /* GameController.framework */; };
@@ -1800,7 +1802,7 @@
 		A1063C06216F032300BDE196 /* DOOM-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DOOM-iOS-Info.plist"; sourceTree = "<group>"; };
 		A1063C07216F032300BDE196 /* DOOM2-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DOOM2-iOS-Info.plist"; sourceTree = "<group>"; };
 		A1063C08216F032300BDE196 /* FinalDOOM-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FinalDOOM-iOS-Info.plist"; sourceTree = "<group>"; };
-		A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DOOMLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A12302D5205737F40075CBAD /* LocalizationObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalizationObjectiveC.h; path = ../ios/LocalizationObjectiveC.h; sourceTree = "<group>"; };
 		A12302D6205737F40075CBAD /* Label.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Label.mm; path = ../ios/Label.mm; sourceTree = "<group>"; };
 		A12302D7205737F40075CBAD /* LabelButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LabelButton.mm; path = ../ios/LabelButton.mm; sourceTree = "<group>"; };
@@ -2004,6 +2006,8 @@
 		A1B9E45C21700601003E9731 /* DOOM-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DOOM-iOS.xcassets"; sourceTree = "<group>"; };
 		A1B9E45E217006D2003E9731 /* DOOM2-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DOOM2-iOS.xcassets"; sourceTree = "<group>"; };
 		A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "FinalDOOM-iOS.xcassets"; sourceTree = "<group>"; };
+		A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FinalDOOMLaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DOOM2LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenuViewController.h; sourceTree = "<group>"; };
 		A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreditsMenuViewController.mm; sourceTree = "<group>"; };
 		A1E89C8D2067469D00760204 /* CreditsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsMenuView.xib; sourceTree = "<group>"; };
@@ -2269,6 +2273,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */,
 				A12302FA205783E70075CBAD /* base.iPack */,
 				C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */,
 				C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */,
@@ -2287,13 +2292,14 @@
 				A10638C2216EBC5A00BDE196 /* doom2.wad */,
 				A1B98E13207EFFEA00827A46 /* icons.xcassets */,
 				C84F820613D73D28006D01AB /* Interface Builder Images */,
-				A112904F2069B62B00BEDEB5 /* Launch Screen.storyboard */,
+				A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */,
 				A1063AF1216EFD9800BDE196 /* plutonia.wad */,
 				A12302F8205783E70075CBAD /* prboom.wad */,
 				A1063AF0216EFD9800BDE196 /* tnt.wad */,
 				A1B9E45C21700601003E9731 /* DOOM-iOS.xcassets */,
 				A1B9E45E217006D2003E9731 /* DOOM2-iOS.xcassets */,
 				A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */,
+				A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3065,7 +3071,7 @@
 				A1A63E1120562FB0000955AE /* Localizable.strings in Resources */,
 				C879309513F5D8AA003D834F /* Episode4Background.png in Resources */,
 				C879309613F5D8AA003D834F /* MissonBackground.png in Resources */,
-				A11290502069B62B00BEDEB5 /* Launch Screen.storyboard in Resources */,
+				A11290502069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard in Resources */,
 				C879309713F5D8AA003D834F /* UpArrow_Highlighted.png in Resources */,
 				C879309813F5D8AA003D834F /* UpArrow.png in Resources */,
 				A1A63E3920563345000955AE /* r_drawspan.inl in Resources */,
@@ -3222,6 +3228,7 @@
 				A10639EA216EFCEE00BDE196 /* MainMenuView.xib in Resources */,
 				A10639EB216EFCEE00BDE196 /* Hard.png in Resources */,
 				A10639EC216EFCEE00BDE196 /* MainMenuView~ipad.xib in Resources */,
+				A1D39933217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard in Resources */,
 				A10639ED216EFCEE00BDE196 /* DOOM_144.png in Resources */,
 				A10639EE216EFCEE00BDE196 /* MapOverlay.png in Resources */,
 				A10639EF216EFCEE00BDE196 /* Medium.png in Resources */,
@@ -3237,6 +3244,7 @@
 				A10639F8216EFCEE00BDE196 /* Default-Portrait~ipad.png in Resources */,
 				A10639F9216EFCEE00BDE196 /* Default-Landscape~ipad.png in Resources */,
 				A10639FA216EFCEE00BDE196 /* SettingsMenuView.xib in Resources */,
+				A1D39934217144B500FD11C3 /* FinalDOOM-iOS.xcassets in Resources */,
 				A10639FB216EFCEE00BDE196 /* BackButton_Highlighted.png in Resources */,
 				A1063AF2216EFD9900BDE196 /* tnt.wad in Resources */,
 				A10639FC216EFCEE00BDE196 /* Button_Highlighted.png in Resources */,
@@ -3255,7 +3263,7 @@
 				A1063A09216EFCEE00BDE196 /* Localizable.strings in Resources */,
 				A1063A0A216EFCEE00BDE196 /* Episode4Background.png in Resources */,
 				A1063A0B216EFCEE00BDE196 /* MissonBackground.png in Resources */,
-				A1063A0C216EFCEE00BDE196 /* Launch Screen.storyboard in Resources */,
+				A1063A0C216EFCEE00BDE196 /* DOOMLaunchScreen.storyboard in Resources */,
 				A1063A0D216EFCEE00BDE196 /* UpArrow_Highlighted.png in Resources */,
 				A1063A0E216EFCEE00BDE196 /* UpArrow.png in Resources */,
 				A1063A0F216EFCEE00BDE196 /* r_drawspan.inl in Resources */,
@@ -3273,7 +3281,6 @@
 				A1063A1B216EFCEE00BDE196 /* AdvancedButton.png in Resources */,
 				A1063A1C216EFCEE00BDE196 /* Divide.png in Resources */,
 				A1063A1D216EFCEE00BDE196 /* LayoutDualButton_Highlighted.png in Resources */,
-				A1B9E4612170078A003E9731 /* FinalDOOM-iOS.xcassets in Resources */,
 				A1063A1E216EFCEE00BDE196 /* LayoutDualButton.png in Resources */,
 				A1063A1F216EFCEE00BDE196 /* DOOM_120.png in Resources */,
 				A1063A20216EFCEE00BDE196 /* LayoutSingleButton_Highlighted.png in Resources */,
@@ -3398,6 +3405,7 @@
 				A187080B216EB633006C013F /* DOOM_114.png in Resources */,
 				A187080C216EB633006C013F /* DOOM_72.png in Resources */,
 				A187080D216EB633006C013F /* Default@2x.png in Resources */,
+				A1D399362171462F00FD11C3 /* DOOM2LaunchScreen.storyboard in Resources */,
 				A187080E216EB633006C013F /* Default~ipad.png in Resources */,
 				A187080F216EB633006C013F /* idGinzaNar-Md2.otf in Resources */,
 				A1870810216EB633006C013F /* BackButton.png in Resources */,
@@ -3446,7 +3454,7 @@
 				A187083A216EB633006C013F /* Localizable.strings in Resources */,
 				A187083B216EB633006C013F /* Episode4Background.png in Resources */,
 				A187083C216EB633006C013F /* MissonBackground.png in Resources */,
-				A187083D216EB633006C013F /* Launch Screen.storyboard in Resources */,
+				A187083D216EB633006C013F /* DOOMLaunchScreen.storyboard in Resources */,
 				A187083E216EB633006C013F /* UpArrow_Highlighted.png in Resources */,
 				A187083F216EB633006C013F /* UpArrow.png in Resources */,
 				A1870840216EB633006C013F /* r_drawspan.inl in Resources */,
@@ -4625,7 +4633,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -4672,7 +4679,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -4752,7 +4758,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -4823,7 +4828,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -4897,7 +4901,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5234,7 +5237,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -5281,7 +5283,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5318,7 +5319,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -5356,7 +5356,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5390,7 +5389,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -5422,7 +5420,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
@@ -5758,7 +5755,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -5805,7 +5801,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5842,7 +5837,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -5880,7 +5874,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5914,7 +5907,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -5946,7 +5938,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
@@ -6421,7 +6412,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
