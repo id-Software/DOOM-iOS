@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1B98DE9207EFEE800827A46"
-               BuildableName = "DOOM-tvOS.app"
+               BuildableName = "DOOM.app"
                BlueprintName = "DOOM-tvOS"
-               ReferencedContainer = "container:Doom.xcodeproj">
+               ReferencedContainer = "container:DOOM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B98DE9207EFEE800827A46"
-            BuildableName = "DOOM-tvOS.app"
+            BuildableName = "DOOM.app"
             BlueprintName = "DOOM-tvOS"
-            ReferencedContainer = "container:Doom.xcodeproj">
+            ReferencedContainer = "container:DOOM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B98DE9207EFEE800827A46"
-            BuildableName = "DOOM-tvOS.app"
+            BuildableName = "DOOM.app"
             BlueprintName = "DOOM-tvOS"
-            ReferencedContainer = "container:Doom.xcodeproj">
+            ReferencedContainer = "container:DOOM.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B98DE9207EFEE800827A46"
-            BuildableName = "DOOM-tvOS.app"
+            BuildableName = "DOOM.app"
             BlueprintName = "DOOM-tvOS"
-            ReferencedContainer = "container:Doom.xcodeproj">
+            ReferencedContainer = "container:DOOM.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -355,7 +355,7 @@ long int I_StartSound(int sfx_id, int channel, int vol, int sep, int pitch, int 
 	pkWav_t *sfx = &pkWavs[dsfx->lumpnum];
 //	printf( "sound: %s chan:%i vol:%i sep:%i pitch:%i priority:%i\n", sfx->wavData->name.name, channel, vol, sep, pitch, priority );	
 
-	assert( channel >= 0 && channel < MAX_CHANNELS - 1 );
+	assert( channel >= 0 && channel < MAX_CHANNELS );
 	channel_t *ch = &s_channels[ 1+channel ];
 	
 	alSourceStop( ch->sourceName );

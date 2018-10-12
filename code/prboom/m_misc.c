@@ -302,7 +302,7 @@ default_t defaults[] =
   {"music_volume",{&snd_MusicVolume,NULL},{8,NULL},0,15, def_int,ss_none,NULL,NULL},
   {"mus_pause_opt",{&mus_pause_opt,NULL},{2,NULL},0,2, // CPhipps - music pausing
    def_int, ss_none,NULL,NULL}, // 0 = kill music when paused, 1 = pause music, 2 = let music continue
-  {"snd_channels",{&default_numChannels,NULL},{8,NULL},1,32,
+  {"snd_channels",{&default_numChannels,NULL},{16,NULL},1,32,
    def_int,ss_none,NULL,NULL}, // number of audio events simultaneously // killough
 
   {"Video settings",{NULL,NULL},{0,NULL},UL,UL,def_none,ss_none,NULL,NULL},

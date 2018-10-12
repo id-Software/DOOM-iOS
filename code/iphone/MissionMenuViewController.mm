@@ -38,6 +38,8 @@
 
 BOOL levelSelected = NO;
 
+#if GAME_DOOM
+
 #define TOTAL_EPISODES 4
 
 static const char * const MissionNames[TOTAL_EPISODES][9] = {
@@ -46,6 +48,31 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     {"E3M1: Hell Keep ", "E3M2: Slough of Despair", "E3M3: Pandemonium", "E3M4: House of Pain", "E3M5: Unholy Cathedral", "E3M6: Mt. Erebus", "E3M7: Limbo", "E3M8: Dis", "E3M9: Warrens"},
     {"E4M1: Hell Beneath", "E4M2: Perfect Hatred", "E4M3: Sever The Wicked", "E4M4: Unruly Evil", "E4M5: They Will Repent", "E4M6: Against Thee Wickedly", "E4M7: And Hell Followed", "E4M8: Unto The Cruel", "E4M9: Fear"}
 };
+#endif
+
+#if GAME_DOOM2
+
+#define TOTAL_EPISODES 1
+
+static const char * const MissionNames[TOTAL_EPISODES][32] = {
+    {"MAP01: Entryway", "MAP02: Underhalls", "MAP03: The Gauntlet", "MAP04: The Focus", "MAP05: The Waste Tunnels", "MAP06: The Crusher", "MAP07: Dead Simple", "MAP08: Tricks and Traps", "MAP09: The Pit", "MAP10: Refueling Base", "MAP11: 'O' of Destruction!", "MAP12: The Factory", "MAP13: Downtown", "MAP14: The Inmost Dens", "MAP15: Industrial Zone", "MAP16: Suburbs", "MAP17: Tenements", "MAP18: The Courtyard", "MAP19: The Citadel", "MAP20: Gotcha!", "MAP21: Nirvana", "MAP22: The Catacombs", "MAP23: Barrels o' Fun", "MAP24: The Chasm", "MAP25: Bloodfalls", "MAP26: The Abandoned Mines", "MAP27: Monster Condo", "MAP28: The Spirit World", "MAP29: The Living End", "MAP30: Icon of Sin", "MAP31: Wolfenstein", "MAP32: Grosse"}
+};
+#endif
+
+
+#if GAME_FINALDOOM
+
+#define TOTAL_EPISODES 2
+
+static const char * const MissionNames[TOTAL_EPISODES][32] = {
+    {"MAP01: System Control","MAP02: Human BBQ","MAP03: Power Control","MAP04: Wormhole","MAP05: Hanger","MAP06: Open Season","MAP07: Prison","MAP08: Metal","MAP09: Stronghold","MAP10: Redemption","MAP11: Storage Facility","MAP12: Crater","MAP13: Nukage Processing","MAP14: Steel Works","MAP15: Dead Zone","MAP16: Deepest Reaches","MAP17: Processing Area","MAP18: Mill","MAP19: Shipping/Respawning","MAP20: Central Processing","MAP21: Administration Center","MAP22: Habitat","MAP23: Lunar Mining Project","MAP24: Quarry","MAP25: Baron's Den","MAP26: Ballistyx","MAP27: Mount Pain","MAP28: Heck","MAP29: River Styx","MAP30: Last Call","MAP31: Pharaoh","MAP32: Caribbean"},
+    {"MAP01: Congo","MAP02: Well of Souls","MAP03: Aztec","MAP04: Caged","MAP05: Ghost Town","MAP06: Baron's Lair","MAP07: Caughtyard","MAP08: Realm","MAP09: Abattoire","MAP10: Onslaught","MAP11: Hunted","MAP12: Speed","MAP13: The Crypt","MAP14: Genesis","MAP15: The Twilight (Exit to secret level)","MAP16: The Omen","MAP17: Compound","MAP18: Neurosphere","MAP19: NME","MAP20: The Death Domain","MAP21: Slayer","MAP22: Impossible Mission","MAP23: Tombstone","MAP24: The Final Frontier","MAP25: The Temple of Darkness","MAP26: Bunker","MAP27: Anti-Christ","MAP28: The Sewers","MAP29: Odyssey of Noises","MAP30: The Gateway of Hell","MAP31: Cyberden (Exit to super secret level)","MAP32: Go 2 It"}
+};
+#endif
+
+//{"MAP01: System Control","MAP02: Human BBQ","MAP03: Power Control","MAP04: Wormhole","MAP05: Hanger","MAP06: Open Season","MAP07: Prison","MAP08: Metal","MAP09: Stronghold","MAP10: Redemption","MAP11: Storage Facility","MAP12: Crater","MAP13: Nukage Processing","MAP14: Steel Works","MAP15: Dead Zone","MAP16: Deepest Reaches","MAP17: Processing Area","MAP18: Mill","MAP19: Shipping/Respawning","MAP20: Central Processing","MAP21: Administration Center","MAP22: Habitat","MAP23: Lunar Mining Project","MAP24: Quarry","MAP25: Baron's Den","MAP26: Ballistyx","MAP27: Mount Pain","MAP28: Heck","MAP29: River Styx","MAP30: Last Call","MAP31: Pharaoh","MAP32: Caribbean"}
+
+
 
 @synthesize missionList;
 
@@ -340,7 +367,11 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#if GAME_DOOM
     return 9;
+#else
+    return 32;
+#endif
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

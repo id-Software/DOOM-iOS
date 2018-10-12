@@ -332,7 +332,7 @@ void S_StartSoundAtVolume(void *origin_p, int sfx_id, int volume)
 	
 	if ( cnum == numChannels ) {
 		// nothing available
-		printf( "dropping sound for no channels available\n" );
+		printf( "dropping sound for no channels available (%i)\n", numChannels );
 		return;
 	}
 	

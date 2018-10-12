@@ -23,6 +23,8 @@
 #include "iphone_delegate.h"
 #import "MissionMenuViewController.h"
 
+#if GAME_DOOM
+
 #define TOTAL_EPISODES 4
 
 static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
@@ -31,6 +33,20 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
     { "Episode 3", "Inferno", "Episode3Background", "Episode3Background_Highlighted" },
     { "Episode 4", "Thy Flesh Consumed", "Episode4Background", "Episode4Background_Highlighted" }
 };
+
+#endif
+
+#if GAME_FINALDOOM
+
+#define TOTAL_EPISODES 2
+
+static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
+    { "", "TNT: Evilution", "Episode1Background", "Episode1Background_Highlighted" },
+    { "", "The Plutonia Experiment", "Episode2Background", "Episode2Background_Highlighted" }
+};
+
+#endif
+
 
 @interface Doom_EpisodeMenuViewController ()
 
@@ -127,6 +143,32 @@ static const char * const EpisodeNames[TOTAL_EPISODES][4] = {
 - (IBAction) NextToMissions {
     
     Doom_MissionMenuViewController *vc = [[Doom_MissionMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"MissionMenuView"] bundle:nil];
+    
+#if GAME_FINALDOOM
+    
+    if (episodeSelection == 1) {
+        iphoneIWADSelect("plutonia.wad");
+    } else {
+        iphoneIWADSelect("tnt.wad");
+    }
+    
+    char full_iwad[1024];
+    
+    I_FindFile( doom_iwad, ".wad", full_iwad );
+    
+    // fall back to default DOOM wad
+    if( full_iwad[0] == '\0' ) {
+        I_FindFile( "doom.wad", ".wad", full_iwad );
+        if( doom_iwad ) free(doom_iwad);
+        doom_iwad = strdup(full_iwad);
+    } else if( strcmp(doom_iwad,full_iwad) != 0 ) {
+        if( doom_iwad ) free(doom_iwad);
+        doom_iwad = strdup( full_iwad );
+    }
+    
+    iphoneDoomStartup();
+    
+#endif
 
     [self.navigationController pushViewController:vc animated:NO];
     [vc setEpisode:episodeSelection ];
