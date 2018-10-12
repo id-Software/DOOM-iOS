@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,10 +28,10 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
-                    <rect key="frame" x="-146.5" y="0.0" width="960" height="375"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
+                    <rect key="frame" x="-26.5" y="0.0" width="720" height="375"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="DoomLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="440" userLabel="Logo">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="440" userLabel="Logo">
                     <rect key="frame" x="189" y="23" width="289" height="185"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="289" id="44a-jN-o7J"/>
@@ -39,7 +39,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7k-pM-XwA">
-                    <rect key="frame" x="101" y="120" width="464" height="166"/>
+                    <rect key="frame" x="101.5" y="120" width="464" height="166"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="433" userLabel="Settings Button" customClass="idLabelButton">
                             <rect key="frame" x="127.5" y="60" width="100" height="100"/>
@@ -128,7 +128,7 @@
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="EXTRAS" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="434" customClass="idLabel">
-                            <rect key="frame" x="379" y="84" width="71" height="23"/>
+                            <rect key="frame" x="378.5" y="84" width="71" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,7 +140,7 @@
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ABOUT" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="441" customClass="idLabel">
-                            <rect key="frame" x="266.5" y="143" width="64" height="23"/>
+                            <rect key="frame" x="266" y="143" width="64" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -339,7 +339,7 @@
                     </constraints>
                 </view>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="442" userLabel="Play SubMenu" customClass="Banner_SubMenu">
-                    <rect key="frame" x="94" y="0.0" width="480" height="320"/>
+                    <rect key="frame" x="93.5" y="0.0" width="480" height="320"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="SubMenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="457">
                             <rect key="frame" x="0.0" y="-15" width="480" height="300"/>
@@ -416,7 +416,7 @@
                             <color key="highlightedColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="RESUME GAME" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="453" customClass="idLabel">
-                            <rect key="frame" x="257.5" y="113" width="119.5" height="20.5"/>
+                            <rect key="frame" x="257.5" y="113" width="119" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -531,10 +531,10 @@
     <resources>
         <image name="Button.png" width="191" height="191"/>
         <image name="Button_Highlighted.png" width="191" height="191"/>
-        <image name="DoomLogo.png" width="557" height="358"/>
-        <image name="MenuBackground.png" width="960" height="640"/>
         <image name="SubMenuBackground.png" width="959" height="574"/>
         <image name="SubMenuButton.png" width="195" height="174"/>
         <image name="SubMenuButton_Highlighted.png" width="195" height="174"/>
+        <image name="background" width="720" height="480"/>
+        <image name="logo" width="1280" height="759"/>
     </resources>
 </document>

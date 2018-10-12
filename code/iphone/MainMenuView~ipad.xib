@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-            <string>Helvetica-Bold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_MainMenuViewController">
             <connections>
@@ -34,10 +28,10 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
-                    <rect key="frame" x="32" y="0.0" width="960" height="768"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="DoomLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="440" userLabel="Logo">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="440" userLabel="Logo">
                     <rect key="frame" x="233.5" y="110" width="557" height="358"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="557" id="1nP-7C-hQh"/>
@@ -164,7 +158,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="461" userLabel="Support Button" customClass="Banner_SubItem">
-                            <rect key="frame" x="415" y="201" width="195" height="174"/>
+                            <rect key="frame" x="414.5" y="201" width="195" height="174"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="195" id="ACT-0i-3Ep"/>
                                 <constraint firstAttribute="height" constant="174" id="RFg-mS-mRG"/>
@@ -183,7 +177,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="LEGAL" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="460" customClass="idLabel">
-                            <rect key="frame" x="271.5" y="333" width="77.5" height="28"/>
+                            <rect key="frame" x="271" y="333" width="77.5" height="28"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                             <color key="textColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -195,7 +189,7 @@
                             <color key="highlightedColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="SUPPORT" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="459" customClass="idLabel">
-                            <rect key="frame" x="454.5" y="333" width="116" height="28"/>
+                            <rect key="frame" x="454" y="333" width="116" height="28"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                             <color key="textColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -479,7 +473,7 @@
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="438" customClass="idLabel">
-                            <rect key="frame" x="215" y="263" width="150.5" height="34.5"/>
+                            <rect key="frame" x="215.5" y="263" width="150.5" height="34.5"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                             <color key="textColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="highlightedColor" red="0.87843137979999997" green="0.3843137324" blue="0.1137254909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -517,19 +511,20 @@
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="440" firstAttribute="centerX" secondItem="mb3-ss-7bB" secondAttribute="centerX" id="0pu-sB-w7A"/>
+                <constraint firstItem="443" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AAB-2C-iPn"/>
                 <constraint firstItem="435" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="AO1-xl-cyD"/>
-                <constraint firstItem="443" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="D1B-Bw-XFQ"/>
                 <constraint firstItem="442" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="E07-pC-v1b"/>
                 <constraint firstItem="444" firstAttribute="top" secondItem="1" secondAttribute="top" id="HFz-V1-Z4V"/>
                 <constraint firstItem="mb3-ss-7bB" firstAttribute="bottom" secondItem="4EI-fm-tLu" secondAttribute="bottom" constant="44" id="Jwe-S6-RY0"/>
-                <constraint firstItem="443" firstAttribute="top" secondItem="1" secondAttribute="top" id="MmS-Jh-yYN"/>
                 <constraint firstItem="440" firstAttribute="top" secondItem="mb3-ss-7bB" secondAttribute="top" constant="90" id="OQP-4a-HNQ"/>
                 <constraint firstItem="444" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="OmT-Y3-MTX"/>
-                <constraint firstItem="443" firstAttribute="bottom" secondItem="mb3-ss-7bB" secondAttribute="bottom" id="Rok-H2-Vc9"/>
                 <constraint firstItem="4EI-fm-tLu" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="U8g-aT-3kR"/>
+                <constraint firstAttribute="trailing" secondItem="443" secondAttribute="trailing" id="fTu-wb-Klc"/>
+                <constraint firstItem="443" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" id="jmK-6m-0z5"/>
                 <constraint firstItem="mb3-ss-7bB" firstAttribute="top" secondItem="435" secondAttribute="top" id="lm6-TJ-tou"/>
                 <constraint firstItem="442" firstAttribute="top" secondItem="1" secondAttribute="top" id="wN6-rc-ROh"/>
                 <constraint firstItem="437" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="yf4-gD-wnB"/>
+                <constraint firstItem="443" firstAttribute="top" secondItem="1" secondAttribute="top" id="zGD-Nh-fdi"/>
                 <constraint firstItem="mb3-ss-7bB" firstAttribute="top" secondItem="437" secondAttribute="top" id="zyF-dN-Apt"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -540,10 +535,10 @@
     <resources>
         <image name="Button.png" width="191" height="191"/>
         <image name="Button_Highlighted.png" width="191" height="191"/>
-        <image name="DoomLogo.png" width="557" height="358"/>
-        <image name="MenuBackground.png" width="960" height="640"/>
         <image name="SubMenuBackground.png" width="959" height="574"/>
         <image name="SubMenuButton.png" width="195" height="174"/>
         <image name="SubMenuButton_Highlighted.png" width="195" height="174"/>
+        <image name="background" width="720" height="480"/>
+        <image name="logo" width="1280" height="759"/>
     </resources>
 </document>

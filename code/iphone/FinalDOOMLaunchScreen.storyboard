@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fdsplash" width="16" height="16"/>
+        <image name="fdsplash" width="595.20001220703125" height="841.67999267578125"/>
     </resources>
 </document>
