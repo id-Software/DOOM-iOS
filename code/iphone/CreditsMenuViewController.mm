@@ -233,9 +233,9 @@ static const int CreditSizes[CREDITS_LINES] = {
     }
     
     if (IS_IPAD) {
-        cell.textLabel.font = [UIFont fontWithName:@"idGinza Narrow" size:points * 2];
+        cell.textLabel.font = [UIFont fontWithName:[gAppDelegate GetFontName] size:points * 2];
     } else {
-        cell.textLabel.font = [UIFont fontWithName:@"idGinza Narrow" size:points];
+        cell.textLabel.font = [UIFont fontWithName:[gAppDelegate GetFontName] size:points];
     }
     
     cell.textLabel.textAlignment = NSTextAlignmentCenter;

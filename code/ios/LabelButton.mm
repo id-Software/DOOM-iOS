@@ -19,6 +19,7 @@
  */
 #import "LabelButton.h"
 #import "Label.h"
+#include "iphone_delegate.h"
 #if !TARGET_OS_TV
 #import "Slider.h"
 #endif
@@ -53,7 +54,7 @@
     
     CGFloat points = self.titleLabel.font.pointSize;
     
-    self.titleLabel.font = [UIFont fontWithName:@"idGinza Narrow" size:points];
+    self.titleLabel.font = [UIFont fontWithName:[gAppDelegate GetFontName] size:points];
     
     // Localize the text.
     NSString * unLocText = self.titleLabel.text;

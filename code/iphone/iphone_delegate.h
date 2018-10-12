@@ -51,6 +51,8 @@ extern iphoneApp * gAppDelegate;
 - (void) PopGLView;
 
 - (NSString*) GetNibNameForDevice:(NSString*) nibName;
+        
+- (NSString*) GetFontName;
 
 @end
 

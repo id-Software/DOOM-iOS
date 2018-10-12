@@ -242,6 +242,13 @@ touch_t		gameTouches[MAX_TOUCHES];
     return [NSString stringWithFormat:@"%@%@", nibName, extension];
 }
 
+- (NSString*) GetFontName
+{
+    // To restore usage of the original font, un-comment out this line and comment out the next line
+    //return @"idGinza Narrow";
+    return @"Chicago";
+}
+
 @end
 
 void ShowGLView( void ) {

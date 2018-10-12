@@ -21,6 +21,7 @@
 #import <UIKit/UIKit.h>
 #import "Label.h"
 #include "Localization.h"
+#include "iphone_delegate.h"
 
 @implementation idLabel
 
@@ -31,7 +32,7 @@
  */
 - (void)awakeFromNib {
     [ super awakeFromNib ];
-    [ self SetupLabel:@"idGinza Narrow" ];
+    [ self SetupLabel:[gAppDelegate GetFontName]];
 }
 
 
