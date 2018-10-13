@@ -539,6 +539,6 @@
         <image name="SubMenuButton.png" width="195" height="174"/>
         <image name="SubMenuButton_Highlighted.png" width="195" height="174"/>
         <image name="background" width="720" height="480"/>
-        <image name="logo" width="1280" height="759"/>
+        <image name="logo" width="732.375" height="447"/>
     </resources>
 </document>
