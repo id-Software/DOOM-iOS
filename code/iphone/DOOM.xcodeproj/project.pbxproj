@@ -179,7 +179,6 @@
 		A106390F216EF7C700BDE196 /* DOOM_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */; };
 		A1063910216EF7C700BDE196 /* DOOM_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */; };
 		A1063911216EF7C700BDE196 /* MainMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E15207F016500827A46 /* MainMenuView-tvos.xib */; };
-		A1063912216EF7C700BDE196 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E13207EFFEA00827A46 /* icons.xcassets */; };
 		A1063913216EF7C700BDE196 /* MissionMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E1B207F016600827A46 /* MissionMenuView-tvos.xib */; };
 		A1063914216EF7C700BDE196 /* OpenGLView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E18207F016500827A46 /* OpenGLView-tvos.xib */; };
 		A1063915216EF7C700BDE196 /* EpisodeMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E1A207F016600827A46 /* EpisodeMenuView-tvos.xib */; };
@@ -704,7 +703,6 @@
 		A1063B3E216F012000BDE196 /* DOOM_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */; };
 		A1063B3F216F012000BDE196 /* DOOM_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */; };
 		A1063B40216F012000BDE196 /* MainMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E15207F016500827A46 /* MainMenuView-tvos.xib */; };
-		A1063B41216F012000BDE196 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E13207EFFEA00827A46 /* icons.xcassets */; };
 		A1063B42216F012000BDE196 /* MissionMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E1B207F016600827A46 /* MissionMenuView-tvos.xib */; };
 		A1063B43216F012000BDE196 /* OpenGLView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E18207F016500827A46 /* OpenGLView-tvos.xib */; };
 		A1063B44216F012000BDE196 /* EpisodeMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E1A207F016600827A46 /* EpisodeMenuView-tvos.xib */; };
@@ -1267,7 +1265,6 @@
 		A1B98E10207EFF8B00827A46 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B98E07207EFF8A00827A46 /* CoreGraphics.framework */; };
 		A1B98E11207EFF8B00827A46 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B98E08207EFF8B00827A46 /* GameController.framework */; };
 		A1B98E12207EFF8B00827A46 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B98E09207EFF8B00827A46 /* OpenAL.framework */; };
-		A1B98E14207EFFEB00827A46 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E13207EFFEA00827A46 /* icons.xcassets */; };
 		A1B98E1D207F016600827A46 /* MainMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E15207F016500827A46 /* MainMenuView-tvos.xib */; };
 		A1B98E1E207F016600827A46 /* LegalMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E16207F016500827A46 /* LegalMenuView-tvos.xib */; };
 		A1B98E1F207F016600827A46 /* ControlsMenuView-tvos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B98E17207F016500827A46 /* ControlsMenuView-tvos.xib */; };
@@ -1997,7 +1994,6 @@
 		A1B98E07207EFF8A00827A46 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		A1B98E08207EFF8B00827A46 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		A1B98E09207EFF8B00827A46 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk/System/Library/Frameworks/OpenAL.framework; sourceTree = DEVELOPER_DIR; };
-		A1B98E13207EFFEA00827A46 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		A1B98E15207F016500827A46 /* MainMenuView-tvos.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainMenuView-tvos.xib"; sourceTree = "<group>"; };
 		A1B98E16207F016500827A46 /* LegalMenuView-tvos.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LegalMenuView-tvos.xib"; sourceTree = "<group>"; };
 		A1B98E17207F016500827A46 /* ControlsMenuView-tvos.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ControlsMenuView-tvos.xib"; sourceTree = "<group>"; };
@@ -2296,7 +2292,6 @@
 				A1EA3B86207F9DE20038650E /* DOOM_400.png */,
 				A12302F9205783E70075CBAD /* doom.wad */,
 				A10638C2216EBC5A00BDE196 /* doom2.wad */,
-				A1B98E13207EFFEA00827A46 /* icons.xcassets */,
 				C84F820613D73D28006D01AB /* Interface Builder Images */,
 				A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */,
 				A1063AF1216EFD9800BDE196 /* plutonia.wad */,
@@ -3201,7 +3196,6 @@
 				A106390F216EF7C700BDE196 /* DOOM_72.png in Resources */,
 				A1063910216EF7C700BDE196 /* DOOM_114.png in Resources */,
 				A1063911216EF7C700BDE196 /* MainMenuView-tvos.xib in Resources */,
-				A1063912216EF7C700BDE196 /* icons.xcassets in Resources */,
 				A1063913216EF7C700BDE196 /* MissionMenuView-tvos.xib in Resources */,
 				A1063914216EF7C700BDE196 /* OpenGLView-tvos.xib in Resources */,
 				A1063915216EF7C700BDE196 /* EpisodeMenuView-tvos.xib in Resources */,
@@ -3394,7 +3388,6 @@
 				A1063B3E216F012000BDE196 /* DOOM_72.png in Resources */,
 				A1063B3F216F012000BDE196 /* DOOM_114.png in Resources */,
 				A1063B40216F012000BDE196 /* MainMenuView-tvos.xib in Resources */,
-				A1063B41216F012000BDE196 /* icons.xcassets in Resources */,
 				A1063B42216F012000BDE196 /* MissionMenuView-tvos.xib in Resources */,
 				A1063B43216F012000BDE196 /* OpenGLView-tvos.xib in Resources */,
 				A1063B44216F012000BDE196 /* EpisodeMenuView-tvos.xib in Resources */,
@@ -3587,7 +3580,6 @@
 				A1B98E2E207F021900827A46 /* DOOM_72.png in Resources */,
 				A1B98E2F207F021900827A46 /* DOOM_114.png in Resources */,
 				A1B98E1D207F016600827A46 /* MainMenuView-tvos.xib in Resources */,
-				A1B98E14207EFFEB00827A46 /* icons.xcassets in Resources */,
 				A1B98E23207F016600827A46 /* MissionMenuView-tvos.xib in Resources */,
 				A1B98E20207F016600827A46 /* OpenGLView-tvos.xib in Resources */,
 				A1B98E22207F016600827A46 /* EpisodeMenuView-tvos.xib in Resources */,
