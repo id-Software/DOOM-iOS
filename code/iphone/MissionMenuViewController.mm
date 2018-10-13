@@ -395,7 +395,7 @@ static const char * const MissionNames[TOTAL_EPISODES][32] = {
     CGFloat points = cell.textLabel.font.pointSize;
     
     if (IS_IPAD) {
-        cell.textLabel.font = [UIFont fontWithName:[gAppDelegate GetFontName] size:points * 2];
+        cell.textLabel.font = [UIFont fontWithName:[gAppDelegate GetFontName] size:34];
     } else {
         cell.textLabel.font = [UIFont fontWithName:[gAppDelegate GetFontName] size:points];
     }

@@ -1518,6 +1518,9 @@
 		A1D39933217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */; };
 		A1D39934217144B500FD11C3 /* FinalDOOM-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */; };
 		A1D399362171462F00FD11C3 /* DOOM2LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */; };
+		A1D3993A2171A0A800FD11C3 /* DOOM2-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */; };
+		A1D3993B2171A0AD00FD11C3 /* DOOM-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */; };
+		A1D3993D2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */; };
 		A1E89C8F2067469D00760204 /* CreditsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */; };
 		A1E89C902067469D00760204 /* CreditsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E89C8D2067469D00760204 /* CreditsMenuView.xib */; };
 		A1E89C9420689D4C00760204 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E89C9320689D4B00760204 /* GameController.framework */; };
@@ -2008,6 +2011,9 @@
 		A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "FinalDOOM-iOS.xcassets"; sourceTree = "<group>"; };
 		A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FinalDOOMLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DOOM2LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DOOM-tvOS.xcassets"; sourceTree = "<group>"; };
+		A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DOOM2-tvOS.xcassets"; sourceTree = "<group>"; };
+		A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "FinalDOOM-tvOS.xcassets"; sourceTree = "<group>"; };
 		A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenuViewController.h; sourceTree = "<group>"; };
 		A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreditsMenuViewController.mm; sourceTree = "<group>"; };
 		A1E89C8D2067469D00760204 /* CreditsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsMenuView.xib; sourceTree = "<group>"; };
@@ -2300,6 +2306,9 @@
 				A1B9E45E217006D2003E9731 /* DOOM2-iOS.xcassets */,
 				A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */,
 				A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */,
+				A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */,
+				A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */,
+				A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3164,6 +3173,7 @@
 				A10638F4216EF7C700BDE196 /* Button.png in Resources */,
 				A10638F5216EF7C700BDE196 /* DOOM_sigil_decal.png in Resources */,
 				A10638F6216EF7C700BDE196 /* DoomLogo.png in Resources */,
+				A1D3993A2171A0A800FD11C3 /* DOOM2-tvOS.xcassets in Resources */,
 				A10638F7216EF7C700BDE196 /* Easy.png in Resources */,
 				A10638F8216EF7C700BDE196 /* Hard.png in Resources */,
 				A10638F9216EF7C700BDE196 /* MapOverlay.png in Resources */,
@@ -3374,6 +3384,7 @@
 				A1063B34216F012000BDE196 /* r_drawcolumn.inl in Resources */,
 				A1063B35216F012000BDE196 /* DOOM_120.png in Resources */,
 				A1063B37216F012000BDE196 /* DOOM_144.png in Resources */,
+				A1D3993D2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets in Resources */,
 				A1063B38216F012000BDE196 /* DOOM_152.png in Resources */,
 				A1063B39216F012000BDE196 /* Default-Landscape~ipad.png in Resources */,
 				A1063B3A216F012000BDE196 /* Default-Portrait~ipad.png in Resources */,
@@ -3570,6 +3581,7 @@
 				A1B98E29207F021900827A46 /* Default-Landscape~ipad.png in Resources */,
 				A1B98E2A207F021900827A46 /* Default-Portrait~ipad.png in Resources */,
 				A1B98E2B207F021900827A46 /* Default@2x.png in Resources */,
+				A1D3993B2171A0AD00FD11C3 /* DOOM-tvOS.xcassets in Resources */,
 				A1B98E2C207F021900827A46 /* Default~ipad.png in Resources */,
 				A1B98E2D207F021900827A46 /* DOOM_57.png in Resources */,
 				A1B98E2E207F021900827A46 /* DOOM_72.png in Resources */,
@@ -4846,7 +4858,7 @@
 				INFOPLIST_FILE = "DOOM-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = DOOMLite;
+				PRODUCT_NAME = DOOM;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -4922,7 +4934,7 @@
 				INFOPLIST_FILE = "DOOM-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idsoftware.${PRODUCT_NAME:identifier}";
-				PRODUCT_NAME = DOOMLite;
+				PRODUCT_NAME = DOOM;
 				PROFILE_PREFIX = com.idsoftware;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

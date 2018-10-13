@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="background" id="443" userLabel="Background">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background" id="443" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

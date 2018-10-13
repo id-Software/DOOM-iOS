@@ -28,8 +28,8 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
-                    <rect key="frame" x="-26.5" y="0.0" width="720" height="375"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="440" userLabel="Logo">
                     <rect key="frame" x="189" y="23" width="289" height="185"/>
@@ -510,9 +510,11 @@
                 <constraint firstItem="444" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="9Nj-5E-wIG"/>
                 <constraint firstItem="l7k-pM-XwA" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="ENT-4f-OXd"/>
                 <constraint firstItem="440" firstAttribute="top" secondItem="1" secondAttribute="top" constant="23" id="JhW-XW-YTD"/>
-                <constraint firstAttribute="bottom" secondItem="443" secondAttribute="bottom" id="Tu9-8G-foN"/>
+                <constraint firstAttribute="trailing" secondItem="443" secondAttribute="trailing" id="Pqf-dI-leR"/>
+                <constraint firstItem="443" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="SKu-wz-lis"/>
+                <constraint firstItem="443" firstAttribute="top" secondItem="Lah-d6-l5D" secondAttribute="top" id="T6d-y0-GnA"/>
                 <constraint firstItem="l7k-pM-XwA" firstAttribute="top" secondItem="1" secondAttribute="top" constant="120" id="V4h-zh-gmd"/>
-                <constraint firstItem="443" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="VWW-e6-wgh"/>
+                <constraint firstItem="443" firstAttribute="bottom" secondItem="Lah-d6-l5D" secondAttribute="bottom" id="X6T-4z-Des"/>
                 <constraint firstItem="435" firstAttribute="top" secondItem="1" secondAttribute="top" id="XMe-ut-v8J"/>
                 <constraint firstItem="444" firstAttribute="top" secondItem="1" secondAttribute="top" id="bL7-Nb-v3s"/>
                 <constraint firstItem="442" firstAttribute="top" secondItem="1" secondAttribute="top" id="eEZ-MF-Eng"/>
@@ -521,7 +523,6 @@
                 <constraint firstItem="437" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="nDF-hz-Bpj"/>
                 <constraint firstItem="437" firstAttribute="top" secondItem="1" secondAttribute="top" id="pae-ns-vlK"/>
                 <constraint firstItem="440" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="sKU-yL-CCK"/>
-                <constraint firstItem="443" firstAttribute="top" secondItem="1" secondAttribute="top" id="ssu-N3-rgu"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="Lah-d6-l5D"/>
