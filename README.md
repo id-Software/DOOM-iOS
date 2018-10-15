@@ -1,6 +1,6 @@
-#  DOOM for iOS 11 and tvOS for Apple TV
+#  DOOM, DOOM II and Final DOOM for iOS 11 and tvOS for Apple TV
 
-This is my update for DOOM for iOS to run on iOS 11, running in modern resolutions including the full width of the iPhone X. I have also made a target and version for tvOS to run on Apple TV
+This is my update for DOOM for iOS to run on iOS 11, running in modern resolutions including the full width of the iPhone X. I have also made a target and version for tvOS to run on Apple TV. Additionally, I have included targets to create apps for DOOM II and Final DOOM.
 
 Improvements/Changes
 
@@ -11,15 +11,19 @@ Improvements/Changes
 - Structure and View Controller usage grafted in from the DOOM-iOS2 repository and public user forks, unused code and embedded xcodeproj use eliminated
 - Second project target for tvOS that takes advantage of focus model and removes on-screen controls.
 
-This commit adds placeholder files for the "IB Images" folder and the `idGinzaNar-Md2.otf` font file. You will still need to provide your own copies of `doom.wad` and `base.iPack`. 
+This commit uses all new images for the menus and fonts. You will still need to provide your own copy of `doom.wad` for DOOM, `doom2.wad` for DOOM II, and `tnt.wad` and `plutonia.wad` for Final DOOM. 
 
 You can find the file `doom.wad` in any installation of DOOM, available on [Steam](http://store.steampowered.com/app/2280/Ultimate_Doom/), [GOG](https://www.gog.com/game/the_ultimate_doom), and floppy disk from 1-800-IDGAMES (note: do not call 1-800-IDGAMES I don't know where it goes anymore). 
 
-The file `base.iPack` is not included in any DOOM installation and is specific to the iOS port. I can't include it in this repo because it contains copyrighted material and I can't tell you where to find it either, but you will need to source it yourself. The history is included in this [lengthy article](http://schnapple.com/wolfenstein-3d-and-doom-on-ios-11/) I wrote on the subject. At some point I hope to have a utility that will let you construct a `base.iPack` file but for now I don't. 
+`doom2.wad` is in any installation of DOOM II, available on [Steam](https://store.steampowered.com/app/2300/DOOM_II/) or [GOG](https://www.gog.com/game/doom_ii_final_doom)
 
-This repo contains changes from id's [DOOM-iOS2](https://github.com/id-Software/DOOM-IOS2) repo (different than the parent of this repo), changes from the [FinalJudgement](https://github.com/JadingTsunami/FinalJudgment-iOS) repo by [JadingTsunami](https://github.com/JadingTsunami/), and [MFi controller code](https://github.com/TheRohans/DOOM-IOS2/commit/5a6b69d5e9821134f4013b069faef29190dcd7a1) from [TheRohans](https://github.com/TheRohans/).
+`tnt.wad` and `plutonia.wad` are in any installation of Final DOOM, available on [Steam](https://store.steampowered.com/app/2290/Final_DOOM/) or [GOG](https://www.gog.com/game/doom_ii_final_doom) (note that GOG sells DOOM II and Final DOOM packaged together)  
 
-For a rundown of the effort to get it running on tvOS, I wrote a [second lenghty article](http://schnapple.com/wolfenstein-3d-and-doom-on-tvos-for-apple-tv/) on the subject. In addition to the work incorporated above, I incorporated the efforts of [yarsrevenge](https://github.com/yarsrvenge/DOOM-IOS2) in getting the basics of the tvOS version going. 
+This repo contains changes from id's [DOOM-iOS2](https://github.com/id-Software/DOOM-IOS2) repo (different than the parent of this repo), changes from the [FinalJudgement](https://github.com/JadingTsunami/FinalJudgment-iOS) repo by [JadingTsunami](https://github.com/JadingTsunami/), and [MFi controller code](https://github.com/TheRohans/DOOM-IOS2/commit/5a6b69d5e9821134f4013b069faef29190dcd7a1) from [TheRohans](https://github.com/TheRohans/). I incorporated the efforts of [yarsrevenge](https://github.com/yarsrvenge/DOOM-IOS2) in getting the basics of the tvOS versions going. 
+
+I wrote a [lengthy article](http://schnapple.com/wolfenstein-3d-and-doom-on-ios-11/) on the process of making these ports. For a rundown of the effort to get it running on tvOS, I wrote a [second lenghty article](http://schnapple.com/wolfenstein-3d-and-doom-on-tvos-for-apple-tv/) on the subject. 
+
+A previous version of this repo required the use of a file called `base.iPack` from an existing copy of the iPhone version of DOOM in  order for the DOOM port to work, but I have now added a "clean room" version of that file and included the resources necessary to build it in case anyone wants to tweak or improve it. Credits for the images used are included below. A third lengthy article on the subject of the base.iPack file and adding the additional two games can be found [here](http://schnapple.com/doom-ii-and-final-doom-for-ios-and-tvos).
 
 [Video of DOOM running on an iPhone X](https://www.youtube.com/watch?v=IrY5L1kn-NA)
 
@@ -31,7 +35,7 @@ Have fun. For any questions I can be reached at tomkidd@gmail.com
 
 base.iPack icon and texture credits:
 
-Font texture created with [LMNOpc Font Builder](http://www.lmnopc.com/bitmapfontbuilder/)
+Font texture created with [LMNOpc Font Builder](http://www.lmnopc.com/bitmapfontbuilder/) by Thom Wetzel
 
 Font used is [ChicagoFLF](https://fontlibrary.org/en/font/chicagoflf), public domain
 
@@ -56,6 +60,11 @@ Font used is [ChicagoFLF](https://fontlibrary.org/en/font/chicagoflf), public do
 [circle arrow by Paul Verhulst from the Noun Project](https://thenounproject.com/term/circle-arrow/1979648)
 
 [Save by Markus from the Noun Project](https://thenounproject.com/term/save/1715647)
+
+[Skull by Andrew Cameron from the Noun Project](https://thenounproject.com/term/skull/131075)
+
+[Skull by Andrew Cameron from the Noun Project](https://thenounproject.com/term/skull/131076)
+
 
 
 Click sound effects
