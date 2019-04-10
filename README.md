@@ -1,6 +1,10 @@
+<img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/DOOM3-iOS/master/icon_doom.png">  
+
 #  DOOM, DOOM II and Final DOOM for iOS 11 and tvOS for Apple TV
 
 This is my update for DOOM for iOS to run on iOS 11, running in modern resolutions including the full width of the iPhone X. I have also made a target and version for tvOS to run on Apple TV. Additionally, I have included targets to create apps for DOOM II and Final DOOM.
+
+![screenshot](https://raw.githubusercontent.com/tomkidd/DOOM3-iOS/master/ss_doom.png)
 
 Improvements/Changes
 
@@ -28,6 +32,8 @@ A previous version of this repo required the use of a file called `base.iPack` f
 [Video of DOOM running on an iPhone X](https://www.youtube.com/watch?v=IrY5L1kn-NA)
 
 [Video of DOOM running on an Apple TV](https://www.youtube.com/watch?v=P8QmMSabaqQ)
+
+I have also made apps for [*Wolfenstein 3-D*](https://github.com/tomkidd/Wolf3D-iOS), [*Quake*](https://github.com/tomkidd/Quake-iOS), [*Quake II*](https://github.com/tomkidd/Quake2-iOS), [*Quake III: Arena*](https://github.com/tomkidd/Quake3-iOS), [*Return to Castle Wolfenstein*](https://github.com/tomkidd/RTCW-iOS) and [*DOOM 3*](https://github.com/tomkidd/DOOM3-iOS).
 
 Have fun. For any questions I can be reached at tomkidd@gmail.com
 
