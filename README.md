@@ -1,10 +1,10 @@
-<img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/DOOM3-iOS/master/icon_doom.png">  
+<img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/DOOM-iOS/master/icon_doom.png">  
 
 #  DOOM, DOOM II and Final DOOM for iOS 11 and tvOS for Apple TV
 
 This is my update for DOOM for iOS to run on iOS 11, running in modern resolutions including the full width of the iPhone X. I have also made a target and version for tvOS to run on Apple TV. Additionally, I have included targets to create apps for DOOM II and Final DOOM.
 
-![screenshot](https://raw.githubusercontent.com/tomkidd/DOOM3-iOS/master/ss_doom.png)
+![screenshot](https://raw.githubusercontent.com/tomkidd/DOOM-iOS/master/ss_doom.png)
 
 Improvements/Changes
 
