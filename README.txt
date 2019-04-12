@@ -10,7 +10,7 @@ GENERAL NOTES
 =============
 
 DOOM Classic iOS v2.1 is a free release, and can be downloaded from
-http://http://www.idsoftware.com/idstuff/doom/doomclassic_ios_v21_src.zip
+http://www.idsoftware.com/idstuff/doom/doomclassic_ios_v21_src.zip
 
 This source release does not contain any game data, the game data remains subject to the original EULA and applicable law.
 
