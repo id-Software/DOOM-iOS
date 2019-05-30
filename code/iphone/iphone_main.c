@@ -236,7 +236,7 @@ cvar_t   *iwadSelection;
 cvar_t   *pwadSelection;
 
 char* doom_iwad;
-char* doom_pwads;
+char* doom_pwads = "";
 
 #define VERSION_BCONFIG	( 0x89490000 + sizeof( huds ) + sizeof( playState ) )
 
@@ -523,7 +523,7 @@ void iphonePWADAdd( const char* pwad  ) {
         unsigned long len = strlen(pwadlist);
         pwadlist[len] = PWAD_LIST_SEPARATOR;
         pwadlist[len+1] = '\0';
-        if( doom_pwads ) free(doom_pwads);
+        //if( doom_pwads ) free(doom_pwads);
         doom_pwads = pwadlist;
         Com_Printf("Added PWAD: %s (%s)\n", pwad, doom_pwads);
     } else {

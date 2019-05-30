@@ -2195,8 +2195,13 @@ void G_InitNew(skill_t skill, int episode, int map)
 
   if (gamemode == retail)
     {
-      if (episode > 4)
-        episode = 4;
+#if GAME_SIGIL
+        if (episode > 5)
+            episode = 5;
+#else
+        if (episode > 4)
+            episode = 4;
+#endif
     }
   else
     if (gamemode == shareware)

@@ -1518,6 +1518,278 @@
 		A1D3993A2171A0A800FD11C3 /* DOOM2-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */; };
 		A1D3993B2171A0AD00FD11C3 /* DOOM-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */; };
 		A1D3993D2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */; };
+		A1DE84A0229F60BE0041E450 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CF02FE0F56974E00E4A23D /* Default.png */; };
+		A1DE84A1229F60BE0041E450 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4364BF3E0F5CB25900F29317 /* dist.plist */; };
+		A1DE84A3229F60BE0041E450 /* DOOM_57.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6713DE1EB600F0EAC6 /* DOOM_57.png */; };
+		A1DE84A4229F60BE0041E450 /* DOOM_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6913DE1EF500F0EAC6 /* DOOM_114.png */; };
+		A1DE84A5229F60BE0041E450 /* DOOM_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF6B13DE1F0600F0EAC6 /* DOOM_72.png */; };
+		A1DE84A6229F60BE0041E450 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF8513DF792D00F0EAC6 /* Default@2x.png */; };
+		A1DE84A7229F60BE0041E450 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CF8713DF79BC00F0EAC6 /* Default~ipad.png */; };
+		A1DE84A8229F60BE0041E450 /* idGinzaNar-Md2.otf in Resources */ = {isa = PBXBuildFile; fileRef = C81E0E5D13E076E400B1049A /* idGinzaNar-Md2.otf */; };
+		A1DE84A9229F60BE0041E450 /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104013E1CCA000B1049A /* BackButton.png */; };
+		A1DE84AA229F60BE0041E450 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104113E1CCA000B1049A /* Button.png */; };
+		A1DE84AB229F60BE0041E450 /* CreditsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E89C8D2067469D00760204 /* CreditsMenuView.xib */; };
+		A1DE84AC229F60BE0041E450 /* CreditsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DBA20562B2B000955AE /* CreditsMenuView~ipad.xib */; };
+		A1DE84AD229F60BE0041E450 /* SecretMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DBC20562B2B000955AE /* SecretMenuView.xib */; };
+		A1DE84AE229F60BE0041E450 /* DOOM_sigil_decal.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104213E1CCA000B1049A /* DOOM_sigil_decal.png */; };
+		A1DE84AF229F60BE0041E450 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A184252063E63200302393 /* EpisodeCell.xib */; };
+		A1DE84B0229F60BE0041E450 /* DoomLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104313E1CCA000B1049A /* DoomLogo.png */; };
+		A1DE84B1229F60BE0041E450 /* ControlsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DBB20562B2B000955AE /* ControlsMenuView~ipad.xib */; };
+		A1DE84B2229F60BE0041E450 /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104413E1CCA000B1049A /* Easy.png */; };
+		A1DE84B3229F60BE0041E450 /* SettingsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DC920562B73000955AE /* SettingsMenuView~ipad.xib */; };
+		A1DE84B4229F60BE0041E450 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCE20562B73000955AE /* MainMenuView.xib */; };
+		A1DE84B5229F60BE0041E450 /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104513E1CCA000B1049A /* Hard.png */; };
+		A1DE84B6229F60BE0041E450 /* MainMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DD920562B75000955AE /* MainMenuView~ipad.xib */; };
+		A1DE84B7229F60BE0041E450 /* DOOM_144.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1620562FC3000955AE /* DOOM_144.png */; };
+		A1DE84B8229F60BE0041E450 /* MapOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104613E1CCA000B1049A /* MapOverlay.png */; };
+		A1DE84B9229F60BE0041E450 /* Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104713E1CCA000B1049A /* Medium.png */; };
+		A1DE84BA229F60BE0041E450 /* MenuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104813E1CCA000B1049A /* MenuBackground.png */; };
+		A1DE84BB229F60BE0041E450 /* r_drawcolpipeline.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E2A20563344000955AE /* r_drawcolpipeline.inl */; };
+		A1DE84BC229F60BE0041E450 /* doom.wad in Resources */ = {isa = PBXBuildFile; fileRef = A12302F9205783E70075CBAD /* doom.wad */; };
+		A1DE84BD229F60BE0041E450 /* ControlsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DB620562B2B000955AE /* ControlsMenuView.xib */; };
+		A1DE84BE229F60BE0041E450 /* Nightmare.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104913E1CCA000B1049A /* Nightmare.png */; };
+		A1DE84BF229F60BE0041E450 /* ResumeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104A13E1CCA000B1049A /* ResumeButton.png */; };
+		A1DE84C0229F60BE0041E450 /* EpisodeMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCA20562B73000955AE /* EpisodeMenuView.xib */; };
+		A1DE84C1229F60BE0041E450 /* Makefile.am in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E2E20563345000955AE /* Makefile.am */; };
+		A1DE84C2229F60BE0041E450 /* SelectedBracket.png in Resources */ = {isa = PBXBuildFile; fileRef = C81E104B13E1CCA000B1049A /* SelectedBracket.png */; };
+		A1DE84C3229F60BE0041E450 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */; };
+		A1DE84C4229F60BE0041E450 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */; };
+		A1DE84C5229F60BE0041E450 /* SettingsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DD620562B74000955AE /* SettingsMenuView.xib */; };
+		A1DE84C6229F60BE0041E450 /* BackButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED113F5AFE5003D834F /* BackButton_Highlighted.png */; };
+		A1DE84C7229F60BE0041E450 /* Button_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED213F5AFE5003D834F /* Button_Highlighted.png */; };
+		A1DE84C8229F60BE0041E450 /* NextButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED313F5AFE5003D834F /* NextButton_Highlighted.png */; };
+		A1DE84C9229F60BE0041E450 /* NextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED413F5AFE5003D834F /* NextButton.png */; };
+		A1DE84CA229F60BE0041E450 /* SubMenuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED513F5AFE5003D834F /* SubMenuBackground.png */; };
+		A1DE84CB229F60BE0041E450 /* SubMenuButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED613F5AFE5003D834F /* SubMenuButton_Highlighted.png */; };
+		A1DE84CC229F60BE0041E450 /* SubMenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C8792ED713F5AFE5003D834F /* SubMenuButton.png */; };
+		A1DE84CD229F60BE0041E450 /* EpisodeMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DDA20562B75000955AE /* EpisodeMenuView~ipad.xib */; };
+		A1DE84CE229F60BE0041E450 /* DifficultyBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308513F5D8AA003D834F /* DifficultyBackground.png */; };
+		A1DE84CF229F60BE0041E450 /* DownArrow_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308613F5D8AA003D834F /* DownArrow_Highlighted.png */; };
+		A1DE84D0229F60BE0041E450 /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308713F5D8AA003D834F /* DownArrow.png */; };
+		A1DE84D1229F60BE0041E450 /* Episode1Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308813F5D8AA003D834F /* Episode1Background.png */; };
+		A1DE84D2229F60BE0041E450 /* Episode2Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308913F5D8AA003D834F /* Episode2Background.png */; };
+		A1DE84D3229F60BE0041E450 /* Episode3Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308A13F5D8AA003D834F /* Episode3Background.png */; };
+		A1DE84D4229F60BE0041E450 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E0720562FAF000955AE /* Localizable.strings */; };
+		A1DE84D5229F60BE0041E450 /* Episode4Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308B13F5D8AA003D834F /* Episode4Background.png */; };
+		A1DE84D6229F60BE0041E450 /* MissonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308C13F5D8AA003D834F /* MissonBackground.png */; };
+		A1DE84D7229F60BE0041E450 /* DOOMLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */; };
+		A1DE84D8229F60BE0041E450 /* UpArrow_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308D13F5D8AA003D834F /* UpArrow_Highlighted.png */; };
+		A1DE84D9229F60BE0041E450 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C879308E13F5D8AA003D834F /* UpArrow.png */; };
+		A1DE84DA229F60BE0041E450 /* r_drawspan.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E3120563345000955AE /* r_drawspan.inl */; };
+		A1DE84DB229F60BE0041E450 /* DOOM_400.png in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B86207F9DE20038650E /* DOOM_400.png */; };
+		A1DE84DC229F60BE0041E450 /* Episode1Background_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87930E113F5EC1B003D834F /* Episode1Background_Highlighted.png */; };
+		A1DE84DD229F60BE0041E450 /* Episode2Background_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87930E213F5EC1B003D834F /* Episode2Background_Highlighted.png */; };
+		A1DE84DE229F60BE0041E450 /* Episode3Background_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87930E313F5EC1B003D834F /* Episode3Background_Highlighted.png */; };
+		A1DE84DF229F60BE0041E450 /* Episode4Background_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87930E413F5EC1B003D834F /* Episode4Background_Highlighted.png */; };
+		A1DE84E0229F60BE0041E450 /* MissionMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DC620562B73000955AE /* MissionMenuView~ipad.xib */; };
+		A1DE84E1229F60BE0041E450 /* OpenGLView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DE220562B76000955AE /* OpenGLView~ipad.xib */; };
+		A1DE84E2229F60BE0041E450 /* EpisodeCell~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A176AC08206492DD00A96B7E /* EpisodeCell~ipad.xib */; };
+		A1DE84E3229F60BE0041E450 /* AdvancedButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931DE13F610B9003D834F /* AdvancedButton_Highlighted.png */; };
+		A1DE84E4229F60BE0041E450 /* LegalMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCB20562B73000955AE /* LegalMenuView~ipad.xib */; };
+		A1DE84E5229F60BE0041E450 /* DOOM_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1820562FC4000955AE /* DOOM_76.png */; };
+		A1DE84E6229F60BE0041E450 /* AdvancedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931DF13F610B9003D834F /* AdvancedButton.png */; };
+		A1DE84E7229F60BE0041E450 /* Divide.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E013F610B9003D834F /* Divide.png */; };
+		A1DE84E8229F60BE0041E450 /* LayoutDualButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E113F610B9003D834F /* LayoutDualButton_Highlighted.png */; };
+		A1DE84E9229F60BE0041E450 /* LayoutDualButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E213F610B9003D834F /* LayoutDualButton.png */; };
+		A1DE84EA229F60BE0041E450 /* DOOM_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1720562FC3000955AE /* DOOM_120.png */; };
+		A1DE84EB229F60BE0041E450 /* LayoutSingleButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E313F610B9003D834F /* LayoutSingleButton_Highlighted.png */; };
+		A1DE84EC229F60BE0041E450 /* LayoutSingleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E413F610B9003D834F /* LayoutSingleButton.png */; };
+		A1DE84ED229F60BE0041E450 /* LayoutWheelButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E513F610B9003D834F /* LayoutWheelButton_Highlighted.png */; };
+		A1DE84EE229F60BE0041E450 /* r_drawflush.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E3020563345000955AE /* r_drawflush.inl */; };
+		A1DE84EF229F60BE0041E450 /* LayoutWheelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E613F610B9003D834F /* LayoutWheelButton.png */; };
+		A1DE84F0229F60BE0041E450 /* SettingsButton_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E713F610B9003D834F /* SettingsButton_Highlighted.png */; };
+		A1DE84F1229F60BE0041E450 /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E813F610B9003D834F /* SettingsButton.png */; };
+		A1DE84F2229F60BE0041E450 /* DOOM_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E1520562FC3000955AE /* DOOM_152.png */; };
+		A1DE84F3229F60BE0041E450 /* SliderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931E913F610B9003D834F /* SliderBackground.png */; };
+		A1DE84F4229F60BE0041E450 /* SliderBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931EA13F610B9003D834F /* SliderBar.png */; };
+		A1DE84F5229F60BE0041E450 /* prboom.wad in Resources */ = {isa = PBXBuildFile; fileRef = A12302F8205783E70075CBAD /* prboom.wad */; };
+		A1DE84F6229F60BE0041E450 /* base.iPack in Resources */ = {isa = PBXBuildFile; fileRef = A12302FA205783E70075CBAD /* base.iPack */; };
+		A1DE84F7229F60BE0041E450 /* OpenGLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DD220562B74000955AE /* OpenGLView.xib */; };
+		A1DE84F8229F60BE0041E450 /* r_drawcolumn.inl in Resources */ = {isa = PBXBuildFile; fileRef = A1A63E2D20563344000955AE /* r_drawcolumn.inl */; };
+		A1DE84F9229F60BE0041E450 /* SliderSkull.png in Resources */ = {isa = PBXBuildFile; fileRef = C87931EB13F610B9003D834F /* SliderSkull.png */; };
+		A1DE84FA229F60BE0041E450 /* MissionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DCC20562B73000955AE /* MissionMenuView.xib */; };
+		A1DE84FB229F60BE0041E450 /* SliderSkull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8139AB213FADA800094C2C0 /* SliderSkull@2x.png */; };
+		A1DE84FC229F60BE0041E450 /* SliderSkull~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C8139AB413FADA9D0094C2C0 /* SliderSkull~ipad.png */; };
+		A1DE84FD229F60BE0041E450 /* LegalMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A63DE020562B76000955AE /* LegalMenuView.xib */; };
+		A1DE84FF229F60BE0041E450 /* BackgroundMusic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 724C531E0FBDBCEE000E4348 /* BackgroundMusic.cpp */; };
+		A1DE8500229F60BE0041E450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		A1DE8501229F60BE0041E450 /* iphone_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 43E8D2DF0F4FC61E003F09B2 /* iphone_main.c */; };
+		A1DE8502229F60BE0041E450 /* iphone_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = 43CF03090F56D5C200E4A23D /* iphone_loop.c */; };
+		A1DE8503229F60BE0041E450 /* eas_mdls.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F1220563B60000955AE /* eas_mdls.c */; };
+		A1DE8504229F60BE0041E450 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7229CE460F6C89F8004123C5 /* EAGLView.m */; };
+		A1DE8505229F60BE0041E450 /* Doom_App.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E1D20562FD1000955AE /* Doom_App.m */; };
+		A1DE8506229F60BE0041E450 /* gles_glue.c in Sources */ = {isa = PBXBuildFile; fileRef = 7229CE540F6C8CDE004123C5 /* gles_glue.c */; };
+		A1DE8507229F60BE0041E450 /* hud.c in Sources */ = {isa = PBXBuildFile; fileRef = 72B5FF380F7E5C3D00C8A372 /* hud.c */; };
+		A1DE8508229F60BE0041E450 /* Localization.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DE205737F40075CBAD /* Localization.mm */; };
+		A1DE8509229F60BE0041E450 /* ipak.c in Sources */ = {isa = PBXBuildFile; fileRef = 72D50DBB0F8ED98000BB49E6 /* ipak.c */; };
+		A1DE850A229F60BE0041E450 /* View.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DC205737F40075CBAD /* View.mm */; };
+		A1DE850B229F60BE0041E450 /* eas_tcdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0F20563B5F000955AE /* eas_tcdata.c */; };
+		A1DE850C229F60BE0041E450 /* iphone_delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0320562FAF000955AE /* iphone_delegate.mm */; };
+		A1DE850D229F60BE0041E450 /* am_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847640F93C61900AB3C99 /* am_map.c */; };
+		A1DE850E229F60BE0041E450 /* d_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8476F0F93FFDB00AB3C99 /* d_client.c */; };
+		A1DE850F229F60BE0041E450 /* d_deh.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847700F93FFDB00AB3C99 /* d_deh.c */; };
+		A1DE8510229F60BE0041E450 /* iphone_async.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0020562FAE000955AE /* iphone_async.cpp */; };
+		A1DE8511229F60BE0041E450 /* d_items.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8477A0F9400D700AB3C99 /* d_items.c */; };
+		A1DE8512229F60BE0041E450 /* d_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8477C0F9400D700AB3C99 /* d_main.c */; };
+		A1DE8513229F60BE0041E450 /* eas_report.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E40205634E7000955AE /* eas_report.c */; };
+		A1DE8514229F60BE0041E450 /* eas_xmfdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECA20563B53000955AE /* eas_xmfdata.c */; };
+		A1DE8515229F60BE0041E450 /* doomdef.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847840F9400D700AB3C99 /* doomdef.c */; };
+		A1DE8516229F60BE0041E450 /* doomstat.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847860F9400D700AB3C99 /* doomstat.c */; };
+		A1DE8517229F60BE0041E450 /* iphone_start.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0520562FAF000955AE /* iphone_start.cpp */; };
+		A1DE8518229F60BE0041E450 /* dstrings.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847890F9400D700AB3C99 /* dstrings.c */; };
+		A1DE8519229F60BE0041E450 /* f_finale.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8478B0F9400D700AB3C99 /* f_finale.c */; };
+		A1DE851A229F60BE0041E450 /* RenderContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302DA205737F40075CBAD /* RenderContext.mm */; };
+		A1DE851B229F60BE0041E450 /* eas_ota.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED820563B54000955AE /* eas_ota.c */; };
+		A1DE851C229F60BE0041E450 /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8478D0F9400D700AB3C99 /* f_wipe.c */; };
+		A1DE851D229F60BE0041E450 /* g_game.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8478F0F9400D700AB3C99 /* g_game.c */; };
+		A1DE851E229F60BE0041E450 /* eas_imelodydata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFC20563B5C000955AE /* eas_imelodydata.c */; };
+		A1DE851F229F60BE0041E450 /* MissionMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DD020562B74000955AE /* MissionMenuViewController.mm */; };
+		A1DE8520229F60BE0041E450 /* gl_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847920F9400D700AB3C99 /* gl_main.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		A1DE8521229F60BE0041E450 /* gl_texture.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847940F9400D700AB3C99 /* gl_texture.c */; };
+		A1DE8522229F60BE0041E450 /* hu_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847950F9400D700AB3C99 /* hu_lib.c */; };
+		A1DE8523229F60BE0041E450 /* hu_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847970F9400D700AB3C99 /* hu_stuff.c */; };
+		A1DE8524229F60BE0041E450 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8479F0F9400D700AB3C99 /* info.c */; };
+		A1DE8525229F60BE0041E450 /* iphone_common.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0620562FAF000955AE /* iphone_common.mm */; };
+		A1DE8526229F60BE0041E450 /* lprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847A10F9400D700AB3C99 /* lprintf.c */; };
+		A1DE8527229F60BE0041E450 /* m_argv.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847A30F9400D700AB3C99 /* m_argv.c */; };
+		A1DE8528229F60BE0041E450 /* m_bbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847A50F9400D700AB3C99 /* m_bbox.c */; };
+		A1DE8529229F60BE0041E450 /* eas_hostmm.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E42205634E7000955AE /* eas_hostmm.c */; };
+		A1DE852A229F60BE0041E450 /* m_cheat.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847A70F9400D700AB3C99 /* m_cheat.c */; };
+		A1DE852B229F60BE0041E450 /* m_menu.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847AA0F9400D700AB3C99 /* m_menu.c */; };
+		A1DE852C229F60BE0041E450 /* MainMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DD820562B75000955AE /* MainMenuViewController.mm */; };
+		A1DE852D229F60BE0041E450 /* m_misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847AC0F9400D700AB3C99 /* m_misc.c */; };
+		A1DE852E229F60BE0041E450 /* eas_xmf.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECB20563B53000955AE /* eas_xmf.c */; };
+		A1DE852F229F60BE0041E450 /* eas_otadata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECE20563B53000955AE /* eas_otadata.c */; };
+		A1DE8531229F60BE0041E450 /* m_random.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847AE0F9400D700AB3C99 /* m_random.c */; };
+		A1DE8532229F60BE0041E450 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E00F941A5900AB3C99 /* md5.c */; };
+		A1DE8533229F60BE0041E450 /* eas_wtsynth.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE820563B58000955AE /* eas_wtsynth.c */; };
+		A1DE8534229F60BE0041E450 /* p_ceilng.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E40F941A5900AB3C99 /* p_ceilng.c */; };
+		A1DE8535229F60BE0041E450 /* p_checksum.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E50F941A5900AB3C99 /* p_checksum.c */; };
+		A1DE8536229F60BE0041E450 /* p_doors.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E70F941A5900AB3C99 /* p_doors.c */; };
+		A1DE8537229F60BE0041E450 /* p_enemy.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E80F941A5900AB3C99 /* p_enemy.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		A1DE8538229F60BE0041E450 /* eas_pan.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0D20563B5F000955AE /* eas_pan.c */; };
+		A1DE8539229F60BE0041E450 /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EA0F941A5900AB3C99 /* p_floor.c */; };
+		A1DE853A229F60BE0041E450 /* mmus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E2B20563344000955AE /* mmus2mid.c */; };
+		A1DE853B229F60BE0041E450 /* p_genlin.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EB0F941A5900AB3C99 /* p_genlin.c */; };
+		A1DE853C229F60BE0041E450 /* Carousel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302F3205738560075CBAD /* Carousel.mm */; };
+		A1DE853D229F60BE0041E450 /* eas_rtttldata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFF20563B5C000955AE /* eas_rtttldata.c */; };
+		A1DE853E229F60BE0041E450 /* eas_imaadpcm.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED020563B54000955AE /* eas_imaadpcm.c */; };
+		A1DE853F229F60BE0041E450 /* p_inter.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EC0F941A5900AB3C99 /* p_inter.c */; };
+		A1DE8540229F60BE0041E450 /* p_lights.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EE0F941A5900AB3C99 /* p_lights.c */; };
+		A1DE8541229F60BE0041E450 /* p_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EF0F941A5900AB3C99 /* p_map.c */; };
+		A1DE8542229F60BE0041E450 /* p_maputl.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F10F941A5900AB3C99 /* p_maputl.c */; };
+		A1DE8543229F60BE0041E450 /* GameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C9520689D9500760204 /* GameController.mm */; };
+		A1DE8544229F60BE0041E450 /* p_mobj.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F30F941A5900AB3C99 /* p_mobj.c */; };
+		A1DE8545229F60BE0041E450 /* p_plats.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F50F941A5900AB3C99 /* p_plats.c */; };
+		A1DE8546229F60BE0041E450 /* p_pspr.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F60F941A5900AB3C99 /* p_pspr.c */; };
+		A1DE8547229F60BE0041E450 /* p_saveg.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F80F941A5900AB3C99 /* p_saveg.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		A1DE8548229F60BE0041E450 /* eas_reverbdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0420563B5D000955AE /* eas_reverbdata.c */; };
+		A1DE8549229F60BE0041E450 /* SDL_Mixer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E27205632E2000955AE /* SDL_Mixer.m */; };
+		A1DE854A229F60BE0041E450 /* eas_smf.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EED20563B59000955AE /* eas_smf.c */; };
+		A1DE854B229F60BE0041E450 /* p_setup.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FA0F941A5900AB3C99 /* p_setup.c */; };
+		A1DE854C229F60BE0041E450 /* eas_mididata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFD20563B5C000955AE /* eas_mididata.c */; };
+		A1DE854D229F60BE0041E450 /* p_sight.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FC0F941A5900AB3C99 /* p_sight.c */; };
+		A1DE854E229F60BE0041E450 /* eas_wave.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E4C205634E7000955AE /* eas_wave.c */; };
+		A1DE854F229F60BE0041E450 /* EASGlue.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E5120563A06000955AE /* EASGlue.c */; };
+		A1DE8550229F60BE0041E450 /* eas_midi.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE320563B56000955AE /* eas_midi.c */; };
+		A1DE8551229F60BE0041E450 /* p_spec.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FD0F941A5900AB3C99 /* p_spec.c */; };
+		A1DE8552229F60BE0041E450 /* wt_22khz.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE420563B56000955AE /* wt_22khz.c */; };
+		A1DE8553229F60BE0041E450 /* p_switch.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E847FF0F941A5900AB3C99 /* p_switch.c */; };
+		A1DE8554229F60BE0041E450 /* eas_wavefile.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED620563B54000955AE /* eas_wavefile.c */; };
+		A1DE8555229F60BE0041E450 /* eas_chorus.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE120563B55000955AE /* eas_chorus.c */; };
+		A1DE8556229F60BE0041E450 /* p_telept.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848000F941A5900AB3C99 /* p_telept.c */; };
+		A1DE8557229F60BE0041E450 /* p_tick.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848010F941A5900AB3C99 /* p_tick.c */; };
+		A1DE8558229F60BE0041E450 /* eas_pcm.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EF020563B5A000955AE /* eas_pcm.c */; };
+		A1DE8559229F60BE0041E450 /* iphone_glViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DFE20562FAE000955AE /* iphone_glViewController.mm */; };
+		A1DE855A229F60BE0041E450 /* p_user.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848030F941A5900AB3C99 /* p_user.c */; };
+		A1DE855B229F60BE0041E450 /* r_bsp.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8481D0F941A8300AB3C99 /* r_bsp.c */; };
+		A1DE855C229F60BE0041E450 /* r_data.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8481F0F941A8300AB3C99 /* r_data.c */; };
+		A1DE855D229F60BE0041E450 /* r_demo.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848220F941A8300AB3C99 /* r_demo.c */; };
+		A1DE855E229F60BE0041E450 /* r_draw.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848240F941A8300AB3C99 /* r_draw.c */; };
+		A1DE855F229F60BE0041E450 /* CreditsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */; };
+		A1DE8560229F60BE0041E450 /* iphone_sound.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0920562FAF000955AE /* iphone_sound.mm */; };
+		A1DE8561229F60BE0041E450 /* r_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8482A0F941AAC00AB3C99 /* r_filter.c */; };
+		A1DE8562229F60BE0041E450 /* r_fps.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8482C0F941AAC00AB3C99 /* r_fps.c */; };
+		A1DE8563229F60BE0041E450 /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0820562FAF000955AE /* SoundEngine.cpp */; };
+		A1DE8564229F60BE0041E450 /* eas_dlssynth.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EEF20563B59000955AE /* eas_dlssynth.c */; };
+		A1DE8565229F60BE0041E450 /* r_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8482E0F941AAC00AB3C99 /* r_main.c */; };
+		A1DE8566229F60BE0041E450 /* r_patch.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848300F941AAC00AB3C99 /* r_patch.c */; };
+		A1DE8567229F60BE0041E450 /* r_plane.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848320F941AAC00AB3C99 /* r_plane.c */; };
+		A1DE8568229F60BE0041E450 /* iphone_sys.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E0A20562FAF000955AE /* iphone_sys.mm */; };
+		A1DE8569229F60BE0041E450 /* r_segs.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848340F941AAC00AB3C99 /* r_segs.c */; };
+		A1DE856A229F60BE0041E450 /* r_sky.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848360F941AAC00AB3C99 /* r_sky.c */; };
+		A1DE856B229F60BE0041E450 /* r_things.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848390F941AAC00AB3C99 /* r_things.c */; };
+		A1DE856C229F60BE0041E450 /* i_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E2320563253000955AE /* i_sound.c */; };
+		A1DE856D229F60BE0041E450 /* eas_wtengine.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EFA20563B5B000955AE /* eas_wtengine.c */; };
+		A1DE856E229F60BE0041E450 /* eas_voicemgt.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0B20563B5E000955AE /* eas_voicemgt.c */; };
+		A1DE856F229F60BE0041E450 /* LegalMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DC720562B73000955AE /* LegalMenuViewController.mm */; };
+		A1DE8570229F60BE0041E450 /* eas_wavefiledata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EF920563B5B000955AE /* eas_wavefiledata.c */; };
+		A1DE8571229F60BE0041E450 /* eas_imelody.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0C20563B5F000955AE /* eas_imelody.c */; };
+		A1DE8572229F60BE0041E450 /* s_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8483B0F941AAC00AB3C99 /* s_sound.c */; };
+		A1DE8573229F60BE0041E450 /* sounds.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848460F941ADC00AB3C99 /* sounds.c */; };
+		A1DE8574229F60BE0041E450 /* eas_data.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ECF20563B53000955AE /* eas_data.c */; };
+		A1DE8575229F60BE0041E450 /* st_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848480F941ADC00AB3C99 /* st_lib.c */; };
+		A1DE8576229F60BE0041E450 /* eas_mixer.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED720563B54000955AE /* eas_mixer.c */; };
+		A1DE8577229F60BE0041E450 /* st_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484A0F941ADC00AB3C99 /* st_stuff.c */; };
+		A1DE8578229F60BE0041E450 /* tables.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484C0F941ADC00AB3C99 /* tables.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		A1DE8579229F60BE0041E450 /* v_video.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8484E0F941ADC00AB3C99 /* v_video.c */; };
+		A1DE857A229F60BE0041E450 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848500F941ADC00AB3C99 /* version.c */; };
+		A1DE857B229F60BE0041E450 /* eas_flog.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0220563B5C000955AE /* eas_flog.c */; };
+		A1DE857C229F60BE0041E450 /* eas_config.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63E4B205634E7000955AE /* eas_config.c */; };
+		A1DE857D229F60BE0041E450 /* w_mmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848530F941ADC00AB3C99 /* w_mmap.c */; };
+		A1DE857E229F60BE0041E450 /* eas_reverb.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0E20563B5F000955AE /* eas_reverb.c */; };
+		A1DE857F229F60BE0041E450 /* w_wad.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848540F941ADC00AB3C99 /* w_wad.c */; };
+		A1DE8580229F60BE0041E450 /* wi_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848560F941ADC00AB3C99 /* wi_stuff.c */; };
+		A1DE8581229F60BE0041E450 /* z_bmalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E848580F941ADC00AB3C99 /* z_bmalloc.c */; };
+		A1DE8582229F60BE0041E450 /* eas_smfdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EE520563B56000955AE /* eas_smfdata.c */; };
+		A1DE8583229F60BE0041E450 /* eas_mixbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EEC20563B59000955AE /* eas_mixbuf.c */; };
+		A1DE8584229F60BE0041E450 /* z_zone.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8485A0F941ADC00AB3C99 /* z_zone.c */; };
+		A1DE8585229F60BE0041E450 /* eas_public.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0520563B5D000955AE /* eas_public.c */; };
+		A1DE8586229F60BE0041E450 /* cvar.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8495C0F942B9300AB3C99 /* cvar.c */; };
+		A1DE8587229F60BE0041E450 /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E8495E0F942B9300AB3C99 /* misc.c */; };
+		A1DE8588229F60BE0041E450 /* SettingsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DE120562B76000955AE /* SettingsMenuViewController.mm */; };
+		A1DE8589229F60BE0041E450 /* prboomInterface.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E849F50F94ED1100AB3C99 /* prboomInterface.c */; };
+		A1DE858A229F60BE0041E450 /* cmd.c in Sources */ = {isa = PBXBuildFile; fileRef = 72E84A280F9503F100AB3C99 /* cmd.c */; };
+		A1DE858B229F60BE0041E450 /* Slider.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302F0205738270075CBAD /* Slider.mm */; };
+		A1DE858C229F60BE0041E450 /* dict.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F99D0F96C18800AD49AC /* dict.c */; };
+		A1DE858D229F60BE0041E450 /* LabelButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302D7205737F40075CBAD /* LabelButton.mm */; };
+		A1DE858E229F60BE0041E450 /* Switch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302E1205737F50075CBAD /* Switch.mm */; };
+		A1DE858F229F60BE0041E450 /* eas_rtttl.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63ED120563B54000955AE /* eas_rtttl.c */; };
+		A1DE8590229F60BE0041E450 /* geom.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F99F0F96C18800AD49AC /* geom.c */; };
+		A1DE8591229F60BE0041E450 /* memalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9A10F96C18800AD49AC /* memalloc.c */; };
+		A1DE8592229F60BE0041E450 /* eas_pcmdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EDA20563B54000955AE /* eas_pcmdata.c */; };
+		A1DE8593229F60BE0041E450 /* mesh.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9A30F96C18800AD49AC /* mesh.c */; };
+		A1DE8594229F60BE0041E450 /* SecretMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DB720562B2B000955AE /* SecretMenuViewController.mm */; };
+		A1DE8595229F60BE0041E450 /* eas_tonecontrol.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EF720563B5B000955AE /* eas_tonecontrol.c */; };
+		A1DE8596229F60BE0041E450 /* normal.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9A50F96C18800AD49AC /* normal.c */; };
+		A1DE8597229F60BE0041E450 /* Label.mm in Sources */ = {isa = PBXBuildFile; fileRef = A12302D6205737F40075CBAD /* Label.mm */; };
+		A1DE8598229F60BE0041E450 /* priorityq.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9AA0F96C18800AD49AC /* priorityq.c */; };
+		A1DE8599229F60BE0041E450 /* render.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9AC0F96C18800AD49AC /* render.c */; };
+		A1DE859A229F60BE0041E450 /* eas_chorusdata.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63EDC20563B55000955AE /* eas_chorusdata.c */; };
+		A1DE859B229F60BE0041E450 /* eas_math.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F1020563B5F000955AE /* eas_math.c */; };
+		A1DE859C229F60BE0041E450 /* sweep.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9AE0F96C18800AD49AC /* sweep.c */; };
+		A1DE859D229F60BE0041E450 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DDC20562B75000955AE /* MainNavController.m */; };
+		A1DE859E229F60BE0041E450 /* eas_ima_tables.c in Sources */ = {isa = PBXBuildFile; fileRef = A1A63F0620563B5D000955AE /* eas_ima_tables.c */; };
+		A1DE859F229F60BE0041E450 /* tess.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9B00F96C18800AD49AC /* tess.c */; };
+		A1DE85A0229F60BE0041E450 /* tessmono.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F9B20F96C18800AD49AC /* tessmono.c */; };
+		A1DE85A1229F60BE0041E450 /* iphone_mapSelect.c in Sources */ = {isa = PBXBuildFile; fileRef = 7239452B0F9C0E7500EADD62 /* iphone_mapSelect.c */; };
+		A1DE85A2229F60BE0041E450 /* iphone_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 72484E5D0FB0E99900124E1C /* iphone_render.c */; };
+		A1DE85A3229F60BE0041E450 /* ControlsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A63DB420562B2A000955AE /* ControlsMenuViewController.mm */; };
+		A1DE85A4229F60BE0041E450 /* iphone_net.c in Sources */ = {isa = PBXBuildFile; fileRef = 72A560E11004FAEE00F788A5 /* iphone_net.c */; };
+		A1DE85A5229F60BE0041E450 /* iphone_email.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9AB3D010966E85000B5852 /* iphone_email.m */; };
+		A1DE85A7229F60BE0041E450 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E89C9320689D4B00760204 /* GameController.framework */; };
+		A1DE85A8229F60BE0041E450 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A63E5420563A6D000955AE /* AVFoundation.framework */; };
+		A1DE85A9229F60BE0041E450 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8D4DF0F51B48B003F09B2 /* OpenAL.framework */; };
+		A1DE85AA229F60BE0041E450 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4333CCE70F5CC23E00AE2B6F /* AudioToolbox.framework */; };
+		A1DE85AB229F60BE0041E450 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720EBBAD0F82E0BB003F989A /* QuartzCore.framework */; };
+		A1DE85AC229F60BE0041E450 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760411C2B19E004A9B9B /* CoreGraphics.framework */; };
+		A1DE85AD229F60BE0041E450 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
+		A1DE85AE229F60BE0041E450 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
+		A1DE85AF229F60BE0041E450 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760A11C2B19E004A9B9B /* UIKit.framework */; };
+		A1DE85BC229F610C0041E450 /* SIGIL_SHREDS.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85BA229F610B0041E450 /* SIGIL_SHREDS.wad */; };
+		A1DE85BD229F610C0041E450 /* SIGIL.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85BB229F610B0041E450 /* SIGIL.wad */; };
+		A1DE85C3229F73950041E450 /* SIGIL-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85C2229F73950041E450 /* SIGIL-iOS.xcassets */; };
+		A1DE85C7229F874F0041E450 /* SIGILLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85C6229F874F0041E450 /* SIGILLaunchScreen.storyboard */; };
 		A1E89C8F2067469D00760204 /* CreditsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */; };
 		A1E89C902067469D00760204 /* CreditsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E89C8D2067469D00760204 /* CreditsMenuView.xib */; };
 		A1E89C9420689D4C00760204 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E89C9320689D4B00760204 /* GameController.framework */; };
@@ -2010,6 +2282,12 @@
 		A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DOOM-tvOS.xcassets"; sourceTree = "<group>"; };
 		A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "DOOM2-tvOS.xcassets"; sourceTree = "<group>"; };
 		A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "FinalDOOM-tvOS.xcassets"; sourceTree = "<group>"; };
+		A1DE85B8229F60BE0041E450 /* SIGIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIGIL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DE85B9229F60BE0041E450 /* SIGIL-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SIGIL-iOS-Info.plist"; path = "/Users/tomkidd/Documents/GitHub/DOOM-iOS/code/iphone/SIGIL-iOS-Info.plist"; sourceTree = "<absolute>"; };
+		A1DE85BA229F610B0041E450 /* SIGIL_SHREDS.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = SIGIL_SHREDS.wad; path = ../../base/SIGIL_SHREDS.wad; sourceTree = "<group>"; };
+		A1DE85BB229F610B0041E450 /* SIGIL.wad */ = {isa = PBXFileReference; lastKnownFileType = file; name = SIGIL.wad; path = ../../base/SIGIL.wad; sourceTree = "<group>"; };
+		A1DE85C2229F73950041E450 /* SIGIL-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "SIGIL-iOS.xcassets"; sourceTree = "<group>"; };
+		A1DE85C6229F874F0041E450 /* SIGILLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SIGILLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenuViewController.h; sourceTree = "<group>"; };
 		A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreditsMenuViewController.mm; sourceTree = "<group>"; };
 		A1E89C8D2067469D00760204 /* CreditsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsMenuView.xib; sourceTree = "<group>"; };
@@ -2181,6 +2459,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1DE85A6229F60BE0041E450 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DE85A7229F60BE0041E450 /* GameController.framework in Frameworks */,
+				A1DE85A8229F60BE0041E450 /* AVFoundation.framework in Frameworks */,
+				A1DE85A9229F60BE0041E450 /* OpenAL.framework in Frameworks */,
+				A1DE85AA229F60BE0041E450 /* AudioToolbox.framework in Frameworks */,
+				A1DE85AB229F60BE0041E450 /* QuartzCore.framework in Frameworks */,
+				A1DE85AC229F60BE0041E450 /* CoreGraphics.framework in Frameworks */,
+				A1DE85AD229F60BE0041E450 /* Foundation.framework in Frameworks */,
+				A1DE85AE229F60BE0041E450 /* OpenGLES.framework in Frameworks */,
+				A1DE85AF229F60BE0041E450 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -2194,6 +2488,7 @@
 				A10639D2216EF7C700BDE196 /* DOOM II.app */,
 				A1063AEE216EFCEE00BDE196 /* FInal DOOM.app */,
 				A1063C01216F012000BDE196 /* Final DOOM.app */,
+				A1DE85B8229F60BE0041E450 /* SIGIL.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2266,6 +2561,7 @@
 				72E847620F93C5F900AB3C99 /* prboom */,
 				72E849F50F94ED1100AB3C99 /* prboomInterface.c */,
 				A1A63E25205632E2000955AE /* SDL_shim */,
+				A1DE85B9229F60BE0041E450 /* SIGIL-iOS-Info.plist */,
 				A1A63E0820562FAF000955AE /* SoundEngine.cpp */,
 				A1A63DFB20562FAE000955AE /* SoundEngine.h */,
 			);
@@ -2275,7 +2571,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */,
 				A12302FA205783E70075CBAD /* base.iPack */,
 				C8D1CFA913E1CDC600F0EAC6 /* Default-Landscape~ipad.png */,
 				C8D1CFA713E1CDBD00F0EAC6 /* Default-Portrait~ipad.png */,
@@ -2290,20 +2585,25 @@
 				A1A63E1620562FC3000955AE /* DOOM_144.png */,
 				A1A63E1520562FC3000955AE /* DOOM_152.png */,
 				A1EA3B86207F9DE20038650E /* DOOM_400.png */,
+				A1B9E45C21700601003E9731 /* DOOM-iOS.xcassets */,
+				A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */,
 				A12302F9205783E70075CBAD /* doom.wad */,
+				A1B9E45E217006D2003E9731 /* DOOM2-iOS.xcassets */,
+				A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */,
 				A10638C2216EBC5A00BDE196 /* doom2.wad */,
-				C84F820613D73D28006D01AB /* Interface Builder Images */,
+				A1D399352171462F00FD11C3 /* DOOM2LaunchScreen.storyboard */,
 				A112904F2069B62B00BEDEB5 /* DOOMLaunchScreen.storyboard */,
+				A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */,
+				A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */,
+				A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */,
+				C84F820613D73D28006D01AB /* Interface Builder Images */,
 				A1063AF1216EFD9800BDE196 /* plutonia.wad */,
 				A12302F8205783E70075CBAD /* prboom.wad */,
+				A1DE85BA229F610B0041E450 /* SIGIL_SHREDS.wad */,
+				A1DE85C2229F73950041E450 /* SIGIL-iOS.xcassets */,
+				A1DE85BB229F610B0041E450 /* SIGIL.wad */,
 				A1063AF0216EFD9800BDE196 /* tnt.wad */,
-				A1B9E45C21700601003E9731 /* DOOM-iOS.xcassets */,
-				A1B9E45E217006D2003E9731 /* DOOM2-iOS.xcassets */,
-				A1B9E4602170078A003E9731 /* FinalDOOM-iOS.xcassets */,
-				A1D39932217144A800FD11C3 /* FinalDOOMLaunchScreen.storyboard */,
-				A1D399372171A08C00FD11C3 /* DOOM-tvOS.xcassets */,
-				A1D399392171A0A800FD11C3 /* DOOM2-tvOS.xcassets */,
-				A1D3993C2171A0FD00FD11C3 /* FinalDOOM-tvOS.xcassets */,
+				A1DE85C6229F874F0041E450 /* SIGILLaunchScreen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2866,6 +3166,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1DE85B0229F60BE0041E450 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -2977,6 +3284,24 @@
 			productReference = A1B98DEA207EFEE800827A46 /* DOOM.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A1DE849E229F60BE0041E450 /* SIGIL-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1DE85B1229F60BE0041E450 /* Build configuration list for PBXNativeTarget "SIGIL-iOS" */;
+			buildPhases = (
+				A1DE849F229F60BE0041E450 /* Resources */,
+				A1DE84FE229F60BE0041E450 /* Sources */,
+				A1DE85A6229F60BE0041E450 /* Frameworks */,
+				A1DE85B0229F60BE0041E450 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SIGIL-iOS";
+			productName = Doom;
+			productReference = A1DE85B8229F60BE0041E450 /* SIGIL.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3011,6 +3336,7 @@
 				A10638C6216EF7C700BDE196 /* DOOM2-tvOS */,
 				A10639D5216EFCEE00BDE196 /* FInalDOOM-iOS */,
 				A1063AF4216F012000BDE196 /* FInalDOOM-tvOS */,
+				A1DE849E229F60BE0041E450 /* SIGIL-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -3587,6 +3913,110 @@
 				A1B98E24207F016600827A46 /* CreditsMenuView-tvos.xib in Resources */,
 				A1B98E1F207F016600827A46 /* ControlsMenuView-tvos.xib in Resources */,
 				A1B98E1E207F016600827A46 /* LegalMenuView-tvos.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DE849F229F60BE0041E450 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DE84A0229F60BE0041E450 /* Default.png in Resources */,
+				A1DE84A1229F60BE0041E450 /* dist.plist in Resources */,
+				A1DE84A3229F60BE0041E450 /* DOOM_57.png in Resources */,
+				A1DE84A4229F60BE0041E450 /* DOOM_114.png in Resources */,
+				A1DE84A5229F60BE0041E450 /* DOOM_72.png in Resources */,
+				A1DE85C3229F73950041E450 /* SIGIL-iOS.xcassets in Resources */,
+				A1DE84A6229F60BE0041E450 /* Default@2x.png in Resources */,
+				A1DE84A7229F60BE0041E450 /* Default~ipad.png in Resources */,
+				A1DE84A8229F60BE0041E450 /* idGinzaNar-Md2.otf in Resources */,
+				A1DE84A9229F60BE0041E450 /* BackButton.png in Resources */,
+				A1DE84AA229F60BE0041E450 /* Button.png in Resources */,
+				A1DE84AB229F60BE0041E450 /* CreditsMenuView.xib in Resources */,
+				A1DE84AC229F60BE0041E450 /* CreditsMenuView~ipad.xib in Resources */,
+				A1DE84AD229F60BE0041E450 /* SecretMenuView.xib in Resources */,
+				A1DE84AE229F60BE0041E450 /* DOOM_sigil_decal.png in Resources */,
+				A1DE84AF229F60BE0041E450 /* EpisodeCell.xib in Resources */,
+				A1DE84B0229F60BE0041E450 /* DoomLogo.png in Resources */,
+				A1DE84B1229F60BE0041E450 /* ControlsMenuView~ipad.xib in Resources */,
+				A1DE84B2229F60BE0041E450 /* Easy.png in Resources */,
+				A1DE84B3229F60BE0041E450 /* SettingsMenuView~ipad.xib in Resources */,
+				A1DE84B4229F60BE0041E450 /* MainMenuView.xib in Resources */,
+				A1DE84B5229F60BE0041E450 /* Hard.png in Resources */,
+				A1DE84B6229F60BE0041E450 /* MainMenuView~ipad.xib in Resources */,
+				A1DE84B7229F60BE0041E450 /* DOOM_144.png in Resources */,
+				A1DE84B8229F60BE0041E450 /* MapOverlay.png in Resources */,
+				A1DE84B9229F60BE0041E450 /* Medium.png in Resources */,
+				A1DE84BA229F60BE0041E450 /* MenuBackground.png in Resources */,
+				A1DE84BB229F60BE0041E450 /* r_drawcolpipeline.inl in Resources */,
+				A1DE84BC229F60BE0041E450 /* doom.wad in Resources */,
+				A1DE84BD229F60BE0041E450 /* ControlsMenuView.xib in Resources */,
+				A1DE84BE229F60BE0041E450 /* Nightmare.png in Resources */,
+				A1DE84BF229F60BE0041E450 /* ResumeButton.png in Resources */,
+				A1DE85BC229F610C0041E450 /* SIGIL_SHREDS.wad in Resources */,
+				A1DE84C0229F60BE0041E450 /* EpisodeMenuView.xib in Resources */,
+				A1DE84C1229F60BE0041E450 /* Makefile.am in Resources */,
+				A1DE84C2229F60BE0041E450 /* SelectedBracket.png in Resources */,
+				A1DE84C3229F60BE0041E450 /* Default-Portrait~ipad.png in Resources */,
+				A1DE84C4229F60BE0041E450 /* Default-Landscape~ipad.png in Resources */,
+				A1DE84C5229F60BE0041E450 /* SettingsMenuView.xib in Resources */,
+				A1DE84C6229F60BE0041E450 /* BackButton_Highlighted.png in Resources */,
+				A1DE84C7229F60BE0041E450 /* Button_Highlighted.png in Resources */,
+				A1DE84C8229F60BE0041E450 /* NextButton_Highlighted.png in Resources */,
+				A1DE84C9229F60BE0041E450 /* NextButton.png in Resources */,
+				A1DE84CA229F60BE0041E450 /* SubMenuBackground.png in Resources */,
+				A1DE84CB229F60BE0041E450 /* SubMenuButton_Highlighted.png in Resources */,
+				A1DE84CC229F60BE0041E450 /* SubMenuButton.png in Resources */,
+				A1DE84CD229F60BE0041E450 /* EpisodeMenuView~ipad.xib in Resources */,
+				A1DE84CE229F60BE0041E450 /* DifficultyBackground.png in Resources */,
+				A1DE84CF229F60BE0041E450 /* DownArrow_Highlighted.png in Resources */,
+				A1DE84D0229F60BE0041E450 /* DownArrow.png in Resources */,
+				A1DE84D1229F60BE0041E450 /* Episode1Background.png in Resources */,
+				A1DE84D2229F60BE0041E450 /* Episode2Background.png in Resources */,
+				A1DE84D3229F60BE0041E450 /* Episode3Background.png in Resources */,
+				A1DE84D4229F60BE0041E450 /* Localizable.strings in Resources */,
+				A1DE84D5229F60BE0041E450 /* Episode4Background.png in Resources */,
+				A1DE84D6229F60BE0041E450 /* MissonBackground.png in Resources */,
+				A1DE84D7229F60BE0041E450 /* DOOMLaunchScreen.storyboard in Resources */,
+				A1DE84D8229F60BE0041E450 /* UpArrow_Highlighted.png in Resources */,
+				A1DE84D9229F60BE0041E450 /* UpArrow.png in Resources */,
+				A1DE84DA229F60BE0041E450 /* r_drawspan.inl in Resources */,
+				A1DE84DB229F60BE0041E450 /* DOOM_400.png in Resources */,
+				A1DE84DC229F60BE0041E450 /* Episode1Background_Highlighted.png in Resources */,
+				A1DE85C7229F874F0041E450 /* SIGILLaunchScreen.storyboard in Resources */,
+				A1DE84DD229F60BE0041E450 /* Episode2Background_Highlighted.png in Resources */,
+				A1DE84DE229F60BE0041E450 /* Episode3Background_Highlighted.png in Resources */,
+				A1DE84DF229F60BE0041E450 /* Episode4Background_Highlighted.png in Resources */,
+				A1DE84E0229F60BE0041E450 /* MissionMenuView~ipad.xib in Resources */,
+				A1DE84E1229F60BE0041E450 /* OpenGLView~ipad.xib in Resources */,
+				A1DE84E2229F60BE0041E450 /* EpisodeCell~ipad.xib in Resources */,
+				A1DE84E3229F60BE0041E450 /* AdvancedButton_Highlighted.png in Resources */,
+				A1DE84E4229F60BE0041E450 /* LegalMenuView~ipad.xib in Resources */,
+				A1DE84E5229F60BE0041E450 /* DOOM_76.png in Resources */,
+				A1DE84E6229F60BE0041E450 /* AdvancedButton.png in Resources */,
+				A1DE84E7229F60BE0041E450 /* Divide.png in Resources */,
+				A1DE84E8229F60BE0041E450 /* LayoutDualButton_Highlighted.png in Resources */,
+				A1DE84E9229F60BE0041E450 /* LayoutDualButton.png in Resources */,
+				A1DE85BD229F610C0041E450 /* SIGIL.wad in Resources */,
+				A1DE84EA229F60BE0041E450 /* DOOM_120.png in Resources */,
+				A1DE84EB229F60BE0041E450 /* LayoutSingleButton_Highlighted.png in Resources */,
+				A1DE84EC229F60BE0041E450 /* LayoutSingleButton.png in Resources */,
+				A1DE84ED229F60BE0041E450 /* LayoutWheelButton_Highlighted.png in Resources */,
+				A1DE84EE229F60BE0041E450 /* r_drawflush.inl in Resources */,
+				A1DE84EF229F60BE0041E450 /* LayoutWheelButton.png in Resources */,
+				A1DE84F0229F60BE0041E450 /* SettingsButton_Highlighted.png in Resources */,
+				A1DE84F1229F60BE0041E450 /* SettingsButton.png in Resources */,
+				A1DE84F2229F60BE0041E450 /* DOOM_152.png in Resources */,
+				A1DE84F3229F60BE0041E450 /* SliderBackground.png in Resources */,
+				A1DE84F4229F60BE0041E450 /* SliderBar.png in Resources */,
+				A1DE84F5229F60BE0041E450 /* prboom.wad in Resources */,
+				A1DE84F6229F60BE0041E450 /* base.iPack in Resources */,
+				A1DE84F7229F60BE0041E450 /* OpenGLView.xib in Resources */,
+				A1DE84F8229F60BE0041E450 /* r_drawcolumn.inl in Resources */,
+				A1DE84F9229F60BE0041E450 /* SliderSkull.png in Resources */,
+				A1DE84FA229F60BE0041E450 /* MissionMenuView.xib in Resources */,
+				A1DE84FB229F60BE0041E450 /* SliderSkull@2x.png in Resources */,
+				A1DE84FC229F60BE0041E450 /* SliderSkull~ipad.png in Resources */,
+				A1DE84FD229F60BE0041E450 /* LegalMenuView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4626,6 +5056,179 @@
 				A1B98FA5207F090600827A46 /* eas_pan.c in Sources */,
 				A1B98E8B207F05DB00827A46 /* iphone_start.cpp in Sources */,
 				A1B98F78207F07D400827A46 /* p_pspr.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DE84FE229F60BE0041E450 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DE84FF229F60BE0041E450 /* BackgroundMusic.cpp in Sources */,
+				A1DE8500229F60BE0041E450 /* main.m in Sources */,
+				A1DE8501229F60BE0041E450 /* iphone_main.c in Sources */,
+				A1DE8502229F60BE0041E450 /* iphone_loop.c in Sources */,
+				A1DE8503229F60BE0041E450 /* eas_mdls.c in Sources */,
+				A1DE8504229F60BE0041E450 /* EAGLView.m in Sources */,
+				A1DE8505229F60BE0041E450 /* Doom_App.m in Sources */,
+				A1DE8506229F60BE0041E450 /* gles_glue.c in Sources */,
+				A1DE8507229F60BE0041E450 /* hud.c in Sources */,
+				A1DE8508229F60BE0041E450 /* Localization.mm in Sources */,
+				A1DE8509229F60BE0041E450 /* ipak.c in Sources */,
+				A1DE850A229F60BE0041E450 /* View.mm in Sources */,
+				A1DE850B229F60BE0041E450 /* eas_tcdata.c in Sources */,
+				A1DE850C229F60BE0041E450 /* iphone_delegate.mm in Sources */,
+				A1DE850D229F60BE0041E450 /* am_map.c in Sources */,
+				A1DE850E229F60BE0041E450 /* d_client.c in Sources */,
+				A1DE850F229F60BE0041E450 /* d_deh.c in Sources */,
+				A1DE8510229F60BE0041E450 /* iphone_async.cpp in Sources */,
+				A1DE8511229F60BE0041E450 /* d_items.c in Sources */,
+				A1DE8512229F60BE0041E450 /* d_main.c in Sources */,
+				A1DE8513229F60BE0041E450 /* eas_report.c in Sources */,
+				A1DE8514229F60BE0041E450 /* eas_xmfdata.c in Sources */,
+				A1DE8515229F60BE0041E450 /* doomdef.c in Sources */,
+				A1DE8516229F60BE0041E450 /* doomstat.c in Sources */,
+				A1DE8517229F60BE0041E450 /* iphone_start.cpp in Sources */,
+				A1DE8518229F60BE0041E450 /* dstrings.c in Sources */,
+				A1DE8519229F60BE0041E450 /* f_finale.c in Sources */,
+				A1DE851A229F60BE0041E450 /* RenderContext.mm in Sources */,
+				A1DE851B229F60BE0041E450 /* eas_ota.c in Sources */,
+				A1DE851C229F60BE0041E450 /* f_wipe.c in Sources */,
+				A1DE851D229F60BE0041E450 /* g_game.c in Sources */,
+				A1DE851E229F60BE0041E450 /* eas_imelodydata.c in Sources */,
+				A1DE851F229F60BE0041E450 /* MissionMenuViewController.mm in Sources */,
+				A1DE8520229F60BE0041E450 /* gl_main.c in Sources */,
+				A1DE8521229F60BE0041E450 /* gl_texture.c in Sources */,
+				A1DE8522229F60BE0041E450 /* hu_lib.c in Sources */,
+				A1DE8523229F60BE0041E450 /* hu_stuff.c in Sources */,
+				A1DE8524229F60BE0041E450 /* info.c in Sources */,
+				A1DE8525229F60BE0041E450 /* iphone_common.mm in Sources */,
+				A1DE8526229F60BE0041E450 /* lprintf.c in Sources */,
+				A1DE8527229F60BE0041E450 /* m_argv.c in Sources */,
+				A1DE8528229F60BE0041E450 /* m_bbox.c in Sources */,
+				A1DE8529229F60BE0041E450 /* eas_hostmm.c in Sources */,
+				A1DE852A229F60BE0041E450 /* m_cheat.c in Sources */,
+				A1DE852B229F60BE0041E450 /* m_menu.c in Sources */,
+				A1DE852C229F60BE0041E450 /* MainMenuViewController.mm in Sources */,
+				A1DE852D229F60BE0041E450 /* m_misc.c in Sources */,
+				A1DE852E229F60BE0041E450 /* eas_xmf.c in Sources */,
+				A1DE852F229F60BE0041E450 /* eas_otadata.c in Sources */,
+				A1DE8531229F60BE0041E450 /* m_random.c in Sources */,
+				A1DE8532229F60BE0041E450 /* md5.c in Sources */,
+				A1DE8533229F60BE0041E450 /* eas_wtsynth.c in Sources */,
+				A1DE8534229F60BE0041E450 /* p_ceilng.c in Sources */,
+				A1DE8535229F60BE0041E450 /* p_checksum.c in Sources */,
+				A1DE8536229F60BE0041E450 /* p_doors.c in Sources */,
+				A1DE8537229F60BE0041E450 /* p_enemy.c in Sources */,
+				A1DE8538229F60BE0041E450 /* eas_pan.c in Sources */,
+				A1DE8539229F60BE0041E450 /* p_floor.c in Sources */,
+				A1DE853A229F60BE0041E450 /* mmus2mid.c in Sources */,
+				A1DE853B229F60BE0041E450 /* p_genlin.c in Sources */,
+				A1DE853C229F60BE0041E450 /* Carousel.mm in Sources */,
+				A1DE853D229F60BE0041E450 /* eas_rtttldata.c in Sources */,
+				A1DE853E229F60BE0041E450 /* eas_imaadpcm.c in Sources */,
+				A1DE853F229F60BE0041E450 /* p_inter.c in Sources */,
+				A1DE8540229F60BE0041E450 /* p_lights.c in Sources */,
+				A1DE8541229F60BE0041E450 /* p_map.c in Sources */,
+				A1DE8542229F60BE0041E450 /* p_maputl.c in Sources */,
+				A1DE8543229F60BE0041E450 /* GameController.mm in Sources */,
+				A1DE8544229F60BE0041E450 /* p_mobj.c in Sources */,
+				A1DE8545229F60BE0041E450 /* p_plats.c in Sources */,
+				A1DE8546229F60BE0041E450 /* p_pspr.c in Sources */,
+				A1DE8547229F60BE0041E450 /* p_saveg.c in Sources */,
+				A1DE8548229F60BE0041E450 /* eas_reverbdata.c in Sources */,
+				A1DE8549229F60BE0041E450 /* SDL_Mixer.m in Sources */,
+				A1DE854A229F60BE0041E450 /* eas_smf.c in Sources */,
+				A1DE854B229F60BE0041E450 /* p_setup.c in Sources */,
+				A1DE854C229F60BE0041E450 /* eas_mididata.c in Sources */,
+				A1DE854D229F60BE0041E450 /* p_sight.c in Sources */,
+				A1DE854E229F60BE0041E450 /* eas_wave.c in Sources */,
+				A1DE854F229F60BE0041E450 /* EASGlue.c in Sources */,
+				A1DE8550229F60BE0041E450 /* eas_midi.c in Sources */,
+				A1DE8551229F60BE0041E450 /* p_spec.c in Sources */,
+				A1DE8552229F60BE0041E450 /* wt_22khz.c in Sources */,
+				A1DE8553229F60BE0041E450 /* p_switch.c in Sources */,
+				A1DE8554229F60BE0041E450 /* eas_wavefile.c in Sources */,
+				A1DE8555229F60BE0041E450 /* eas_chorus.c in Sources */,
+				A1DE8556229F60BE0041E450 /* p_telept.c in Sources */,
+				A1DE8557229F60BE0041E450 /* p_tick.c in Sources */,
+				A1DE8558229F60BE0041E450 /* eas_pcm.c in Sources */,
+				A1DE8559229F60BE0041E450 /* iphone_glViewController.mm in Sources */,
+				A1DE855A229F60BE0041E450 /* p_user.c in Sources */,
+				A1DE855B229F60BE0041E450 /* r_bsp.c in Sources */,
+				A1DE855C229F60BE0041E450 /* r_data.c in Sources */,
+				A1DE855D229F60BE0041E450 /* r_demo.c in Sources */,
+				A1DE855E229F60BE0041E450 /* r_draw.c in Sources */,
+				A1DE855F229F60BE0041E450 /* CreditsMenuViewController.mm in Sources */,
+				A1DE8560229F60BE0041E450 /* iphone_sound.mm in Sources */,
+				A1DE8561229F60BE0041E450 /* r_filter.c in Sources */,
+				A1DE8562229F60BE0041E450 /* r_fps.c in Sources */,
+				A1DE8563229F60BE0041E450 /* SoundEngine.cpp in Sources */,
+				A1DE8564229F60BE0041E450 /* eas_dlssynth.c in Sources */,
+				A1DE8565229F60BE0041E450 /* r_main.c in Sources */,
+				A1DE8566229F60BE0041E450 /* r_patch.c in Sources */,
+				A1DE8567229F60BE0041E450 /* r_plane.c in Sources */,
+				A1DE8568229F60BE0041E450 /* iphone_sys.mm in Sources */,
+				A1DE8569229F60BE0041E450 /* r_segs.c in Sources */,
+				A1DE856A229F60BE0041E450 /* r_sky.c in Sources */,
+				A1DE856B229F60BE0041E450 /* r_things.c in Sources */,
+				A1DE856C229F60BE0041E450 /* i_sound.c in Sources */,
+				A1DE856D229F60BE0041E450 /* eas_wtengine.c in Sources */,
+				A1DE856E229F60BE0041E450 /* eas_voicemgt.c in Sources */,
+				A1DE856F229F60BE0041E450 /* LegalMenuViewController.mm in Sources */,
+				A1DE8570229F60BE0041E450 /* eas_wavefiledata.c in Sources */,
+				A1DE8571229F60BE0041E450 /* eas_imelody.c in Sources */,
+				A1DE8572229F60BE0041E450 /* s_sound.c in Sources */,
+				A1DE8573229F60BE0041E450 /* sounds.c in Sources */,
+				A1DE8574229F60BE0041E450 /* eas_data.c in Sources */,
+				A1DE8575229F60BE0041E450 /* st_lib.c in Sources */,
+				A1DE8576229F60BE0041E450 /* eas_mixer.c in Sources */,
+				A1DE8577229F60BE0041E450 /* st_stuff.c in Sources */,
+				A1DE8578229F60BE0041E450 /* tables.c in Sources */,
+				A1DE8579229F60BE0041E450 /* v_video.c in Sources */,
+				A1DE857A229F60BE0041E450 /* version.c in Sources */,
+				A1DE857B229F60BE0041E450 /* eas_flog.c in Sources */,
+				A1DE857C229F60BE0041E450 /* eas_config.c in Sources */,
+				A1DE857D229F60BE0041E450 /* w_mmap.c in Sources */,
+				A1DE857E229F60BE0041E450 /* eas_reverb.c in Sources */,
+				A1DE857F229F60BE0041E450 /* w_wad.c in Sources */,
+				A1DE8580229F60BE0041E450 /* wi_stuff.c in Sources */,
+				A1DE8581229F60BE0041E450 /* z_bmalloc.c in Sources */,
+				A1DE8582229F60BE0041E450 /* eas_smfdata.c in Sources */,
+				A1DE8583229F60BE0041E450 /* eas_mixbuf.c in Sources */,
+				A1DE8584229F60BE0041E450 /* z_zone.c in Sources */,
+				A1DE8585229F60BE0041E450 /* eas_public.c in Sources */,
+				A1DE8586229F60BE0041E450 /* cvar.c in Sources */,
+				A1DE8587229F60BE0041E450 /* misc.c in Sources */,
+				A1DE8588229F60BE0041E450 /* SettingsMenuViewController.mm in Sources */,
+				A1DE8589229F60BE0041E450 /* prboomInterface.c in Sources */,
+				A1DE858A229F60BE0041E450 /* cmd.c in Sources */,
+				A1DE858B229F60BE0041E450 /* Slider.mm in Sources */,
+				A1DE858C229F60BE0041E450 /* dict.c in Sources */,
+				A1DE858D229F60BE0041E450 /* LabelButton.mm in Sources */,
+				A1DE858E229F60BE0041E450 /* Switch.mm in Sources */,
+				A1DE858F229F60BE0041E450 /* eas_rtttl.c in Sources */,
+				A1DE8590229F60BE0041E450 /* geom.c in Sources */,
+				A1DE8591229F60BE0041E450 /* memalloc.c in Sources */,
+				A1DE8592229F60BE0041E450 /* eas_pcmdata.c in Sources */,
+				A1DE8593229F60BE0041E450 /* mesh.c in Sources */,
+				A1DE8594229F60BE0041E450 /* SecretMenuViewController.mm in Sources */,
+				A1DE8595229F60BE0041E450 /* eas_tonecontrol.c in Sources */,
+				A1DE8596229F60BE0041E450 /* normal.c in Sources */,
+				A1DE8597229F60BE0041E450 /* Label.mm in Sources */,
+				A1DE8598229F60BE0041E450 /* priorityq.c in Sources */,
+				A1DE8599229F60BE0041E450 /* render.c in Sources */,
+				A1DE859A229F60BE0041E450 /* eas_chorusdata.c in Sources */,
+				A1DE859B229F60BE0041E450 /* eas_math.c in Sources */,
+				A1DE859C229F60BE0041E450 /* sweep.c in Sources */,
+				A1DE859D229F60BE0041E450 /* MainNavController.m in Sources */,
+				A1DE859E229F60BE0041E450 /* eas_ima_tables.c in Sources */,
+				A1DE859F229F60BE0041E450 /* tess.c in Sources */,
+				A1DE85A0229F60BE0041E450 /* tessmono.c in Sources */,
+				A1DE85A1229F60BE0041E450 /* iphone_mapSelect.c in Sources */,
+				A1DE85A2229F60BE0041E450 /* iphone_render.c in Sources */,
+				A1DE85A3229F60BE0041E450 /* ControlsMenuViewController.mm in Sources */,
+				A1DE85A4229F60BE0041E450 /* iphone_net.c in Sources */,
+				A1DE85A5229F60BE0041E450 /* iphone_email.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6272,6 +6875,230 @@
 			};
 			name = Distribution;
 		};
+		A1DE85B2229F60BE0041E450 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = doom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					IPHONE,
+					_DEBUG,
+					_SAMPLE_RATE_22050,
+					EAS_WT_SYNTH,
+					_8_BIT_SAMPLES,
+					_REVERB_ENABLED,
+					_CHORUS_ENABLED,
+					_FILTER_ENABLED,
+					"MAX_SYNTH_VOICES=32",
+					"NUM_OUTPUT_CHANNELS=2",
+					UNIFIED_DEBUG_MESSAGES,
+					DLS_SYNTHESIZER,
+					GAME_SIGIL,
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SIGIL-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.SIGIL;
+				PRODUCT_NAME = SIGIL;
+				PROFILE_PREFIX = com.idsoftware;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1DE85B3229F60BE0041E450 /* DebugLite */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = doom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					EPISODE1,
+					IPHONE,
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SIGIL-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.SIGIL;
+				PRODUCT_NAME = SIGIL;
+				PROFILE_PREFIX = com.idsoftware;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = DebugLite;
+		};
+		A1DE85B4229F60BE0041E450 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = doom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					IPHONE,
+					_SAMPLE_RATE_22050,
+					GAME_SIGIL,
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					HAVE_CONFIG_H,
+					IPHONE,
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SIGIL-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.SIGIL;
+				PRODUCT_NAME = SIGIL;
+				PROFILE_PREFIX = com.idsoftware;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1DE85B5229F60BE0041E450 /* ReleaseLite */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = doom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					EPISODE1,
+					IPHONE,
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SIGIL-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.SIGIL;
+				PRODUCT_NAME = SIGIL;
+				PROFILE_PREFIX = com.idsoftware;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = ReleaseLite;
+		};
+		A1DE85B6229F60BE0041E450 /* AdHocDist */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = doom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					IPHONE,
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SIGIL-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.SIGIL;
+				PRODUCT_NAME = SIGIL;
+				PROFILE_PREFIX = com.idsoftware;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = AdHocDist;
+		};
+		A1DE85B7229F60BE0041E450 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: id Software";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9UY8SFDNQ8;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = doom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					IPHONE,
+					_SAMPLE_RATE_22050,
+					GAME_SIGIL,
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "SIGIL-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idsoftware.SIGIL;
+				PRODUCT_NAME = SIGIL;
+				PROFILE_PREFIX = com.idsoftware;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18BCE49D-8823-4A0C-B597-CFE83C7820BE";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6523,6 +7350,19 @@
 				A1B98DFD207EFEEA00827A46 /* ReleaseLite */,
 				A1B98DFE207EFEEA00827A46 /* AdHocDist */,
 				A1B98DFF207EFEEA00827A46 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1DE85B1229F60BE0041E450 /* Build configuration list for PBXNativeTarget "SIGIL-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1DE85B2229F60BE0041E450 /* Debug */,
+				A1DE85B3229F60BE0041E450 /* DebugLite */,
+				A1DE85B4229F60BE0041E450 /* Release */,
+				A1DE85B5229F60BE0041E450 /* ReleaseLite */,
+				A1DE85B6229F60BE0041E450 /* AdHocDist */,
+				A1DE85B7229F60BE0041E450 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

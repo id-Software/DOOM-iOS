@@ -70,6 +70,21 @@ static const char * const MissionNames[TOTAL_EPISODES][32] = {
 };
 #endif
 
+#if GAME_SIGIL
+
+#define TOTAL_EPISODES 5
+
+// Just going along with the five-episode concept for now
+
+static const char * const MissionNames[TOTAL_EPISODES][9] = {
+    {"E1M1: Hanger", "E1M2: Nuclear Plant", "E1M3: Toxin Refinery", "E1M4: Command Control", "E1M5: Phobos Lab", "E1M6: Central Processing", "E1M7: Computer Station", "E1M8: Phobos Anomaly", "E1M9: Military Base"},
+    {"E2M1: Deimos Anomaly", "E2M2: Containment Area", "E2M3: Refinery", "E2M4: Deimos Lab", "E2M5: Command Center", "E2M6: Halls of the Damned", "E2M7: Spawning Vats", "E2M8: Tower of Babel", "E2M9: Fortress of Mystery"},
+    {"E3M1: Hell Keep ", "E3M2: Slough of Despair", "E3M3: Pandemonium", "E3M4: House of Pain", "E3M5: Unholy Cathedral", "E3M6: Mt. Erebus", "E3M7: Limbo", "E3M8: Dis", "E3M9: Warrens"},
+    {"E4M1: Hell Beneath", "E4M2: Perfect Hatred", "E4M3: Sever The Wicked", "E4M4: Unruly Evil", "E4M5: They Will Repent", "E4M6: Against Thee Wickedly", "E4M7: And Hell Followed", "E4M8: Unto The Cruel", "E4M9: Fear"},
+    {"Baphomet's Demesne", "Sheol", "Cages of the Damned", "Paths of Wretchedness", "Abaddon's Void", "Unspeakable Persecution", "Nightmare Underworld", "Halls of Perdition", "Realm of Iblis"}
+};
+#endif
+
 //{"MAP01: System Control","MAP02: Human BBQ","MAP03: Power Control","MAP04: Wormhole","MAP05: Hanger","MAP06: Open Season","MAP07: Prison","MAP08: Metal","MAP09: Stronghold","MAP10: Redemption","MAP11: Storage Facility","MAP12: Crater","MAP13: Nukage Processing","MAP14: Steel Works","MAP15: Dead Zone","MAP16: Deepest Reaches","MAP17: Processing Area","MAP18: Mill","MAP19: Shipping/Respawning","MAP20: Central Processing","MAP21: Administration Center","MAP22: Habitat","MAP23: Lunar Mining Project","MAP24: Quarry","MAP25: Baron's Den","MAP26: Ballistyx","MAP27: Mount Pain","MAP28: Heck","MAP29: River Styx","MAP30: Last Call","MAP31: Pharaoh","MAP32: Caribbean"}
 
 
@@ -213,7 +228,7 @@ static const char * const MissionNames[TOTAL_EPISODES][32] = {
     mapStart_t localStartmap;
     
     localStartmap.map = mapSelected;
-    localStartmap.episode = episodeSelected;
+    localStartmap.episode = episodeSelected + 1;
     localStartmap.dataset = 0;
     localStartmap.skill = skillLevel;
     
@@ -239,7 +254,7 @@ static const char * const MissionNames[TOTAL_EPISODES][32] = {
     if( selectedMap != nil ) {
         [ selectedMap setEnabled: YES ];
     }
-    episodeSelected = episode;
+    //episodeSelected = episode;
     mapSelected = map;
     
     int mapTag = episode * 10 + ( map - 1 );

@@ -61,11 +61,17 @@
     iphoneIWADSelect("tnt.wad");
 #endif
     
+#if GAME_SIGIL
+    iphoneIWADSelect("doom.wad");
+    iphonePWADAdd("SIGIL.wad");
+//    iphonePWADAdd("SIGIL_SHREDS.wad");
+#endif
+    
     if( !didInit ) {
         char full_iwad[1024];
         
 //        doom_iwad = strdup(Cvar_VariableString("iwadSelection"));
-        doom_pwads = strdup(Cvar_VariableString("pwadSelection"));
+//        doom_pwads = strdup(Cvar_VariableString("pwadSelection"));
         
         I_FindFile( doom_iwad, ".wad", full_iwad );
         
@@ -229,6 +235,8 @@ BOOL settingsMenuSelected = NO;
     
 #if GAME_DOOM2
     Doom_MissionMenuViewController *vc = [[Doom_MissionMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"MissionMenuView"] bundle:nil];
+#elif GAME_SIGIL
+    Doom_MissionMenuViewController *vc = [[Doom_MissionMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"MissionMenuView"] bundle:nil];
 #else
     // Switch to episode view menu.
     Doom_EpisodeMenuViewController *vc = [[Doom_EpisodeMenuViewController alloc] initWithNibName:[gAppDelegate GetNibNameForDevice:@"EpisodeMenuView"] bundle:nil];
@@ -237,6 +245,8 @@ BOOL settingsMenuSelected = NO;
     [self.navigationController pushViewController:vc animated:NO];
 #if GAME_DOOM2
     [vc setEpisode:0 ];
+#elif GAME_SIGIL
+    [vc setEpisode:4 ];
 #endif
     [vc release];
     
