@@ -2546,7 +2546,7 @@
 		A1DE85C2229F73950041E450 /* SIGIL-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "SIGIL-iOS.xcassets"; sourceTree = "<group>"; };
 		A1DE85C6229F874F0041E450 /* SIGILLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SIGILLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1DE86D4229F88D20041E450 /* SIGL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIGL.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1DE86D5229F88D20041E450 /* DOOM-tvOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DOOM-tvOS copy-Info.plist"; path = "/Users/tomkidd/Documents/GitHub/DOOM-iOS/code/iphone/DOOM-tvOS copy-Info.plist"; sourceTree = "<absolute>"; };
+		A1DE86D5229F88D20041E450 /* SIGIL-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SIGIL-tvOS-Info.plist"; path = "/Users/tomkidd/Documents/GitHub/DOOM-iOS/code/iphone/SIGIL-tvOS-Info.plist"; sourceTree = "<absolute>"; };
 		A1DE86D8229F8B090041E450 /* SIGIL-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "SIGIL-tvOS.xcassets"; sourceTree = "<group>"; };
 		A1E89C8B2067469D00760204 /* CreditsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenuViewController.h; sourceTree = "<group>"; };
 		A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreditsMenuViewController.mm; sourceTree = "<group>"; };
@@ -2778,7 +2778,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				A1DE86D5229F88D20041E450 /* DOOM-tvOS copy-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -3286,6 +3285,7 @@
 				A1063C04216F030900BDE196 /* DOOM-tvOS-Info.plist */,
 				A1063C05216F030900BDE196 /* DOOM2-tvOS-Info.plist */,
 				A1063C03216F030900BDE196 /* FinalDOOM-tvOS-Info.plist */,
+				A1DE86D5229F88D20041E450 /* SIGIL-tvOS-Info.plist */,
 			);
 			name = "DOOM-tvOS";
 			sourceTree = "<group>";
@@ -7714,10 +7714,10 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "DOOM-tvOS copy-Info.plist";
+				INFOPLIST_FILE = "SIGIL-tvOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.SIGILTV;
 				PRODUCT_NAME = SIGL;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -7762,10 +7762,10 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "DOOM-tvOS copy-Info.plist";
+				INFOPLIST_FILE = "SIGIL-tvOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.SIGILTV;
 				PRODUCT_NAME = SIGL;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -7814,10 +7814,10 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "DOOM-tvOS copy-Info.plist";
+				INFOPLIST_FILE = "SIGIL-tvOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.SIGILTV;
 				PRODUCT_NAME = SIGL;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -7860,10 +7860,10 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "DOOM-tvOS copy-Info.plist";
+				INFOPLIST_FILE = "SIGIL-tvOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.SIGILTV;
 				PRODUCT_NAME = SIGL;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -7906,10 +7906,10 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "DOOM-tvOS copy-Info.plist";
+				INFOPLIST_FILE = "SIGIL-tvOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.SIGILTV;
 				PRODUCT_NAME = SIGL;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -7954,10 +7954,10 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "DOOM-tvOS copy-Info.plist";
+				INFOPLIST_FILE = "SIGIL-tvOS-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.DoomTV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkiddconsulting.SIGILTV;
 				PRODUCT_NAME = SIGL;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
