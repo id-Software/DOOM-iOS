@@ -116,6 +116,15 @@ musicinfo_t S_music[] = {
   { "read_m", 0, NULL, 0 },
   { "dm2ttl", 0, NULL, 0 },
   { "dm2int", 0, NULL, 0 },
+    { "e5m1", 0, NULL, 0 },
+    { "e5m2", 0, NULL, 0 },
+    { "e5m3", 0, NULL, 0 },
+    { "e5m4", 0, NULL, 0 },
+    { "e5m5", 0, NULL, 0 },
+    { "e5m6", 0, NULL, 0 },
+    { "e5m7", 0, NULL, 0 },
+    { "e5m8", 0, NULL, 0 },
+    { "e5m9", 0, NULL, 0 },
 };
 
 

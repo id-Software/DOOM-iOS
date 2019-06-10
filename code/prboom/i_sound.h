@@ -101,6 +101,9 @@ int I_RegisterSong(const void *data, size_t len);
 // cournia - tries to load a music file
 int I_RegisterMusic( const char* filename, musicinfo_t *music );
 
+// tkidd - fun with mp3
+int I_RegisterMusic_MP3( musicinfo_t *song, const void *data, size_t len );
+
 // Called by anything that wishes to start music.
 //  plays a song, and when the song is done,
 //  starts playing it again in an endless loop.

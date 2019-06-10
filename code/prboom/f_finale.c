@@ -663,6 +663,10 @@ void F_Drawer (void)
       case 4:
            V_DrawNamePatch(0, 0, 0, "ENDPIC", CR_DEFAULT, VPT_STRETCH);
            break;
+      case 5:
+           // SIGIL
+           V_DrawNamePatch(0, 0, 0, "SIGILEND", CR_DEFAULT, VPT_STRETCH);
+           break;
     }
   }
 }

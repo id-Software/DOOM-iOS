@@ -35,7 +35,7 @@ And just for fun I did [another article](https://schnapple.com/sigil-for-ios-and
 
 **KNOWN ISSUES WITH SIGIL:**
 
-- As of right now the port can't find the custom level clear screen so the completion screen has a hall of mirrors effect. 
+- ~~As of right now the port can't find the custom level clear screen so the completion screen has a hall of mirrors effect.~~ *fixed!* 
 - The port can not play the Buckethead songs from the `SIGIL_SHREDS.wad` file yet.
 
 I will update this README as these things are addressed but I didn't want to let these delay the update. 

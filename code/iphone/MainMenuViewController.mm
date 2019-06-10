@@ -63,6 +63,7 @@
     
 #if GAME_SIGIL
     iphoneIWADSelect("doom.wad");
+    iphoneClearPWADs();
     iphonePWADAdd("SIGIL.wad");
 //    iphonePWADAdd("SIGIL_SHREDS.wad");
 #endif

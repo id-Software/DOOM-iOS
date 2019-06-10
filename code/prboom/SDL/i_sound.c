@@ -772,6 +772,28 @@ int I_RegisterSong(const void *data, size_t len)
   return (0);
 }
 
+int I_RegisterMusic_MP3( musicinfo_t *song, const void *data, size_t len )
+{
+    FILE *mp3file;
+    
+    //music->data, W_LumpLength(music->lumpnum)
+    if (!song) return 1;
+    
+    if ( len < 32 )
+        return 0; // the data should at least as big as the MUS header
+    if ( music_tmp == NULL )
+        return 0;
+    mp3file = fopen(music_tmp, "wb");
+    if ( mp3file == NULL ) {
+        lprintf(LO_ERROR,"Couldn't write MP3 to %s\n", music_tmp);
+        return 0;
+    }
+    fwrite(data, len, 1, mp3file);
+    fclose(mp3file);
+    
+    return I_RegisterMusic(music_tmp, song);
+}
+
 // cournia - try to load a music file into SDL_Mixer
 //           returns true if could not load the file
 int I_RegisterMusic( const char* filename, musicinfo_t *song )

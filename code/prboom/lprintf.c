@@ -383,24 +383,23 @@ void I_Error(const char *error, ...)
   }
 #endif
 
-    // testing something -tkidd
-//    while( true ) {
-//        printf( " SAFE EXIT \n" );
-//        // it's likely our WADs are bad. Wipe them out next time.
-//        FILE    *fp;
-//        char    path[1024];
-//        char    buffer[1024];
-//        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
-//        fp = fopen( path, "w" );
-//        if( ! fp ) {
-//            printf( "Could not write canary. This is very bad!\n" );
-//            return;
-//        }
-//        snprintf( buffer, sizeof( buffer ), "ABANDON SHIP!\n" );
-//        fprintf( fp, "%s", buffer );
-//        fclose(fp);
-//        assert( false );
-//        usleep(1000);
-//    }
+    while( true ) {
+        printf( " SAFE EXIT \n" );
+        // it's likely our WADs are bad. Wipe them out next time.
+        FILE    *fp;
+        char    path[1024];
+        char    buffer[1024];
+        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        fp = fopen( path, "w" );
+        if( ! fp ) {
+            printf( "Could not write canary. This is very bad!\n" );
+            return;
+        }
+        snprintf( buffer, sizeof( buffer ), "ABANDON SHIP!\n" );
+        fprintf( fp, "%s", buffer );
+        fclose(fp);
+        assert( false );
+        usleep(1000);
+    }
     
 }

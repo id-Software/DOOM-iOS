@@ -172,6 +172,15 @@ typedef enum {
   mus_read_m,
   mus_dm2ttl,
   mus_dm2int,
+    mus_e5m1,
+    mus_e5m2,
+    mus_e5m3,
+    mus_e5m4,
+    mus_e5m5,
+    mus_e5m6,
+    mus_e5m7,
+    mus_e5m8,
+    mus_e5m9,
   NUMMUSIC
 } musicenum_t;
 

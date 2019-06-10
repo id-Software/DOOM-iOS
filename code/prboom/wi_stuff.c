@@ -415,6 +415,10 @@ static void WI_slamBackground(void)
 
   if (gamemode == commercial || (gamemode == retail && wbs->epsd == 3))
     strcpy(name, "INTERPIC");
+#ifdef GAME_SIGIL
+  else if (wbs->epsd == 4)
+      sprintf(name, "SIGILINT");
+#endif
   else
     sprintf(name, "WIMAP%d", wbs->epsd);
 

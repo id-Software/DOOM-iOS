@@ -589,7 +589,7 @@ void iphonePWADRemove( const char* pwad  ) {
  ==================
  */
 void iphoneClearPWADs() {
-    if( doom_pwads ) free(doom_pwads);
+    //if( doom_pwads ) free(doom_pwads);
     doom_pwads = strdup("");
 }
 
