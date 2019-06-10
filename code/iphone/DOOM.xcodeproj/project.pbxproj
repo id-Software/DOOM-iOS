@@ -1786,7 +1786,6 @@
 		A1DE85AD229F60BE0041E450 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760611C2B19E004A9B9B /* Foundation.framework */; };
 		A1DE85AE229F60BE0041E450 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760811C2B19E004A9B9B /* OpenGLES.framework */; };
 		A1DE85AF229F60BE0041E450 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD2760A11C2B19E004A9B9B /* UIKit.framework */; };
-		A1DE85BC229F610C0041E450 /* SIGIL_SHREDS.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85BA229F610B0041E450 /* SIGIL_SHREDS.wad */; };
 		A1DE85BD229F610C0041E450 /* SIGIL.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85BB229F610B0041E450 /* SIGIL.wad */; };
 		A1DE85C3229F73950041E450 /* SIGIL-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85C2229F73950041E450 /* SIGIL-iOS.xcassets */; };
 		A1DE85C7229F874F0041E450 /* SIGILLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85C6229F874F0041E450 /* SIGILLaunchScreen.storyboard */; };
@@ -2044,7 +2043,6 @@
 		A1DE86C9229F88D20041E450 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B98E07207EFF8A00827A46 /* CoreGraphics.framework */; };
 		A1DE86CA229F88D20041E450 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B98E08207EFF8B00827A46 /* GameController.framework */; };
 		A1DE86CB229F88D20041E450 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B98E09207EFF8B00827A46 /* OpenAL.framework */; };
-		A1DE86D6229F8A830041E450 /* SIGIL_SHREDS.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85BA229F610B0041E450 /* SIGIL_SHREDS.wad */; };
 		A1DE86D7229F8A830041E450 /* SIGIL.wad in Resources */ = {isa = PBXBuildFile; fileRef = A1DE85BB229F610B0041E450 /* SIGIL.wad */; };
 		A1DE86DA229F8B090041E450 /* SIGIL-tvOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DE86D8229F8B090041E450 /* SIGIL-tvOS.xcassets */; };
 		A1E89C8F2067469D00760204 /* CreditsMenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1E89C8C2067469D00760204 /* CreditsMenuViewController.mm */; };
@@ -4257,7 +4255,6 @@
 				A1DE84BD229F60BE0041E450 /* ControlsMenuView.xib in Resources */,
 				A1DE84BE229F60BE0041E450 /* Nightmare.png in Resources */,
 				A1DE84BF229F60BE0041E450 /* ResumeButton.png in Resources */,
-				A1DE85BC229F610C0041E450 /* SIGIL_SHREDS.wad in Resources */,
 				A1DE84C0229F60BE0041E450 /* EpisodeMenuView.xib in Resources */,
 				A1DE84C1229F60BE0041E450 /* Makefile.am in Resources */,
 				A1DE84C2229F60BE0041E450 /* SelectedBracket.png in Resources */,
@@ -4374,7 +4371,6 @@
 				A1DE85F3229F88D20041E450 /* SubMenuBackground.png in Resources */,
 				A1DE85F4229F88D20041E450 /* SubMenuButton_Highlighted.png in Resources */,
 				A1DE85F5229F88D20041E450 /* SubMenuButton.png in Resources */,
-				A1DE86D6229F8A830041E450 /* SIGIL_SHREDS.wad in Resources */,
 				A1DE85F6229F88D20041E450 /* BackButton.png in Resources */,
 				A1DE85F7229F88D20041E450 /* Button.png in Resources */,
 				A1DE85F8229F88D20041E450 /* DOOM_sigil_decal.png in Resources */,

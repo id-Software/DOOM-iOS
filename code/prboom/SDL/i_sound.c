@@ -772,12 +772,12 @@ int I_RegisterSong(const void *data, size_t len)
   return (0);
 }
 
-int I_RegisterMusic_MP3( musicinfo_t *song, const void *data, size_t len )
+char* I_RegisterMusic_MP3( musicinfo_t *song, const void *data, size_t len )
 {
     FILE *mp3file;
     
     //music->data, W_LumpLength(music->lumpnum)
-    if (!song) return 1;
+//    if (!song) return null;
     
     if ( len < 32 )
         return 0; // the data should at least as big as the MUS header
@@ -791,7 +791,7 @@ int I_RegisterMusic_MP3( musicinfo_t *song, const void *data, size_t len )
     fwrite(data, len, 1, mp3file);
     fclose(mp3file);
     
-    return I_RegisterMusic(music_tmp, song);
+    return music_tmp;
 }
 
 // cournia - try to load a music file into SDL_Mixer

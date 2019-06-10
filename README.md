@@ -31,14 +31,7 @@ I wrote a [lengthy article](http://schnapple.com/wolfenstein-3d-and-doom-on-ios-
 
 A previous version of this repo required the use of a file called `base.iPack` from an existing copy of the iPhone version of DOOM in  order for the DOOM port to work, but I have now added a "clean room" version of that file and included the resources necessary to build it in case anyone wants to tweak or improve it. Credits for the images used are included below. A third lengthy article on the subject of the base.iPack file and adding the additional two games can be found [here](http://schnapple.com/doom-ii-and-final-doom-for-ios-and-tvos).
 
-And just for fun I did [another article](https://schnapple.com/sigil-for-ios-and-tvos-for-apple-tv/) on adding SIGIL support. 
-
-**KNOWN ISSUES WITH SIGIL:**
-
-- ~~As of right now the port can't find the custom level clear screen so the completion screen has a hall of mirrors effect.~~ *fixed!* 
-- The port can not play the Buckethead songs from the `SIGIL_SHREDS.wad` file yet.
-
-I will update this README as these things are addressed but I didn't want to let these delay the update. 
+And just for fun I did [another article](https://schnapple.com/sigil-for-ios-and-tvos-for-apple-tv/) on adding SIGIL support. Note that the previous issues with SIGIL's intermission screens and the Buckethead MP3 files have been addressed. 
 
 [Video of DOOM running on an iPhone X](https://www.youtube.com/watch?v=IrY5L1kn-NA)
 

@@ -537,6 +537,30 @@ void iphonePlayMusic( const char *name ) {
 	iphoneStartMusic();
 }
 
+boolean    sigilShredsLoaded;    // Buckethead!
 
+void iphoneStartMP3(const char *filename) {
+    if ( music->value == 0 ) {
+        // music is disabled
+        return;
+    }
+    
+    // necessary? -tkidd
+    char    fullName[1024];
+    sprintf( fullName, "%s", filename );
+    
+    printf( "Starting music '%s'\n", fullName );
+    
+    iphoneStopMusic();
+    sBackgroundTrackMgr.LoadTrack( fullName, false, true);
+    sBackgroundTrackMgr.Start();
+    
+    if ( !strcmp( currentMusicName, "intro" ) ) {
+        // stop the intro music at end, don't loop
+        sBackgroundTrackMgr.mStopAtEnd = true;
+    } else {
+        sBackgroundTrackMgr.mStopAtEnd = false;
+    }
+}
 
 

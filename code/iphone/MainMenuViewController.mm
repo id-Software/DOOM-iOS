@@ -48,6 +48,8 @@
     [super awakeFromNib];
     isHidden = YES;
     
+    sigilShredsLoaded = false;
+    
 #if GAME_DOOM
     iphoneIWADSelect("doom.wad");
 #endif
@@ -65,7 +67,17 @@
     iphoneIWADSelect("doom.wad");
     iphoneClearPWADs();
     iphonePWADAdd("SIGIL.wad");
-//    iphonePWADAdd("SIGIL_SHREDS.wad");
+    
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"SIGIL_SHREDS"
+                                                         ofType:@"wad"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    if ([fileManager fileExistsAtPath:filePath]){
+        iphonePWADAdd("SIGIL_SHREDS.wad");
+        sigilShredsLoaded = true;
+    }
+    
 #endif
     
     if( !didInit ) {

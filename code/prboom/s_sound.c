@@ -593,13 +593,24 @@ void S_ChangeMusic(int musicnum, int looping)
       // load & register it
       music->data = W_CacheLumpNum(music->lumpnum);
       music->handle = I_RegisterSong(music->data, W_LumpLength(music->lumpnum));
-        
-//        music_file_failed = I_RegisterMusic_MP3(music, music->data, W_LumpLength(music->lumpnum));
-
     }
+    
+    extern void iphoneStartMP3( const char *name );
+    extern boolean    sigilShredsLoaded;    // Buckethead!
+
+    if (sigilShredsLoaded) {
+        
+        char* mp3filename = I_RegisterMusic_MP3(music, music->data, W_LumpLength(music->lumpnum));
+        
+        iphoneStartMP3(mp3filename);
+
+    } else {
 
   // play it
-  I_PlaySong(music->handle, looping);
+        I_PlaySong(music->handle, looping);
+    }
+    
+    
 //#endif
 
   mus_playing = music;
