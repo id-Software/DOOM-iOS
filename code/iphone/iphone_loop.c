@@ -679,8 +679,12 @@ void iphoneSet2D( void ) {
 	// note that GL thinks the iphone is always
 	// in portrait mode as far as the framebuffer
 	// is concerned.
+	int x = 0;
+	if (displaywidth > SCREENWIDTH) {
+		x = (displaywidth - SCREENWIDTH) / 2;
+	}
     /* JDS proper fix for landscape orientation */
-	glViewport( 0,0, displaywidth, displayheight );
+	glViewport( x,0, displaywidth, displayheight );
 	glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 	glEnable( GL_TEXTURE_2D );
