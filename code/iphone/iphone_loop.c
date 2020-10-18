@@ -406,7 +406,7 @@ boolean HandleButton( ibutton_t *button ) {
 	
     if ( button->title ) {
         float    length = StringFontWidth( button->title ) * 0.75;
-        float    x = button->x + button->drawWidth/2 - length/2;
+        float    x = button->x + button->drawWidth/2 - length*2;
         // don't push the text off the edge of the screen
         if ( x < 0 ) {
             x = 0;
