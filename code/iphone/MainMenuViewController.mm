@@ -593,6 +593,12 @@ BOOL settingsMenuSelected = NO;
     }
 }
 
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
+    if (!context.previouslyFocusedView && [context.nextFocusedView isKindOfClass:[Banner_SubItem class]]) {
+        [ gAppDelegate HideGLView ];
+    }
+}
+
 #endif
 
 @end
