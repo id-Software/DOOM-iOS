@@ -122,6 +122,7 @@ bool iphoneControllerIsAvailable() {
                 }
             }
             
+#if !TARGET_OS_TV
             setupPauseButtonHandler(controller);
             
             // Register for controller connected/disconnected notifications
@@ -140,6 +141,7 @@ bool iphoneControllerIsAvailable() {
             [ns addObserverForName:GCControllerDidDisconnectNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
                 controller = nil;
             }];
+#endif
         }
         initialized = true; // Only need to do this once
     }

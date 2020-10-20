@@ -466,6 +466,7 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
     
     if (!context.previouslyFocusedView) {
         [ gAppDelegate HideGLView ];
+        paused = true;
     }
 
     [super didUpdateFocusInContext:context withAnimationCoordinator:coordinator];
