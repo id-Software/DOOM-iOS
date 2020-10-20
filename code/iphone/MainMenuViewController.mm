@@ -413,11 +413,6 @@ BOOL settingsMenuSelected = NO;
  */
 - (void) ShowPlayBanner {
     
-    [ mPlayButton setEnabled: NO ];
-    [ mSettingsButton setEnabled: YES ];
-    [ mAboutButton setEnabled: YES ];
-    [ mExtrasButton setEnabled: YES ];
-    
     [ mPlaySubMenu Show ];
     [ mSettingsSubMenu Hide ];
     [ mExtrasSubMenu Hide ];
@@ -430,6 +425,11 @@ BOOL settingsMenuSelected = NO;
     aboutMenuSelected = NO;
     [self setNeedsFocusUpdate];
     [self updateFocusIfNeeded];
+#else
+    [ mPlayButton setEnabled: NO ];
+    [ mSettingsButton setEnabled: YES ];
+    [ mAboutButton setEnabled: YES ];
+    [ mExtrasButton setEnabled: YES ];
 #endif
     
 }
@@ -440,11 +440,6 @@ BOOL settingsMenuSelected = NO;
  ========================
  */
 - (void) ShowSettingsBanner {
-    
-    [ mPlayButton setEnabled: YES ];
-    [ mSettingsButton setEnabled: NO ];
-    [ mAboutButton setEnabled: YES ];
-    [ mExtrasButton setEnabled: YES ];
     
     [ mSettingsSubMenu Show ];
     [ mPlaySubMenu Hide ];
@@ -458,7 +453,13 @@ BOOL settingsMenuSelected = NO;
     aboutMenuSelected = NO;
     [self setNeedsFocusUpdate];
     [self updateFocusIfNeeded];
+#else
+    [ mPlayButton setEnabled: YES ];
+    [ mSettingsButton setEnabled: NO ];
+    [ mAboutButton setEnabled: YES ];
+    [ mExtrasButton setEnabled: YES ];
 #endif
+    
 }
 
 /*
@@ -467,11 +468,6 @@ BOOL settingsMenuSelected = NO;
  ========================
  */
 - (void) ShowAboutBanner {
-    
-    [ mPlayButton setEnabled: YES ];
-    [ mSettingsButton setEnabled: YES ];
-    [ mAboutButton setEnabled: NO ];
-    [ mExtrasButton setEnabled: YES ];
     
     [ mAboutSubMenu Show ];
     [ mPlaySubMenu Hide ];
@@ -485,6 +481,11 @@ BOOL settingsMenuSelected = NO;
     aboutMenuSelected = YES;
     [self setNeedsFocusUpdate];
     [self updateFocusIfNeeded];
+#else
+    [ mPlayButton setEnabled: YES ];
+    [ mSettingsButton setEnabled: YES ];
+    [ mAboutButton setEnabled: NO ];
+    [ mExtrasButton setEnabled: YES ];
 #endif
 
 }
@@ -505,16 +506,10 @@ BOOL settingsMenuSelected = NO;
 //
 //    Sound_StartLocalSound( "iphone/baborted_01.wav" );
     
-    [ mPlayButton setEnabled: YES ];
-    [ mSettingsButton setEnabled: YES ];
-    [ mAboutButton setEnabled: YES ];
-    [ mExtrasButton setEnabled: NO ];
-    
     [ mSettingsSubMenu Hide ];
     [ mPlaySubMenu Hide ];
     [ mExtrasSubMenu Show ];
     [ mAboutSubMenu Hide ];
-    
     
 #if TARGET_OS_TV
     playMenuSelected = NO;
@@ -523,6 +518,11 @@ BOOL settingsMenuSelected = NO;
     aboutMenuSelected = NO;
     [self setNeedsFocusUpdate];
     [self updateFocusIfNeeded];
+#else
+    [ mPlayButton setEnabled: YES ];
+    [ mSettingsButton setEnabled: YES ];
+    [ mAboutButton setEnabled: YES ];
+    [ mExtrasButton setEnabled: NO ];
 #endif
 
 }
