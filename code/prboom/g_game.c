@@ -1617,8 +1617,11 @@ void G_DoLoadGame(void)
   gameaction = ga_nothing;
 
   length = M_ReadFile(name, &savebuffer);
-  if (length<=0)
-    I_Error("Couldn't read file %s: %s", name, "(Unknown Error)");
+  if (length<=0) {
+    //I_Error("Couldn't read file %s: %s", name, "(Unknown Error)");
+    doom_printf("No save game found.");
+    return;
+  }
   save_p = savebuffer + SAVESTRINGSIZE;
 
   // CPhipps - read the description field, compare with supported ones
