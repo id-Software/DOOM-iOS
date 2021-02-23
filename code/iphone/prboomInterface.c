@@ -281,7 +281,7 @@ void I_InitGraphics(void)
 	char titlebuffer[2048];
 	static int    firsttime=1;
 
-	SCREENWIDTH = displaywidth;
+	SCREENWIDTH = displaywidth > MAX_SCREENWIDTH ? MAX_SCREENWIDTH : displaywidth;
 	SCREENHEIGHT = displayheight;
 	
 	if (firsttime)

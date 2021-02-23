@@ -218,6 +218,9 @@ void glEnd( void ) {
 
 void landscapeViewport( GLint x, GLint y, GLsizei width, GLsizei height ) {
 	y = 0;	// !@#
+	if (displaywidth > width) {
+		y = (displaywidth - width) / 2;
+	}
     /* JDS proper fix for landscape orientation */
 	glViewport( y, x, width, height );
 }

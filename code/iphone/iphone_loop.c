@@ -221,11 +221,11 @@ void SetButtonPics( ibutton_t *button, const char *picBase, const char *title, i
 	button->scale = 1.0f;
 	button->title = title;
     
-    button->x = x * ((float)displaywidth) / 480.0f;
-    button->y = y * ((float)displayheight) / 320.0f;
+    button->x = x * ((float)SCREENWIDTH) / 480.0f;
+    button->y = y * ((float)SCREENHEIGHT) / 320.0f;
     
-    float xRatio = ((float)displaywidth) / 480.0f;
-    float yRatio = ((float)displayheight) / 320.0f;
+    float xRatio = ((float)SCREENWIDTH) / 480.0f;
+    float yRatio = ((float)SCREENHEIGHT) / 320.0f;
     
     float themin = MIN( xRatio, yRatio );
     
@@ -236,8 +236,8 @@ void SetButtonPics( ibutton_t *button, const char *picBase, const char *title, i
 void SetButtonPicsAndSizes( ibutton_t *button, const char *picBase, const char *title, int x, int y, int w, int h ) {	
 	SetButtonPics( button, picBase, title, x, y );
     
-    float xRatio = ((float)displaywidth) / 480.0f;
-    float yRatio = ((float)displayheight) / 320.0f;
+    float xRatio = ((float)SCREENWIDTH) / 480.0f;
+    float yRatio = ((float)SCREENHEIGHT) / 320.0f;
     
     float themin = MIN( xRatio, yRatio );
     
@@ -526,8 +526,8 @@ return fx - x;
 float iphoneCenterText( float x, float y, float scale, const char *str ) {
 	float l = StringFontWidth( str );
     
-    x *= ((float)displaywidth) / 480.0f;
-    y *= ((float)displayheight) / 320.0f;
+    x *= ((float)SCREENWIDTH) / 480.0f;
+    y *= ((float)SCREENHEIGHT) / 320.0f;
     
 	x -= l * scale * 0.5 * screenResolutionScale * 2;
     
@@ -679,8 +679,12 @@ void iphoneSet2D( void ) {
 	// note that GL thinks the iphone is always
 	// in portrait mode as far as the framebuffer
 	// is concerned.
+	int x = 0;
+	if (displaywidth > SCREENWIDTH) {
+		x = (displaywidth - SCREENWIDTH) / 2;
+	}
     /* JDS proper fix for landscape orientation */
-	glViewport( 0,0, displaywidth, displayheight );
+	glViewport( x,0, displaywidth, displayheight );
 	glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 	glEnable( GL_TEXTURE_2D );
