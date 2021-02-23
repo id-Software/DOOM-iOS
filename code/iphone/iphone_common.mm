@@ -46,8 +46,12 @@ void CommonSystemSetup( UIViewController * gameViewController ) {
 	//idGameCenter::AuthenticateLocalPlayer( gameViewController, &gDoomGameCenterMatch );
 
 	// get the documents directory, where we will write configs and save games
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
+    #if TARGET_OS_TV
+        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    #else
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+    #endif
 	[documentsDirectory getCString: iphoneDocDirectory 
 							maxLength: sizeof( iphoneDocDirectory ) - 1
 							encoding: NSASCIIStringEncoding ];
