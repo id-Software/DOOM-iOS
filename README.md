@@ -1,3 +1,7 @@
+<hr>
+<img align="left" width="50" height="50" src="https://schnapple.com/wp-content/uploads/2021/05/m1_small.jpg">
+I'm trying to fund an M1 Mac to keep old games running on new Macs. If you'd like to help you can contribute here: https://ko-fi.com/schnapple
+<hr>
 <img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/DOOM-iOS/master/icon_doom.png">  
 
 #  DOOM, DOOM II, Final DOOM and SIGIL for iOS 11 and tvOS for Apple TV
