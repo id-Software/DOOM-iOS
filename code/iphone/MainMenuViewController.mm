@@ -234,6 +234,7 @@ BOOL settingsMenuSelected = NO;
     [ gAppDelegate ShowGLView ];
     
     ResumeGame();
+    paused = false;
     
     Sound_StartLocalSound( "iphone/baborted_01.wav" );
  
@@ -590,6 +591,13 @@ BOOL settingsMenuSelected = NO;
                 [super pressesEnded: presses withEvent: event];
                 break;
         }
+    }
+}
+
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
+    if (!context.previouslyFocusedView && [context.nextFocusedView isKindOfClass:[Banner_SubItem class]]) {
+        [ gAppDelegate HideGLView ];
+        paused = true;
     }
 }
 

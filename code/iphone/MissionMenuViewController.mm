@@ -464,6 +464,11 @@ static const char * const MissionNames[TOTAL_EPISODES][9] = {
 - (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
     NSLog(@"%@", context.nextFocusedView);
     
+    if (!context.previouslyFocusedView) {
+        [ gAppDelegate HideGLView ];
+        paused = true;
+    }
+
     [super didUpdateFocusInContext:context withAnimationCoordinator:coordinator];
     
     if ([context.nextFocusedView isKindOfClass:[idLabelButton class]]) {
