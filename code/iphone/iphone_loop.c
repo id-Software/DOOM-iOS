@@ -526,12 +526,12 @@ return fx - x;
 float iphoneCenterText( float x, float y, float scale, const char *str ) {
 	float l = StringFontWidth( str );
     
-    x *= ((float)SCREENWIDTH) / 480.0f;
-    y *= ((float)SCREENHEIGHT) / 320.0f;
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
     
-	x -= l * scale * 0.5 * screenResolutionScale * 2;
+	x -= l * scale * 0.5;
     
-	return iphoneDrawText( x, y, scale * screenResolutionScale * 2, str );
+	return iphoneDrawText( x, y, scale * screenResolutionScale, str );
 }
 
 

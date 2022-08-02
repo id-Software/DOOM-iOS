@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="443" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="440" userLabel="Logo">
@@ -508,7 +506,8 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <viewLayoutGuide key="safeArea" id="mb3-ss-7bB"/>
+            <color key="backgroundColor" systemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="440" firstAttribute="centerX" secondItem="mb3-ss-7bB" secondAttribute="centerX" id="0pu-sB-w7A"/>
                 <constraint firstItem="443" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AAB-2C-iPn"/>
@@ -528,17 +527,19 @@
                 <constraint firstItem="mb3-ss-7bB" firstAttribute="top" secondItem="437" secondAttribute="top" id="zyF-dN-Apt"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <viewLayoutGuide key="safeArea" id="mb3-ss-7bB"/>
             <point key="canvasLocation" x="34" y="65"/>
         </view>
     </objects>
     <resources>
         <image name="Button.png" width="191" height="191"/>
         <image name="Button_Highlighted.png" width="191" height="191"/>
+        <image name="MenuBackground.png" width="960" height="640"/>
         <image name="SubMenuBackground.png" width="959" height="574"/>
         <image name="SubMenuButton.png" width="195" height="174"/>
         <image name="SubMenuButton_Highlighted.png" width="195" height="174"/>
-        <image name="background" width="720" height="480"/>
-        <image name="logo" width="732.375" height="447"/>
+        <image name="logo" width="1953" height="1192"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

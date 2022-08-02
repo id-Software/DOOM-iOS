@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="25" userLabel="Background">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="25" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1024" id="liw-Iu-t9l"/>
@@ -309,7 +307,8 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <viewLayoutGuide key="safeArea" id="TtA-xD-Y8N"/>
+            <color key="backgroundColor" systemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="TtA-xD-Y8N" firstAttribute="bottom" secondItem="RyF-AM-XBz" secondAttribute="bottom" constant="94" id="0Wi-F7-0Cd"/>
                 <constraint firstItem="21" firstAttribute="top" secondItem="TtA-xD-Y8N" secondAttribute="top" constant="20" id="3Bk-oK-YPP"/>
@@ -349,7 +348,6 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="TtA-xD-Y8N"/>
             <point key="canvasLocation" x="34" y="65"/>
         </view>
     </objects>
@@ -361,6 +359,7 @@
         <image name="Easy.png" width="123" height="123"/>
         <image name="Hard.png" width="121" height="121"/>
         <image name="Medium.png" width="121" height="121"/>
+        <image name="MenuBackground.png" width="960" height="640"/>
         <image name="MissonBackground.png" width="656" height="363"/>
         <image name="NextButton.png" width="93" height="94"/>
         <image name="NextButton_Highlighted.png" width="93" height="94"/>
@@ -368,6 +367,8 @@
         <image name="SelectedBracket.png" width="133" height="133"/>
         <image name="UpArrow.png" width="80" height="36"/>
         <image name="UpArrow_Highlighted.png" width="80" height="36"/>
-        <image name="background" width="720" height="480"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
