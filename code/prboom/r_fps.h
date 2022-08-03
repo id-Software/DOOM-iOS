@@ -64,12 +64,12 @@ void R_InterpolateView (player_t *player, fixed_t frac);
 
 extern boolean WasRenderedInTryRunTics;
 
-void R_ResetViewInterpolation ();
-void R_UpdateInterpolations();
+void R_ResetViewInterpolation (void);
+void R_UpdateInterpolations(void);
 void R_StopAllInterpolations(void);
 void R_DoInterpolations(fixed_t smoothratio);
-void R_RestoreInterpolations();
-void R_ActivateSectorInterpolations();
+void R_RestoreInterpolations(void);
+void R_ActivateSectorInterpolations(void);
 void R_ActivateThinkerInterpolations(thinker_t *th);
 void R_StopInterpolationIfNeeded(thinker_t *th);
 

@@ -37,9 +37,6 @@
 #include "doomtype.h"
 #include "v_video.h"
 
-#ifdef __GNUG__
-#pragma interface
-#endif
 
 void I_PreInitGraphics(void); /* CPhipps - do stuff immediately on start */
 void I_CalculateRes(unsigned int width, unsigned int height); /* calculate resolution */

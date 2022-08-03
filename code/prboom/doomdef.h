@@ -107,13 +107,9 @@ typedef enum {
 // when multiple screen sizes are supported
 
 // proff 08/17/98: Changed for high-res
-#ifdef IPHONE			// JDC
-#define MAX_SCREENWIDTH  1024
-#define MAX_SCREENHEIGHT 768
-#else
-#define MAX_SCREENWIDTH  2048
-#define MAX_SCREENHEIGHT 1536
-#endif
+#define MAX_SCREENWIDTH  3072
+#define MAX_SCREENHEIGHT 2304
+
 
 // SCREENWIDTH and SCREENHEIGHT define the visible size
 extern int SCREENWIDTH;

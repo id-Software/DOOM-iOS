@@ -768,18 +768,18 @@ static void P_LoadLineDefs2(int lump)
     {
       ld->frontsector = sides[ld->sidenum[0]].sector; //e6y: Can't be NO_INDEX here
       ld->backsector  = ld->sidenum[1]!=NO_INDEX ? sides[ld->sidenum[1]].sector : 0;
+        int thelump, j;
       switch (ld->special)
         {                       // killough 4/11/98: handle special types
-          int lump, j;
 
         case 260:               // killough 4/11/98: translucent 2s textures
-            lump = sides[*ld->sidenum].special; // translucency from sidedef
+            thelump = sides[*ld->sidenum].special; // translucency from sidedef
             if (!ld->tag)                       // if tag==0,
-              ld->tranlump = lump;              // affect this linedef only
+              ld->tranlump = thelump;              // affect this linedef only
             else
               for (j=0;j<numlines;j++)          // if tag!=0,
                 if (lines[j].tag == ld->tag)    // affect all matching linedefs
-                  lines[j].tranlump = lump;
+                  lines[j].tranlump = thelump;
             break;
         }
     }
@@ -831,21 +831,21 @@ static void P_LoadSideDefs2(int lump)
         case 242:                       // variable colormap via 242 linedef
           sd->bottomtexture =
             (sec->bottommap =   R_ColormapNumForName(msd->bottomtexture)) < 0 ?
-            sec->bottommap = 0, R_TextureNumForName(msd->bottomtexture): 0 ;
+                (void)(sec->bottommap = 0), R_TextureNumForName(msd->bottomtexture): 0 ;
           sd->midtexture =
             (sec->midmap =   R_ColormapNumForName(msd->midtexture)) < 0 ?
-            sec->midmap = 0, R_TextureNumForName(msd->midtexture)  : 0 ;
+                (void)(sec->midmap = 0), R_TextureNumForName(msd->midtexture)  : 0 ;
           sd->toptexture =
             (sec->topmap =   R_ColormapNumForName(msd->toptexture)) < 0 ?
-            sec->topmap = 0, R_TextureNumForName(msd->toptexture)  : 0 ;
+                (void)(sec->topmap = 0), R_TextureNumForName(msd->toptexture)  : 0 ;
           break;
 
         case 260: // killough 4/11/98: apply translucency to 2s normal texture
           sd->midtexture = strncasecmp("TRANMAP", msd->midtexture, 8) ?
             (sd->special = W_CheckNumForName(msd->midtexture)) < 0 ||
             W_LumpLength(sd->special) != 65536 ?
-            sd->special=0, R_TextureNumForName(msd->midtexture) :
-              (sd->special++, 0) : (sd->special=0);
+                (void)(sd->special=0), R_TextureNumForName(msd->midtexture) :
+                ((void)(sd->special++), 0) : (sd->special=0);
           sd->toptexture = R_TextureNumForName(msd->toptexture);
           sd->bottomtexture = R_TextureNumForName(msd->bottomtexture);
           break;
@@ -1217,10 +1217,10 @@ static void P_LoadBlockMap (int lump)
 
       W_UnlockLumpNum(lump); // cph - unlock the lump
 
-      bmaporgx = blockmaplump[0]<<FRACBITS;
-      bmaporgy = blockmaplump[1]<<FRACBITS;
-      bmapwidth = blockmaplump[2];
-      bmapheight = blockmaplump[3];
+      bmaporgx = (int)blockmaplump[0]<<FRACBITS;
+      bmaporgy = (int)blockmaplump[1]<<FRACBITS;
+      bmapwidth = (int)blockmaplump[2];
+      bmapheight = (int)blockmaplump[3];
     }
 
   // clear out mobj chains - CPhipps - use calloc
@@ -1527,10 +1527,6 @@ void P_SetupLevel(int episode, int map, int playermask, skill_t skill)
     rejectlump = -1;
   }
 
-#ifdef GL_DOOM
-// proff 11/99: clean the memory from textures etc.
-  gld_CleanMemory();
-#endif
 
   P_InitThinkers();
 
@@ -1540,8 +1536,12 @@ void P_SetupLevel(int episode, int map, int playermask, skill_t skill)
   // find map name
   if (gamemode == commercial)
   {
-    sprintf(lumpname, "map%02d", map);           // killough 1/24/98: simplify
-    sprintf(gl_lumpname, "gl_map%02d", map);    // figgi
+      
+      // JAF - Doom 2 uses Map01-, but uses DOOM 1 selection (E1M8)
+      int tempMap = ( ( episode - 1 ) * 9) + map;
+      
+    sprintf(lumpname, "map%02d", tempMap);           // killough 1/24/98: simplify
+    sprintf(gl_lumpname, "gl_map%02d", tempMap);    // figgi
   }
   else
   {

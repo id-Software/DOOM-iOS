@@ -37,9 +37,6 @@
 #include "d_player.h"
 #include "r_data.h"
 
-#ifdef __GNUG__
-#pragma interface
-#endif
 
 //
 // POV related.
@@ -61,6 +58,8 @@ extern fixed_t  projection;
 // proff 11/06/98: Added for high-res
 extern fixed_t  projectiony;
 extern int      validcount;
+extern bool     isiPhoneX;
+
 
 //
 // Rendering stats

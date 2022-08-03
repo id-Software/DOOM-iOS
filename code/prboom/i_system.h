@@ -34,9 +34,10 @@
 #ifndef __I_SYSTEM__
 #define __I_SYSTEM__
 
-#ifdef __GNUG__
-#pragma interface
+#ifdef __cplusplus
+extern "C" {
 #endif
+
 
 extern int ms_to_next_tick;
 boolean I_StartDisplay(void);
@@ -64,7 +65,7 @@ const char* I_SigString(char* buf, size_t sz, int signum);
 const char *I_DoomExeDir(void); // killough 2/16/98: path to executable's dir
 
 boolean HasTrailingSlash(const char* dn);
-char* I_FindFile(const char* wfname, const char* ext);
+void I_FindFile(const char* wfname, const char* ext, char * returnWadName );
 
 /* cph 2001/11/18 - wrapper for read(2) which deals with partial reads */
 void I_Read(int fd, void* buf, size_t sz);
@@ -73,5 +74,12 @@ void I_Read(int fd, void* buf, size_t sz);
 int I_Filelength(int handle);
 
 void I_SetAffinityMask(void);
+
+#define SCREENSHOT_DIR I_DoomExeDir()
+#define HEAPDUMP_DIR I_DoomExeDir()
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

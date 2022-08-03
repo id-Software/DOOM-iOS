@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="14109" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_EpisodeMenuViewController">
+            <connections>
+                <outlet property="episodeCell" destination="mwE-hQ-WaI" id="1u8-Ub-1aL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="224" id="mwE-hQ-WaI">
+            <rect key="frame" x="0.0" y="0.0" width="168" height="224"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mwE-hQ-WaI" id="jxe-1l-Ti6">
+                <rect key="frame" x="0.0" y="0.0" width="168" height="224"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-L9-Pz0">
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="224"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW6-Gh-Cae">
+                        <rect key="frame" x="30" y="43" width="118" height="56"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
+                        <color key="textColor" red="0.49411764740000003" green="0.1921568662" blue="0.0078431377190000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="highlightedColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDd-Cn-Vvr">
+                        <rect key="frame" x="30" y="102" width="167" height="79"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="34"/>
+                        <color key="textColor" red="0.85882353779999998" green="0.34117648010000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fW6-Gh-Cae" firstAttribute="top" secondItem="jxe-1l-Ti6" secondAttribute="top" constant="43" id="2T5-HV-dWO"/>
+                    <constraint firstItem="fW6-Gh-Cae" firstAttribute="leading" secondItem="jxe-1l-Ti6" secondAttribute="leading" constant="30" id="2eN-UH-bDu"/>
+                    <constraint firstAttribute="trailing" secondItem="4Da-L9-Pz0" secondAttribute="trailing" id="FE8-4B-qhX"/>
+                    <constraint firstAttribute="bottom" secondItem="4Da-L9-Pz0" secondAttribute="bottom" id="H2W-Qr-hu1"/>
+                    <constraint firstItem="4Da-L9-Pz0" firstAttribute="top" secondItem="jxe-1l-Ti6" secondAttribute="top" id="XCw-yv-RYW"/>
+                    <constraint firstItem="4Da-L9-Pz0" firstAttribute="leading" secondItem="jxe-1l-Ti6" secondAttribute="leading" id="cul-a2-Vdn"/>
+                    <constraint firstItem="TDd-Cn-Vvr" firstAttribute="top" secondItem="fW6-Gh-Cae" secondAttribute="bottom" constant="3" id="sWn-A4-xCO"/>
+                    <constraint firstItem="TDd-Cn-Vvr" firstAttribute="leading" secondItem="jxe-1l-Ti6" secondAttribute="leading" constant="30" id="tQY-87-NRa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="177" y="173"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -87,6 +87,10 @@
 #include "r_demo.h"
 #include "r_fps.h"
 
+void iphoneStartLevel(void);
+void iphoneIntermission(void);
+void iphoneMainMenu(void);
+
 #define SAVEGAMESIZE  0x20000
 #define SAVESTRINGSIZE  24
 
@@ -130,7 +134,7 @@ int             demover;
 boolean         singledemo;           // quit after playing a demo from cmdline
 wbstartstruct_t wminfo;               // parms for world map / intermission
 boolean         haswolflevels = false;// jff 4/18/98 wolf levels present
-static byte     *savebuffer;          // CPhipps - static
+static byte    *savebuffer;          // CPhipps - static
 int             autorun = false;      // always running?          // phares
 int             totalleveltimes;      // CPhipps - total time for all completed levels
 int		longtics;
@@ -625,8 +629,8 @@ static void G_DoLoadLevel (void)
   joyxmove = joyymove = 0;
   mousex = mousey = 0;
   special_event = 0; paused = false;
-  memset (mousebuttons, 0, sizeof(mousebuttons));
-  memset (joybuttons, 0, sizeof(joybuttons));
+  memset (mousearray, 0, sizeof(mousearray));
+  memset (joyarray, 0, sizeof(joyarray));
 
   // killough 5/13/98: in case netdemo has consoleplayer other than green
   ST_Start();
@@ -697,7 +701,7 @@ boolean G_Responder (event_t* ev)
   ((ev->type == ev_keydown) ||
    (ev->type == ev_mouse && ev->data1) ||
    (ev->type == ev_joystick && ev->data1)) ?
-  M_StartControlPanel(), true : false;
+        (void)(M_StartControlPanel()), true : false;
     }
 
   if (gamestate == GS_FINALE && F_Responder(ev))
@@ -763,10 +767,11 @@ void G_Ticker (void)
   // CPhipps - player colour changing
   if (!demoplayback && mapcolor_plyr[consoleplayer] != mapcolor_me) {
     // Changed my multiplayer colour - Inform the whole game
-    int net_cl = LONG(mapcolor_me);
+    int net_cl = (int)LONG(mapcolor_me);
 #ifdef HAVE_NET
     D_NetSendMisc(nm_plcolour, sizeof(net_cl), &net_cl);
 #endif
+	(void)net_cl;
     G_ChangedPlayerColour(consoleplayer, mapcolor_me);
   }
   P_MapStart();
@@ -1161,7 +1166,7 @@ static boolean G_CheckSpot(int playernum, mapthing_t *mthing)
 //
 void G_DeathMatchSpawnPlayer (int playernum)
 {
-  int j, selections = deathmatch_p - deathmatchstarts;
+  int j, selections = (int)(deathmatch_p - deathmatchstarts);
 
   if (selections < MAXPLAYERS)
     I_Error("G_DeathMatchSpawnPlayer: Only %i deathmatch spots, %d required",
@@ -1383,10 +1388,6 @@ void G_DoCompleted (void)
   }
 
   WI_Start (&wminfo);
-	
-#ifdef IPHONE
-	iphoneIntermission( &wminfo );
-#endif
 }
 
 //
@@ -1420,16 +1421,28 @@ void G_WorldDone (void)
     gameaction = ga_victory; // cph - after ExM8 summary screen, show victory stuff
 }
 
+extern float   *freeLevelOfWeek; // actually cvar, but value is first element
+extern boolean	levelHasBeenLoaded;
 void G_DoWorldDone (void)
-{
+{ 
+    // JAF Added Free level of Week Check.
+    if( *freeLevelOfWeek == 1 ) {
+        gameaction = ga_nothing;
+        levelHasBeenLoaded = false;
+        iphoneMainMenu();
+        return;
+    }
+    
   idmusnum = -1;             //jff 3/17/98 allow new level's music to be loaded
   gamestate = GS_LEVEL;
   gamemap = wminfo.next+1;
   G_DoLoadLevel();
   gameaction = ga_nothing;
   AM_clearMarks();           //jff 4/12/98 clear any marks on the automap
-	
-	iphoneStartLevel();		// JDC: update playState and set the "tried level" flag
+    
+  // automatic save game
+  G_SaveGame( 0, "entersave" );
+  G_DoSaveGame(true);  
 }
 
 // killough 2/28/98: A ridiculously large number
@@ -1458,7 +1471,7 @@ static uint_64_t G_UpdateSignature(uint_64_t s, const char *name)
   int size = W_LumpLength(i);
   const byte *p = W_CacheLumpNum(i);
   while (size--)
-    s <<= 1, s += *p++;
+      (void)(s <<= 1), s += *p++;
   W_UnlockLumpNum(i);
       }
     while (--i > lump);
@@ -1476,12 +1489,15 @@ static uint_64_t G_Signature(void)
    computed = true;
    if (gamemode == commercial)
     for (map = haswolflevels ? 32 : 30; map; map--)
-      sprintf(name, "map%02d", map), s = G_UpdateSignature(s, name);
+    {
+        sprintf(name, "map%02d", map);
+        s = G_UpdateSignature(s, name);
+    }
    else
     for (episode = gamemode==retail ? 4 :
      gamemode==shareware ? 1 : 3; episode; episode--)
       for (map = 9; map; map--)
-  sprintf(name, "E%dM%d", episode, map), s = G_UpdateSignature(s, name);
+          (void)(sprintf(name, "E%dM%d", episode, map)), s = G_UpdateSignature(s, name);
   }
   return s;
 }
@@ -1512,6 +1528,9 @@ void G_LoadGame(int slot, boolean command)
   } else {
     // Do the old thing, immediate load
     gameaction = ga_loadgame;
+//#warning FIXME checksum:  was false, but issues when loading savegames (checksum seems to be different)
+//      forced_loadgame = true;
+    // MAY NEED TVOS FIXES? -tkidd
     forced_loadgame = false;
     savegameslot = slot;
     demoplayback = false;
@@ -1568,10 +1587,10 @@ static const size_t num_version_headers = sizeof(version_headers) / sizeof(versi
 
 boolean G_SaveGameValid() {
     
-    int  length, i;
+    int  length;
     // CPhipps - do savegame filename stuff here
     char name[PATH_MAX+1];     // killough 3/22/98
-    int savegame_compatibility = -1;
+    //int savegame_compatibility = -1;
     
     G_SaveGameName(name,sizeof(name),savegameslot, demoplayback);
     
@@ -1598,8 +1617,11 @@ void G_DoLoadGame(void)
   gameaction = ga_nothing;
 
   length = M_ReadFile(name, &savebuffer);
-  if (length<=0)
-    I_Error("Couldn't read file %s: %s", name, "(Unknown Error)");
+  if (length<=0) {
+    //I_Error("Couldn't read file %s: %s", name, "(Unknown Error)");
+    doom_printf("No save game found.");
+    return;
+  }
   save_p = savebuffer + SAVESTRINGSIZE;
 
   // CPhipps - read the description field, compare with supported ones
@@ -1608,7 +1630,7 @@ void G_DoLoadGame(void)
     // killough 2/22/98: "proprietary" version string :-)
     sprintf (vcheck, version_headers[i].ver_printf, version_headers[i].version);
 
-    if (!strncmp(save_p, vcheck, VERSIONSIZE)) {
+    if (!strncmp( (char*)save_p, vcheck, VERSIONSIZE)) {
       savegame_compatibility = version_headers[i].comp_level;
       i = num_version_headers;
     }
@@ -1633,10 +1655,10 @@ void G_DoLoadGame(void)
 
     if (memcmp(&checksum, save_p, sizeof checksum)) {
       if (!forced_loadgame) {
-        char *msg = malloc(strlen(save_p + sizeof checksum) + 128);
+        char *msg = malloc(strlen( (char*)save_p + sizeof checksum) + 128);
         strcpy(msg,"Incompatible Savegame!!!\n");
         if (save_p[sizeof checksum])
-          strcat(strcat(msg,"Wads expected:\n\n"), save_p + sizeof checksum);
+          strcat(strcat(msg,"Wads expected:\n\n"), (char*)save_p + sizeof checksum);
         strcat(msg, "\nAre you sure?");
         G_LoadGameErr(msg);
         free(msg);
@@ -1647,7 +1669,7 @@ void G_DoLoadGame(void)
     save_p += sizeof checksum;
    }
 
-  save_p += strlen(save_p)+1;
+  save_p += strlen( (char*)save_p)+1;
 
   compatibility_level = (savegame_compatibility >= prboom_4_compatibility) ? *save_p : savegame_compatibility;
   if (savegame_compatibility < prboom_6_compatibility)
@@ -1668,7 +1690,7 @@ void G_DoLoadGame(void)
   /* killough 3/1/98: Read game options
    * killough 11/98: move down to here
    */
-  save_p = (char*)G_ReadOptions(save_p);
+  save_p = (byte*)G_ReadOptions(save_p);
 
   // load a base level
   G_InitNew (gameskill, gameepisode, gamemap);
@@ -1728,7 +1750,7 @@ void G_DoLoadGame(void)
 // Description is a 24 byte text string
 //
 
-void G_SaveGame(int slot, char *description)
+void G_SaveGame(int slot, const char *description)
 {
   strcpy(savedescription, description);
   if (demoplayback) {
@@ -1758,7 +1780,7 @@ void (CheckSaveGame)(size_t size, const char* file, int line)
   static int prevl;
 
   if (pos > prev_check)
-    I_Error("CheckSaveGame at %s:%d called for insufficient buffer (%u < %u)", prevf, prevl, prev_check, pos);
+    I_Error("CheckSaveGame at %s:%d called for insufficient buffer (%lu < %lu)", prevf, prevl, prev_check, pos);
   prev_check = size + pos;
   prevf = file;
   prevl = line;
@@ -1775,9 +1797,9 @@ void (CheckSaveGame)(size_t size, const char* file, int line)
  * cph - Avoid possible buffer overflow problems by passing
  * size to this function and using snprintf */
 
-void G_SaveGameName(char *name, size_t size, int slot, boolean demoplayback)
+void G_SaveGameName(char *name, size_t size, int slot, boolean isDemoplayback)
 {
-  const char* sgn = demoplayback ? "demosav" : savegamename;
+  const char* sgn = savegamename;
 #ifdef HAVE_SNPRINTF
   snprintf (name, size, "%s/%s%d.dsg", basesavegame, sgn, slot);
 #else
@@ -1826,13 +1848,13 @@ void G_SaveGameName(char *name, size_t size, int slot, boolean demoplayback)
   // killough 3/16/98: store pwad filenames in savegame
   {
     // CPhipps - changed for new wadfiles handling
-    size_t i;
-    for (i = 0; i<numwadfiles; i++)
+    size_t wadIndex;
+    for (wadIndex = 0; wadIndex<numwadfiles; wadIndex++)
       {
-        const char *const w = wadfiles[i].name;
+        const char *const w = wadfiles[wadIndex].name;
         CheckSaveGame(strlen(w)+2);
-        strcpy(save_p, w);
-        save_p += strlen(save_p);
+        strcpy( (char*)save_p, w);
+        save_p += strlen((char*)save_p);
         *save_p++ = '\n';
       }
     *save_p++ = 0;
@@ -1899,7 +1921,7 @@ void G_SaveGameName(char *name, size_t size, int slot, boolean demoplayback)
 
   *save_p++ = 0xe6;   // consistancy marker
 
-  length = save_p - savebuffer;
+  length = (int)(save_p - savebuffer);
 
   Z_CheckHeap();
   doom_printf( "%s", M_WriteFile(name, savebuffer, length)
@@ -2099,8 +2121,8 @@ void G_ReloadDefaults(void)
       if (l >= -1) compatibility_level = l;
     }
   }
-  if (compatibility_level == -1)
-    compatibility_level = best_compatibility;
+//  if (compatibility_level == -1)
+//    compatibility_level = best_compatibility;
 
   if (mbf_features)
     memcpy(comp, default_comp, sizeof comp);
@@ -2176,8 +2198,13 @@ void G_InitNew(skill_t skill, int episode, int map)
 
   if (gamemode == retail)
     {
-      if (episode > 4)
-        episode = 4;
+#if GAME_SIGIL
+        if (episode > 5)
+            episode = 5;
+#else
+        if (episode > 4)
+            episode = 4;
+#endif
     }
   else
     if (gamemode == shareware)
@@ -2185,9 +2212,6 @@ void G_InitNew(skill_t skill, int episode, int map)
         if (episode > 1)
           episode = 1; // only start episode 1 on shareware
       }
-    else
-      if (episode > 3)
-        episode = 3;
 
   if (map < 1)
     map = 1;
@@ -2281,7 +2305,7 @@ void G_WriteDemoTiccmd (ticcmd_t* cmd)
     I_Error("G_WriteDemoTiccmd: error writing demo");
 
   /* cph - alias demo_p to it so we can read it back */
-  demo_p = buf;
+  demo_p = (const byte*)buf;
   G_ReadDemoTiccmd (cmd);         // make SURE it is exactly the same
 }
 
@@ -2304,7 +2328,7 @@ void G_RecordDemo (const char* name)
     demofp = fopen(demoname, "r+");
     if (demofp) {
       int slot = -1;
-      int rc;
+        int rc = 0;
       int bytes_per_tic;
       const byte* pos;
 
@@ -2323,7 +2347,7 @@ void G_RecordDemo (const char* name)
       do {
         byte buf[5];
       
-        rc = fread(buf, 1, bytes_per_tic, demofp);
+        rc = (int)fread(buf, 1, bytes_per_tic, demofp);
         if (buf[0] == DEMOMARKER) break;
         if (buf[bytes_per_tic-1] & BT_SPECIAL)
           if ((buf[bytes_per_tic-1] & BT_SPECIALMASK) == BTS_SAVEGAME)
@@ -2351,82 +2375,82 @@ void G_RecordDemo (const char* name)
 
 extern int forceOldBsp;
 
-byte *G_WriteOptions(byte *demo_p)
+byte *G_WriteOptions(byte *theDemo_p)
 {
-  byte *target = demo_p + GAME_OPTION_SIZE;
+  byte *target = theDemo_p + GAME_OPTION_SIZE;
 
-  *demo_p++ = monsters_remember;  // part of monster AI
+  *theDemo_p++ = monsters_remember;  // part of monster AI
 
-  *demo_p++ = variable_friction;  // ice & mud
+  *theDemo_p++ = variable_friction;  // ice & mud
 
-  *demo_p++ = weapon_recoil;      // weapon recoil
+  *theDemo_p++ = weapon_recoil;      // weapon recoil
 
-  *demo_p++ = allow_pushers;      // MT_PUSH Things
+  *theDemo_p++ = allow_pushers;      // MT_PUSH Things
 
-  *demo_p++ = 0;
+  *theDemo_p++ = 0;
 
-  *demo_p++ = player_bobbing;  // whether player bobs or not
+  *theDemo_p++ = player_bobbing;  // whether player bobs or not
 
   // killough 3/6/98: add parameters to savegame, move around some in demos
-  *demo_p++ = respawnparm;
-  *demo_p++ = fastparm;
-  *demo_p++ = nomonsters;
+  *theDemo_p++ = respawnparm;
+  *theDemo_p++ = fastparm;
+  *theDemo_p++ = nomonsters;
 
-  *demo_p++ = demo_insurance;        // killough 3/31/98
+  *theDemo_p++ = demo_insurance;        // killough 3/31/98
 
   // killough 3/26/98: Added rngseed. 3/31/98: moved here
-  *demo_p++ = (byte)((rngseed >> 24) & 0xff);
-  *demo_p++ = (byte)((rngseed >> 16) & 0xff);
-  *demo_p++ = (byte)((rngseed >>  8) & 0xff);
-  *demo_p++ = (byte)( rngseed        & 0xff);
+  *theDemo_p++ = (byte)((rngseed >> 24) & 0xff);
+  *theDemo_p++ = (byte)((rngseed >> 16) & 0xff);
+  *theDemo_p++ = (byte)((rngseed >>  8) & 0xff);
+  *theDemo_p++ = (byte)( rngseed        & 0xff);
 
   // Options new to v2.03 begin here
 
-  *demo_p++ = monster_infighting;   // killough 7/19/98
+  *theDemo_p++ = monster_infighting;   // killough 7/19/98
 
 #ifdef DOGS
-  *demo_p++ = dogs;                 // killough 7/19/98
+  *theDemo_p++ = dogs;                 // killough 7/19/98
 #else
-  *demo_p++ = 0;
+  *theDemo_p++ = 0;
 #endif
 
-  *demo_p++ = 0;
-  *demo_p++ = 0;
+  *theDemo_p++ = 0;
+  *theDemo_p++ = 0;
 
-  *demo_p++ = (distfriend >> 8) & 0xff;  // killough 8/8/98
-  *demo_p++ =  distfriend       & 0xff;  // killough 8/8/98
+  *theDemo_p++ = (distfriend >> 8) & 0xff;  // killough 8/8/98
+  *theDemo_p++ =  distfriend       & 0xff;  // killough 8/8/98
 
-  *demo_p++ = monster_backing;         // killough 9/8/98
+  *theDemo_p++ = monster_backing;         // killough 9/8/98
 
-  *demo_p++ = monster_avoid_hazards;    // killough 9/9/98
+  *theDemo_p++ = monster_avoid_hazards;    // killough 9/9/98
 
-  *demo_p++ = monster_friction;         // killough 10/98
+  *theDemo_p++ = monster_friction;         // killough 10/98
 
-  *demo_p++ = help_friends;             // killough 9/9/98
+  *theDemo_p++ = help_friends;             // killough 9/9/98
 
 #ifdef DOGS
-  *demo_p++ = dog_jumping;
+  *theDemo_p++ = dog_jumping;
 #else
-  *demo_p++ = 0;
+  *theDemo_p++ = 0;
 #endif
 
-  *demo_p++ = monkeys;
+  *theDemo_p++ = monkeys;
 
   {   // killough 10/98: a compatibility vector now
     int i;
     for (i=0; i < COMP_TOTAL; i++)
-      *demo_p++ = comp[i] != 0;
+      *theDemo_p++ = comp[i] != 0;
   }
 
-  *demo_p++ = (compatibility_level >= prboom_2_compatibility) && forceOldBsp; // cph 2002/07/20
+  *theDemo_p++ = (compatibility_level >= prboom_2_compatibility) && forceOldBsp; // cph 2002/07/20
 
   //----------------
   // Padding at end
   //----------------
-  while (demo_p < target)
-    *demo_p++ = 0;
+  while (theDemo_p < target)
+    *theDemo_p++ = 0;
 
-  if (demo_p != target)
+  if (theDemo_p != target)
     I_Error("G_WriteOptions: GAME_OPTION_SIZE is too small");
 
   return target;
@@ -2436,82 +2460,82 @@ byte *G_WriteOptions(byte *demo_p)
  * cph - const byte*'s
  */
 
-const byte *G_ReadOptions(const byte *demo_p)
+const byte *G_ReadOptions(const byte *theDemo_p)
 {
-  const byte *target = demo_p + GAME_OPTION_SIZE;
+  const byte *target = theDemo_p + GAME_OPTION_SIZE;
 
-  monsters_remember = *demo_p++;
+  monsters_remember = *theDemo_p++;
 
-  variable_friction = *demo_p;  // ice & mud
-  demo_p++;
+  variable_friction = *theDemo_p;  // ice & mud
+  theDemo_p++;
 
-  weapon_recoil = *demo_p;       // weapon recoil
-  demo_p++;
+  weapon_recoil = *theDemo_p;       // weapon recoil
+  theDemo_p++;
 
-  allow_pushers = *demo_p;      // MT_PUSH Things
-  demo_p++;
+  allow_pushers = *theDemo_p;      // MT_PUSH Things
+  theDemo_p++;
 
-  demo_p++;
+  theDemo_p++;
 
-  player_bobbing = *demo_p;     // whether player bobs or not
-  demo_p++;
+  player_bobbing = *theDemo_p;     // whether player bobs or not
+  theDemo_p++;
 
   // killough 3/6/98: add parameters to savegame, move from demo
-  respawnparm = *demo_p++;
-  fastparm = *demo_p++;
-  nomonsters = *demo_p++;
+  respawnparm = *theDemo_p++;
+  fastparm = *theDemo_p++;
+  nomonsters = *theDemo_p++;
 
-  demo_insurance = *demo_p++;              // killough 3/31/98
+  demo_insurance = *theDemo_p++;              // killough 3/31/98
 
   // killough 3/26/98: Added rngseed to demos; 3/31/98: moved here
 
-  rngseed  = *demo_p++ & 0xff;
+  rngseed  = *theDemo_p++ & 0xff;
   rngseed <<= 8;
-  rngseed += *demo_p++ & 0xff;
+  rngseed += *theDemo_p++ & 0xff;
   rngseed <<= 8;
-  rngseed += *demo_p++ & 0xff;
+  rngseed += *theDemo_p++ & 0xff;
   rngseed <<= 8;
-  rngseed += *demo_p++ & 0xff;
+  rngseed += *theDemo_p++ & 0xff;
 
   // Options new to v2.03
   if (mbf_features)
     {
-      monster_infighting = *demo_p++;   // killough 7/19/98
+      monster_infighting = *theDemo_p++;   // killough 7/19/98
 
 #ifdef DOGS
-      dogs = *demo_p++;                 // killough 7/19/98
+      dogs = *theDemo_p++;                 // killough 7/19/98
 #else
-      demo_p++;
+      theDemo_p++;
 #endif
 
-      demo_p += 2;
+      theDemo_p += 2;
 
-      distfriend = *demo_p++ << 8;      // killough 8/8/98
-      distfriend+= *demo_p++;
+      distfriend = *theDemo_p++ << 8;      // killough 8/8/98
+      distfriend+= *theDemo_p++;
 
-      monster_backing = *demo_p++;     // killough 9/8/98
+      monster_backing = *theDemo_p++;     // killough 9/8/98
 
-      monster_avoid_hazards = *demo_p++; // killough 9/9/98
+      monster_avoid_hazards = *theDemo_p++; // killough 9/9/98
 
-      monster_friction = *demo_p++;      // killough 10/98
+      monster_friction = *theDemo_p++;      // killough 10/98
 
-      help_friends = *demo_p++;          // killough 9/9/98
+      help_friends = *theDemo_p++;          // killough 9/9/98
 
 #ifdef DOGS
-      dog_jumping = *demo_p++;           // killough 10/98
+      dog_jumping = *theDemo_p++;           // killough 10/98
 #else
-      demo_p++;
+      theDemo_p++;
 #endif
 
-      monkeys = *demo_p++;
+      monkeys = *theDemo_p++;
 
       {   // killough 10/98: a compatibility vector now
   int i;
   for (i=0; i < COMP_TOTAL; i++)
-    comp[i] = *demo_p++;
+    comp[i] = *theDemo_p++;
       }
 
-      forceOldBsp = *demo_p++; // cph 2002/07/20
+      forceOldBsp = *theDemo_p++; // cph 2002/07/20
     }
   else  /* defaults for versions <= 2.02 */
     {
@@ -2525,14 +2549,14 @@ const byte *G_ReadOptions(const byte *demo_p)
 void G_BeginRecording (void)
 {
   int i;
-  byte *demostart, *demo_p;
-  demostart = demo_p = malloc(1000);
+  byte *demostart, *theDemo_p;
+  demostart = theDemo_p = malloc(1000);
   longtics = 0;
 
   /* cph - 3 demo record formats supported: MBF+, BOOM, and Doom v1.9 */
   if (mbf_features) {
     { /* Write version code into demo */
-      unsigned char v;
+        unsigned char v = '\0';
       switch(compatibility_level) {
 	case mbf_compatibility: v = 203; break; // e6y: Bug in MBF compatibility mode fixed
         case prboom_2_compatibility: v = 210; break;
@@ -2543,94 +2567,95 @@ void G_BeginRecording (void)
 				     v = 214; 
 				     longtics = 1;
 				     break;
+		default: break;
       }
-      *demo_p++ = v;
+      *theDemo_p++ = v;
     }
 
     // signature
-    *demo_p++ = 0x1d;
-    *demo_p++ = 'M';
-    *demo_p++ = 'B';
-    *demo_p++ = 'F';
-    *demo_p++ = 0xe6;
-    *demo_p++ = '\0';
+    *theDemo_p++ = 0x1d;
+    *theDemo_p++ = 'M';
+    *theDemo_p++ = 'B';
+    *theDemo_p++ = 'F';
+    *theDemo_p++ = 0xe6;
+    *theDemo_p++ = '\0';
 
     /* killough 2/22/98: save compatibility flag in new demos
      * cph - FIXME? MBF demos will always be not in compat. mode */
-    *demo_p++ = 0;
+    *theDemo_p++ = 0;
 
-    *demo_p++ = gameskill;
-    *demo_p++ = gameepisode;
-    *demo_p++ = gamemap;
-    *demo_p++ = deathmatch;
-    *demo_p++ = consoleplayer;
+    *theDemo_p++ = gameskill;
+    *theDemo_p++ = gameepisode;
+    *theDemo_p++ = gamemap;
+    *theDemo_p++ = deathmatch;
+    *theDemo_p++ = consoleplayer;
 
-    demo_p = G_WriteOptions(demo_p); // killough 3/1/98: Save game options
+    theDemo_p = G_WriteOptions(theDemo_p); // killough 3/1/98: Save game options
 
     for (i=0 ; i<MAXPLAYERS ; i++)
-      *demo_p++ = playeringame[i];
+      *theDemo_p++ = playeringame[i];
 
     // killough 2/28/98:
     // We always store at least MIN_MAXPLAYERS bytes in demo, to
     // support enhancements later w/o losing demo compatibility
 
     for (; i<MIN_MAXPLAYERS; i++)
-      *demo_p++ = 0;
+      *theDemo_p++ = 0;
 
   } else if (compatibility_level > boom_compatibility_compatibility) {
-    byte v, c; /* Nominally, version and compatibility bits */
+      byte v = '\0', c = '\0'; /* Nominally, version and compatibility bits */
     switch (compatibility_level) {
-    case boom_compatibility_compatibility: v = 202, c = 1; break;
+        case boom_compatibility_compatibility: (void)(v = 202), c = 1; break;
     case boom_201_compatibility: v = 201; c = 0; break;
-    case boom_202_compatibility: v = 202, c = 0; break;
+        case boom_202_compatibility: (void)(v = 202), c = 0; break;
     default: I_Error("G_BeginRecording: Boom compatibility level unrecognised?");
     }
-    *demo_p++ = v;
+    *theDemo_p++ = v;
 
     // signature
-    *demo_p++ = 0x1d;
-    *demo_p++ = 'B';
-    *demo_p++ = 'o';
-    *demo_p++ = 'o';
-    *demo_p++ = 'm';
-    *demo_p++ = 0xe6;
+    *theDemo_p++ = 0x1d;
+    *theDemo_p++ = 'B';
+    *theDemo_p++ = 'o';
+    *theDemo_p++ = 'o';
+    *theDemo_p++ = 'm';
+    *theDemo_p++ = 0xe6;
 
     /* CPhipps - save compatibility level in demos */
-    *demo_p++ = c;
+    *theDemo_p++ = c;
 
-    *demo_p++ = gameskill;
-    *demo_p++ = gameepisode;
-    *demo_p++ = gamemap;
-    *demo_p++ = deathmatch;
-    *demo_p++ = consoleplayer;
+    *theDemo_p++ = gameskill;
+    *theDemo_p++ = gameepisode;
+    *theDemo_p++ = gamemap;
+    *theDemo_p++ = deathmatch;
+    *theDemo_p++ = consoleplayer;
 
-    demo_p = G_WriteOptions(demo_p); // killough 3/1/98: Save game options
+    theDemo_p = G_WriteOptions(theDemo_p); // killough 3/1/98: Save game options
 
     for (i=0 ; i<MAXPLAYERS ; i++)
-      *demo_p++ = playeringame[i];
+      *theDemo_p++ = playeringame[i];
 
     // killough 2/28/98:
     // We always store at least MIN_MAXPLAYERS bytes in demo, to
     // support enhancements later w/o losing demo compatibility
 
     for (; i<MIN_MAXPLAYERS; i++)
-      *demo_p++ = 0;
+      *theDemo_p++ = 0;
   } else { // cph - write old v1.9 demos (might even sync)
     longtics = M_CheckParm("-longtics");
-    *demo_p++ = longtics ? 111 : 109; // v1.9 has best chance of syncing these
-    *demo_p++ = gameskill;
-    *demo_p++ = gameepisode;
-    *demo_p++ = gamemap;
-    *demo_p++ = deathmatch;
-    *demo_p++ = respawnparm;
-    *demo_p++ = fastparm;
-    *demo_p++ = nomonsters;
-    *demo_p++ = consoleplayer;
+    *theDemo_p++ = longtics ? 111 : 109; // v1.9 has best chance of syncing these
+    *theDemo_p++ = gameskill;
+    *theDemo_p++ = gameepisode;
+    *theDemo_p++ = gamemap;
+    *theDemo_p++ = deathmatch;
+    *theDemo_p++ = respawnparm;
+    *theDemo_p++ = fastparm;
+    *theDemo_p++ = nomonsters;
+    *theDemo_p++ = consoleplayer;
     for (i=0; i<4; i++)  // intentionally hard-coded 4 -- killough
-      *demo_p++ = playeringame[i];
+      *theDemo_p++ = playeringame[i];
   }
 
-  if (fwrite(demostart, 1, demo_p-demostart, demofp) != (size_t)(demo_p-demostart))
+  if (fwrite(demostart, 1, theDemo_p-demostart, demofp) != (size_t)(theDemo_p-demostart))
     I_Error("G_BeginRecording: Error writing demo header");
   free(demostart);
 }
@@ -2681,7 +2706,7 @@ static boolean CheckForOverrun(const byte *start_p, const byte *current_p, size_
   return false;
 }
 
-static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean failonerror)
+static const byte* G_ReadDemoHeader(const byte *theDemo_p, size_t size, boolean failonerror)
 {
   skill_t skill;
   int i, episode, map;
@@ -2689,7 +2714,7 @@ static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean fai
   // e6y
   // The local variable should be used instead of demobuffer,
   // because demobuffer can be uninitialized
-  const byte *header_p = demo_p;
+  const byte *header_p = theDemo_p;
 
   const byte *option_p = NULL;      /* killough 11/98 */
 
@@ -2700,10 +2725,10 @@ static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean fai
   // compatibility flag, and other flags as well, as a part of the demo.
 
   //e6y: check for overrun
-  if (CheckForOverrun(header_p, demo_p, size, 1, failonerror))
+  if (CheckForOverrun(header_p, theDemo_p, size, 1, failonerror))
     return NULL;
 
-  demover = *demo_p++;
+  demover = *theDemo_p++;
   longtics = 0;
 
   // e6y
@@ -2748,57 +2773,57 @@ static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean fai
       // killough 3/6/98: rearrange to fix savegame bugs (moved fastparm,
       // respawnparm, nomonsters flags to G_LoadOptions()/G_SaveOptions())
 
-      if ((skill=demover) >= 100)         // For demos from versions >= 1.4
-        {
+//      if ((skill=demover) >= 100)         // For demos from versions >= 1.4
+//        {
           //e6y: check for overrun
-          if (CheckForOverrun(header_p, demo_p, size, 8, failonerror))
+          if (CheckForOverrun(header_p, theDemo_p, size, 8, failonerror))
             return NULL;
 
           compatibility_level = G_GetOriginalDoomCompatLevel(demover);
-          skill = *demo_p++;
-          episode = *demo_p++;
-          map = *demo_p++;
-          deathmatch = *demo_p++;
-          respawnparm = *demo_p++;
-          fastparm = *demo_p++;
-          nomonsters = *demo_p++;
-          consoleplayer = *demo_p++;
-        }
-      else
-        {
-          //e6y: check for overrun
-          if (CheckForOverrun(header_p, demo_p, size, 2, failonerror))
-            return NULL;
-
-          compatibility_level = doom_12_compatibility;
-          episode = *demo_p++;
-          map = *demo_p++;
-          deathmatch = respawnparm = fastparm =
-            nomonsters = consoleplayer = 0;
-        }
+          skill = *theDemo_p++;
+          episode = *theDemo_p++;
+          map = *theDemo_p++;
+          deathmatch = *theDemo_p++;
+          respawnparm = *theDemo_p++;
+          fastparm = *theDemo_p++;
+          nomonsters = *theDemo_p++;
+          consoleplayer = *theDemo_p++;
+//        }
+//      else
+//        {
+//          //e6y: check for overrun
+//          if (CheckForOverrun(header_p, theDemo_p, size, 2, failonerror))
+//            return NULL;
+//
+//          compatibility_level = doom_12_compatibility;
+//          episode = *theDemo_p++;
+//          map = *theDemo_p++;
+//          deathmatch = respawnparm = fastparm =
+//            nomonsters = consoleplayer = 0;
+//        }
       G_Compatibility();
     }
   else    // new versions of demos
     {
-      demo_p += 6;               // skip signature;
+      theDemo_p += 6;               // skip signature;
       switch (demover) {
       case 200: /* BOOM */
       case 201:
         //e6y: check for overrun
-        if (CheckForOverrun(header_p, demo_p, size, 1, failonerror))
+        if (CheckForOverrun(header_p, theDemo_p, size, 1, failonerror))
           return NULL;
 
-        if (!*demo_p++)
+        if (!*theDemo_p++)
 	  compatibility_level = boom_201_compatibility;
         else
 	  compatibility_level = boom_compatibility_compatibility;
 	  break;
       case 202:
         //e6y: check for overrun
-        if (CheckForOverrun(header_p, demo_p, size, 1, failonerror))
+        if (CheckForOverrun(header_p, theDemo_p, size, 1, failonerror))
           return NULL;
 
-        if (!*demo_p++)
+        if (!*theDemo_p++)
 	  compatibility_level = boom_202_compatibility;
         else
 	  compatibility_level = boom_compatibility_compatibility;
@@ -2813,54 +2838,54 @@ static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean fai
 	  break;
 	case 'M':
 	  compatibility_level = mbf_compatibility;
-	  demo_p++;
+	  theDemo_p++;
 	  break;
 	}
 	break;
       case 210:
 	compatibility_level = prboom_2_compatibility;
-	demo_p++;
+	theDemo_p++;
 	break;
       case 211:
 	compatibility_level = prboom_3_compatibility;
-	demo_p++;
+	theDemo_p++;
 	break;
       case 212:
 	compatibility_level = prboom_4_compatibility;
-	demo_p++;
+	theDemo_p++;
 	break;
       case 213:
 	compatibility_level = prboom_5_compatibility;
-	demo_p++;
+	theDemo_p++;
 	break;
       case 214:
 	compatibility_level = prboom_6_compatibility;
         longtics = 1;
-	demo_p++;
+	theDemo_p++;
 	break;
       }
       //e6y: check for overrun
-      if (CheckForOverrun(header_p, demo_p, size, 5, failonerror))
+      if (CheckForOverrun(header_p, theDemo_p, size, 5, failonerror))
         return NULL;
 
-      skill = *demo_p++;
-      episode = *demo_p++;
-      map = *demo_p++;
-      deathmatch = *demo_p++;
-      consoleplayer = *demo_p++;
+      skill = *theDemo_p++;
+      episode = *theDemo_p++;
+      map = *theDemo_p++;
+      deathmatch = *theDemo_p++;
+      consoleplayer = *theDemo_p++;
 
       /* killough 11/98: save option pointer for below */
       if (mbf_features)
-	option_p = demo_p;
+	option_p = theDemo_p;
 
       //e6y: check for overrun
-      if (CheckForOverrun(header_p, demo_p, size, GAME_OPTION_SIZE, failonerror))
+      if (CheckForOverrun(header_p, theDemo_p, size, GAME_OPTION_SIZE, failonerror))
         return NULL;
 
-      demo_p = G_ReadOptions(demo_p);  // killough 3/1/98: Read game options
+      theDemo_p = G_ReadOptions(theDemo_p);  // killough 3/1/98: Read game options
 
       if (demover == 200)              // killough 6/3/98: partially fix v2.00 demos
-        demo_p += 256-GAME_OPTION_SIZE;
+        theDemo_p += 256-GAME_OPTION_SIZE;
     }
 
   if (sizeof(comp_lev_str)/sizeof(comp_lev_str[0]) != MAX_COMPATIBILITY_LEVEL)
@@ -2871,23 +2896,23 @@ static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean fai
   if (demo_compatibility)  // only 4 players can exist in old demos
     {
       //e6y: check for overrun
-      if (CheckForOverrun(header_p, demo_p, size, 4, failonerror))
+      if (CheckForOverrun(header_p, theDemo_p, size, 4, failonerror))
         return NULL;
 
       for (i=0; i<4; i++)  // intentionally hard-coded 4 -- killough
-        playeringame[i] = *demo_p++;
+        playeringame[i] = *theDemo_p++;
       for (;i < MAXPLAYERS; i++)
         playeringame[i] = 0;
     }
   else
     {
       //e6y: check for overrun
-      if (CheckForOverrun(header_p, demo_p, size, MAXPLAYERS, failonerror))
+      if (CheckForOverrun(header_p, theDemo_p, size, MAXPLAYERS, failonerror))
         return NULL;
 
       for (i=0 ; i < MAXPLAYERS; i++)
-        playeringame[i] = *demo_p++;
-      demo_p += MIN_MAXPLAYERS - MAXPLAYERS;
+        playeringame[i] = *theDemo_p++;
+      theDemo_p += MIN_MAXPLAYERS - MAXPLAYERS;
     }
 
   if (playeringame[1])
@@ -2903,7 +2928,7 @@ static const byte* G_ReadDemoHeader(const byte *demo_p, size_t size, boolean fai
   for (i=0; i<MAXPLAYERS;i++)         // killough 4/24/98
     players[i].cheats = 0;
 
-  return demo_p;
+  return theDemo_p;
 }
 
 void G_DoPlayDemo(void)

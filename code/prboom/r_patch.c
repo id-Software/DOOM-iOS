@@ -82,6 +82,8 @@ void R_InitPatches(void) {
     patches = (rpatch_t*)malloc(numlumps * sizeof(rpatch_t));
     // clear out new patches to signal they're uninitialized
     memset(patches, 0, sizeof(rpatch_t)*numlumps);
+  } else {
+    memset(patches, 0, sizeof(rpatch_t)*numlumps);  
   }
   if (!texture_composites)
   {
@@ -303,7 +305,7 @@ static void createPatch(int id) {
     }
   }
 
-  if (1 || patch->isNotTileable) {
+//  if (1 || patch->isNotTileable) {
     const rcolumn_t *column, *prevColumn;
 
     // copy the patch image down and to the right where there are
@@ -345,7 +347,7 @@ static void createPatch(int id) {
 
     // verify that the patch truly is non-rectangular since
     // this determines tiling later on
-  }
+//  }
 
   W_UnlockLumpNum(patchNum);
   free(numPostsInColumn);
@@ -618,7 +620,7 @@ static void createTextureCompositePatch(int id) {
     }
   }
 
-  if (1 || composite_patch->isNotTileable) {
+    if (/* DISABLES CODE */ (1) || composite_patch->isNotTileable) {
     const rcolumn_t *column, *prevColumn;
 
     // copy the patch image down and to the right where there are

@@ -79,9 +79,9 @@ int PUREFUNC P_PointOnLineSide(fixed_t x, fixed_t y, const line_t *line)
 
 int PUREFUNC P_BoxOnLineSide(const fixed_t *tmbox, const line_t *ld)
 {
+    int p;
   switch (ld->slopetype)
     {
-      int p;
     default: // shut up compiler warnings -- killough
     case ST_HORIZONTAL:
       return
@@ -335,7 +335,7 @@ void P_SetThingPosition(mobj_t *thing)
         *link = thing;
       }
       else        // thing is off the map
-        thing->bnext = NULL, thing->bprev = NULL;
+          (void)(thing->bnext = NULL), thing->bprev = NULL;
     }
 }
 
@@ -365,7 +365,7 @@ boolean P_BlockLinesIterator(int x, int y, boolean func(line_t*))
   if (x<0 || y<0 || x>=bmapwidth || y>=bmapheight)
     return true;
   offset = y*bmapwidth+x;
-  offset = *(blockmap+offset);
+  offset = (int)*(blockmap+offset);
   list = blockmaplump+offset;     // original was reading         // phares
                                   // delmiting 0 as linedef 0     // phares
 
@@ -539,7 +539,7 @@ boolean PIT_AddThingIntercepts(mobj_t *thing)
 boolean P_TraverseIntercepts(traverser_t func, fixed_t maxfrac)
 {
   intercept_t *in = NULL;
-  int count = intercept_p - intercepts;
+  int count = (int)(intercept_p - intercepts);
   while (count--)
     {
       fixed_t dist = INT_MAX;

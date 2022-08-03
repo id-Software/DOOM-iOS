@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  iphoneRender.c
+ *  doom
+ *
+ *  Created by John Carmack on 4/29/09.
+ *  Copyright 2009 id Software. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -120,13 +128,13 @@ int		c_subsectors;
 
 // test options
 int		testClear = 0;
-int		testNewRenderer = 1;
+int		testNewRenderer = 0;
 int		showRenderTime;
 int		blendAll;
 
 
-void BuildIndexedTriangles();
-void BuildSideSegs();
+void BuildIndexedTriangles(void);
+void BuildSideSegs(void);
 
 void IR_MergeSectors( int fromSector, int intoSector ) {
 	// E3M8 (and possibly others somewhere) has a bad sector
@@ -366,10 +374,10 @@ static void IR_ProjectSprite (mobj_t* thing, int lightlevel)
 	// JDC: clip to the occlusio buffer
 	int	testLow = x1 < 0 ? 0 : x1;
 	int testHigh = x2 >= viewwidth ? viewwidth - 1 : x2;
-	if ( reversedLandscape ) {
-		testLow = viewwidth-1-testLow;
-		testHigh = viewwidth-1-testHigh;
-	}
+	//if ( reversedLandscape ) {
+	//	testLow = viewwidth-1-testLow;
+	//	testHigh = viewwidth-1-testHigh;
+	//}
 	if ( !memchr( occlusion+testLow, 0, testHigh - testLow ) ) {
 		c_occludedSprites++;
 		return;
@@ -554,23 +562,28 @@ gld_drawinfo.walls[gld_drawinfo.num_walls++]=*wall;\
 extern GLSeg *gl_segs;
 extern byte rendermarker;
 extern byte *segrendered;
+extern int tran_filter_pct;
 
 void IR_AddWall(seg_t *seg)
 {
 	GLWall wall;
 	GLTexture *temptex;
-	sector_t *frontsector;
-	sector_t *backsector;
+	sector_t *thefrontsector;
+	sector_t *thebacksector;
+    sector_t ftempsec; // needed for R_FakeFlat
+    sector_t btempsec; // needed for R_FakeFlat
 	float lineheight;
 	int rellight = 0;
 
 	wall.glseg=NULL;
 	wall.side = seg->sidedef;
-	frontsector = seg->frontsector;
+	thefrontsector=R_FakeFlat(seg->frontsector, &ftempsec, NULL, NULL, false); // for boom effects
+    if (!thefrontsector)
+        return;
 	
 	// JDC: improve this lighting tweak
 	rellight = seg->linedef->dx==0? +8 : seg->linedef->dy==0 ? -8 : 0;
-	int light = frontsector->lightlevel+rellight+(extralight<<5);
+	int light = thefrontsector->lightlevel+rellight+(extralight<<5);
 	wall.light = MAX(MIN((light),255),0);
 	wall.alpha=1.0f;
 	wall.gltexture=NULL;
@@ -578,18 +591,18 @@ void IR_AddWall(seg_t *seg)
 	if (!seg->backsector) /* onesided */
 	{
 #ifdef SKYWALLS		
-		if (frontsector->ceilingpic==skyflatnum)
+		if (thefrontsector->ceilingpic==skyflatnum)
 		{
 			wall.ytop=255.0f;
-			wall.ybottom=(float)frontsector->ceilingheight/MAP_SCALE;
-			SKYTEXTURE(frontsector->sky,frontsector->sky);
+			wall.ybottom=(float)thefrontsector->ceilingheight/MAP_SCALE;
+			SKYTEXTURE(thefrontsector->sky,thefrontsector->sky);
 			ADDWALL(&wall);
 		}
-		if (frontsector->floorpic==skyflatnum)
+		if (thefrontsector->floorpic==skyflatnum)
 		{
-			wall.ytop=(float)frontsector->floorheight/MAP_SCALE;
+			wall.ytop=(float)thefrontsector->floorheight/MAP_SCALE;
 			wall.ybottom=-255.0f;
-			SKYTEXTURE(frontsector->sky,frontsector->sky);
+			SKYTEXTURE(thefrontsector->sky,thefrontsector->sky);
 			ADDWALL(&wall);
 		}
 #endif		
@@ -597,7 +610,7 @@ void IR_AddWall(seg_t *seg)
 		if (temptex)
 		{
 			wall.gltexture=temptex;
-			CALC_Y_VALUES(wall, lineheight, frontsector->floorheight, frontsector->ceilingheight);
+			CALC_Y_VALUES(wall, lineheight, thefrontsector->floorheight, thefrontsector->ceilingheight);
 			CALC_TEX_VALUES_MIDDLE1S(
 									 wall, seg, (LINE->flags & ML_DONTPEGBOTTOM)>0,
 									 seg->length, lineheight
@@ -609,24 +622,26 @@ void IR_AddWall(seg_t *seg)
 	{
 		int floor_height,ceiling_height;
 		
-		backsector=seg->backsector;
+		thebacksector=R_FakeFlat(seg->backsector, &btempsec, NULL, NULL, true); // for boom effects
+        if(!thebacksector)
+            return;
 		/* toptexture */
-		ceiling_height=frontsector->ceilingheight;
-		floor_height=backsector->ceilingheight;
+		ceiling_height=thefrontsector->ceilingheight;
+		floor_height=thebacksector->ceilingheight;
 #ifdef SKYWALLS
-		if (frontsector->ceilingpic==skyflatnum)
+		if (thefrontsector->ceilingpic==skyflatnum)
 		{
 			wall.ytop=255.0f;
 			if (
 				// e6y
 				// Fix for HOM in the starting area on Memento Mori map29 and on map30.
-				// old code: (backsector->ceilingheight==backsector->floorheight) &&
-				(backsector->ceilingheight==backsector->floorheight||(backsector->ceilingheight<=frontsector->floorheight)) &&
-				(backsector->ceilingpic==skyflatnum)
+				// old code: (thebacksector->ceilingheight==thebacksector->floorheight) &&
+				(thebacksector->ceilingheight==thebacksector->floorheight||(thebacksector->ceilingheight<=thefrontsector->floorheight)) &&
+				(thebacksector->ceilingpic==skyflatnum)
 				)
 			{
-				wall.ybottom=(float)backsector->floorheight/MAP_SCALE;
-				SKYTEXTURE(frontsector->sky,backsector->sky);
+				wall.ybottom=(float)thebacksector->floorheight/MAP_SCALE;
+				SKYTEXTURE(thefrontsector->sky,thebacksector->sky);
 				ADDWALL(&wall);
 			}
 			else
@@ -635,18 +650,18 @@ void IR_AddWall(seg_t *seg)
 				{
 					// e6y
 					// It corrects some problem with sky, but I do not remember which one
-					// old code: wall.ybottom=(float)frontsector->ceilingheight/MAP_SCALE;
-					wall.ybottom=(float)MAX(frontsector->ceilingheight,backsector->ceilingheight)/MAP_SCALE;
+					// old code: wall.ybottom=(float)thefrontsector->ceilingheight/MAP_SCALE;
+					wall.ybottom=(float)MAX(thefrontsector->ceilingheight,thebacksector->ceilingheight)/MAP_SCALE;
 					
-					SKYTEXTURE(frontsector->sky,backsector->sky);
+					SKYTEXTURE(thefrontsector->sky,thebacksector->sky);
 					ADDWALL(&wall);
 				}
 				else
-					if ( (backsector->ceilingheight <= frontsector->floorheight) ||
-						(backsector->ceilingpic != skyflatnum) )
+					if ( (thebacksector->ceilingheight <= thefrontsector->floorheight) ||
+						(thebacksector->ceilingpic != skyflatnum) )
 					{
-						wall.ybottom=(float)backsector->ceilingheight/MAP_SCALE;
-						SKYTEXTURE(frontsector->sky,backsector->sky);
+						wall.ybottom=(float)thebacksector->ceilingheight/MAP_SCALE;
+						SKYTEXTURE(thefrontsector->sky,thebacksector->sky);
 						ADDWALL(&wall);
 					}
 			}
@@ -654,7 +669,7 @@ void IR_AddWall(seg_t *seg)
 #endif		
 		if (floor_height<ceiling_height)
 		{
-			if (!((frontsector->ceilingpic==skyflatnum) && (backsector->ceilingpic==skyflatnum)))
+			if (!((thefrontsector->ceilingpic==skyflatnum) && (thebacksector->ceilingpic==skyflatnum)))
 			{
 				temptex=gld_RegisterTexture(texturetranslation[seg->sidedef->toptexture], true, false);
 				if ( !temptex ) {
@@ -735,40 +750,42 @@ void IR_AddWall(seg_t *seg)
 					wall.vt=mip*((float)(ceiling_height - ceilingmin))/linelen;
 			}
 			
+            if (seg->linedef->tranlump >= 0 && general_translucency)
+                wall.alpha=(float)tran_filter_pct/100.0f;
 			wall.alpha=1.0f;
 			ADDWALL(&wall);
 		}
 	bottomtexture:
 		/* bottomtexture */
-		ceiling_height=backsector->floorheight;
-		floor_height=frontsector->floorheight;
+		ceiling_height=thebacksector->floorheight;
+		floor_height=thefrontsector->floorheight;
 #ifdef SKYWALLS	
-		if (frontsector->floorpic==skyflatnum)
+		if (thefrontsector->floorpic==skyflatnum)
 		{
 			wall.ybottom=-255.0f;
 			if (
-				(backsector->ceilingheight==backsector->floorheight) &&
-				(backsector->floorpic==skyflatnum)
+				(thebacksector->ceilingheight==thebacksector->floorheight) &&
+				(thebacksector->floorpic==skyflatnum)
 				)
 			{
-				wall.ytop=(float)backsector->floorheight/MAP_SCALE;
-				SKYTEXTURE(frontsector->sky,backsector->sky);
+				wall.ytop=(float)thebacksector->floorheight/MAP_SCALE;
+				SKYTEXTURE(thefrontsector->sky,thebacksector->sky);
 				ADDWALL(&wall);
 			}
 			else
 			{
 				if ( (texturetranslation[seg->sidedef->bottomtexture]!=NO_TEXTURE) )
 				{
-					wall.ytop=(float)frontsector->floorheight/MAP_SCALE;
-					SKYTEXTURE(frontsector->sky,backsector->sky);
+					wall.ytop=(float)thefrontsector->floorheight/MAP_SCALE;
+					SKYTEXTURE(thefrontsector->sky,thebacksector->sky);
 					ADDWALL(&wall);
 				}
 				else
-					if ( (backsector->floorheight >= frontsector->ceilingheight) ||
-						(backsector->floorpic != skyflatnum) )
+					if ( (thebacksector->floorheight >= thefrontsector->ceilingheight) ||
+						(thebacksector->floorpic != skyflatnum) )
 					{
-						wall.ytop=(float)backsector->floorheight/MAP_SCALE;
-						SKYTEXTURE(frontsector->sky,backsector->sky);
+						wall.ytop=(float)thebacksector->floorheight/MAP_SCALE;
+						SKYTEXTURE(thefrontsector->sky,thebacksector->sky);
 						ADDWALL(&wall);
 					}
 			}
@@ -785,7 +802,7 @@ void IR_AddWall(seg_t *seg)
 			CALC_TEX_VALUES_BOTTOM(
 								   wall, seg, (LINE->flags & ML_DONTPEGBOTTOM)>0,
 								   seg->length, lineheight,
-								   floor_height-frontsector->ceilingheight
+								   floor_height-thefrontsector->ceilingheight
 								   );
 			ADDWALL(&wall);
 		}
@@ -821,13 +838,13 @@ boolean TransformAndClipSegment( float v[2][2], float ends[2] ) {
 	// if we are in iphone reverse-landscape mode, we need
 	// to flip the coordinates around
 	float	*v0, *v1;
-	if ( reversedLandscape ) {
-		v0 = v[1];
-		v1 = v[0];
-	} else {
+	//if ( reversedLandscape ) {
+	//	v0 = v[1];
+	//	v1 = v[0];
+	//} else {
 		v0 = v[0];
 		v1 = v[1];
-	}
+	//}
 	
 	// transform from model to clip space
 	// because the iPhone screen hardware is portrait mode,
@@ -870,7 +887,7 @@ boolean TransformAndClipSegment( float v[2][2], float ends[2] ) {
 		
 	// project
 	for ( int i = 0 ; i < 2 ; i++ ) {
-		float x = viewwidth * ( ( clip[i][1] / clip[i][3] ) * 0.5 + 0.5 ); 		
+		float x = viewwidth * ( ( clip[i][1] / clip[i][3] ) * 0.5f + 0.5f ); 		
 		if ( x < 0 ) {
 			x = 0;
 		} else if ( x > viewwidth ) {
@@ -902,49 +919,49 @@ void IR_Subsector(int num)
 	
 	// if the sector that this subsector is a part of has not already had its
 	// planes and sprites added, add them now.
-	sector_t *frontsector = sub->sector;
-	int lightlevel = frontsector->lightlevel+(extralight<<5);
+	sector_t *thefrontsector = sub->sector;
+	int lightlevel = thefrontsector->lightlevel+(extralight<<5);
 
 	// There can be several subsectors in each sector due to non-convex
 	// sectors or BSP splits, but we draw the floors, ceilings and lines
 	// with a single draw call for the entire thing, so ensure that they
 	// are only added once per frame.
-	if ( frontsector->validcount != validcount ) {
-		frontsector->validcount = validcount;
+	if ( thefrontsector->validcount != validcount ) {
+		thefrontsector->validcount = validcount;
 		
 		c_sectors++;
 		GLFlat flat;
-		flat.sectornum = frontsector->iSectorID;
+		flat.sectornum = thefrontsector->iSectorID;
 		flat.light = lightlevel;
 		flat.uoffs= 0;	// no support in standard doom
 		flat.voffs= 0;
 		
-		if ( frontsector->floorheight < viewz ) {
-			if (frontsector->floorpic == skyflatnum) {
+		if ( thefrontsector->floorheight < viewz ) {
+			if (thefrontsector->floorpic == skyflatnum) {
 				skyIsVisible = true;
 			} else {
 				// get the texture. flattranslation is maintained by doom and
 				// contains the number of the current animation frame
-				GLTexture *tex = gld_RegisterFlat(flattranslation[frontsector->floorpic], true);
+				GLTexture *tex = gld_RegisterFlat(flattranslation[thefrontsector->floorpic], true);
 				if ( tex ) {
 					sectorPlanes[numSectorPlanes].texture = tex;
 					sectorPlanes[numSectorPlanes].ceiling = false;
-					sectorPlanes[numSectorPlanes].sector = frontsector;
+					sectorPlanes[numSectorPlanes].sector = thefrontsector;
 					numSectorPlanes++;
 				}
 			}
 		}
-		if ( frontsector->ceilingheight > viewz ) {
-			if (frontsector->ceilingpic == skyflatnum) {
+		if ( thefrontsector->ceilingheight > viewz ) {
+			if (thefrontsector->ceilingpic == skyflatnum) {
 				skyIsVisible = true;
 			} else {
 				// get the texture. flattranslation is maintained by doom and
 				// contains the number of the current animation frame
-				GLTexture *tex = gld_RegisterFlat(flattranslation[frontsector->ceilingpic], true);
+				GLTexture *tex = gld_RegisterFlat(flattranslation[thefrontsector->ceilingpic], true);
 				if ( tex ) {
 					sectorPlanes[numSectorPlanes].texture = tex;
 					sectorPlanes[numSectorPlanes].ceiling = true;
-					sectorPlanes[numSectorPlanes].sector = frontsector;
+					sectorPlanes[numSectorPlanes].sector = thefrontsector;
 					numSectorPlanes++;
 				}
 			}
@@ -955,7 +972,7 @@ void IR_Subsector(int num)
 		// we could do more accurate occlusion culling.  With non-convex sectors,
 		// occasionally a sprite will be added in a rear portion of the sector that
 		// would have been occluded away if everything was done in BSP subsector order.
-		for ( mobj_t *thing = frontsector->thinglist; thing; thing = thing->snext) {
+		for ( mobj_t *thing = thefrontsector->thinglist; thing; thing = thing->snext) {
 			IR_ProjectSprite( thing, lightlevel );
 		}
 	}
@@ -1197,8 +1214,8 @@ static int TexSort( const void *a, const void *b ) {
 	return 1;
 }
 
-int SysIphoneMicroseconds();
-void SetImmediateModeGLVertexArrays();
+int SysIphoneMicroseconds(void);
+void SetImmediateModeGLVertexArrays(void);
 extern float yaw;
 extern GLTexture **gld_GLTextures;
 extern GLTexture **gld_GLPatchTextures;
@@ -1273,7 +1290,6 @@ void NewDrawScene(player_t *player)	// JDC: new version
 		glMatrixMode( GL_PROJECTION );
 		glPushMatrix();
 		glLoadIdentity();
-		iphoneRotateForLandscape();
 		
 		gld_BindTexture( gld_RegisterTexture( skytexture, true, true ) );
 		glColor4f( 0.5, 0.5, 0.5, 1.0 );	// native texture color, not double bright
@@ -1687,7 +1703,7 @@ void IR_RenderPlayerView (player_t* player) {
 #ifdef _DEBUG
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 #else
-	glClear(GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 #endif
 	
 	// To make it easier to accurately mimic the GL model to screen transformation,
@@ -1700,10 +1716,6 @@ void IR_RenderPlayerView (player_t* player) {
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
-	// make the 320x480 hardware seem like 480x320 in two different orientations	
-	// and note if the occlusion segmenrs need to be reversed
-	reversedLandscape = iphoneRotateForLandscape();
 	
 	infinitePerspective(64.0f, 320.0f/200.0f, 5.0f/100.0f);
 	
@@ -1749,3 +1761,5 @@ void IR_RenderPlayerView (player_t* player) {
 		printf( "%i usec\n", end - start );
 	}
 }
+
+

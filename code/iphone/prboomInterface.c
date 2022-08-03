@@ -1,5 +1,14 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  prboomInterface.c
+ *  doom
+ *
+ *  Created by John Carmack on 4/14/09.
+ *  Copyright 2009 Id Software. All rights reserved.
+ *
+ * Stuff to get prboom to compile without SDL
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -19,7 +28,7 @@
  */
 
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
 int	desired_fullscreen;
 int usejoystick;
@@ -54,7 +63,7 @@ void I_SafeExit(int rc) {
 }
 
 void I_uSleep( unsigned long usec ) {
-	usleep( usec );
+	usleep( (unsigned int) usec );
 }
 
 /*
@@ -68,19 +77,33 @@ boolean HasTrailingSlash(const char* dn)
 	return ( (dn[strlen(dn)-1] == '/') );
 }
 
-char* I_FindFile(const char* wfname, const char* ext)
+void I_FindFile(const char* wfname, const char* ext, char * returnFileName )
 {
-	char	*p = malloc( 1024 );
-	
-	sprintf( p, "%s/base/%s", SysIphoneGetAppDir(), wfname );
-	if (access(p,F_OK))
-		strcat(p, ext);	// try adding the extension
-	if (!access(p,F_OK)) {
-		lprintf(LO_INFO, " found %s\n", p);
-		return p;
+    sprintf( returnFileName, "%s/%s", SysIphoneGetAppDir(), wfname );
+	if (access(returnFileName,F_OK))
+		strcat(returnFileName, ext);	// try adding the extension
+	if (!access(returnFileName,F_OK)) {
+		lprintf(LO_INFO, " found %s\n", returnFileName);
+        
+        // Found the file.
+        return;
 	}
-	free( p );
-	return NULL;
+    
+    // JDS: try assuming it's a full path instead
+    sprintf( returnFileName, "%s", wfname );
+    if (access(returnFileName,F_OK))
+        strcat(returnFileName, ext);    // try adding the extension
+    if (!access(returnFileName,F_OK)) {
+        lprintf(LO_INFO, " found %s\n", returnFileName);
+        
+        // Found the file.
+        return;
+    }
+    
+    // did not find the file.
+    returnFileName[0] = '\0';
+    lprintf(LO_INFO, " NOT found %s\n", wfname );
+    
 #if 0	
 	// lookup table of directories to search
 	static const struct {
@@ -170,7 +193,7 @@ void I_Read(int fd, void* vbuf, size_t sz)
 	unsigned char* buf = vbuf;
 	
 	while (sz) {
-		int rc = read(fd,buf,sz);
+		int rc = (int) read(fd,buf,sz);
 		if (rc <= 0) {
 			I_Error("I_Read: read failed: %s", rc ? strerror(errno) : "EOF");
 		}
@@ -189,51 +212,7 @@ int I_Filelength(int handle)
 	struct stat   fileinfo;
 	if (fstat(handle,&fileinfo) == -1)
 		I_Error("I_Filelength: %s",strerror(errno));
-	return fileinfo.st_size;
-}
-
-
-
-
-
-//
-//  MUSIC I/O
-//
-void I_InitMusic(void) {}
-void I_ShutdownMusic(void) {}
-
-void I_UpdateMusic(void) {}
-
-// Volume.
-void I_SetMusicVolume(int volume) {}
-
-// PAUSE game handling.
-void I_PauseSong(int handle) {}
-void I_ResumeSong(int handle) {}
-
-// Registers a song handle to song data.
-int I_RegisterSong(const void *data, size_t len) {
-	return 0;
-}
-
-// cournia - tries to load a music file
-int I_RegisterMusic( const char* filename, musicinfo_t *music ) { 
-	return 0;
-}
-
-// Called by anything that wishes to start music.
-//  plays a song, and when the song is done,
-//  starts playing it again in an endless loop.
-// Horrible thing to do, considering.
-void I_PlaySong(int handle, int looping) {
-}
-
-// Stops a song over 3 seconds.
-void I_StopSong(int handle) {
-}
-
-// See above (register), then think backwards
-void I_UnRegisterSong(int handle) {
+	return (int)fileinfo.st_size;
 }
 
 
@@ -241,12 +220,12 @@ void I_UnRegisterSong(int handle) {
 
 
 void I_PreInitGraphics(void){}
-void I_CalculateRes(unsigned int width, unsigned int height){}
+void I_CalculateRes(unsigned int width, unsigned int height){ (void)width; (void)height; }
 void I_ShutdownGraphics(void){}
-void I_SetPalette(int pal){}
+void I_SetPalette(int pal){ (void)pal; }
 void I_UpdateNoBlit (void){}
 void I_FinishUpdate (void){}
-int I_ScreenShot (const char *fname){return 0;}
+int I_ScreenShot (const char *fname){ (void)fname; return 0;}
 
 
 // CPhipps -
@@ -302,7 +281,7 @@ void I_InitGraphics(void)
 	char titlebuffer[2048];
 	static int    firsttime=1;
 
-	SCREENWIDTH = displaywidth;
+	SCREENWIDTH = displaywidth > MAX_SCREENWIDTH ? MAX_SCREENWIDTH : displaywidth;
 	SCREENHEIGHT = displayheight;
 	
 	if (firsttime)
@@ -347,9 +326,11 @@ void I_StartTic (void){}
 void I_StartFrame (void){}
 
 
-void I_Init(){}
+void I_Init() {
+	I_InitSound();
+}
 
-unsigned int SDL_GetTicks() { return 0; };
+unsigned int SDL_GetTicks() { return 0; }
 
 int (*I_GetTime)(void) = I_GetTime_RealTime;
 

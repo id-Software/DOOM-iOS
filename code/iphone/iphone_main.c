@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+
 	Copyright (C) 2004-2005 Michael Liebscher <johnnycanuck@users.sourceforge.net>
 	Copyright (C) 1997-2001 Id Software, Inc.
 
@@ -190,9 +190,9 @@ static JDC removed short    consistancy[MAXPLAYERS][BACKUPTICS];
  
  */
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
-
+cvar_t  *freeLevelOfWeek;
 cvar_t	*skill;
 cvar_t	*episode;
 cvar_t	*controlScheme;
@@ -211,7 +211,6 @@ cvar_t	*showTime;
 cvar_t	*showNet;
 cvar_t	*showSound;
 cvar_t	*cropSprites;
-cvar_t	*revLand;
 cvar_t	*mapScale;
 cvar_t	*drawControls;
 cvar_t	*autoUse;
@@ -225,6 +224,7 @@ cvar_t	*mpSkill;
 cvar_t	*mpDataset;
 cvar_t	*mpEpisode;
 cvar_t	*mpMap;
+cvar_t	*mpExpansion;
 cvar_t	*noBlend;
 cvar_t	*glfinish;
 cvar_t	*mapSelectY;
@@ -232,6 +232,11 @@ cvar_t	*throttle;
 cvar_t	*centerSticks;
 cvar_t	*rampTurn;
 cvar_t	*netBuffer;
+cvar_t   *iwadSelection;
+cvar_t   *pwadSelection;
+
+char* doom_iwad;
+char* doom_pwads = "";
 
 #define VERSION_BCONFIG	( 0x89490000 + sizeof( huds ) + sizeof( playState ) )
 
@@ -303,12 +308,9 @@ void ResetMaps_f() {
  */
 struct addrinfo *addrinfoHead;
 
-void D_DoomMainSetup();
+void D_DoomMainSetup( const char * iwad, const char * pwad );
 void iphoneStartup() {
 	int		start = SysIphoneMilliseconds();
-
-	// print networking information
-	ReportNetworkInterfaces();
 	
 	// microseconds will be plenty random for playerID and localGameID
 	playerID = localGameID = SysIphoneMicroseconds();
@@ -319,10 +321,10 @@ void iphoneStartup() {
 	// make all the al static buffers
 	Sound_Init();
 	
+	char buffer[1028];
+	sprintf( buffer, "%s/base.iPack", SysIphoneGetAppDir() );
 	// get our new-style pak file
-	char pakFile[1024];
-	sprintf( pakFile, "%s/base/base.iPack", SysIphoneGetAppDir() );
-	PK_Init( pakFile );
+	PK_Init( buffer );
 
 	// register console commands
 	Cmd_AddCommand( "listcvars", Cvar_List_f );
@@ -335,7 +337,8 @@ void iphoneStartup() {
 
 	// register console variables
 	Cvar_Get( "version", va( "%3.1f %s %s", DOOM_IPHONE_VERSION, __DATE__, __TIME__ ), 0 );
-
+    
+    freeLevelOfWeek = Cvar_Get("freeLevelOfWeek", "0", 0 );
 	skill = Cvar_Get( "skill", "1", CVAR_ARCHIVE );
 	episode = Cvar_Get( "episode", "0", CVAR_ARCHIVE );
 
@@ -353,12 +356,11 @@ void iphoneStartup() {
 
 	music = Cvar_Get( "music", "1", CVAR_ARCHIVE );
 	cropSprites = Cvar_Get( "cropSprites", "1", 0 );
-	revLand = Cvar_Get( "revLand", "0", CVAR_ARCHIVE );
 	mapScale = Cvar_Get( "mapScale", "10", CVAR_ARCHIVE );
 	drawControls = Cvar_Get( "drawControls", "1", CVAR_ARCHIVE );
 	autoUse = Cvar_Get( "autoUse", "1", CVAR_ARCHIVE );
 	statusBar = Cvar_Get( "statusBar", "1", CVAR_ARCHIVE );
-	touchClick = Cvar_Get( "touchClick", "0.15", CVAR_ARCHIVE );
+	touchClick = Cvar_Get( "touchClick", "1", CVAR_ARCHIVE );
 	messages = Cvar_Get( "messages", "1", CVAR_ARCHIVE );
 	mapSelectY = Cvar_Get( "mapSelectY", "0", CVAR_ARCHIVE );
 	miniNet = Cvar_Get( "miniNet", "1", CVAR_ARCHIVE );
@@ -371,7 +373,12 @@ void iphoneStartup() {
 	mpEpisode = Cvar_Get( "mpEpisode", "1", CVAR_ARCHIVE );
 	mpSkill = Cvar_Get( "mpSkill", "1", CVAR_ARCHIVE );
 	mpMap = Cvar_Get( "mpMap", "1", CVAR_ARCHIVE );
+	mpExpansion = Cvar_Get( "mpExpansion", "0", CVAR_ARCHIVE | CVAR_NOSET );
 	
+    // WADs to load
+    iwadSelection = Cvar_Get( "iwadSelection", "doom.wad", CVAR_ARCHIVE );
+    pwadSelection = Cvar_Get( "pwadSelection", "", CVAR_ARCHIVE );
+    
 	// debug tools
 	showTilt = Cvar_Get( "showTilt", "-1", 0 );
 	showTime = Cvar_Get( "showTime", "0", 0 );
@@ -379,15 +386,36 @@ void iphoneStartup() {
 	showSound = Cvar_Get( "showSound", "0", 0 );
 	noBlend = Cvar_Get( "noBlend", "0", 0 );	// disable the damae blends for screenshots
 	glfinish = Cvar_Get( "glfinish", "0", 0 );
-	throttle = Cvar_Get( "throttle", "1", 0 );	// network packet throttle enable
-	netBuffer = Cvar_Get( "netBuffer", "4", 0 );	// max tics to buffer ahead
+	throttle = Cvar_Get( "throttle", "0", 0 );	// network packet throttle enable
+	
+	// Was origiinally 4. Trying different values to help internet play.
+	netBuffer = Cvar_Get( "netBuffer", "12", 0 );	// max tics to buffer ahead
 	
 	// load the archived cvars
 	Cmd_ExecuteFile( va( "%s/config.cfg", SysIphoneGetDocDir() ) );
 	
-	// make sure volume changes and incoming calls draw the right orientation
-	SysIPhoneSetUIKitOrientation( revLand->value );
+    // Check if our WADs were bad last time.
+    {
+        FILE    *fp;
+        char    path[1024];
+        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        fp = fopen( path, "r" );
+        if( fp ) {
+            Com_Printf("Last exit was fatal (ship abandoned). Recovering...\n");
 
+            Cvar_Set( "iwadSelection", "doom.wad" );
+            Cvar_Set( "pwadSelection", "" );
+
+            iwadSelection = Cvar_Get( "iwadSelection", "doom.wad", CVAR_ARCHIVE );
+            pwadSelection = Cvar_Get( "pwadSelection", "", CVAR_ARCHIVE );
+            
+            // remove canary
+            if( remove(path) != 0 ) {
+                Com_Printf("Could not remove canary. This is bad!\n");
+            }
+        }
+    }
+    
 	// start the intro music if it wasn't disabled with the music cvar
 	iphonePlayMusic( "intro" );
 //	iphonePlayMusic( "e1m1" );
@@ -402,7 +430,7 @@ void iphoneStartup() {
 	// load the binary config file
 	FILE *f = fopen( va( "%s/binaryConfig.bin", SysIphoneGetDocDir() ), "rb" );
 	if ( f ) {
-		int version;
+		long int version;
 		
 		version = 0;
 		fread( &version, 1, sizeof( version ), f );
@@ -410,7 +438,11 @@ void iphoneStartup() {
 			Com_Printf( "Binary config file bad version.\n" );
 		} else {
 			fread( &playState, 1, sizeof( playState ), f );
-			fread( &huds, 1, sizeof( huds ), f );
+            
+            fread( &huds, 1, sizeof( huds ), f );
+
+            //hud_t fakehuds;
+            //fread( &fakehuds, 1, sizeof(fakehuds), f );
 
 			version = 0;
 			fread( &version, 1, sizeof( version ), f );
@@ -420,7 +452,6 @@ void iphoneStartup() {
 		}
 		fclose( f );
 	}
-
 	
 	Com_Printf( "startup time: %i msec\n", SysIphoneMilliseconds() - start );
 
@@ -433,12 +464,6 @@ void iphoneStartup() {
 	
 	Com_Printf( "preloadBeforePlay(): %i msec\n", SysIphoneMilliseconds() - start );	
 
-	Com_Printf( "---------- D_DoomMain ----------\n" );
-	D_DoomMainSetup();
-	
-	// put savegames here
-    strcpy( basesavegame, SysIphoneGetDocDir() );
-	
 	// prBoom seems to draw the static pic screens without setting up 2D, causing
 	// a bad first frame
 	iphoneSet2D();	
@@ -454,6 +479,222 @@ void iphoneStartup() {
 
 /*
  ==================
+ iphoneWadSelect
+ 
+ Apply WAD file selection
+ ==================
+*/
+void iphoneIWADSelect( const char* iwad ) {
+    char full_iwad[1024];
+    
+    I_FindFile( iwad, ".wad", full_iwad );
+    
+    if( full_iwad[0] == '\0' ) {
+        // fall back to vanilla Doom IWAD.
+        
+        I_FindFile( "doom.wad", ".wad", full_iwad );
+        iwad = "doom.wad";
+    }
+    
+    if( doom_iwad ) free(doom_iwad);
+    
+    // IWAD is part of bundle, do NOT store 
+    doom_iwad = strdup( iwad );
+}
+
+/*
+ ==================
+ iphonePWADAdd
+ 
+ Add a PWAD file selection
+ ==================
+ */
+void iphonePWADAdd( const char* pwad  ) {
+    
+    char full_pwad[1024];
+    
+    I_FindFile( pwad, ".wad", full_pwad );
+    
+    if( full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
+        // +2, 1 for separator and 1 for null terminator
+        char* pwadlist = (char*)malloc( sizeof(char)*(strlen(doom_pwads)+strlen(full_pwad)+2) );
+        strcpy( pwadlist, doom_pwads);
+        strcat( pwadlist, full_pwad);
+        unsigned long len = strlen(pwadlist);
+        pwadlist[len] = PWAD_LIST_SEPARATOR;
+        pwadlist[len+1] = '\0';
+        //if( doom_pwads ) free(doom_pwads);
+        doom_pwads = pwadlist;
+        Com_Printf("Added PWAD: %s (%s)\n", pwad, doom_pwads);
+    } else {
+        Com_Printf("Failed to add PWAD: %s (%s)\n", pwad, doom_pwads);
+    }
+    
+}
+
+/*
+ ==================
+ iphonePWADRemove
+ 
+ Remove a PWAD from the current selection
+ ==================
+ */
+void iphonePWADRemove( const char* pwad  ) {
+    char full_pwad[1024];
+    
+    I_FindFile( pwad, ".wad", full_pwad );
+    
+    char* pwadloc_start = strstr( doom_pwads, full_pwad );
+    char* pwadloc_end = strchr( pwadloc_start, PWAD_LIST_SEPARATOR );
+    
+    // if this is the only PWAD...
+    if( pwadloc_start == doom_pwads && pwadloc_end == (doom_pwads + (strlen(doom_pwads) - 1)) ) {
+        if( doom_pwads ) free(doom_pwads);
+        doom_pwads = strdup("");
+        Com_Printf("Removed only PWAD: %s (%s)\n", pwad, doom_pwads);
+    } else if( pwadloc_start && pwadloc_end && full_pwad[0] != '\0' && strcmp( pwad, "" ) != 0 ) {
+    
+        // remove pwad and its separator, hence +1
+        unsigned long i = 0;
+        unsigned long pwadlist_len = (strlen(doom_pwads)-(strlen(full_pwad)+1) );
+        char* pwadlist = (char*)malloc( sizeof(char)*pwadlist_len );
+        
+        char* pwadlocal = doom_pwads;
+        
+        
+        while( pwadlocal != pwadloc_start && i < pwadlist_len ) {
+            pwadlist[i++] = *pwadlocal++;
+        }
+        
+        pwadlocal = pwadloc_end+1; // advance past the separator
+        while( *pwadlocal && i < pwadlist_len ) {
+            pwadlist[i++] = *pwadlocal++;
+        }
+        
+        pwadlist[i] = '\0';
+        
+        if( doom_pwads ) free(doom_pwads);
+        doom_pwads = pwadlist;
+        Com_Printf("Removed PWAD: %s (%s)\n", pwad, doom_pwads);
+    } else {
+        Com_Printf("Failed to remove PWAD: %s (%X,%X %s)\n", pwad,pwadloc_start,pwadloc_end,doom_pwads);
+    }
+}
+
+/*
+ ==================
+ iphoneClearPWADs
+ 
+ Remove all PWADs from the current selection
+ ==================
+ */
+void iphoneClearPWADs() {
+    //if( doom_pwads ) free(doom_pwads);
+    doom_pwads = strdup("");
+}
+
+/*
+ ==================
+ iphoneSanitizePWADs
+ 
+ Ensure all PWADs from the current selection actually exist.
+ Useful when resuming from shutdown and checking for changed paths.
+ ==================
+ */
+void iphoneSanitizePWADs() {
+    if( strlen(doom_pwads) == 0 ) return;
+    char* pwad_local = strdup(doom_pwads);
+    if(!pwad_local) return;
+    
+    char* pwad_final = (char*)malloc( sizeof(char)*(1+strlen(doom_pwads)));
+    if(!pwad_final) {
+        free(pwad_local);
+        return;
+    }
+    
+    pwad_final[0] = '\0'; // start with blank string
+    char delim[2] = { PWAD_LIST_SEPARATOR, '\0' };
+    char* pwad = strtok(pwad_local, delim );
+    
+    while( pwad != NULL ) {
+        char pwad_path[1024] = { 0 };
+        char pwad_doc_path[1024];
+        char* pwad_file = strrchr(pwad,'/');
+        
+        if( pwad_file && *pwad_file ) {
+            pwad_file++;
+            strcpy( pwad_doc_path, SysIphoneGetDocDir() );
+            strcat( pwad_doc_path, "/" );
+            strcat( pwad_doc_path, pwad_file );
+            I_FindFile(pwad_doc_path,".wad",pwad_path);
+            
+            // try the app dir
+            if( !*pwad_path ) {
+                strcpy( pwad_doc_path, SysIphoneGetAppDir() );
+                strcat( pwad_doc_path, "/" );
+                strcat( pwad_doc_path, pwad_file );
+                I_FindFile(pwad_doc_path,".wad",pwad_path);
+            }
+        }
+        
+        if( *pwad_path ) {
+            // keep this pwad
+            strcat(pwad_final, pwad_path);
+            strcat(pwad_final, delim);
+            Com_Printf("PWAD Retained: %s\n", pwad);
+        } else {
+            Com_Printf("PWAD Lost: %s\n", pwad);
+        }
+        
+        pwad = strtok( NULL, delim );
+    }
+   
+    if( doom_pwads ) free(doom_pwads);
+    doom_pwads = pwad_final;
+    free(pwad_local);
+}
+
+/*
+ ==================
+ iphoneDoomSetup
+ 
+ Run the Doom game setup functions. This was made seperate from iphoneStartup so that the user
+ could select a mission pack first.
+ ==================
+ */
+void iphoneDoomStartup() {
+	Com_Printf( "---------- D_DoomMain ----------\n" );
+    
+    char full_iwad[1024];
+    
+    I_FindFile( doom_iwad, ".wad", full_iwad );
+    
+    if( full_iwad[0] == '\0' ) {
+        // fall back to vanilla Doom IWAD.
+        
+        I_FindFile( "doom.wad", ".wad", full_iwad );
+    }
+    
+    iphoneSanitizePWADs();
+    
+	D_DoomMainSetup( full_iwad, doom_pwads );
+    
+    // upon successful setup, save CVARs for future use
+    // ensure we never save a NULL string (this should never happen)
+    if( doom_pwads == NULL ) {
+        doom_pwads = strdup("");
+    }
+    
+    Cvar_Set( "iwadSelection", doom_iwad );
+    Cvar_Set( "pwadSelection", doom_pwads );
+	
+	// put savegames here
+    strcpy( basesavegame, SysIphoneGetDocDir() );
+	
+}
+
+/*
+ ==================
  iphoneShutdown
  
  Write out configs and save the game at this position
@@ -465,7 +706,7 @@ void iphoneShutdown() {
 	cvar_t	*var;
 	char	buffer[1024];
     
-    if( lastState == IPM_GAME ) {
+    if( lastState == IPM_GAME && gamestate != GS_INTERMISSION && !demoplayback ) {
       G_DoSaveGame( false );
     }
     
@@ -496,7 +737,7 @@ void iphoneShutdown() {
 		return;
 	}
 	
-	int version = VERSION_BCONFIG;
+	long int version = VERSION_BCONFIG;
 	
 	fwrite( &version, 1, sizeof( version ), f );
 	

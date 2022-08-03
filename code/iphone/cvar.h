@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+
 	Copyright (C) 2004 Michael Liebscher
 	Copyright (C) 1997-2001 Id Software, Inc.
 
@@ -56,6 +56,10 @@ Notes:
 #ifndef __CVAR_H__
 #define	__CVAR_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum _CVARFlags 
 {
 	CVAR_INIT		= 0x0,	// Just create it with no flag value.	
@@ -84,8 +88,8 @@ typedef struct cvar_s {
 
 extern	cvar_t	*cvar_vars;
 
-void Cvar_List_f();
-void Cvar_Reset_f();
+    void Cvar_List_f(void);
+    void Cvar_Reset_f(void);
 
 extern cvar_t *Cvar_Get( const char *var_name, const char *value, CVARFlags flags );
 // creates the variable if it doesn't exist, or returns the existing one
@@ -125,6 +129,11 @@ extern char *Cvar_Userinfo( void );
 
 extern char *Cvar_Serverinfo( void );
 // returns an info string containing all the CVAR_SERVERINFO cvars
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif /* __CVAR_H__ */
 

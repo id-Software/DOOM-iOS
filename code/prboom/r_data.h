@@ -40,9 +40,6 @@
 #include "r_state.h"
 #include "r_patch.h"
 
-#ifdef __GNUG__
-#pragma interface
-#endif
 
 // A single patch from a texture definition, basically
 // a rectangular area within the texture rectangle.

@@ -85,7 +85,7 @@ int EV_DoGenFloor
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_floor;
   }
@@ -187,16 +187,16 @@ manual_floor:
     {
       if (ChgM) // if a numeric model change
       {
-        sector_t *sec;
+        sector_t *sector;
 
         //jff 5/23/98 find model with ceiling at target height if target
         //is a ceiling type
-        sec = (Targ==FtoLnC || Targ==FtoC)?
+        sector = (Targ==FtoLnC || Targ==FtoC)?
           P_FindModelCeilingSector(floor->floordestheight,secnum) :
           P_FindModelFloorSector(floor->floordestheight,secnum);
-        if (sec)
+        if (sector)
         {
-          floor->texture = sec->floorpic;
+          floor->texture = sector->floorpic;
           switch(ChgT)
           {
             case FChgZero:  // zero type
@@ -206,9 +206,9 @@ manual_floor:
               floor->type = genFloorChg0;
               break;
             case FChgTyp:   // copy type
-              floor->newspecial = sec->special;
+              floor->newspecial = sector->special;
               //jff 3/14/98 change old field too
-              floor->oldspecial = sec->oldspecial;
+              floor->oldspecial = sector->oldspecial;
               floor->type = genFloorChgT;
               break;
             case FChgTxt:   // leave type be
@@ -289,7 +289,7 @@ int EV_DoGenCeiling
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_ceiling;
   }
@@ -395,16 +395,16 @@ manual_ceiling:
     {
       if (ChgM)   // if a numeric model change
       {
-        sector_t *sec;
+        sector_t *sector;
 
         //jff 5/23/98 find model with floor at target height if target
         //is a floor type
-        sec = (Targ==CtoHnF || Targ==CtoF)?
+        sector = (Targ==CtoHnF || Targ==CtoF)?
           P_FindModelFloorSector(targheight,secnum) :
           P_FindModelCeilingSector(targheight,secnum);
-        if (sec)
+        if (sector)
         {
-          ceiling->texture = sec->ceilingpic;
+          ceiling->texture = sector->ceilingpic;
           switch (ChgT)
           {
             case CChgZero:  // type is zeroed
@@ -414,9 +414,9 @@ manual_ceiling:
               ceiling->type = genCeilingChg0;
               break;
             case CChgTyp:   // type is copied
-              ceiling->newspecial = sec->special;
+              ceiling->newspecial = sector->special;
               //jff 3/14/98 change old field too
-              ceiling->oldspecial = sec->oldspecial;
+              ceiling->oldspecial = sector->oldspecial;
               ceiling->type = genCeilingChgT;
               break;
             case CChgTxt:   // type is left alone
@@ -497,7 +497,7 @@ int EV_DoGenLift
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_lift;
   }
@@ -655,7 +655,7 @@ int EV_DoGenStairs
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_stair;
   }
@@ -748,13 +748,13 @@ manual_stair:
           continue;
 
         tsec = (sec->lines[i])->frontsector;
-        newsecnum = tsec-sectors;
+        newsecnum = (int)(tsec-sectors);
 
         if (secnum != newsecnum)
           continue;
 
         tsec = (sec->lines[i])->backsector;
-        newsecnum = tsec - sectors;
+        newsecnum = (int)(tsec - sectors);
 
         if (!Igno && tsec->floorpic != texture)
           continue;
@@ -843,7 +843,7 @@ int EV_DoGenCrusher
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_crusher;
   }
@@ -938,7 +938,7 @@ int EV_DoGenLockedDoor
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_locked;
   }
@@ -1047,7 +1047,7 @@ int EV_DoGenDoor
   {
     if (!(sec = line->backsector))
       return rtn;
-    secnum = sec-sectors;
+    secnum = (int)(sec-sectors);
     manual = true;
     goto manual_door;
   }

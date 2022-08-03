@@ -88,13 +88,13 @@ static void P_SetPsprite(player_t *player, int position, statenum_t stnum)
 
       state = &states[stnum];
       psp->state = state;
-      psp->tics = state->tics;        // could be 0
+      psp->tics = (int)state->tics;        // could be 0
 
       if (state->misc1)
         {
           // coordinate set
-          psp->sx = state->misc1 << FRACBITS;
-          psp->sy = state->misc2 << FRACBITS;
+          psp->sx = (int)state->misc1 << FRACBITS;
+          psp->sy = (int)state->misc2 << FRACBITS;
         }
 
       // Call action routine.
@@ -498,7 +498,7 @@ void A_Punch(player_t *player, pspdef_t *psp)
 
   /* killough 8/2/98: make autoaiming prefer enemies */
   if (!mbf_features ||
-      (slope = P_AimLineAttack(player->mo, angle, MELEERANGE, MF_FRIEND),
+      ((void)(slope = P_AimLineAttack(player->mo, angle, MELEERANGE, MF_FRIEND)),
        !linetarget))
     slope = P_AimLineAttack(player->mo, angle, MELEERANGE, 0);
 
@@ -531,7 +531,7 @@ void A_Saw(player_t *player, pspdef_t *psp)
   /* Use meleerange + 1 so that the puff doesn't skip the flash
    * killough 8/2/98: make autoaiming prefer enemies */
   if (!mbf_features ||
-      (slope = P_AimLineAttack(player->mo, angle, MELEERANGE+1, MF_FRIEND),
+      ((void)(slope = P_AimLineAttack(player->mo, angle, MELEERANGE+1, MF_FRIEND)),
        !linetarget))
     slope = P_AimLineAttack(player->mo, angle, MELEERANGE+1, 0);
 
@@ -758,7 +758,7 @@ void A_FireCGun(player_t *player, pspdef_t *psp)
   P_SetMobjState(player->mo, S_PLAY_ATK2);
   player->ammo[weaponinfo[player->readyweapon].ammo]--;
 
-  A_FireSomething(player,psp->state - &states[S_CHAIN1]);           // phares
+  A_FireSomething(player,(int)(psp->state - &states[S_CHAIN1]));           // phares
 
   P_BulletSlope(player->mo);
 
@@ -798,7 +798,7 @@ void A_BFGSpray(mobj_t *mo)
 
       // killough 8/2/98: make autoaiming prefer enemies
       if (!mbf_features ||
-         (P_AimLineAttack(mo->target, an, 16*64*FRACUNIT, MF_FRIEND),
+          ((void)(P_AimLineAttack(mo->target, an, 16*64*FRACUNIT, MF_FRIEND)),
          !linetarget))
         P_AimLineAttack(mo->target, an, 16*64*FRACUNIT, 0);
 

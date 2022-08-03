@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A56ACEA0F72B84D00D115A7 /* libeaswt_vst_lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A56ACD80F72B7D600D115A7 /* libeaswt_vst_lib.a */; };
+		C5AB01090E3400DC0051F183 /* EASLib.h in Headers */ = {isa = PBXBuildFile; fileRef = C5AB01070E3400DC0051F183 /* EASLib.h */; };
+		C5AB010A0E3400DC0051F183 /* EASLib.c in Sources */ = {isa = PBXBuildFile; fileRef = C5AB01080E3400DC0051F183 /* EASLib.c */; };
+		C5AB01240E3406090051F183 /* eas_config.c in Sources */ = {isa = PBXBuildFile; fileRef = C5AB01230E3406090051F183 /* eas_config.c */; };
+		C5AB017A0E340DD60051F183 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AB01790E340DD60051F183 /* AudioUnit.framework */; };
+		C5AB018C0E340EAA0051F183 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AB018B0E340EAA0051F183 /* AudioToolbox.framework */; };
+		C5AB01910E340EC50051F183 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AB01900E340EC50051F183 /* CoreAudio.framework */; };
+		C5AB02F60E341AAC0051F183 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AB02F50E341AAC0051F183 /* Carbon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A56ACD70F72B7D600D115A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A56ACD30F72B7D600D115A7 /* easwt_vst_lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC046055464E500DB518D;
+			remoteInfo = easwt_vst_lib;
+		};
+		9A56ACFC0F72B8B200D115A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A56ACD30F72B7D600D115A7 /* easwt_vst_lib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D;
+			remoteInfo = easwt_vst_lib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A56ACD30F72B7D600D115A7 /* easwt_vst_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = easwt_vst_lib.xcodeproj; sourceTree = "<group>"; };
+		C5AB01070E3400DC0051F183 /* EASLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASLib.h; sourceTree = "<group>"; };
+		C5AB01080E3400DC0051F183 /* EASLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = EASLib.c; sourceTree = "<group>"; };
+		C5AB01230E3406090051F183 /* eas_config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = eas_config.c; path = ../../host_src/eas_config.c; sourceTree = SOURCE_ROOT; };
+		C5AB01790E340DD60051F183 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+		C5AB018B0E340EAA0051F183 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		C5AB01900E340EC50051F183 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		C5AB02F50E341AAC0051F183 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		D2AAC0630554660B00DB518D /* libEASLIb.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libEASLIb.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D289988505E68E00004EDB86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A56ACEA0F72B84D00D115A7 /* libeaswt_vst_lib.a in Frameworks */,
+				C5AB017A0E340DD60051F183 /* AudioUnit.framework in Frameworks */,
+				C5AB018C0E340EAA0051F183 /* AudioToolbox.framework in Frameworks */,
+				C5AB01910E340EC50051F183 /* CoreAudio.framework in Frameworks */,
+				C5AB02F60E341AAC0051F183 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* EASLIb */ = {
+			isa = PBXGroup;
+			children = (
+				9A56ACD30F72B7D600D115A7 /* easwt_vst_lib.xcodeproj */,
+				C5AB02F50E341AAC0051F183 /* Carbon.framework */,
+				C5AB01900E340EC50051F183 /* CoreAudio.framework */,
+				C5AB018B0E340EAA0051F183 /* AudioToolbox.framework */,
+				C5AB01790E340DD60051F183 /* AudioUnit.framework */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = EASLIb;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB01230E3406090051F183 /* eas_config.c */,
+				C5AB01070E3400DC0051F183 /* EASLib.h */,
+				C5AB01080E3400DC0051F183 /* EASLib.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC0630554660B00DB518D /* libEASLIb.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A56ACD40F72B7D600D115A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A56ACD80F72B7D600D115A7 /* libeaswt_vst_lib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC0600554660B00DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5AB01090E3400DC0051F183 /* EASLib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC0620554660B00DB518D /* EASLIb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB914A08733D8E0010E9CD /* Build configuration list for PBXNativeTarget "EASLIb" */;
+			buildPhases = (
+				D2AAC0600554660B00DB518D /* Headers */,
+				D2AAC0610554660B00DB518D /* Sources */,
+				D289988505E68E00004EDB86 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A56ACFD0F72B8B200D115A7 /* PBXTargetDependency */,
+			);
+			name = EASLIb;
+			productName = EASLIb;
+			productReference = D2AAC0630554660B00DB518D /* libEASLIb.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "EASLIb" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* EASLIb */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9A56ACD40F72B7D600D115A7 /* Products */;
+					ProjectRef = 9A56ACD30F72B7D600D115A7 /* easwt_vst_lib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D2AAC0620554660B00DB518D /* EASLIb */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9A56ACD80F72B7D600D115A7 /* libeaswt_vst_lib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libeaswt_vst_lib.a;
+			remoteRef = 9A56ACD70F72B7D600D115A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC0610554660B00DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5AB010A0E3400DC0051F183 /* EASLib.c in Sources */,
+				C5AB01240E3406090051F183 /* eas_config.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A56ACFD0F72B8B200D115A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = easwt_vst_lib;
+			targetProxy = 9A56ACFC0F72B8B200D115A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB914B08733D8E0010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"EAS_MAX_FILE_HANDLES=100",
+					"_DEBUG_CMF=1",
+					"JET_INTERFACE=1",
+					"MAX_SMF_STREAMS=32",
+					"NUM_OUTPUT_CHANNELS=2",
+					"_SAMPLE_RATE_44100=1",
+					"_8_BIT_SAMPLES=1",
+					"_FILTER_ENABLED=1",
+					"_NO_DEBUG_PREPROCESSOR=1",
+					"_CORE_CYCLES_PER_MEMORY_CYCLE=1",
+					"_IMA_DECODER=1",
+					"_XMF_PARSER=1",
+					"_DLS_PARSER=1",
+					"MAX_DLS_MEMORY=16777216",
+					"EAS_WT_SYNTH=1",
+					"MAX_SYNTH_VOICES=64",
+					"X_ENHANCER_ENABLED=1",
+					"_REVERB_ENABLED=1",
+					"_CHORUS_ENABLED=1",
+					"DLS_SYNTHESIZER=1",
+					"EXTERNAL_AUDIO=1",
+					"TEST_HARNESS=1",
+					"MMAPI_SUPPORT=1",
+					"X_MAXIMIZER_ENABLED=1",
+					"X_COMPRESSOR_ENABLED=1",
+					"X_STATS=1",
+					"X_DEBUG_DLS=1",
+					"X_OPTIMIZED_MONO=1",
+					"X_CHECKED_BUILD=1",
+					"_NO_ALIGN=1",
+					"_C_REFERENCE=1",
+					"XMAXIMIZER_USE_FLOATING_POINT=1",
+					"BUFFERED_FILE_ACCESS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${TARGET_BUILD_DIR}/**",
+					"../../Common/**",
+					"../../Parsers/**",
+					"../../Effects/**",
+					"../../WTSynth/**",
+					"../../FMSynth/**",
+					"../../SplitArch/**",
+					"../../Jet/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = EASLIb;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB914C08733D8E0010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BUFFERED_FILE_ACCESS=1",
+					"EAS_FILE_BUFFER_SIZE=1024",
+					"EAS_MAX_FILE_HANDLES=100",
+					"JET_INTERFACE=1",
+					"MAX_SMF_STREAMS=32",
+					"EAS_WT_SYNTH=1",
+					"NUM_OUTPUT_CHANNELS=2",
+					"_SAMPLE_RATE_44100=1",
+					"_8_BIT_SAMPLES=1",
+					"_FILTER_ENABLED=1",
+					"_NO_DEBUG_PREPROCESSOR=1",
+					"_CORE_CYCLES_PER_MEMORY_CYCLE=1",
+					"_IMA_DECODER=1",
+					"_XMF_PARSER=1",
+					"_DLS_PARSER=1",
+					"MAX_DLS_MEMORY=16777216",
+					"MAX_SYNTH_VOICES=64",
+					"X_ENHANCER_ENABLED=1",
+					"_REVERB_ENABLED=1",
+					"_CHORUS_ENABLED=1",
+					"DLS_SYNTHESIZER=1",
+					"EXTERNAL_AUDIO=1",
+					"TEST_HARNESS=1",
+					"MMAPI_SUPPORT=1",
+					"X_MAXIMIZER_ENABLED=1",
+					"X_COMPRESSOR_ENABLED=1",
+					"X_STATS=1",
+					"X_DEBUG_DLS=1",
+					"X_OPTIMIZED_MONO=1",
+					"X_CHECKED_BUILD=1",
+					"_NO_ALIGN=1",
+					"_C_REFERENCE=1",
+					"XMAXIMIZER_USE_FLOATING_POINT=1",
+				);
+				GCC_UNROLL_LOOPS = YES;
+				HEADER_SEARCH_PATHS = (
+					"${TARGET_BUILD_DIR}/**",
+					"../../Common/**",
+					"../../Parsers/**",
+					"../../Effects/**",
+					"../../WTSynth/**",
+					"../../FMSynth/**",
+					"../../SplitArch/**",
+					"../../Jet/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = EASLIb;
+			};
+			name = Release;
+		};
+		1DEB914F08733D8E0010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		1DEB915008733D8E0010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB914A08733D8E0010E9CD /* Build configuration list for PBXNativeTarget "EASLIb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB914B08733D8E0010E9CD /* Debug */,
+				1DEB914C08733D8E0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "EASLIb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB914F08733D8E0010E9CD /* Debug */,
+				1DEB915008733D8E0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

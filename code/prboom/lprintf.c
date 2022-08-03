@@ -53,6 +53,8 @@
 #include "lprintf.h"
 #include "i_main.h"
 #include "m_argv.h"
+#include "doomiphone.h"
+#include <assert.h>
 
 int cons_error_mask = -1-LO_INFO; /* all but LO_INFO when redir'd */
 int cons_output_mask = -1;        /* all output enabled */
@@ -372,11 +374,32 @@ void I_Error(const char *error, ...)
 #endif
   va_end(argptr);
   lprintf(LO_ERROR, "%s\n", errmsg);
+  iphoneNSLog(errmsg);
+  iphoneNSLog("ABANDON SHIP!");
 #ifdef _MSC_VER
   if (!M_CheckParm ("-nodraw")) {
     //Init_ConsoleWin();
     MessageBox(con_hWnd,errmsg,"PrBoom",MB_OK | MB_TASKMODAL | MB_TOPMOST);
   }
 #endif
-  I_SafeExit(-1);
+
+    while( true ) {
+        printf( " SAFE EXIT \n" );
+        // it's likely our WADs are bad. Wipe them out next time.
+        FILE    *fp;
+        char    path[1024];
+        char    buffer[1024];
+        snprintf( path, sizeof( path ), "%s/abandon.ship", SysIphoneGetDocDir() );
+        fp = fopen( path, "w" );
+        if( ! fp ) {
+            printf( "Could not write canary. This is very bad!\n" );
+            return;
+        }
+        snprintf( buffer, sizeof( buffer ), "ABANDON SHIP!\n" );
+        fprintf( fp, "%s", buffer );
+        fclose(fp);
+        assert( false );
+        usleep(1000);
+    }
+    
 }

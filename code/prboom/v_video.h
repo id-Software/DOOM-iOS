@@ -197,9 +197,9 @@ typedef void (*V_DrawLine_f)(fline_t* fl, int color);
 extern V_DrawLine_f V_DrawLine;
 
 void V_AllocScreen(screeninfo_t *scrn);
-void V_AllocScreens();
+void V_AllocScreens(void);
 void V_FreeScreen(screeninfo_t *scrn);
-void V_FreeScreens();
+void V_FreeScreens(void);
 
 #ifdef GL_DOOM
 #include "gl_struct.h"

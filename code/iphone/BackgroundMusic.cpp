@@ -1,7 +1,12 @@
 /*
- 
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
- 
+ *  BackgroundMusic.cpp
+ *  doom
+ *
+ *  Created by John Carmack on 5/15/09.
+ *  Copyright 2009 Id Software. All rights reserved.
+ *
+ */
+/*
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
@@ -18,6 +23,8 @@
  
  */
 
+// TODO: Figure out why I had to add a "2" to the end of a bunch of stuff here
+
 
 //==================================================================================================
 //	Includes
@@ -26,8 +33,6 @@
 //	System Includes
 #include <AudioToolbox/AudioToolbox.h>
 #include <CoreFoundation/CFURL.h>
-#include <OpenAL/al.h>
-#include <OpenAL/alc.h>
 #include <map>
 #include <vector>
 #include <pthread.h>
@@ -65,7 +70,7 @@ static Float32				gMasterVolumeGain = 0.5f;
 //	Helper functions
 //==================================================================================================
 
-OSStatus LoadFileDataInfo(const char *inFilePath, AudioFileID &outAFID, AudioStreamBasicDescription &outFormat, UInt64 &outDataSize)
+OSStatus LoadFileDataInfo2(const char *inFilePath, AudioFileID &outAFID, AudioStreamBasicDescription &outFormat, UInt64 &outDataSize)
 {
 	UInt32 thePropSize;
 	
@@ -89,14 +94,14 @@ end:
 	return result;
 }
 
-void CalculateBytesForTime (AudioStreamBasicDescription & inDesc, UInt32 inMaxPacketSize, Float64 inSeconds, UInt32 *outBufferSize, UInt32 *outNumPackets)
+void CalculateBytesForTime2 (AudioStreamBasicDescription & inDesc, UInt32 inMaxPacketSize, Float64 inSeconds, UInt32 *outBufferSize, UInt32 *outNumPackets)
 {
 	static const UInt32 maxBufferSize = 0x10000; // limit size to 64K
 	static const UInt32 minBufferSize = 0x4000; // limit size to 16K
 	
 	if (inDesc.mFramesPerPacket) {
 		Float64 numPacketsForTime = inDesc.mSampleRate / inDesc.mFramesPerPacket * inSeconds;
-		*outBufferSize = (long unsigned int)numPacketsForTime * inMaxPacketSize;
+		*outBufferSize = (UInt32)(numPacketsForTime * inMaxPacketSize);
 	} else {
 		// if frames per packet is zero, then the codec has no predictable packet == time
 		// so we can't tailor this (we don't know how many Packets represent a time period
@@ -161,7 +166,7 @@ static Boolean MatchFormatFlags(const AudioStreamBasicDescription& x, const Audi
 	return xFlags == yFlags;
 }
 
-Boolean FormatIsEqual(AudioStreamBasicDescription x, AudioStreamBasicDescription y)
+Boolean FormatIsEqual2(AudioStreamBasicDescription x, AudioStreamBasicDescription y)
 {
 	//	the semantics for equality are:
 	//		1) Values must match exactly
@@ -180,9 +185,9 @@ Boolean FormatIsEqual(AudioStreamBasicDescription x, AudioStreamBasicDescription
 	&& MATCH(mBitsPerChannel) ;
 }
 
-#pragma mark ***** BackgroundTrackMgr *****
+#pragma mark ***** BackgroundTrackMgr2 *****
 //==================================================================================================
-//	BackgroundTrackMgr class
+//	BackgroundTrackMgr2 class
 //==================================================================================================
 typedef struct BG_FileInfo {
 	std::string						mFilePath;
@@ -194,11 +199,11 @@ typedef struct BG_FileInfo {
 	Boolean							mFileDataInQueue;
 } BackgroundMusicFileInfo;
 
-class BackgroundTrackMgr
+class BackgroundTrackMgr2
 	{	
 	public:
-		BackgroundTrackMgr();
-		~BackgroundTrackMgr();
+		BackgroundTrackMgr2();
+		~BackgroundTrackMgr2();
 		
 		void Teardown();
 				
@@ -225,10 +230,10 @@ class BackgroundTrackMgr
 		Boolean								mStopAtEnd;
 	};
 
-BG_FileInfo *BackgroundTrackMgr::CurFileInfo;
+BG_FileInfo *BackgroundTrackMgr2::CurFileInfo;
 
 
-BackgroundTrackMgr::BackgroundTrackMgr() 
+BackgroundTrackMgr2::BackgroundTrackMgr2()
 :	mQueue(0),
 mBufferByteSize(0),
 mCurrentPacket(0),
@@ -238,11 +243,11 @@ mPacketDescs(NULL),
 mStopAtEnd(false)
 { }
 
-BackgroundTrackMgr::~BackgroundTrackMgr() {
+BackgroundTrackMgr2::~BackgroundTrackMgr2() {
 	Teardown();
 }
 
-void BackgroundTrackMgr::Teardown() {
+void BackgroundTrackMgr2::Teardown() {
 	if (mQueue) {
 		AudioQueueDispose(mQueue, true);
 		mQueue = NULL;
@@ -259,10 +264,10 @@ void BackgroundTrackMgr::Teardown() {
 }
 
 
-void BackgroundTrackMgr::QueueCallback( void * inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer ) {
+void BackgroundTrackMgr2::QueueCallback( void * inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer ) {
 	// dispose of the buffer if no longer in use
 	OSStatus result = noErr;
-	BackgroundTrackMgr *THIS = (BackgroundTrackMgr*)inUserData;
+	BackgroundTrackMgr2 *THIS = (BackgroundTrackMgr2*)inUserData;
 	UInt32 nPackets = 0;
 	// loop the current buffer if the following:
 	// 1. file was loaded into the buffer previously
@@ -275,8 +280,7 @@ void BackgroundTrackMgr::QueueCallback( void * inUserData, AudioQueueRef inAQ, A
 		while (nPackets == 0) {
 			// if loadAtOnce, get all packets in the file, otherwise ~.5 seconds of data
 			nPackets = THIS->mNumPacketsToRead;					
-			result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets, 
-										  inCompleteAQBuffer->mAudioData);
+			result = AudioFileReadPacketData(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets, inCompleteAQBuffer->mAudioData);
 			AssertNoError("Error reading file data", end);
 			
 			inCompleteAQBuffer->mAudioDataByteSize = numBytes;	
@@ -314,7 +318,7 @@ end:
 	return;
 }
 
-OSStatus BackgroundTrackMgr::SetupQueue(BG_FileInfo *inFileInfo) {
+OSStatus BackgroundTrackMgr2::SetupQueue(BG_FileInfo *inFileInfo) {
 	UInt32 size = 0;
 	OSStatus err;
 	OSStatus result = AudioQueueNewOutput(&inFileInfo->mFileFormat, QueueCallback, this, 
@@ -352,7 +356,7 @@ end:
 	return result;
 }
 
-OSStatus BackgroundTrackMgr::SetupBuffers(BG_FileInfo *inFileInfo) {
+OSStatus BackgroundTrackMgr2::SetupBuffers(BG_FileInfo *inFileInfo) {
 	int numBuffersToQueue = kNumberBuffers;
 	UInt32 maxPacketSize;
 	UInt32 size = sizeof(maxPacketSize);
@@ -366,7 +370,7 @@ OSStatus BackgroundTrackMgr::SetupBuffers(BG_FileInfo *inFileInfo) {
 	AssertNoError("Error getting packet upper bound size", end);
 	isFormatVBR = (inFileInfo->mFileFormat.mBytesPerPacket == 0 || inFileInfo->mFileFormat.mFramesPerPacket == 0);
 	
-	CalculateBytesForTime(inFileInfo->mFileFormat, maxPacketSize, 0.5/*seconds*/, &mBufferByteSize, &mNumPacketsToRead);
+	CalculateBytesForTime2(inFileInfo->mFileFormat, maxPacketSize, 0.5/*seconds*/, &mBufferByteSize, &mNumPacketsToRead);
 	
 	// if the file is smaller than the capacity of all the buffer queues, always load it at once
 	if ((mBufferByteSize * numBuffersToQueue) > inFileInfo->mFileDataSize) {
@@ -406,7 +410,7 @@ end:
 	return result;
 }
 
-OSStatus BackgroundTrackMgr::LoadTrack(const char* inFilePath, Boolean inAddToQueue, Boolean inLoadAtOnce) {
+OSStatus BackgroundTrackMgr2::LoadTrack(const char* inFilePath, Boolean inAddToQueue, Boolean inLoadAtOnce) {
 //	OSStatus result = LoadFileDataInfo(CurFileInfo->mFilePath.c_str(), CurFileInfo->mAFID, CurFileInfo->mFileFormat, CurFileInfo->mFileDataSize);
 //	AssertNoError("Error getting file data info", fail);
 	OSStatus result;
@@ -453,25 +457,25 @@ fail:
 	return result;
 }
 
-OSStatus BackgroundTrackMgr::SetVolume(Float32 inVolume) {
+OSStatus BackgroundTrackMgr2::SetVolume(Float32 inVolume) {
 	mVolume = inVolume;
 	return AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, mVolume * gMasterVolumeGain);
 }
 
-Float32 BackgroundTrackMgr::GetVolume() const {
+Float32 BackgroundTrackMgr2::GetVolume() const {
 	return mVolume;
 }
 
-OSStatus BackgroundTrackMgr::Start() {
+OSStatus BackgroundTrackMgr2::Start() {
 	OSStatus result = AudioQueuePrime(mQueue, 1, NULL);	
 	if (result)	{
-		printf("BackgroundTrackMgr: Error priming queue: %d\n", (int)result);
+		printf("BackgroundTrackMgr2: Error priming queue: %d\n", (int)result);
 		return result;
 	}
 	return AudioQueueStart(mQueue, NULL);
 }
 
-OSStatus BackgroundTrackMgr::Stop(Boolean inStopAtEnd) {
+OSStatus BackgroundTrackMgr2::Stop(Boolean inStopAtEnd) {
 	if (inStopAtEnd) {
 		mStopAtEnd = true;
 		return noErr;
@@ -481,7 +485,7 @@ OSStatus BackgroundTrackMgr::Stop(Boolean inStopAtEnd) {
 }
 
 
-static BackgroundTrackMgr	sBackgroundTrackMgr;
+static BackgroundTrackMgr2	sBackgroundTrackMgr;
 
 static char currentMusicName[1024];
 
@@ -533,6 +537,30 @@ void iphonePlayMusic( const char *name ) {
 	iphoneStartMusic();
 }
 
+boolean    sigilShredsLoaded;    // Buckethead!
 
+void iphoneStartMP3(const char *filename) {
+    if ( music->value == 0 ) {
+        // music is disabled
+        return;
+    }
+    
+    // necessary? -tkidd
+    char    fullName[1024];
+    sprintf( fullName, "%s", filename );
+    
+    printf( "Starting music '%s'\n", fullName );
+    
+    iphoneStopMusic();
+    sBackgroundTrackMgr.LoadTrack( fullName, false, true);
+    sBackgroundTrackMgr.Start();
+    
+    if ( !strcmp( currentMusicName, "intro" ) ) {
+        // stop the intro music at end, don't loop
+        sBackgroundTrackMgr.mStopAtEnd = true;
+    } else {
+        sBackgroundTrackMgr.mStopAtEnd = false;
+    }
+}
 
 

@@ -35,9 +35,6 @@
 #ifndef __W_WAD__
 #define __W_WAD__
 
-#ifdef __GNUG__
-#pragma interface
-#endif
 
 //
 // TYPES

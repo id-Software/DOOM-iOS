@@ -789,25 +789,25 @@ static void R_DrawPSprite (pspdef_t *psp, int lightlevel)
 #ifdef GL_DOOM
   else
   {
-    int lightlevel;
+    int finallightlevel;
     sector_t tmpsec;
     int floorlightlevel, ceilinglightlevel;
 
     if ((vis->colormap==fixedcolormap) || (vis->colormap==fullcolormap))
-      lightlevel=255;
+      finallightlevel=255;
     else
     {
-//      lightlevel = (viewplayer->mo->subsector->sector->lightlevel) + (extralight << LIGHTSEGSHIFT);
+//      finallightlevel = (viewplayer->mo->subsector->sector->lightlevel) + (extralight << LIGHTSEGSHIFT);
       R_FakeFlat( viewplayer->mo->subsector->sector, &tmpsec,
                   &floorlightlevel, &ceilinglightlevel, false);
-      lightlevel = ((floorlightlevel+ceilinglightlevel) >> 1) + (extralight << LIGHTSEGSHIFT);
+      finallightlevel = ((floorlightlevel+ceilinglightlevel) >> 1) + (extralight << LIGHTSEGSHIFT);
 
-      if (lightlevel < 0)
-        lightlevel = 0;
-      else if (lightlevel >= 255)
-        lightlevel = 255;
+      if (finallightlevel < 0)
+        finallightlevel = 0;
+      else if (finallightlevel >= 255)
+        finallightlevel = 255;
     }
-    gld_DrawWeapon(lump,vis,lightlevel);
+    gld_DrawWeapon(lump,vis,finallightlevel);
   }
 #endif
 }
@@ -863,7 +863,7 @@ static void msort(vissprite_t **s, vissprite_t **t, int n)
       msort(s2, t, n2);
 
       while ((*s1)->scale > (*s2)->scale ?
-             (*d++ = *s1++, --n1) : (*d++ = *s2++, --n2));
+             ((void)(*d++ = *s1++), --n1) : ((void)(*d++ = *s2++), --n2));
 
       if (n2)
         bcopyp(d, s2, n2);
@@ -892,7 +892,7 @@ void R_SortVisSprites (void)
 {
   if (num_vissprite)
     {
-      int i = num_vissprite;
+      int i = (int)num_vissprite;
 
       // If we need to allocate more pointers for the vissprites,
       // allocate as many as were allocated for sprites -- killough
@@ -911,7 +911,7 @@ void R_SortVisSprites (void)
       // killough 9/22/98: replace qsort with merge sort, since the keys
       // are roughly in order to begin with, due to BSP rendering.
 
-      msort(vissprite_ptrs, vissprite_ptrs + num_vissprite, num_vissprite);
+      msort(vissprite_ptrs, vissprite_ptrs + num_vissprite, (int)num_vissprite);
     }
 }
 
@@ -1056,8 +1056,8 @@ void R_DrawMasked(void)
 
   // draw all vissprites back to front
 
-  rendered_vissprites = num_vissprite;
-  for (i = num_vissprite ;--i>=0; )
+  rendered_vissprites = (int)num_vissprite;
+  for (i = (int)num_vissprite ;--i>=0; )
     R_DrawSprite(vissprite_ptrs[i]);         // killough
 
   // render any remaining masked mid textures

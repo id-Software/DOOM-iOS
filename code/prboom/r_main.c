@@ -227,9 +227,9 @@ angle_t R_PointToAngle(fixed_t x, fixed_t y)
 #endif	
 }
 
-angle_t R_PointToAngle2(fixed_t viewx, fixed_t viewy, fixed_t x, fixed_t y)
+angle_t R_PointToAngle2(fixed_t viewxpos, fixed_t viewypos, fixed_t x, fixed_t y)
 {
-  return (y -= viewy, (x -= viewx) || y) ?
+    return ((void)(y -= viewypos), (x -= viewxpos) || y) ?
     x >= 0 ?
       y >= 0 ?
         (x > y) ? tantoangle[SlopeDiv(y,x)] :                      // octant 0
@@ -322,13 +322,13 @@ static void R_InitLightTables (void)
   //  for each level / distance combination.
   for (i=0; i< LIGHTLEVELS; i++)
     {
-      int j, startmap = ((LIGHTLEVELS-1-i)*2)*NUMCOLORMAPS/LIGHTLEVELS;
+      int j, startcolormap = ((LIGHTLEVELS-1-i)*2)*NUMCOLORMAPS/LIGHTLEVELS;
       for (j=0; j<MAXLIGHTZ; j++)
         {
     // CPhipps - use 320 here instead of SCREENWIDTH, otherwise hires is
     //           brighter than normal res
           int scale = FixedDiv ((320/2*FRACUNIT), (j+1)<<LIGHTZSHIFT);
-          int t, level = startmap - (scale >>= LIGHTSCALESHIFT)/DISTMAP;
+          int t, level = startcolormap - (scale >>= LIGHTSCALESHIFT)/DISTMAP;
 
           if (level < 0)
             level = 0;
@@ -591,63 +591,22 @@ void R_RenderPlayerView (player_t* player)
   R_ClearSprites ();
 
   rendered_segs = rendered_visplanes = 0;
-  if (V_GetMode() == VID_MODEGL)
-  {
-#ifdef GL_DOOM
-    // proff 11/99: clear buffers
-    gld_InitDrawScene();
-    // proff 11/99: switch to perspective mode
-    gld_StartDrawScene();
-#endif
-  } else {
-    if (autodetect_hom)
-    { // killough 2/10/98: add flashing red HOM indicators
-      unsigned char color=(gametic % 20) < 9 ? 0xb0 : 0;
-      V_FillRect(0, viewwindowx, viewwindowy, viewwidth, viewheight, color);
-      R_DrawViewBorder();
-    }
-  }
 
-  // check for new console commands.
-#ifdef HAVE_NET
-  NetUpdate ();
-#endif
+  // proff 11/99: clear buffers
+  gld_InitDrawScene();
+  // proff 11/99: switch to perspective mode
+  gld_StartDrawScene();
 
   // The head node is the last node output.
   R_RenderBSPNode (numnodes-1);
   R_ResetColumnBuffer();
+    
+  // proff 11/99: draw the scene
+  gld_DrawScene(player);
+    
+  // proff 11/99: finishing off
+  gld_EndDrawScene();	
 
-  // Check for new console commands.
-#ifdef HAVE_NET
-  NetUpdate ();
-#endif
-
-  if (V_GetMode() != VID_MODEGL)
-    R_DrawPlanes ();
-
-  // Check for new console commands.
-#ifdef HAVE_NET
-  NetUpdate ();
-#endif
-
-  if (V_GetMode() != VID_MODEGL) {
-    R_DrawMasked ();
-    R_ResetColumnBuffer();
-  }
-
-  // Check for new console commands.
-#ifdef HAVE_NET
-  NetUpdate ();
-#endif
-
-  if (V_GetMode() == VID_MODEGL) {
-#ifdef GL_DOOM
-    // proff 11/99: draw the scene
-    gld_DrawScene(player);
-    // proff 11/99: finishing off
-    gld_EndDrawScene();	
-#endif
-  }
 
   if (rendering_stats) R_ShowStats();
 

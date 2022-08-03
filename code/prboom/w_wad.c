@@ -83,7 +83,7 @@ void ExtractFileBase (const char *path, char *dest)
   while ((*src) && (*src != '.') && (++length<9))
   {
     *dest++ = toupper(*src);
-    *src++;
+    src++;
   }
   /* cph - length check removed, just truncate at 8 chars.
    * If there are 8 or more chars, we'll copy 8, and no zero termination
@@ -168,7 +168,7 @@ static void W_AddFile(wadfile_info_t *wadfile)
       // single lump file
       fileinfo = &singleinfo;
       singleinfo.filepos = 0;
-      singleinfo.size = LONG(I_Filelength(wadfile->handle));
+      singleinfo.size = (int)LONG(I_Filelength(wadfile->handle));
       ExtractFileBase(wadfile->name, singleinfo.name);
       numlumps++;
     }
@@ -179,8 +179,8 @@ static void W_AddFile(wadfile_info_t *wadfile)
       if (strncmp(header.identification,"IWAD",4) &&
           strncmp(header.identification,"PWAD",4))
         I_Error("W_AddFile: Wad file %s doesn't have IWAD or PWAD id", wadfile->name);
-      header.numlumps = LONG(header.numlumps);
-      header.infotableofs = LONG(header.infotableofs);
+      header.numlumps = (int)LONG(header.numlumps);
+      header.infotableofs = (int)LONG(header.infotableofs);
       length = header.numlumps*sizeof(filelump_t);
       fileinfo2free = fileinfo = malloc(length);    // killough
        lseek(wadfile->handle, header.infotableofs, SEEK_SET);
@@ -196,11 +196,14 @@ static void W_AddFile(wadfile_info_t *wadfile)
     for (i=startlump ; (int)i<numlumps ; i++,lump_p++, fileinfo++)
       {
         lump_p->wadfile = wadfile;                    //  killough 4/25/98
-        lump_p->position = LONG(fileinfo->filepos);
-        lump_p->size = LONG(fileinfo->size);
+        lump_p->position = (int)LONG(fileinfo->filepos);
+        lump_p->size = (int)LONG(fileinfo->size);
         lump_p->li_namespace = ns_global;              // killough 4/17/98
         strncpy (lump_p->name, fileinfo->name, 8);
 	lump_p->source = wadfile->src;                    // Ty 08/29/98
+          
+//          lprintf (LO_INFO," lump_p->wadfile %s lump_p->name %s i: %i\n",lump_p->wadfile->name, lump_p->name, i);
+
       }
 
     free(fileinfo2free);      // killough
@@ -262,7 +265,7 @@ static void W_CoalesceMarkedResource(const char *start_marker,
 
   free(marked);                                   // free marked list
 
-  numlumps = num_unmarked + num_marked;           // new total number of lumps
+  numlumps = (unsigned)(num_unmarked + num_marked);           // new total number of lumps
 
   if (mark_end)                                   // add end marker
     {
@@ -281,13 +284,13 @@ static void W_CoalesceMarkedResource(const char *start_marker,
 unsigned W_LumpNameHash(const char *s)
 {
   unsigned hash;
-  (void) ((hash =        toupper(s[0]), s[1]) &&
-          (hash = hash*3+toupper(s[1]), s[2]) &&
-          (hash = hash*2+toupper(s[2]), s[3]) &&
-          (hash = hash*2+toupper(s[3]), s[4]) &&
-          (hash = hash*2+toupper(s[4]), s[5]) &&
-          (hash = hash*2+toupper(s[5]), s[6]) &&
-          (hash = hash*2+toupper(s[6]),
+    (void) (((void)(hash =        toupper(s[0])), s[1]) &&
+          ((void)(hash = hash*3+toupper(s[1])), s[2]) &&
+          ((void)(hash = hash*2+toupper(s[2])), s[3]) &&
+          ((void)(hash = hash*2+toupper(s[3])), s[4]) &&
+          ((void)(hash = hash*2+toupper(s[4])), s[5]) &&
+          ((void)(hash = hash*2+toupper(s[5])), s[6]) &&
+          ((void)(hash = hash*2+toupper(s[6])),
            hash = hash*2+toupper(s[7]))
          );
   return hash;
@@ -396,7 +399,10 @@ size_t numwadfiles = 0; // CPhipps - size of the wadfiles array (dynamic, no lim
 void W_Init(void)
 {
   // CPhipps - start with nothing
-
+  	numlumps = 0;
+	free(lumpinfo);
+	lumpinfo = NULL;
+    
   numlumps = 0; lumpinfo = NULL;
 
   { // CPhipps - new wadfiles array used 

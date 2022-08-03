@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_ControlsMenuViewController">
+            <connections>
+                <outlet property="dirWheelButton" destination="33" id="54"/>
+                <outlet property="dualThumbButton" destination="35" id="55"/>
+                <outlet property="movestickSize" destination="30" id="57"/>
+                <outlet property="singleThumbButton" destination="46" id="58"/>
+                <outlet property="tiltMoveSpeed" destination="41" id="59"/>
+                <outlet property="tiltTurnSpeed" destination="38" id="60"/>
+                <outlet property="turnstickSize" destination="37" id="61"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="39" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="480" id="cyN-KU-5CI"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31" customClass="idLabelButton">
+                    <rect key="frame" x="425" y="264" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7Wr-3o-ZN2"/>
+                        <constraint firstAttribute="width" constant="50" id="ie8-k5-f3r"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <size key="titleShadowOffset" width="1" height="2"/>
+                    <state key="normal" backgroundImage="AdvancedButton.png">
+                        <color key="titleColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="HudLayoutPressed" destination="-1" eventType="touchUpInside" id="65"/>
+                        <outlet property="label" destination="47" id="50"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33" customClass="idLabelButton">
+                    <rect key="frame" x="329.5" y="7" width="123" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="123" id="Ffj-dv-HW6"/>
+                        <constraint firstAttribute="height" constant="85" id="PAn-0Z-23J"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <size key="titleShadowOffset" width="1" height="2"/>
+                    <state key="normal" image="LayoutWheelButton.png">
+                        <color key="titleColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="DirWheelPressed" destination="-1" eventType="touchUpInside" id="63"/>
+                        <outlet property="label" destination="34" id="51"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35" customClass="idLabelButton">
+                    <rect key="frame" x="178.5" y="7" width="123" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="123" id="NIQ-C0-ug6"/>
+                        <constraint firstAttribute="height" constant="85" id="WsX-wX-GQh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <size key="titleShadowOffset" width="1" height="2"/>
+                    <state key="normal" image="LayoutDualButton.png">
+                        <color key="titleColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="DualThumbpadPressed" destination="-1" eventType="touchUpInside" id="64"/>
+                        <outlet property="label" destination="36" id="52"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43" customClass="idLabelButton">
+                    <rect key="frame" x="0.0" y="264" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="hBm-4A-oZP"/>
+                        <constraint firstAttribute="height" constant="50" id="vrM-C2-oc5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" backgroundImage="BackButton.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="BackToMain" destination="-1" eventType="touchUpInside" id="62"/>
+                        <outlet property="label" destination="29" id="49"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46" customClass="idLabelButton">
+                    <rect key="frame" x="28.5" y="7" width="123" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="r3X-oN-7OR"/>
+                        <constraint firstAttribute="width" constant="123" id="w7g-7F-rKy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <size key="titleShadowOffset" width="1" height="2"/>
+                    <state key="normal" image="LayoutSingleButton.png">
+                        <color key="titleColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.01420286763459444" green="0.0" blue="2.4540675440221094e-05" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="SingleThumbpadPressed" destination="-1" eventType="touchUpInside" id="68"/>
+                        <outlet property="label" destination="32" id="53"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Divide.png" translatesAutoresizingMaskIntoConstraints="NO" id="42">
+                    <rect key="frame" x="36.5" y="114" width="407" height="7"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="7" id="mL0-2x-BiI"/>
+                        <constraint firstAttribute="width" constant="407" id="ypS-nj-JK7"/>
+                    </constraints>
+                </imageView>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.20000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="30" customClass="idSlider">
+                    <rect key="frame" x="34.5" y="123" width="411" height="29"/>
+                    <color key="backgroundColor" red="0.0054347827099999997" green="0.0054347827099999997" blue="0.0054347827099999997" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="407" id="112-zP-RCR"/>
+                        <constraint firstAttribute="height" constant="28" id="6at-BS-Unu"/>
+                    </constraints>
+                    <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="MoveStickValChanged" destination="-1" eventType="valueChanged" id="67"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.20000000000000001" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="37" customClass="idSlider">
+                    <rect key="frame" x="34.5" y="156" width="411" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="407" id="Iks-47-S4r"/>
+                        <constraint firstAttribute="height" constant="28" id="wGX-6c-qXf"/>
+                    </constraints>
+                    <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="TurnStickValChanged" destination="-1" eventType="valueChanged" id="71"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="100" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="41" customClass="idSlider">
+                    <rect key="frame" x="34.5" y="189" width="411" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="407" id="lEA-rF-kFx"/>
+                        <constraint firstAttribute="height" constant="28" id="qSK-ea-BOX"/>
+                    </constraints>
+                    <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="TiltMoveValChanged" destination="-1" eventType="valueChanged" id="69"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="1500" maxValue="3500" translatesAutoresizingMaskIntoConstraints="NO" id="38" customClass="idSlider">
+                    <rect key="frame" x="34.5" y="224" width="411" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="407" id="GxY-yf-ijk"/>
+                        <constraint firstAttribute="height" constant="28" id="z50-1f-BjH"/>
+                    </constraints>
+                    <color key="minimumTrackTintColor" red="1" green="0.49936569364776573" blue="0.023189855779927049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="TiltTurnValChanged" destination="-1" eventType="valueChanged" id="70"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advanced" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47" customClass="idLabel">
+                    <rect key="frame" x="418.5" y="260.5" width="63" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tilt Move Speed" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="48" customClass="idLabel">
+                    <rect key="frame" x="342.5" y="208" width="101" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Move Stick Size" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="40" customClass="idLabel">
+                    <rect key="frame" x="343.5" y="141" width="100" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Turn Stick Size" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="44" customClass="idLabel">
+                    <rect key="frame" x="349.5" y="175" width="94" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tilt Turn Speed" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="45" customClass="idLabel">
+                    <rect key="frame" x="349" y="243" width="94.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Back" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="29" customClass="idLabel">
+                    <rect key="frame" x="9" y="260.5" width="32" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Single Thumbpad" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="32" customClass="idLabel">
+                    <rect key="frame" x="35.5" y="91" width="109.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dir &amp; Wheel" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="34" customClass="idLabel">
+                    <rect key="frame" x="353.5" y="91" width="75" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dual Thumbpad" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="36" customClass="idLabel">
+                    <rect key="frame" x="190.5" y="91" width="99.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.99199116230010986" green="0.59887534379959106" blue="0.1355646550655365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="OUP-Gr-1WU"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="34" firstAttribute="top" secondItem="33" secondAttribute="bottom" constant="-1" id="03q-8V-Mej"/>
+                <constraint firstItem="29" firstAttribute="centerX" secondItem="43" secondAttribute="centerX" id="28H-jb-nCc"/>
+                <constraint firstItem="38" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="3aw-Dc-4yX"/>
+                <constraint firstItem="37" firstAttribute="top" secondItem="30" secondAttribute="bottom" constant="5" id="4uF-h3-SOn"/>
+                <constraint firstItem="33" firstAttribute="top" secondItem="OUP-Gr-1WU" secondAttribute="top" constant="7" id="8Sw-dx-dEN"/>
+                <constraint firstItem="35" firstAttribute="leading" secondItem="46" secondAttribute="trailing" constant="27" id="A93-nT-QYG"/>
+                <constraint firstItem="OUP-Gr-1WU" firstAttribute="trailing" secondItem="31" secondAttribute="trailing" constant="5" id="ArC-BH-a3C"/>
+                <constraint firstItem="35" firstAttribute="top" secondItem="OUP-Gr-1WU" secondAttribute="top" constant="7" id="C81-Zr-utD"/>
+                <constraint firstItem="34" firstAttribute="centerX" secondItem="33" secondAttribute="centerX" id="D6M-ZG-eJH"/>
+                <constraint firstItem="45" firstAttribute="trailing" secondItem="38" secondAttribute="trailing" id="Dkm-DZ-gAJ"/>
+                <constraint firstItem="42" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="EIb-QN-IAc"/>
+                <constraint firstItem="32" firstAttribute="centerX" secondItem="46" secondAttribute="centerX" id="Eny-KR-Sey"/>
+                <constraint firstItem="48" firstAttribute="trailing" secondItem="41" secondAttribute="trailing" id="Etj-Db-x4H"/>
+                <constraint firstItem="45" firstAttribute="top" secondItem="38" secondAttribute="bottom" constant="-9" id="KaS-eM-F9V"/>
+                <constraint firstItem="48" firstAttribute="top" secondItem="41" secondAttribute="bottom" constant="-9" id="Lft-rZ-DCf"/>
+                <constraint firstItem="30" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="RFf-dZ-kNI"/>
+                <constraint firstItem="44" firstAttribute="trailing" secondItem="37" secondAttribute="trailing" id="TvC-jv-rVo"/>
+                <constraint firstItem="OUP-Gr-1WU" firstAttribute="bottom" secondItem="43" secondAttribute="bottom" constant="6" id="Ujb-3m-OzP"/>
+                <constraint firstItem="43" firstAttribute="leading" secondItem="OUP-Gr-1WU" secondAttribute="leading" id="Vmg-ae-rHX"/>
+                <constraint firstItem="41" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="5" id="c5I-fb-BWT"/>
+                <constraint firstItem="41" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="cgt-9h-SbN"/>
+                <constraint firstItem="OUP-Gr-1WU" firstAttribute="bottom" secondItem="31" secondAttribute="bottom" constant="6" id="dIG-2h-Z6z"/>
+                <constraint firstItem="33" firstAttribute="leading" secondItem="35" secondAttribute="trailing" constant="28" id="gBu-pK-CAm"/>
+                <constraint firstItem="46" firstAttribute="top" secondItem="OUP-Gr-1WU" secondAttribute="top" constant="7" id="gXX-dv-iFz"/>
+                <constraint firstItem="38" firstAttribute="top" secondItem="41" secondAttribute="bottom" constant="7" id="gu0-ov-8SH"/>
+                <constraint firstItem="39" firstAttribute="bottom" secondItem="OUP-Gr-1WU" secondAttribute="bottom" id="icN-Ig-SnD"/>
+                <constraint firstItem="37" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="ixU-ts-IeR"/>
+                <constraint firstItem="35" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="j8s-1U-UGN"/>
+                <constraint firstItem="40" firstAttribute="top" secondItem="30" secondAttribute="bottom" constant="-10" id="jHe-Pf-fPi"/>
+                <constraint firstItem="32" firstAttribute="top" secondItem="46" secondAttribute="bottom" constant="-1" id="jQ5-xe-dKs"/>
+                <constraint firstItem="40" firstAttribute="trailing" secondItem="30" secondAttribute="trailing" id="jdj-hW-5Hd"/>
+                <constraint firstItem="39" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="mzD-g7-BFp"/>
+                <constraint firstItem="31" firstAttribute="top" secondItem="47" secondAttribute="bottom" constant="-13" id="nMh-M4-mF4"/>
+                <constraint firstItem="43" firstAttribute="top" secondItem="29" secondAttribute="bottom" constant="-13" id="ogP-M6-EgT"/>
+                <constraint firstItem="42" firstAttribute="top" secondItem="OUP-Gr-1WU" secondAttribute="top" constant="114" id="qNE-sD-2RX"/>
+                <constraint firstItem="44" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="-9" id="vIV-O7-M6h"/>
+                <constraint firstItem="36" firstAttribute="top" secondItem="35" secondAttribute="bottom" constant="-1" id="vgh-dD-XmH"/>
+                <constraint firstItem="30" firstAttribute="top" secondItem="42" secondAttribute="bottom" constant="2" id="y84-Na-L1b"/>
+                <constraint firstItem="47" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="yqi-vS-aSj"/>
+                <constraint firstItem="39" firstAttribute="top" secondItem="OUP-Gr-1WU" secondAttribute="top" id="zZP-4v-XCL"/>
+                <constraint firstItem="36" firstAttribute="centerX" secondItem="35" secondAttribute="centerX" id="zgJ-Uu-Nwg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="AdvancedButton.png" width="93" height="94"/>
+        <image name="BackButton.png" width="93" height="94"/>
+        <image name="Divide.png" width="764" height="11"/>
+        <image name="LayoutDualButton.png" width="241" height="166"/>
+        <image name="LayoutSingleButton.png" width="241" height="166"/>
+        <image name="LayoutWheelButton.png" width="241" height="166"/>
+        <image name="MenuBackground.png" width="960" height="640"/>
+    </resources>
+</document>

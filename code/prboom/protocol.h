@@ -56,7 +56,7 @@ typedef struct {
 } PACKEDATTR packet_header_t;
 
 static inline void packet_set(packet_header_t* p, enum packet_type_e t, unsigned long tic)
-{ p->tic = doom_htonl(tic); p->type = t; p->reserved[0] = 0; p->reserved[1] = 0; }
+{ p->tic = (unsigned)doom_htonl(tic); p->type = t; p->reserved[0] = 0; p->reserved[1] = 0; }
 
 #ifndef GAME_OPTIONS_SIZE
 // From g_game.h

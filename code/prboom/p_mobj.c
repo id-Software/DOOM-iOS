@@ -81,9 +81,9 @@ boolean P_SetMobjState(mobj_t* mobj,statenum_t state)
 
     st = &states[state];
     mobj->state = st;
-    mobj->tics = st->tics;
+    mobj->tics = (int)st->tics;
     mobj->sprite = st->sprite;
-    mobj->frame = st->frame;
+    mobj->frame = (int)st->frame;
 
     // Modified handling.
     // Call action functions when the state is set
@@ -760,7 +760,7 @@ void P_MobjThinker (mobj_t* mobj)
       !comp[comp_falloff]) // Not in old demos
     P_ApplyTorque(mobj);               // Apply torque
   else
-    mobj->intflags &= ~MIF_FALLING, mobj->gear = 0;  // Reset torque
+      (void)(mobj->intflags &= ~MIF_FALLING), mobj->gear = 0;  // Reset torque
       }
 
   // cycle through states,
@@ -844,9 +844,9 @@ mobj_t* P_SpawnMobj(fixed_t x,fixed_t y,fixed_t z,mobjtype_t type)
   st = &states[info->spawnstate];
 
   mobj->state  = st;
-  mobj->tics   = st->tics;
-  mobj->sprite = st->sprite;
-  mobj->frame  = st->frame;
+  mobj->tics   = (int)(st->tics);
+  mobj->sprite = (int)(st->sprite);
+  mobj->frame  = (int)(st->frame);
   mobj->touching_sectorlist = NULL; // NULL head of sector list // phares 3/13/98
 
   // set subsector and/or block links
@@ -918,6 +918,9 @@ void P_RemoveMobj (mobj_t* mobj)
 
   // stop any playing sound
 
+    // GUS temporarily disable
+    //S_StopSound (mobj);
+    // MAY NEED TVOS STUFF HERE -tkidd
   S_StopSound (mobj);
 
   // killough 11/98:
@@ -1503,9 +1506,9 @@ void P_SpawnPlayerMissile(mobj_t* source,mobjtype_t type)
     if (!linetarget)
       slope = P_AimLineAttack(source, an -= 2<<26, 16*64*FRACUNIT, mask);
     if (!linetarget)
-      an = source->angle, slope = 0;
+        (void)(an = source->angle), slope = 0;
   }
-      while (mask && (mask=0, !linetarget));  // killough 8/2/98
+        while (mask && ((void)(mask=0), !linetarget));  // killough 8/2/98
     }
 
   x = source->x;

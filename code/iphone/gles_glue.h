@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -22,12 +22,20 @@
 #ifndef __GLES_GLUE_H__
 #define __GLES_GLUE_H__
 
+#include <OpenGLES/ES1/gl.h>
+
 #define GL_QUADS 888
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void GLCheckError( const char *message );
 
 void glBegin( GLenum prim );
+void glVertex2f( GLfloat x, GLfloat y );
 void glVertex3f( float x, float y, float z );
+void glVertex3fv( GLfloat *xyz );
 void glVertex2i( GLint x, GLint y );
 void glColor4ub( GLubyte r, GLubyte g, GLubyte b, GLubyte a );
 void glColor4ubv( GLubyte *rgba );
@@ -36,6 +44,12 @@ void glColor4f( GLfloat r, GLfloat g, GLfloat b, GLfloat a );
 void glColor4fv( GLfloat *rgba );
 void glTexCoord2i( GLint s, GLint t );
 void glTexCoord2f( GLfloat s, GLfloat t );
-void glEnd();
+void glEnd( void );
+
+void SetImmediateModeGLVertexArrays( void );
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

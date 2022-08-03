@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -19,6 +19,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Doom_App.h"
 #include <unistd.h>
 #include <string.h>
 
@@ -33,17 +34,17 @@ int main(int argc, char *argv[]) {
 
 	// get the app directory based on argv[0]
 	strcpy( iphoneAppDirectory, argv[0] );
-	int len = strlen( iphoneAppDirectory );
-	for( int i = len-1; i >= 0; i-- ) {
-		if ( iphoneAppDirectory[i] == '/' ) {
-			iphoneAppDirectory[i] = 0;
-			break;
-		}
-		iphoneAppDirectory[i] = 0;
+	
+	char * slashPosition = strrchr( iphoneAppDirectory, '/' );
+	if ( slashPosition != NULL ) {
+		*slashPosition = 0;
+	} else {
+		iphoneAppDirectory[0] = 0;
 	}
 	
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    NSString * classString = NSStringFromClass([DoomApp class]);
+    int retVal = UIApplicationMain(argc, argv, nil, classString );
     [pool release];
     return retVal;
 }

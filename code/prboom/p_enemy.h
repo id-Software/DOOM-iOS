@@ -53,66 +53,66 @@ extern struct brain_s {         /* killough 3/26/98: global state of boss brain 
 // allows more extensive changes (see d_deh.c)
 
 // Doesn't work with g++, needs actionf_p1
-void A_Explode();
-void A_Pain();
-void A_PlayerScream();
-void A_Fall();
-void A_XScream();
-void A_Look();
-void A_Chase();
-void A_FaceTarget();
-void A_PosAttack();
-void A_Scream();
-void A_SPosAttack();
-void A_VileChase();
-void A_VileStart();
-void A_VileTarget();
-void A_VileAttack();
-void A_StartFire();
-void A_Fire();
-void A_FireCrackle();
-void A_Tracer();
-void A_SkelWhoosh();
-void A_SkelFist();
-void A_SkelMissile();
-void A_FatRaise();
-void A_FatAttack1();
-void A_FatAttack2();
-void A_FatAttack3();
-void A_BossDeath();
-void A_CPosAttack();
-void A_CPosRefire();
-void A_TroopAttack();
-void A_SargAttack();
-void A_HeadAttack();
-void A_BruisAttack();
-void A_SkullAttack();
-void A_Metal();
-void A_SpidRefire();
-void A_BabyMetal();
-void A_BspiAttack();
-void A_Hoof();
-void A_CyberAttack();
-void A_PainAttack();
-void A_PainDie();
-void A_KeenDie();
-void A_BrainPain();
-void A_BrainScream();
-void A_BrainDie();
-void A_BrainAwake();
-void A_BrainSpit();
-void A_SpawnSound();
-void A_SpawnFly();
-void A_BrainExplode();
-void A_Die();
-void A_Detonate();        /* killough 8/9/98: detonate a bomb or other device */
-void A_Mushroom();        /* killough 10/98: mushroom effect */
-void A_Spawn();           // killough 11/98
-void A_Turn();            // killough 11/98
-void A_Face();            // killough 11/98
-void A_Scratch();         // killough 11/98
-void A_PlaySound();       // killough 11/98
-void A_RandomJump();      // killough 11/98
-void A_LineEffect();      // killough 11/98
+void A_Explode(mobj_t *thingy);
+void A_Pain(mobj_t *actor);
+void A_PlayerScream(mobj_t *mo);
+void A_Fall(mobj_t *actor);
+void A_XScream(mobj_t *actor);
+void A_Look(mobj_t *actor);
+void A_Chase(mobj_t *actor);
+void A_FaceTarget(mobj_t *actor);
+void A_PosAttack(mobj_t *actor);
+void A_Scream(mobj_t *actor);
+void A_SPosAttack(mobj_t *actor);
+void A_VileChase(mobj_t *actor);
+void A_VileStart(mobj_t *actor);
+void A_VileTarget(mobj_t *actor);
+void A_VileAttack(mobj_t *actor);
+void A_StartFire(mobj_t *actor);
+void A_Fire(mobj_t *actor);
+void A_FireCrackle(mobj_t *actor);
+void A_Tracer(mobj_t *actor);
+void A_SkelWhoosh(mobj_t *actor);
+void A_SkelFist(mobj_t *actor);
+void A_SkelMissile(mobj_t *actor);
+void A_FatRaise(mobj_t *actor);
+void A_FatAttack1(mobj_t *actor);
+void A_FatAttack2(mobj_t *actor);
+void A_FatAttack3(mobj_t *actor);
+void A_BossDeath(mobj_t *mo);
+void A_CPosAttack(mobj_t *actor);
+void A_CPosRefire(mobj_t *actor);
+void A_TroopAttack(mobj_t *actor);
+void A_SargAttack(mobj_t *actor);
+void A_HeadAttack(mobj_t *actor);
+void A_BruisAttack(mobj_t *actor);
+void A_SkullAttack(mobj_t *actor);
+void A_Metal(mobj_t *mo);
+void A_SpidRefire(mobj_t *actor);
+void A_BabyMetal(mobj_t *mo);
+void A_BspiAttack(mobj_t *actor);
+void A_Hoof(mobj_t *mo);
+void A_CyberAttack(mobj_t *actor);
+void A_PainAttack(mobj_t *actor);
+void A_PainDie(mobj_t *actor);
+void A_KeenDie(mobj_t *mo);
+void A_BrainPain(mobj_t *mo);
+void A_BrainScream(mobj_t *mo);
+void A_BrainDie(mobj_t *mo);
+void A_BrainAwake(mobj_t *mo);
+void A_BrainSpit(mobj_t *mo);
+void A_SpawnSound(mobj_t *mo);
+void A_SpawnFly(mobj_t *mo);
+void A_BrainExplode(mobj_t *mo);
+void A_Die(mobj_t *actor);
+void A_Detonate(mobj_t *mo);        /* killough 8/9/98: detonate a bomb or other device */
+void A_Mushroom(mobj_t *actor);        /* killough 10/98: mushroom effect */
+void A_Spawn(mobj_t *mo);           // killough 11/98
+void A_Turn(mobj_t *mo);            // killough 11/98
+void A_Face(mobj_t *mo);            // killough 11/98
+void A_Scratch(mobj_t *mo);         // killough 11/98
+void A_PlaySound(mobj_t *mo);       // killough 11/98
+void A_RandomJump(mobj_t *mo);      // killough 11/98
+void A_LineEffect(mobj_t *mo);      // killough 11/98
 
 #endif // __P_ENEMY__

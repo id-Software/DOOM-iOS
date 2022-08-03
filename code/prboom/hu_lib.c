@@ -46,13 +46,6 @@
 extern int  key_backspace;                                          // phares
 extern int  key_enter;                                              // phares
 
-//
-// not used currently
-// code to initialize HUlib would go here if needed
-//
-static void HUlib_init(void)
-{
-}
 
 ////////////////////////////////////////////////////////
 //
@@ -170,8 +163,10 @@ void HUlib_drawTextLine
   {
     c = toupper(l->l[i]); //jff insure were not getting a cheap toupper conv.
 
-    if (c=='\n')         // killough 1/18/98 -- support multiple lines
-      x=0,y+=8;
+    if (c=='\n') {         // killough 1/18/98 -- support multiple lines
+        x=0;
+        y+=8;
+      }
     else if (c=='\t')    // killough 1/23/98 -- support tab stops
       x=x-x%80+80;
     else if (c=='\x1b')  //jff 2/17/98 escape code for color change
@@ -671,11 +666,13 @@ static void HUlib_delCharFromIText(hu_itext_t* it)
 // Passed the hu_itext_t
 // Returns nothing
 //
+#ifndef IPHONE
 static void HUlib_eraseLineFromIText(hu_itext_t* it)
 {
   while (it->lm != it->l.len)
     HUlib_delCharFromTextLine(&it->l);
 }
+#endif
 
 //
 // HUlib_resetIText()

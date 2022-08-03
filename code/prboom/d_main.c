@@ -82,6 +82,7 @@
 #include "d_deh.h"  // Ty 04/08/98 - Externalizations
 #include "lprintf.h"  // jff 08/03/98 - declaration of lprintf
 #include "am_map.h"
+#include "doomiphone.h"
 
 void GetFirstMap(int *ep, int *map); // Ty 08/29/98 - add "-warp x" functionality
 static void D_PageDrawer(void);
@@ -127,7 +128,7 @@ char    basesavegame[PATH_MAX+1];  // killough 2/16/98: savegame directory
 const char *const standard_iwads[]=
 {
   "doom2f.wad",
-  "HERETIC.WAD",
+  "doom2.wad",
   "plutonia.wad",
   "tnt.wad",
   "doom.wad",
@@ -135,7 +136,7 @@ const char *const standard_iwads[]=
   "doomu.wad", /* CPhipps - alow doomu.wad */
   "freedoom.wad", /* wart@kobold.org:  added freedoom for Fedora Extras */
 };
-static const int nstandard_iwads = sizeof standard_iwads/sizeof*standard_iwads;
+//static const int nstandard_iwads = sizeof standard_iwads/sizeof*standard_iwads;
 
 /*
  * D_PostEvent - Event handling
@@ -222,7 +223,7 @@ void D_Display (void)
     wipe_StartScreen();
 
   if (gamestate != GS_LEVEL) { // Not a level
-    switch (oldgamestate) {
+    switch ((int)oldgamestate) {
     case -1:
     case GS_LEVEL:
       V_SetPalette(0); // cph - use default (basic) palette
@@ -341,6 +342,8 @@ static const char *auto_shot_fname;
 //  calls I_GetTime, I_StartFrame, and I_StartTic
 //
 
+// This function is unused on iOS.
+#ifndef IPHONE
 static void D_DoomLoop(void)
 {
   for (;;)
@@ -387,6 +390,7 @@ static void D_DoomLoop(void)
       }
     }
 }
+#endif
 
 //
 //  DEMO LOOP
@@ -504,24 +508,24 @@ static struct
     },
 
     {
-      {NULL},
-      {NULL},
-      {NULL},
+      {NULL, NULL},
+      {NULL, NULL},
+      {NULL, NULL},
       {D_SetPageName, "CREDIT"},
     },
 
     {
-      {NULL},
-      {NULL},
-      {NULL},
+      {NULL, NULL},
+      {NULL, NULL},
+      {NULL, NULL},
       {G_DeferedPlayDemo, "demo4"},
     },
 
     {
-      {NULL},
-      {NULL},
-      {NULL},
-      {NULL},
+      {NULL, NULL},
+      {NULL, NULL},
+      {NULL, NULL},
+      {NULL, NULL},
     }
   };
 
@@ -634,8 +638,8 @@ static void CheckIWAD(const char *iwadname,GameMode_t *gmode,boolean *hassec)
         filelump_t *fileinfo;
 
         // read IWAD directory
-        header.numlumps = LONG(header.numlumps);
-        header.infotableofs = LONG(header.infotableofs);
+        header.numlumps = (int)LONG(header.numlumps);
+        header.infotableofs = (int)LONG(header.infotableofs);
         length = header.numlumps;
         fileinfo = malloc(length*sizeof(filelump_t));
         if (fseek (fp, header.infotableofs, SEEK_SET) ||
@@ -716,7 +720,7 @@ static void NormalizeSlashes(char *str)
   // killough 1/18/98: Neater / \ handling.
   // Remove trailing / or \ to prevent // /\ \/ \\, and change \ to /
 
-  if (!str || !(l = strlen(str)))
+  if (!str || !(l = (int)strlen(str)))
     return;
   if (str[--l]=='/' || str[l]=='\\')     // killough 1/18/98
     str[l]=0;
@@ -732,6 +736,9 @@ static void NormalizeSlashes(char *str)
  * CPhipps  - static, proper prototype
  *    - 12/1999 - rewritten to use I_FindFile
  */
+// TODO: We may restore this function later, if we send in iwad selection as a "parameter"
+// in order to remain closer to vanilla prboom.
+#ifndef IPHONE
 static char *FindIWADFile(void)
 {
   int   i;
@@ -746,6 +753,7 @@ static char *FindIWADFile(void)
   }
   return iwad;
 }
+#endif
 
 //
 // IdentifyVersion
@@ -767,12 +775,15 @@ static char *FindIWADFile(void)
 //   d) or $HOME
 //
 // jff 4/19/98 rewritten to use a more advanced search algorithm
+// 
+// Added an iwad parameter to IdentifyVersion - this makes it easier to use this
+// code in a library shared between multiple games.
 
-static void IdentifyVersion (void)
+static void IdentifyVersion ( const char * iwad )
 {
   int         i;    //jff 3/24/98 index of args on commandline
   struct stat sbuf; //jff 3/24/98 used to test save path for existence
-  char *iwad;
+  //const char *iwad;
 
   // set save path to -save parm or current dir
 
@@ -800,7 +811,8 @@ static void IdentifyVersion (void)
 
   // locate the IWAD and determine game mode from it
 
-  iwad = FindIWADFile();
+  //iwad = FindIWADFile();
+  //iwad = iphoneFindIWADFile();
 	
 #if (defined(GL_DOOM) && defined(_DEBUG))
   // proff 11/99: used for debugging
@@ -832,7 +844,7 @@ static void IdentifyVersion (void)
         gamemission = doom;
         break;
       case commercial:
-        i = strlen(iwad);
+        i = (int)strlen(iwad);
         gamemission = doom2;
         if (i>=10 && !strnicmp(iwad+i-10,"doom2f.wad",10))
           language=french;
@@ -849,7 +861,8 @@ static void IdentifyVersion (void)
       //jff 9/3/98 use logical output routine
       lprintf(LO_WARN,"Unknown Game Version, may not work\n");
     D_AddFile(iwad,source_iwad);
-    free(iwad);
+	
+    //free(iwad);
   }
   else
     I_Error("IdentifyVersion: IWAD not found\n");
@@ -1017,7 +1030,7 @@ static void DoLooseFiles(void)
     if (*myargv[i] == '-') break;  // quit at first switch
 
     // so now we must have a loose file.  Find out what kind and store it.
-    j = strlen(myargv[i]);
+    j = (int)strlen(myargv[i]);
     if (!stricmp(&myargv[i][j-4],".wad"))
       wads[wadcount++] = strdup(myargv[i]);
     if (!stricmp(&myargv[i][j-4],".lmp"))
@@ -1109,7 +1122,7 @@ static void DoLooseFiles(void)
 const char *wad_files[MAXLOADFILES], *deh_files[MAXLOADFILES];
 
 // CPhipps - misc screen stuff
-unsigned int desired_screenwidth, desired_screenheight;
+int desired_screenwidth, desired_screenheight;
 
 static void L_SetupConsoleMasks(void) {
   int p;
@@ -1146,11 +1159,20 @@ static void L_SetupConsoleMasks(void) {
 //
 // CPhipps - the old contents of D_DoomMain, but moved out of the main
 //  line of execution so its stack space can be freed
+//
+// Added iwad and pwad parameters to facilitate using this code in a library shared between
+// multiple games.
+void iphoneAddPWADFiles(void);
 
-/* JDC static */ void D_DoomMainSetup(void)
+/* JDC static */ void D_DoomMainSetup( const char * iwad, const char * pwad )
 {
   int p,slot;
-
+  
+    numwadfiles = 0;
+    R_FlushAllPatches();
+    gld_CleanMemory();
+    
+    
   L_SetupConsoleMasks();
 
   setbuf(stdout,NULL);
@@ -1183,17 +1205,14 @@ static void L_SetupConsoleMasks(void) {
   D_BuildBEXTables(); // haleyjd
 
   DoLooseFiles();  // Ty 08/29/98 - handle "loose" files on command line
-  IdentifyVersion();
+  IdentifyVersion( iwad );
 
   // Load prboom.wad after IWAD but before everything else
   {
-    char *data_wad_path = I_FindFile(PACKAGE ".wad", ".wad");
-
-    if (!data_wad_path)
-      I_Error(PACKAGE ".wad not found - cannot continue");
+    char data_wad_path[ 1024 ];
+    I_FindFile(PACKAGE ".wad", ".wad", data_wad_path );
 
     D_AddFile(data_wad_path, source_pre);
-    free(data_wad_path);
   }
 	
   // e6y: DEH files preloaded in wrong order
@@ -1425,22 +1444,19 @@ static void L_SetupConsoleMasks(void) {
     for (i=0; i<MAXLOADFILES*2; i++) {
       const char *fname = (i < MAXLOADFILES) ? wad_files[i]
   : deh_files[i - MAXLOADFILES];
-      char *fpath;
+      char fpath[ 1024 ];
 
       if (!(fname && *fname)) continue;
       // Filename is now stored as a zero terminated string
-      fpath = I_FindFile(fname, (i < MAXLOADFILES) ? ".wad" : ".bex");
-      if (!fpath)
-        lprintf(LO_WARN, "Failed to autoload %s\n", fname);
-      else {
+      I_FindFile(fname, (i < MAXLOADFILES) ? ".wad" : ".bex", fpath);
+
         if (i >= MAXLOADFILES)
           ProcessDehFile(fpath, D_dehout(), 0);
         else {
           D_AddFile(fpath,source_auto_load);
         }
         modifiedgame = true;
-        free(fpath);
-      }
+
     }
   }
 
@@ -1491,6 +1507,24 @@ static void L_SetupConsoleMasks(void) {
         D_AddFile(myargv[p],source_pwad);
     }
 
+	// Add any iphone pwads (for example, No Rest for the Living is a pwad).
+    while(pwad && *pwad) {
+        char pwad_to_add[1024];
+        char* pwadloc_end = strchr(pwad,PWAD_LIST_SEPARATOR);
+        unsigned long i = 0;
+        if( pwadloc_end ) {
+            while( pwad != pwadloc_end ) {
+                pwad_to_add[i++] = *pwad++;
+            }
+            pwad_to_add[i] = '\0';
+            pwad++; // advance past separator
+            D_AddFile( pwad_to_add, source_pwad );
+        } else {
+            Com_Printf("Error processing PWADs: %s (%X)", pwad,pwadloc_end);
+            break;
+        }
+	}
+    
   if (!(p = M_CheckParm("-playdemo")) || p >= myargc-1) {   /* killough */
     if ((p = M_CheckParm ("-fastdemo")) && p < myargc-1)    /* killough */
       fastdemo = true;             // run at fastest speed possible
@@ -1536,6 +1570,9 @@ static void L_SetupConsoleMasks(void) {
 
   V_InitColorTranslation(); //jff 4/24/98 load color translation lumps
 
+    // JDS: replace sounds with lumps
+    I_OverwriteSoundBuffersWithLumps();
+    
   // killough 2/22/98: copyright / "modified game" / SPA banners removed
 
   // Ty 04/08/98 - Add 5 lines of misc. data, only if nonblank
@@ -1550,7 +1587,7 @@ static void L_SetupConsoleMasks(void) {
 
   //jff 9/3/98 use logical output routine
   lprintf(LO_INFO,"M_Init: Init miscellaneous info.\n");
-  M_Init();
+  //M_Init();
 
 #ifdef HAVE_NET
   // CPhipps - now wait for netgame start
@@ -1656,13 +1693,15 @@ static void L_SetupConsoleMasks(void) {
 //
 // D_DoomMain
 //
-
+// Not called in iphone version.
+/*
 void D_DoomMain(void)
 {
   D_DoomMainSetup(); // CPhipps - setup out of main execution stack
 
   D_DoomLoop ();  // never returns
 }
+*/
 
 //
 // GetFirstMap

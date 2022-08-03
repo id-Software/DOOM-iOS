@@ -83,16 +83,18 @@ typedef struct {
 static char *dehfgets(char *buf, size_t n, DEHFILE *fp)
 {
   if (!fp->lump)                                     // If this is a real file,
-    return (fgets)(buf, n, fp->f);                   // return regular fgets
+    return (fgets)(buf, (int)n, fp->f);                   // return regular fgets
   if (!n || !*fp->inp || fp->size<=0)                // If no more characters
     return NULL;
-  if (n==1)
-    fp->size--, *buf = *fp->inp++;
+    if (n==1) {
+        fp->size--;
+        *buf = *fp->inp++;
+    }
   else
     {                                                // copy buffer
       char *p = buf;
       while (n>1 && *fp->inp && fp->size &&
-             (n--, fp->size--, *p++ = *fp->inp++) != '\n')
+             ((void)(n--), (void)(fp->size--), *p++ = *fp->inp++) != '\n')
         ;
       *p = 0;
     }
@@ -107,7 +109,7 @@ static int dehfeof(DEHFILE *fp)
 static int dehfgetc(DEHFILE *fp)
 {
   return !fp->lump ? fgetc(fp->f) : fp->size > 0 ?
-    fp->size--, *fp->inp++ : EOF;
+    (void)(fp->size--), *fp->inp++ : EOF;
 }
 
 // haleyjd 9/22/99
@@ -169,6 +171,7 @@ const char *s_GOTREDCARD  = GOTREDCARD;
 const char *s_GOTBLUESKUL = GOTBLUESKUL;
 const char *s_GOTYELWSKUL = GOTYELWSKUL;
 const char *s_GOTREDSKULL = GOTREDSKULL;
+const char *s_GOTSECRET   = GOTSECRET;
 const char *s_GOTINVUL    = GOTINVUL;
 const char *s_GOTBERSERK  = GOTBERSERK;
 const char *s_GOTINVIS    = GOTINVIS;
@@ -508,6 +511,7 @@ static const deh_strs deh_strlookup[] = {
   {&s_GOTBLUESKUL,"GOTBLUESKUL"},
   {&s_GOTYELWSKUL,"GOTYELWSKUL"},
   {&s_GOTREDSKULL,"GOTREDSKULL"},
+  {&s_GOTSECRET,"GOTSECRET"},
   {&s_GOTINVUL,"GOTINVUL"},
   {&s_GOTBERSERK,"GOTBERSERK"},
   {&s_GOTINVIS,"GOTINVIS"},
@@ -1476,7 +1480,10 @@ void ProcessDehFile(const char *filename, const char *outfilename, int lumpnum)
           // file but using the BEX format to handle strings
 
           if (!strnicmp(nextfile = ptr_lstrip(inbuffer+7),"NOTEXT",6))
-            includenotext = true, nextfile = ptr_lstrip(nextfile+6);
+          {
+              includenotext = true;
+              nextfile = ptr_lstrip(nextfile+6);
+          }
 
           if (fileout)
             fprintf(fileout,"Branching to include file %s...\n", nextfile);
@@ -1932,7 +1939,7 @@ static void deh_procPointer(DEHFILE *fpin, FILE* fpout, char *line) // done
           continue;
         }
 
-      if (value < 0 || value >= NUMSTATES)
+      if (value >= NUMSTATES)
         {
           if (fpout)
             fprintf(fpout,"Bad pointer number %lld of %d\n",value, NUMSTATES);
@@ -1975,6 +1982,9 @@ static void deh_procPointer(DEHFILE *fpin, FILE* fpout, char *line) // done
 //
 static void deh_procSounds(DEHFILE *fpin, FILE* fpout, char *line)
 {
+  assert( false || "Does the iOS version ever call this function? I hope not." );
+  (void)deh_sfxinfo;
+#if 0
   char key[DEH_MAXKEYLEN];
   char inbuffer[DEH_BUFFERMAX];
   uint_64_t value;      // All deh values are ints or longs
@@ -2031,6 +2041,7 @@ static void deh_procSounds(DEHFILE *fpin, FILE* fpout, char *line)
                                            "Invalid sound string index for '%s'\n",key);
     }
   return;
+#endif
 }
 
 // ====================================================================
@@ -2702,7 +2713,7 @@ boolean deh_procStringSub(char *key, char *lookfor, char *newstring, FILE *fpout
             for (s=*deh_strlookup[i].ppstr; *s; ++s, ++t)
               {
                 if (*s == '\\' && (s[1] == 'n' || s[1] == 'N')) //found one
-      ++s, *t = '\n';  // skip one extra for second character
+                    (void)(++s), *t = '\n';  // skip one extra for second character
                 else
                   *t = *s;
               }
@@ -2871,7 +2882,7 @@ static void deh_procBexSounds(DEHFILE *fpin, FILE *fpout, char *line)
       // do it
       memset(candidate, 0, 7);
       strncpy(candidate, ptr_lstrip(strval), 6);
-      len = strlen(candidate);
+      len = (int)strlen(candidate);
       if(len < 1 || len > 6)
       {
 	 if(fpout)
@@ -2930,7 +2941,7 @@ static void deh_procBexMusic(DEHFILE *fpin, FILE *fpout, char *line)
       // do it
       memset(candidate, 0, 7);
       strncpy(candidate, ptr_lstrip(strval), 6);
-      len = strlen(candidate);
+      len = (int)strlen(candidate);
       if(len < 1 || len > 6)
       {
 	 if(fpout)
@@ -2980,7 +2991,7 @@ char *dehReformatStr(char *string)
   while (*s)
     {
       if (*s == '\n')
-        ++s, *t++ = '\\', *t++ = 'n', *t++ = '\\', *t++='\n';
+          (void)(++s), (void)(*t++ = '\\'), (void)(*t++ = 'n'), (void)(*t++ = '\\'), *t++='\n';
       else
         *t++ = *s++;
     }

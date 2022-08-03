@@ -494,7 +494,7 @@ P_UseSpecialLine
 
     case 50:
       // Close Door
-      if (EV_DoDoor(line,close))
+      if (EV_DoDoor(line,closeDoor))
         P_ChangeSwitchTexture(line,0);
       break;
 
@@ -532,7 +532,7 @@ P_UseSpecialLine
 
     case 103:
       // Open Door
-      if (EV_DoDoor(line,open))
+      if (EV_DoDoor(line,openDoor))
         P_ChangeSwitchTexture(line,0);
       break;
 
@@ -1021,7 +1021,7 @@ P_UseSpecialLine
     // Buttons (retriggerable switches)
     case 42:
       // Close Door
-      if (EV_DoDoor(line,close))
+      if (EV_DoDoor(line,closeDoor))
         P_ChangeSwitchTexture(line,1);
       break;
 
@@ -1045,7 +1045,7 @@ P_UseSpecialLine
 
     case 61:
       // Open Door
-      if (EV_DoDoor(line,open))
+      if (EV_DoDoor(line,openDoor))
         P_ChangeSwitchTexture(line,1);
       break;
 

@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -25,6 +25,40 @@
 
 //#include "iphone_gl.h"
 
+void R_Draw_Blend( int x, int y, int w, int h, color4_t c ) {
+    
+    x *= ((float)displaywidth) / 480.0f;
+    y *= ((float)displayheight) / 320.0f;
+    w *= ((float)displaywidth) / 480.0f;
+    h *= ((float)displayheight) / 320.0f;
+    
+	glDisable( GL_TEXTURE_2D );	
+	glColor4ubv( c );
+	
+	glBegin( GL_QUADS );
+	
+	glVertex2i( x, y );
+	glVertex2i( x+w, y );
+	glVertex2i( x+w, y+h );
+	glVertex2i( x, y+h );
+	
+	glEnd();
+	
+	glColor3f( 1, 1, 1 );
+	glEnable( GL_TEXTURE_2D );
+}
+
+
+void R_Draw_Fill( int x, int y, int w, int h, color3_t c ) {
+	// as of 2.2 OS, doing a clear with a small scissor rect is MUCH slower
+	// than drawing geometry
+	color4_t	c4;
+	c4[0] = c[0];
+	c4[1] = c[1];
+	c4[2] = c[2];
+	c4[3] = 255;
+	R_Draw_Blend( x, y, w, h, c4 );
+}
 
 void GLCheckError(const char *message) {
 	GLint err = glGetError();
@@ -52,7 +86,7 @@ short quad_indexes[MAX_VERTS * 3 / 2 ];
 int curr_vertex;
 GLenum curr_prim;
 
-void		SetImmediateModeGLVertexArrays() {
+void		SetImmediateModeGLVertexArrays( void ) {
 	glVertexPointer( 3, GL_FLOAT, sizeof( Vertex ), immediate[ 0 ].xyz );
 	glEnableClientState( GL_VERTEX_ARRAY );
 	glTexCoordPointer( 2, GL_FLOAT, sizeof( Vertex ), immediate[ 0 ].st );
@@ -63,7 +97,7 @@ void		SetImmediateModeGLVertexArrays() {
 #endif
 }
 
-void		InitImmediateModeGL() {
+void		InitImmediateModeGL( void ) {
 	for ( int i = 0; i < MAX_VERTS * 3 / 2; i+=6 ) {
 		int q = i / 6 * 4;
 		quad_indexes[ i + 0 ] = q + 0;
@@ -162,7 +196,7 @@ void glTexCoord2fv( GLfloat *st ) {
 	vab.st[ 1 ] = st[1];
 }
 
-void glEnd() {
+void glEnd( void ) {
 #if 0
 	glVertexPointer( 3, GL_FLOAT, sizeof( Vertex ), immediate[ 0 ].xyz );
 	glTexCoordPointer( 2, GL_FLOAT, sizeof( Vertex ), immediate[ 0 ].st );
@@ -173,8 +207,10 @@ void glEnd() {
 #endif	
 	if ( curr_prim == GL_QUADS ) {
 		glDrawElements( GL_TRIANGLES, curr_vertex / 4 * 6, GL_UNSIGNED_SHORT, quad_indexes );
+		GLCheckError("DrawElements");
 	} else {
 		glDrawArrays( curr_prim, 0, curr_vertex );
+		GLCheckError("DrawArrays");
 	}
 	curr_vertex = 0;
 	curr_prim = 0;
@@ -182,19 +218,15 @@ void glEnd() {
 
 void landscapeViewport( GLint x, GLint y, GLsizei width, GLsizei height ) {
 	y = 0;	// !@#
-	if ( revLand->value ) {
-		glViewport( displayheight - (y+height), x, height, width );
-	} else {
-		glViewport( y, x, height, width );
+	if (displaywidth > width) {
+		y = (displaywidth - width) / 2;
 	}
+    /* JDS proper fix for landscape orientation */
+	glViewport( y, x, width, height );
 }
 
 void landscapeScissor( GLint x, GLint y, GLsizei width, GLsizei height ) {
 	y = 0;	// !@#
-	if ( revLand->value ) {
-		glScissor( displayheight - (y+height), x, height, width );
-	} else {
-		glScissor( y, x, height, width );
-	}
+	glScissor( y, x, height, width );
 }
 

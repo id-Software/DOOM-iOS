@@ -86,7 +86,7 @@ static const crdef_t crdefs[] = {
   {"CRORANGE", &colrngs[CR_ORANGE]},
   {"CRYELLOW", &colrngs[CR_YELLOW]},
   {"CRBLUE2",  &colrngs[CR_BLUE2]},
-  {NULL}
+  {NULL, NULL}
 };
 
 // killough 5/2/98: tiny engine driven by table above
@@ -539,7 +539,7 @@ void V_UpdateTrueColorPalette(video_mode_t mode) {
   if (mode == VID_MODE32) {
     if (!Palettes32) {
       // set int palette
-      Palettes32 = (int*)malloc(numPals*256*sizeof(int)*VID_NUMCOLORWEIGHTS);
+      Palettes32 = (unsigned int*)malloc(numPals*256*sizeof(unsigned int)*VID_NUMCOLORWEIGHTS);
       for (p=0; p<numPals; p++) {
         for (i=0; i<256; i++) {
           r = gtable[pal[(256*p+i)*3+0]];
@@ -569,7 +569,7 @@ void V_UpdateTrueColorPalette(video_mode_t mode) {
   else if (mode == VID_MODE16) {
     if (!Palettes16) {
       // set short palette
-      Palettes16 = (short*)malloc(numPals*256*sizeof(short)*VID_NUMCOLORWEIGHTS);
+      Palettes16 = (unsigned short*)malloc(numPals*256*sizeof(unsigned short)*VID_NUMCOLORWEIGHTS);
       for (p=0; p<numPals; p++) {
         for (i=0; i<256; i++) {
           r = gtable[pal[(256*p+i)*3+0]];
@@ -599,7 +599,7 @@ void V_UpdateTrueColorPalette(video_mode_t mode) {
   else if (mode == VID_MODE15) {
     if (!Palettes15) {
       // set short palette
-      Palettes15 = (short*)malloc(numPals*256*sizeof(short)*VID_NUMCOLORWEIGHTS);
+      Palettes15 = (unsigned short*)malloc(numPals*256*sizeof(unsigned short)*VID_NUMCOLORWEIGHTS);
       for (p=0; p<numPals; p++) {
         for (i=0; i<256; i++) {
           r = gtable[pal[(256*p+i)*3+0]];
@@ -759,9 +759,6 @@ static void WRAP_gld_DrawNumPatch(int x, int y, int scrn, int lump, int cm, enum
 {
   gld_DrawNumPatch(x,y,lump,cm,flags);
 }
-static void WRAP_gld_DrawBlock(int x, int y, int scrn, int width, int height, const byte *src, enum patch_translation_e flags)
-{
-}
 static void V_PlotPixelGL(int scrn, int x, int y, byte color) {
   gld_DrawLine(x-1, y, x+1, y, color);
   gld_DrawLine(x, y-1, x, y+1, color);
@@ -776,7 +773,6 @@ static void NULL_FillRect(int scrn, int x, int y, int width, int height, byte co
 static void NULL_CopyRect(int srcx, int srcy, int srcscrn, int width, int height, int destx, int desty, int destscrn, enum patch_translation_e flags) {}
 static void NULL_DrawBackground(const char *flatname, int n) {}
 static void NULL_DrawNumPatch(int x, int y, int scrn, int lump, int cm, enum patch_translation_e flags) {}
-static void NULL_DrawBlock(int x, int y, int scrn, int width, int height, const byte *src, enum patch_translation_e flags) {}
 static void NULL_PlotPixel(int scrn, int x, int y, byte color) {}
 static void NULL_DrawLine(fline_t* fl, int color) {}
 
@@ -851,6 +847,7 @@ void V_InitMode(video_mode_t mode) {
       current_videomode = VID_MODEGL;
       break;
 #endif
+	default: break;
   }
   R_FilterInit();
 }

@@ -45,7 +45,7 @@
 
 /**/
 #define USE_SDL 1
-/*#define HAVE_MIXER 1*/
+#define HAVE_LIBSDL_MIXER 1
 #define HAVE_NET 1
 #define USE_SDL_NET 1
 
@@ -75,7 +75,7 @@
 
 #define HAVE_IPv6 1
 
-#define HAVE_UNISTD_H
+#define HAVE_UNISTD_H 1
 #define HAVE_SYS_WAIT_H
 #define HAVE_GETOPT
 /* causes a duplicate define warning
@@ -96,10 +96,6 @@
 
 #define MACOSX
 #define HAVE_LIBKERN_OSBYTEORDER_H
-#define HAVE_OWN_MUSIC
-#define UPDATE_MUSIC
-#define SCREENSHOT_DIR I_DoomExeDir()
-#define HEAPDUMP_DIR I_DoomExeDir()
 
 
 //------ JDC config changes for iPhone ------------
@@ -110,3 +106,4 @@
 #undef DOGS			// not sure why this needs to be removed, info.c complains
 #undef USE_GLU_IMAGESCALE
 #undef USE_GLU_MIPMAP
+

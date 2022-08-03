@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  misc.h
+ *  doom
+ *
+ *  Created by John Carmack on 4/13/09.
+ *  Copyright 2009 idSoftware. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -41,7 +49,7 @@ typedef void (*xcommand_t) (void);
 void	Cmd_AddCommand( const char *cmd_name, xcommand_t function );
 
 // print all the added commands
-void	Cmd_ListCommands_f();
+void	Cmd_ListCommands_f(void);
 
 // attempts to match a partial command for automatic command line completion
 // returns NULL if nothing fits

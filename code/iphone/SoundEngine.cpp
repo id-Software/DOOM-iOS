@@ -343,7 +343,7 @@ void CalculateBytesForTime (AudioStreamBasicDescription & inDesc, UInt32 inMaxPa
 
 	if (inDesc.mFramesPerPacket) {
 		Float64 numPacketsForTime = inDesc.mSampleRate / inDesc.mFramesPerPacket * inSeconds;
-		*outBufferSize = (long unsigned int)numPacketsForTime * inMaxPacketSize;
+		*outBufferSize = (UInt32)(numPacketsForTime * inMaxPacketSize);
 	} else {
 		// if frames per packet is zero, then the codec has no predictable packet == time
 		// so we can't tailor this (we don't know how many Packets represent a time period
@@ -638,15 +638,14 @@ void BackgroundTrackMgr::QueueCallback( void * inUserData, AudioQueueRef inAQ, A
 	if ((CurFileInfo->mFileDataInQueue) && (THIS->mBGFileInfo.size() == 1) && (!THIS->mStopAtEnd)) {
 		nPackets = THIS->GetNumPacketsToRead(CurFileInfo);
 	} else {
-		UInt32 numBytes;
+        UInt32 numBytes = 0;
 		while (nPackets == 0) {
 			// if loadAtOnce, get all packets in the file, otherwise ~.5 seconds of data
 			nPackets = THIS->GetNumPacketsToRead(CurFileInfo);					
-			result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets, 
-										  inCompleteAQBuffer->mAudioData);
+			//FIXME: JadingTsunami (fix) result = AudioFileReadPackets(CurFileInfo->mAFID, false, &numBytes, THIS->mPacketDescs, THIS->mCurrentPacket, &nPackets,										  inCompleteAQBuffer->mAudioData);
 			AssertNoError("Error reading file data", end);
 			
-			inCompleteAQBuffer->mAudioDataByteSize = numBytes;	
+			inCompleteAQBuffer->mAudioDataByteSize = numBytes;
 			
 			if (nPackets == 0) { // no packets were read, this file has ended.
 				if (CurFileInfo->mLoadAtOnce) {
@@ -724,6 +723,8 @@ void BackgroundTrackMgr::QueueCallback( void * inUserData, AudioQueueRef inAQ, A
 OSStatus BackgroundTrackMgr::SetupQueue(BG_FileInfo *inFileInfo) {
 	UInt32 size = 0;
 	OSStatus result = AudioQueueNewOutput(&inFileInfo->mFileFormat, QueueCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &mQueue);
+	OSStatus err = noErr;
+	
 	AssertNoError("Error creating queue", end);
 			
 	// (2) If the file has a cookie, we should get it and set it on the AQ
@@ -740,7 +741,7 @@ OSStatus BackgroundTrackMgr::SetupQueue(BG_FileInfo *inFileInfo) {
 	}
 			
 	// channel layout
-	OSStatus err = AudioFileGetPropertyInfo(inFileInfo->mAFID, kAudioFilePropertyChannelLayout, &size, NULL);
+	err = AudioFileGetPropertyInfo(inFileInfo->mAFID, kAudioFilePropertyChannelLayout, &size, NULL);
 	if (err == noErr && size > 0) {
 		AudioChannelLayout *acl = (AudioChannelLayout *)malloc(size);
 		result = AudioFileGetProperty(inFileInfo->mAFID, kAudioFilePropertyChannelLayout, &size, acl);
@@ -768,6 +769,8 @@ OSStatus BackgroundTrackMgr::SetupBuffers(BG_FileInfo *inFileInfo) {
 	int numBuffersToQueue = kNumberBuffers;
 	UInt32 maxPacketSize;
 	UInt32 size = sizeof(maxPacketSize);
+	bool isFormatVBR = false;
+	
 	// we need to calculate how many packets we read at a time, and how big a buffer we need
 	// we base this on the size of the packets in the file and an approximate duration for each buffer
 			
@@ -775,7 +778,7 @@ OSStatus BackgroundTrackMgr::SetupBuffers(BG_FileInfo *inFileInfo) {
 	// than our allocation default size, that needs to become larger
 	OSStatus result = AudioFileGetProperty(inFileInfo->mAFID, kAudioFilePropertyPacketSizeUpperBound, &size, &maxPacketSize);
 	AssertNoError("Error getting packet upper bound size", end);
-	bool isFormatVBR = (inFileInfo->mFileFormat.mBytesPerPacket == 0 || inFileInfo->mFileFormat.mFramesPerPacket == 0);
+	isFormatVBR = (inFileInfo->mFileFormat.mBytesPerPacket == 0 || inFileInfo->mFileFormat.mFramesPerPacket == 0);
 			
 	CalculateBytesForTime(inFileInfo->mFileFormat, maxPacketSize, 0.5/*seconds*/, &mBufferByteSize, &mNumPacketsToRead);
 		
@@ -1240,7 +1243,7 @@ class SoundEngineEffectMap
 
 	iterator GetIterator() { return begin(); }
 	
-    UInt32 Size () const { return size(); }
+    UInt32 Size () const { return (UInt32)(size()); }
     bool Empty () const { return empty(); }
 };
 
@@ -1459,8 +1462,12 @@ class OpenALObject
 
 
 extern "C"
-static void interruptionCallback(void* arg, UInt32 interruptionState)
+void interruptionCallback(void* arg, UInt32 interruptionState)
 {
+#if !TARGET_OS_TV
+    
+	(void)arg;
+	
     printf("Excuse this interruption...\n");
     switch(interruptionState)
     {
@@ -1476,6 +1483,7 @@ static void interruptionCallback(void* arg, UInt32 interruptionState)
 //        gInterrupted = false;
 //        break;
     }
+#endif
 }
 
 
@@ -1500,14 +1508,18 @@ OSStatus  SoundEngine_Initialize(Float32 inMixerOutputRate)
     if(gInterrupted)
         return noErr;
 
-	if( !isInitialized ) 
+#if !TARGET_OS_TV
+	if( !isInitialized )
 	{
- 		AudioSessionInitialize( NULL, NULL, interruptionCallback, NULL );
+        printf("WARNING! Sound engine was not initialized!\n");
+ 		//FIXME: JadingTsunami (fix) AudioSessionInitialize( NULL, NULL, interruptionCallback, NULL );
 //		UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
 //		AudioSessionSetProperty( kAudioSessionProperty_AudioCategory, sizeof( sessionCategory ), &sessionCategory );
  		isInitialized = true;
  	}
-	
+#else
+    (void)isInitialized;
+#endif
 	if (sOpenALObject)
 		delete sOpenALObject;
 

@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -18,16 +18,17 @@
  
  */
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
+#include "TargetConditionals.h"
 #include <math.h>
 
 hud_t	huds;
 
-void HudDraw();
+void HudDraw(void);
 
-void HudWrite();
+void HudWrite(void);
 
-void HudRead();
+void HudRead(void);
 
 ibutton_t	*dragHud;
 int			dragX, dragY;
@@ -43,13 +44,16 @@ void SetHudPic( ibutton_t *hp, const char *image ) {
 void SetHudSpot( ibutton_t *hp, int x, int y, int dw, int dh ) {
 	hp->touch = NULL;	// in case one was down when it was saved	
     
+    // JDS Debug
+    printf("Registering button at Doom coordinates: %d %d %d %d\n",x,y,dw,dh);
+    
     float xRatio = ((float)displaywidth) / 480.0f;
     float yRatio = ((float)displayheight) / 320.0f;
     
-    float themin = MIN( xRatio, yRatio );
+    x *= xRatio;
+    y *= yRatio;
     
-    x *= ((float)displaywidth) / 480.0f;
-    y *= ((float)displayheight) / 320.0f;
+    float themin = MIN( xRatio, yRatio );
     
     dw *= themin;
     dh *= themin;
@@ -60,9 +64,11 @@ void SetHudSpot( ibutton_t *hp, int x, int y, int dw, int dh ) {
 	hp->drawHeight = dh;
 	hp->buttonFlags = 0;
 	hp->scale = 1.0f;
+    
 }
 
 void HudSetTexnums() {
+    
 	SetHudPic( &huds.forwardStick, "iphone/up_down.tga" );
 	SetHudPic( &huds.sideStick, "iphone/side_2_side.tga" );
 	SetHudPic( &huds.turnStick, "iphone/directional_2.tga" );
@@ -71,23 +77,19 @@ void HudSetTexnums() {
 	SetHudPic( &huds.menu, "iphone/menu_button.tga" );
 	SetHudPic( &huds.map, "iphone/map_button.tga" );
 	
-	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 90 );	
+	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 40 );	
 }
 
 void HudSetForScheme( int schemeNum ) {
+    
 	for ( ibutton_t *hud = (ibutton_t *)&huds ; hud != (ibutton_t *)(&huds+1) ; hud++ ) {
 		hud->buttonFlags = BF_IGNORE;
 	}
 	int STICK_SIZE = 128;
 	int HALF_STICK = 128/2;
     
-    if( displaywidth >= 1024 ) {
-        STICK_SIZE = 64;
-        HALF_STICK = 64/2;
-    }
-    
 	static const int BOTTOM = 320 - 44;	// above the status bar
-	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 90 );	// the touch area is doubled
+	SetHudSpot( &huds.weaponSelect, 240, 280, 40, 40 );	// the touch area is doubled
 	
 	// make the forward / back sticks touch taller than they draw
 	switch ( schemeNum ) {
@@ -217,6 +219,7 @@ void HudEditFrame() {
 		if ( hud->buttonFlags & BF_IGNORE ) {
 			continue;
 		}
+
 		PK_StretchTexture( hud->texture, hud->x, hud->y, hud->drawWidth, hud->drawHeight );
 	}
 	
@@ -228,6 +231,7 @@ void HudEditFrame() {
 	}
 	if ( HandleButton( &btnDone ) ) {
 		menuState = IPM_MAIN;
+        iphonePopGL();
 	}
 	
 }

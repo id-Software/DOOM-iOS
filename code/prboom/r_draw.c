@@ -62,6 +62,8 @@ int  viewheight;
 int  viewwindowx;
 int  viewwindowy;
 
+bool isiPhoneX;
+
 // Color tables for different players,
 //  translate a limited part to another
 //  (color ramps used for  suit colors).

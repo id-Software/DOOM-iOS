@@ -620,7 +620,7 @@ int MidiToMIDI(UBYTE *mid,MIDI *mididata)
       }
     }
     mid += 4;
-    mididata->track[i].len = ReadLength(&mid);  // get length, move mid past it
+    mididata->track[i].len = (int)ReadLength(&mid);  // get length, move mid past it
 
     // read a track
     mididata->track[i].data = realloc(mididata->track[i].data,mididata->track[i].len);
@@ -641,28 +641,9 @@ int MidiToMIDI(UBYTE *mid,MIDI *mididata)
 //                  /* it also provides a MUS to MID file converter*/
 // proff: I moved this down, because I need MIDItoMidi
 
-static void FreeTracks(MIDI *mididata);
 static void TWriteLength(UBYTE **midiptr,ULONG length);
 
-//
-// FreeTracks()
-//
-// Free all track allocations in the MIDI structure
-//
-// Passed a pointer to an Allegro MIDI structure
-// Returns nothing
-//
-static void FreeTracks(MIDI *mididata)
-{
-  int i;
 
-  for (i=0; i<MIDI_TRACKS; i++)
-  {
-    free(mididata->track[i].data);
-    mididata->track[i].data = NULL;
-    mididata->track[i].len = 0;
-  }
-}
 
 //
 // TWriteLength()
@@ -742,7 +723,7 @@ int MIDIToMidi(MIDI *mididata,UBYTE **mid,int *midlen)
 
   // return length information
 
-  *midlen = midiptr - *mid;
+  *midlen = (int)(midiptr - *mid);
 
   return 0;
 }

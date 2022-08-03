@@ -1,5 +1,13 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ *  misc.c
+ *  doom
+ *
+ *  Created by John Carmack on 4/13/09.
+ *  Copyright 2009 idSoftware. All rights reserved.
+ *
+ */
+/*
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -19,7 +27,7 @@
  */
 
 
-#include "../doomiphone.h"
+#include "doomiphone.h"
 
 void Com_Printf( const char *fmt, ... ) {
 	va_list		argptr;
@@ -31,7 +39,7 @@ void Com_Printf( const char *fmt, ... ) {
 	vsnprintf( buffer, sizeof( buffer ), fmt, argptr );
 	AppendConsoleBuffer(buffer);
 	
-	vprintf( fmt, argptr );
+    printf( "%s\n", buffer );
 	va_end( argptr );
 }
 
@@ -53,7 +61,7 @@ void Com_Error( const char *fmt, ... ) {
 	
 	// drop into the editor
 	abort(); 
-	exit( 1 );
+//    exit( 1 );
 }
 
 char *va( const char *format, ... ) {

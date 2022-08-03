@@ -71,9 +71,9 @@
 boolean use_mipmapping=false;
 
 int gld_max_texturesize=0;
-char *gl_tex_format_string;
+const char *gl_tex_format_string;
 //int gl_tex_format=GL_RGBA8;
-int gl_tex_format=GL_RGB5_A1;
+int gl_tex_format=GL_RGBA;
 //int gl_tex_format=GL_RGBA4;
 //int gl_tex_format=GL_RGBA2;
 
@@ -499,7 +499,6 @@ GLTexture *gld_RegisterTexture(int texture_num, boolean mipmap, boolean force)
 void gld_BindTexture(GLTexture *gltexture)
 {
   const rpatch_t *patch;
-  int i;
   unsigned char *buffer;
 
   if (gltexture==last_gltexture)
@@ -532,14 +531,14 @@ void gld_BindTexture(GLTexture *gltexture)
       return;
   }
   buffer=(unsigned char*)Z_Malloc(gltexture->buffer_size,PU_STATIC,0);
-  if (!(gltexture->mipmap & use_mipmapping) & gl_paletted_texture)
+    if ((!(gltexture->mipmap & use_mipmapping)) & gl_paletted_texture)
     memset(buffer,transparent_pal_index,gltexture->buffer_size);
   else
     memset(buffer,0,gltexture->buffer_size);
   patch=R_CacheTextureCompositePatchNum(gltexture->index);
   gld_AddPatchToTexture(gltexture, buffer, patch,
                         0, 0,
-                        CR_DEFAULT, !(gltexture->mipmap & use_mipmapping) & gl_paletted_texture);
+                        CR_DEFAULT, (!(gltexture->mipmap & use_mipmapping)) & gl_paletted_texture);
   R_UnlockTextureCompositePatchNum(gltexture->index);
   if (gltexture->glTexID[CR_DEFAULT]==0)
     glGenTextures(1,&gltexture->glTexID[CR_DEFAULT]);
@@ -655,7 +654,6 @@ GLTexture *gld_RegisterPatch(int lump, int cm)
 void gld_BindPatch(GLTexture *gltexture, int cm)
 {
   const rpatch_t *patch;
-  int i;
   unsigned char *buffer;
 
   if ((gltexture==last_gltexture) && (cm==last_cm))
@@ -792,7 +790,6 @@ GLTexture *gld_RegisterFlat(int lump, boolean mipmap)
 void gld_BindFlat(GLTexture *gltexture)
 {
   const unsigned char *flat;
-  int i;
   unsigned char *buffer;
 
   if (gltexture==last_gltexture)
@@ -822,11 +819,11 @@ void gld_BindFlat(GLTexture *gltexture)
   }
   flat=W_CacheLumpNum(gltexture->index);
   buffer=(unsigned char*)Z_Malloc(gltexture->buffer_size,PU_STATIC,0);
-  if (!(gltexture->mipmap & use_mipmapping) & gl_paletted_texture)
+    if ((!(gltexture->mipmap & use_mipmapping)) & gl_paletted_texture)
     memset(buffer,transparent_pal_index,gltexture->buffer_size);
   else
     memset(buffer,0,gltexture->buffer_size);
-  gld_AddFlatToTexture(gltexture, buffer, flat, !(gltexture->mipmap & use_mipmapping) & gl_paletted_texture);
+    gld_AddFlatToTexture(gltexture, buffer, flat, (!(gltexture->mipmap & use_mipmapping)) & gl_paletted_texture);
   if (gltexture->glTexID[CR_DEFAULT]==0)
     glGenTextures(1,&gltexture->glTexID[CR_DEFAULT]);
   glBindTexture(GL_TEXTURE_2D, gltexture->glTexID[CR_DEFAULT]);
@@ -903,14 +900,27 @@ static void gld_CleanTextures(void)
     return;
   for (i=0; i<numtextures; i++)
   {
-    if (gld_GLTextures[i])
-    {
-      for (j=0; j<(CR_LIMIT+MAXPLAYERS); j++)
-        glDeleteTextures(1,&(gld_GLTextures[i]->glTexID[j]));
-      Z_Free(gld_GLTextures[i]);
+    GLTexture * texture = gld_GLTextures[i];
+      
+    if (texture)
+    {  
+        for (j=0; j<(CR_LIMIT+MAXPLAYERS); j++) {
+            
+            GLuint handle = texture->glTexID[j];
+            
+            glDeleteTextures(1,&handle);
+        }
+        
+        Z_Free(texture);
+        
+        gld_GLTextures[i] = NULL;  
     }
   }
-  memset(gld_GLTextures,0,numtextures*sizeof(GLTexture *));
+
+  Z_Free( gld_GLTextures );
+  gld_GLTextures = NULL;
+  numtextures = 0;
+    
 }
 
 static void gld_CleanPatchTextures(void)
@@ -926,9 +936,11 @@ static void gld_CleanPatchTextures(void)
       for (j=0; j<(CR_LIMIT+MAXPLAYERS); j++)
         glDeleteTextures(1,&(gld_GLPatchTextures[i]->glTexID[j]));
       Z_Free(gld_GLPatchTextures[i]);
+        gld_GLPatchTextures[i] = NULL;  
     }
   }
-  memset(gld_GLPatchTextures,0,numlumps*sizeof(GLTexture *));
+    Z_Free( gld_GLPatchTextures );
+    gld_GLPatchTextures = NULL;
 }
 
 void DrawEmptyTriangleToForceTextureLoad() {	// JDC
@@ -958,7 +970,7 @@ void gld_Precache(void)
 	// faster.
 	
 	// this updates the spinning wheel icon as we load textures
-	void iphonePacifierUpdate();
+	void iphonePacifierUpdate(void);
 	
 	// JDC  if (demoplayback)
 	// JDC    return;
@@ -1037,7 +1049,7 @@ void gld_Precache(void)
 	if ( gld_GLPatchTextures ) {
 		for (i=numsprites; --i >= 0;) {
 			if ( !spriteHitlist[i] ) {
-				for ( int j = 0 ; j < sprites[i].numframes ; j++ ) {
+				for (j = 0 ; j < sprites[i].numframes ; j++ ) {
 					short *sflump = sprites[i].spriteframes[j].lump;
 					for ( k = 0 ; k < 7 ; k++ ) {
 						int	patchNum = firstspritelump + sflump[k];
@@ -1077,11 +1089,11 @@ void gld_Precache(void)
 	for (i=numsprites; --i >= 0;)
 		if (spriteHitlist[i])
 		  {
-			int j = sprites[i].numframes;
+			j = sprites[i].numframes;
 			while (--j >= 0)
 			  {
 				short *sflump = sprites[i].spriteframes[j].lump;
-				int k = 7;
+				k = 7;
 				  do {
 					  // JDC: changed from CR_DEFAULT to CR_LIMIT to match game behavior
 					  gld_BindPatch(gld_RegisterPatch(firstspritelump + sflump[k],CR_LIMIT),CR_LIMIT);
@@ -1094,11 +1106,7 @@ void gld_Precache(void)
 
 void gld_CleanMemory(void)
 {
-#if 0		// JDC: changed to only free things not used in the current level
-			// that will use somewhat more memory during the transition period,
-			// but it makes most level transitions faster, and respawns many
-			// times faster.
   gld_CleanTextures();
   gld_CleanPatchTextures();
-#endif
+
 }

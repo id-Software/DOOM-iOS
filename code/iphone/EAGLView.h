@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
+ 
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -41,8 +41,8 @@ Note that setting the view non-opaque will only work if the EAGL surface has an 
     /* The pixel dimensions of the backbuffer */
     GLint backingWidth;
     GLint backingHeight;
-    
-  
 }
+
+- (void) Initialize;
 
 @end

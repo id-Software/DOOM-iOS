@@ -52,7 +52,7 @@ typedef struct
   int realtexwidth, realtexheight;
   int buffer_width,buffer_height;
   int buffer_size;
-  int glTexID[CR_LIMIT+MAXPLAYERS];
+  GLuint glTexID[CR_LIMIT+MAXPLAYERS];
   GLTexType textype;
   boolean mipmap;
 } GLTexture;
@@ -198,7 +198,7 @@ extern int		numDrawVerts;
 //--------------------------------------
 
 extern int gld_max_texturesize;
-extern char *gl_tex_format_string;
+extern const char *gl_tex_format_string;
 extern int gl_tex_format;
 extern int gl_tex_filter;
 extern int gl_mipmap_filter;
@@ -223,6 +223,6 @@ int gld_GetTexDimension(int value);
 void gld_SetTexturePalette(GLenum target);
 void gld_Precache(void);
 
-PFNGLCOLORTABLEEXTPROC gld_ColorTableEXT;
+extern PFNGLCOLORTABLEEXTPROC gld_ColorTableEXT;
 
 #endif // _GL_INTERN_H

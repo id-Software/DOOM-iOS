@@ -1,6 +1,13 @@
 /*
+ *  iphone_email.c
+ *  Doom
+ *
+ *  Created by Greg Hodges on 10/20/09.
+ *  Copyright 2009 id Software. All rights reserved.
+ *
+ */
+/*
  
- Copyright (C) 2009-2011 id Software LLC, a ZeniMax Media company.
  Copyright (C) 2009 Id Software, Inc.
  
  This program is free software; you can redistribute it and/or
@@ -23,9 +30,12 @@
 #include "iphone_email.h"
 #include <time.h>
 
+#import <Foundation/NSURL.h>
+#import <UIKit/UIApplication.h>
+
 
 char *consoleBuffer = NULL;	//buffer for the console output
-int size = 0;
+long int size = 0;
 
 /*
  *	ReplaceAt()
@@ -33,8 +43,8 @@ int size = 0;
  */
 void ReplaceAt( char *oldString, const char *insertString, int location)
 {
-	int length = strlen(oldString);
-	int chunkLength = strlen(insertString);
+	unsigned long length = strlen(oldString);
+	unsigned long chunkLength = strlen(insertString);
 	
 	char *newString = malloc(length + chunkLength + 1);//the 1 includes space for the null terminating character
 	
@@ -80,7 +90,7 @@ void ReplaceAt( char *oldString, const char *insertString, int location)
  */
 void AppendBuffer(const char *buf)
 {	
-	int length = strlen(buf) + 1; //strlen doesn't include the null terminating character
+	unsigned long int length = strlen(buf) + 1; //strlen doesn't include the null terminating character
 	char *temp = malloc(length);
 	strcpy(temp, buf);
 	
@@ -128,11 +138,11 @@ void AppendBuffer(const char *buf)
  */
 void AppendChunk(const char *buf, int start, int i)
 {
-	int size = i+1 - start;
-	char chunk[size];
+	int chunkSize = i+1 - start;
+	char chunk[chunkSize];
 	chunk[0] = '\0';
-	strncpy(chunk, &buf[start], size-1);
-	chunk[size-1] = '\0';
+	strncpy(chunk, &buf[start], chunkSize-1);
+	chunk[chunkSize-1] = '\0';
 	AppendBuffer(chunk);
 }
 
@@ -142,47 +152,7 @@ void AppendChunk(const char *buf, int start, int i)
  */
 void AppendConsoleBuffer(const char *buf)
 {
-	int length = strlen(buf) + 1; //strlen doesn't include the null terminating character
-	char *temp = malloc(length);
-	strcpy(temp, buf);
-	
-	
-	int start = 0;
-	int i = 0;
-	for (i = 0; i < length; ++i)
-	{
-		//replace space and = with _
-		//spaces and = tend to mess up the URL scheme
-		if (temp[i] == ' ' )
-		{
-			temp[i] = '_';
-			AppendChunk(temp, start, i); ++i; start = i;
-			AppendBuffer("\%20"); //line space
-		}
-		
-		if (temp[i] == '=' )
-		{
-			temp[i] = '_';
-			AppendChunk(temp, start, i); ++i; start = i;
-			AppendBuffer("\%3D"); //=
-		}
-		
-		if (temp[i] == '\n')
-		{
-			temp[i] = '_';
-			AppendChunk(temp, start, i); ++i; start = i;
-			AppendBuffer("\%0A"); //line return
-		}
-	}
-	
-	//append the last of the chunk
-	i = length - 1;
-	if (start < i)
-	{
-		AppendChunk(temp, start, i); 
-	}
-	
-	//	AppendString("\%0A"); //line return
+
 }
 
 
@@ -193,6 +163,10 @@ void AppendConsoleBuffer(const char *buf)
  */
 void EmailConsole()
 {
+	
+	return; // do not email me anymore.
+	
+#if 0
 	if (!consoleBuffer)
 		return;
 	
@@ -219,10 +193,11 @@ void EmailConsole()
 #endif	
 	
 	//call the mail app
-	NSURL *url = [[NSURL alloc] initWithString:[[NSString alloc] initWithCString:buffer]];
+	NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding]];
 	[[UIApplication sharedApplication] openURL:url];
 	
 	free(buffer);
+#endif
 }
 
 

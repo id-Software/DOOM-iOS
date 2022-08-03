@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Doom_EpisodeMenuViewController">
+            <connections>
+                <outlet property="episodeList" destination="EP4-6v-AXq" id="iFX-gN-ol3"/>
+                <outlet property="nextButton" destination="33" id="64"/>
+                <outlet property="nextLabel" destination="35" id="65"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="MenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="32" userLabel="Background">
+                    <rect key="frame" x="-240" y="0.0" width="960" height="320"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33" customClass="idLabelButton">
+                    <rect key="frame" x="425" y="264" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Ugh-Ng-Y2M"/>
+                        <constraint firstAttribute="height" constant="50" id="xz1-2D-bGC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" image="NextButton.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="NextToMissions" destination="-1" eventType="touchUpInside" id="68"/>
+                        <outlet property="label" destination="35" id="59"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34" customClass="idLabelButton">
+                    <rect key="frame" x="0.0" y="264" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8cV-bE-4qf"/>
+                        <constraint firstAttribute="width" constant="50" id="V25-X6-Z8K"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" image="BackButton.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled" image="Episode1Background.png"/>
+                    <state key="highlighted">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="BackToMain" destination="-1" eventType="touchUpInside" id="67"/>
+                        <outlet property="label" destination="36" id="58"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Next" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="35" customClass="idLabel">
+                    <rect key="frame" x="435.5" y="260.5" width="29" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Back" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="36" customClass="idLabel">
+                    <rect key="frame" x="9.5" y="260.5" width="31.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                    <color key="textColor" red="0.7254902124" green="0.42352941630000002" blue="0.066666670139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EP4-6v-AXq">
+                    <rect key="frame" x="68" y="8" width="344" height="304"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="344" id="mpE-xe-Mwn"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="EsQ-nv-tSn"/>
+                        <outlet property="delegate" destination="-1" id="Xmf-Nb-gte"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="33" secondAttribute="bottom" constant="6" id="6I4-eH-Kio"/>
+                <constraint firstItem="35" firstAttribute="centerX" secondItem="33" secondAttribute="centerX" id="9Cq-Kq-74T"/>
+                <constraint firstAttribute="trailing" secondItem="33" secondAttribute="trailing" constant="5" id="Bkb-L6-vAu"/>
+                <constraint firstAttribute="bottom" secondItem="34" secondAttribute="bottom" constant="6" id="BmX-Rh-qdF"/>
+                <constraint firstItem="34" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="DwT-zF-SKN"/>
+                <constraint firstAttribute="bottom" secondItem="32" secondAttribute="bottom" id="FB4-cz-l5B"/>
+                <constraint firstItem="33" firstAttribute="top" secondItem="35" secondAttribute="bottom" constant="-13" id="ICN-Hw-g7l"/>
+                <constraint firstAttribute="bottom" secondItem="EP4-6v-AXq" secondAttribute="bottom" constant="8" id="M43-ce-c6C"/>
+                <constraint firstItem="36" firstAttribute="centerX" secondItem="34" secondAttribute="centerX" id="czo-yR-Dd2"/>
+                <constraint firstItem="EP4-6v-AXq" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="jhE-Cr-nu4"/>
+                <constraint firstItem="32" firstAttribute="top" secondItem="1" secondAttribute="top" id="lGq-xi-Duj"/>
+                <constraint firstItem="34" firstAttribute="top" secondItem="36" secondAttribute="bottom" constant="-13" id="qNp-lB-ANb"/>
+                <constraint firstItem="32" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="qht-Zd-1Ny"/>
+                <constraint firstItem="EP4-6v-AXq" firstAttribute="top" secondItem="1" secondAttribute="top" constant="8" id="yet-Qa-baa"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BackButton.png" width="93" height="94"/>
+        <image name="Episode1Background.png" width="601" height="150"/>
+        <image name="MenuBackground.png" width="960" height="640"/>
+        <image name="NextButton.png" width="93" height="94"/>
+    </resources>
+</document>

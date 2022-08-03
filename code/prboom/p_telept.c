@@ -236,7 +236,7 @@ int EV_SilentLineTeleport(line_t *line, int side, mobj_t *thing,
         // Get the angle between the two linedefs, for rotating
         // orientation and momentum. Rotate 180 degrees, and flip
         // the position across the exit linedef, if reversed.
-        angle_t angle = (reverse ? pos = FRACUNIT-pos, 0 : ANG180) +
+          angle_t angle = (reverse ? (void)(pos = FRACUNIT-pos), 0 : ANG180) +
           R_PointToAngle2(0, 0, l->dx, l->dy) -
           R_PointToAngle2(0, 0, line->dx, line->dy);
 
@@ -286,14 +286,14 @@ int EV_SilentLineTeleport(line_t *line, int side, mobj_t *thing,
         // Exiting on side 1 slightly improves player viewing
         // when going down a step on a non-reversed teleporter.
 
-        int side = reverse || (player && stepdown);
+        int theside = reverse || (player && stepdown);
 
         // Make sure we are on correct side of exit linedef.
-        while (P_PointOnLineSide(x, y, l) != side && --fudge>=0)
+        while (P_PointOnLineSide(x, y, l) != theside && --fudge>=0)
           if (D_abs(l->dx) > D_abs(l->dy))
-            y -= l->dx < 0 != side ? -1 : 1;
+            y -= l->dx < 0 != theside ? -1 : 1;
           else
-            x += l->dy < 0 != side ? -1 : 1;
+            x += l->dy < 0 != theside ? -1 : 1;
 
         // Attempt to teleport, aborting if blocked
         if (!P_TeleportMove(thing, x, y, false)) /* killough 8/9/98 */
